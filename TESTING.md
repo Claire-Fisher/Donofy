@@ -1,0 +1,213 @@
+# Testing Donofy
+This project was tested continuously during development. Post build, the site has been manually tested by myself and third party testers. It has also passed on html, CSS, JS, and accessibility validators. The python has pass linting checks and is compliant with PEP8 industry standards.
+
+[return to README.md](./README.md)
+
+**PLEASE NOTE: This documentation contains many images which can be viewed via a dropdown toggle.**
+## Table of Contents
+* [**During Development Testing**](#during-development-testing)
+    * [*Manual Testing*](#manual-testing)
+    * [*Bugs and Fixes*](#bugs-and-fixes)
+* [**Post Development Testing**](#post-development-testing)
+  * [**Post Development Testing Expanded**](#post-development-testing-expanded)
+    * [Home Page Manual Testing](#home-page-manual-testing)
+  * [**User Story Testing**](#user-story-testing)
+  * [**Validators**](#validators)
+      * [*HTML*](#html---httpsvalidatorw3orgnu)
+      * [*CSS*](#css---httpsjigsaww3orgcss-validator)
+      * [*JavaScript*](#javascript---httpsjshint.com)
+  * [**Lighthouse Scores**](#lighthouse-scores)
+  * [**Accessibility**](#accessibility)
+* [**Third Party Testing**](#third-party-testing)
+*  [**Third Party Feedback**](#third-party-feedback)
+* [**With Thanks**](#thank-you-to-my-product-testers)
+
+## **During Development Testing**
+During the development process, I was manually testing in the following ways:-
+
+1. Manually tested each element for appearance and responsiveness via a simulated live server by running app.py in PORT 5000.
+
+2. Checked functionality as I built. Dealing with bugs and error messages during development. (See bugs and fixes)
+    
+3. Sought feedback from my mentor and student peers at key intervals during development. 
+
+## Manual Testing:
+
+### Browser Compatibility
+During testing, I used three different browsers to ensure cross-compatibility. The desktop browsers used by myself were:
+
+  1. Chrome
+  2. Firefox  
+  3. Edge
+
+I have manually tested on Chrome.
+Shaun Russell - Site tester - Tested on Firefox, and Edge.
+Tom Harris - Site tester - Tested the project on Safari.
+
+### Screen Sizes
+
+The site has been tested at screen sizes 320px to 2560px in width.
+
+INSERT IMAGE MOBILE
+INSERT IMAGE DESKTOP
+
+### Function Testing
+The functions are all tested via their output displayed in the terminal with print statements, the browser display, or both. (All print statements have been removed in the final version of the project).
+
+[**Back to top**](#testing-donofy)
+## ***Bugs and Fixes:***
+
+Below is a list of bugs I found during the development process by testing myself :-
+
+1. **Deployment Issue** - 
+    * ***Issue Found:*** 
+        * 
+    * ***Solution Used:*** 
+        * 
+
+
+[**Back to top**](#testing-donofy)  
+## **Post Development Testing**
+
+Post development, I manually tested in the following ways:-
+
+1. Manually tested each element for appearance and responsiveness via a simulated live server.
+
+2. The code passed through HTML, CSS, JavaScript(ES6), pep8 validators to check for errors.
+* [**Validators Results**](#validators)
+3. The code passed through an Accessibility evaluation. 
+*  [**Accessibility Results**](#accessibility)
+4. Published the page via GitHub pages and shared with fellow students and friends to test and receive feedback.
+
+5. Sent my deployed project to multiple user testers with different devices, browsers, and skill sets.
+    - Jump to: [**Third Party Testing**](#third-party-testing) here
+
+## **Post Development Testing Expanded**
+
+My manual testing logs are as follows:
+***
+### Home Page Manual Testing
+***
+**TEST NAME**
+* Expected:
+  * 
+* Testing:
+  * 
+* Result:
+  * 
+* Action: 
+  * 
+***
+
+[**Back to top**](#testing-donofy)
+
+### User Stories Testing
+
+
+[**Back to top**](#testing-donofy)
+## **Validators**
+
+### HTML validator checks w3.org
+<hr>
+
+### Home [View current results here]()
+<details><summary>HTML validator for ### Initial Results</summary>
+<img src="">
+</details>
+
+* ***Errors Found:***
+    * 
+* ***Action Taken:***
+    * 
+<hr>
+
+### CSS - [View current results here]()
+
+* ***Errors Found:***
+    * 
+* ***Action Taken:***
+    * 
+<hr>
+
+### JavaScript Validator
+
+<details><summary>JS validator Results Image</summary>
+<img src="">
+</details> 
+
+JSHint validator was configured to recognise New JavaScript Features (ES6), and jQuery.
+* ***Errors Found:***
+    * 
+* ***Action Taken:***
+    * 
+<hr>
+
+### Python CI Linter (PEP8 check)
+
+<details><summary>Python linter results</summary>
+<img src="">
+</details>
+
+* ***Errors Found:***
+    * 
+* ***Action Taken:***
+    * 
+
+## Lighthouse Scores
+### Test conditions
+* All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
+* Both mobile and desktop performance are tested.
+* The drop in performance on mobile is likely due to Heroku. 
+* All my user testers reported fast load and response times on both desktop and mobile devices, so no adjusts will be made at this time. 
+
+<details><summary>Desktop Results</summary>
+<img src="">
+</details> 
+
+<details><summary>Mobile Results</summary>
+<img src="">
+</details> 
+<br/>
+
+## **Accessibility** 
+In addition to the accessibility score on lighthouse, WAVE - Web accessibility evaluation tool has been used to check the site for accessibility issues..<br>
+[View my results here]()  
+<details><summary>Wave Accessibility Evaluation Results Image</summary>
+<img src="">
+</details> 
+<details><summary>Wave Alerts Image</summary>
+<img src="">
+</details> 
+
+* ***Errors Found:***
+    * 
+* ***Alerts Found:***
+    * 
+* ***Action Taken:***
+    * 
+
+
+[**Back to top**](#testing-donofy) 
+### **Third Party Testing**
+I sent my deployed project to multiple user testers with different devices, browsers, and skill sets:
+- Richard Wells - Senior full stack developer.
+- Shaun Russell - Senior UI/UX/Product Designer.
+- Tom Harris - Enterprise Account Manager, krystal.io and Safari user.
+
+### Third Party Feedback
+<hr>
+
+**Shaun Russell - User tester - Senior UI/UX designer**
+
+<hr>
+
+
+## Thank you to my product testers
+- Richard Wells
+- Shaun Russell
+- Tom Harris
+
+
+[**Back to top**](#testing-donofy)
+
+[return to README.md](./README.md)
