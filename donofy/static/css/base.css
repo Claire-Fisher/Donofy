@@ -5,8 +5,8 @@ html {
 }
 
 body {
-    background-color: #eff6ff;
-    height: calc(100vh - 164px);
+    background-color: #f6f6f6;
+    height: calc(100vh - 500px);
     color: #222;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -50,7 +50,7 @@ body {
 /* COLOUR SCHEME */
 
 .bg-light-brand {
-    background-color: #eff6ff;
+    background-color: #f6f6f6;
 }
 
 .bg-pink {
@@ -78,25 +78,46 @@ body {
 }
 
 .icon-pink {
+    padding: 0;
+    margin: 0;
     color: #CD2576;
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 3rem;
+    width: 3rem;
 }
 
 /* NAV-BARS */
 
-.main-logo-link {
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
-}
+
 
 .main-logo {
     margin: 0;
     padding: 0;
     object-fit: contain;
     width: 150px
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+    text-align-last: right;
+}
+
+.burger-menu {
+    font-size: 2rem;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+    padding: 0;
+    border: none;
+    background-color: #f6f6f6;
+    text-align-last: right;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus {
+    color: #582E8E;
 }

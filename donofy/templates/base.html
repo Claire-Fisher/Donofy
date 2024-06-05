@@ -34,96 +34,37 @@
     <title>Donofy {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top">
-      <nav class="navbar navbar-expanded-lg row bg-white d-none d-md-flex">
-
-        <a class="col-12 col-md-4 my-auto text-center text-md-left main-logo-link nav-link" href="{% url 'home' %}">
+    <header class="container-fluid fixed-top m-0 p-0">
+      <nav class="navbar navbar-expand-md bg-light pr-4">
+        <!-- LOGO -->
+        <a class="col-8 col-md-4 my-auto main-logo nav-link" href="{% url 'home' %}">
           <img class="main-logo" src="../media/donofy-full-logo.svg" alt="">
         </a>
-
-        <div class="col-12 col-md-8">
-          <ul class="list-inline list-unstyled text-center text-md-right my-auto">
-            
-            <li class="list-inline-item">
-              <a href="#" class="nav-link text-pink text-heavy">
-                <div class="text-center">
-                  <p class="m-0">Charities</p>
-                </div>
-              </a>
+        <button class="navbar-toggler btn btn-lg icon-pink p-0 m-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fa-solid fa-bars burger-menu"></i></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-pink text-heavy" href="#">Charities</a>
             </li>
-
-            <li class="list-inline-item">
-              <a href="#" class="nav-link text-pink text-heavy">
-                <div class="text-center">
-                  <p class="my-0">FAQ</p>
-                </div>
-              </a>
+            <li class="nav-item">
+              <a class="nav-link text-pink text-heavy" href="#">FAQs</a>
             </li>
-
-            <li class="list-inline-item dropdown">
-              <a class="nav-link text-pink text-heavy" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                  <p class="my-0">My Account <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
-                </div>
+            <li class="nav-item dropdown text-pink text-heavy">
+              <a class="nav-link text-pink text-heavy" href="#" id="user-options"role="button" data-toggle="dropdown" aria-expanded="false">
+                My Account <i class="fa fa-chevron-down text-pink text-heavy" aria-hidden="true"></i>
               </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+              <div class="dropdown-menu dropdown-menu-right text-pink text-heavy" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
-                    <a href="#" class="dropdown-item bg-pink">Product Management</a>
+                    <a href="#" class="dropdown-item text-pink text-heavy">Product Management</a>
                   {% endif %}
-                  <a href="#" class="dropdown-item bg-pink">My Profile</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  <a href="#" class="dropdown-item text-pink text-heavy">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item text-pink text-heavy">Logout</a>
                 {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item bg-pink">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item bg-pink">Login</a>
-                {% endif %}
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <nav class="navbar navbar-expanded-lg row d-flex d-md-none" style="background-color: blue;">
-
-        <a class="col-12 col-md-4 my-auto text-center text-md-left main-logo-link nav-link" href="{% url 'home' %}">
-          <img class="main-logo" src="../media/donofy-full-logo.svg" alt="">
-        </a>
-
-        <div class="col-12 col-md-8">
-          <ul class="list-inline list-unstyled text-center text-md-right my-auto">
-            
-            <li class="list-inline-item">
-              <a href="#" class="nav-link text-pink text-heavy">
-                <div class="text-center">
-                  <p class="m-0">Charities</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="list-inline-item">
-              <a href="#" class="nav-link text-pink text-heavy">
-                <div class="text-center">
-                  <p class="my-0">FAQ</p>
-                </div>
-              </a>
-            </li>
-
-            <li class="list-inline-item dropdown">
-              <a class="nav-link text-pink text-heavy" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                  <p class="my-0">My Account <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
-                </div>
-              </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                {% if request.user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                    <a href="#" class="dropdown-item bg-pink">Product Management</a>
-                  {% endif %}
-                  <a href="#" class="dropdown-item bg-pink">My Profile</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item bg-pink">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item bg-pink">Login</a>
+                  <a href="{% url 'account_signup' %}" class="dropdown-item text-pink text-heavy">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item text-pink text-heavy">Login</a>
                 {% endif %}
               </div>
             </li>
