@@ -1,0 +1,149 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=League+Spartan&display=swap">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+        <script src="https://kit.fontawesome.com/e844f32b61.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Donofy {% block extra_title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header class="container-fluid fixed-top">
+      <nav class="navbar navbar-expanded-lg row bg-white d-none d-md-flex">
+
+        <a class="col-12 col-md-4 my-auto text-center text-md-left main-logo-link nav-link" href="{% url 'home' %}">
+          <img class="main-logo" src="../media/donofy-full-logo.svg" alt="">
+        </a>
+
+        <div class="col-12 col-md-8">
+          <ul class="list-inline list-unstyled text-center text-md-right my-auto">
+            
+            <li class="list-inline-item">
+              <a href="#" class="nav-link text-pink text-heavy">
+                <div class="text-center">
+                  <p class="m-0">Charities</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="#" class="nav-link text-pink text-heavy">
+                <div class="text-center">
+                  <p class="my-0">FAQ</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="list-inline-item dropdown">
+              <a class="nav-link text-pink text-heavy" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="text-center">
+                  <p class="my-0">My Account <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+                </div>
+              </a>
+              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                    <a href="#" class="dropdown-item bg-pink">Product Management</a>
+                  {% endif %}
+                  <a href="#" class="dropdown-item bg-pink">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item bg-pink">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item bg-pink">Login</a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-expanded-lg row d-flex d-md-none" style="background-color: blue;">
+
+        <a class="col-12 col-md-4 my-auto text-center text-md-left main-logo-link nav-link" href="{% url 'home' %}">
+          <img class="main-logo" src="../media/donofy-full-logo.svg" alt="">
+        </a>
+
+        <div class="col-12 col-md-8">
+          <ul class="list-inline list-unstyled text-center text-md-right my-auto">
+            
+            <li class="list-inline-item">
+              <a href="#" class="nav-link text-pink text-heavy">
+                <div class="text-center">
+                  <p class="m-0">Charities</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="#" class="nav-link text-pink text-heavy">
+                <div class="text-center">
+                  <p class="my-0">FAQ</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="list-inline-item dropdown">
+              <a class="nav-link text-pink text-heavy" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="text-center">
+                  <p class="my-0">My Account <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+                </div>
+              </a>
+              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                    <a href="#" class="dropdown-item bg-pink">Product Management</a>
+                  {% endif %}
+                  <a href="#" class="dropdown-item bg-pink">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item bg-pink">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item bg-pink">Login</a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    {% if messages %}
+        <div class="message-container"></div>
+    {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
+
+  </body>
+</html>

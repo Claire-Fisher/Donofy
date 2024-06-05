@@ -1,17 +1,102 @@
+/* GENERAL SITE STYLES */
+
 html {
     height: 100%;
 }
 
 body {
-    background-color: #eaf0fa;
+    background-color: #eff6ff;
     height: calc(100vh - 164px);
     color: #222;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #CD2576;
+    color: #fff;
+}
+
+/* BUTTONS */
+
+.btn-pink {
+    background-color: #CD2576;
+    color:#fff;
+}
+
+.btn-outline-pink {
+    background: white;
+    color: #CD2576 !important;
+    border: 1px solid #CD2576;
+}
+
+.btn-pink:hover,
+.btn-pink:active,
+.btn-pink:focus {
+    background: #582E8E;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+    color: #582E8E;
+}
+
+/* COLOUR SCHEME */
+
+.bg-light-brand {
+    background-color: #eff6ff;
+}
+
+.bg-pink {
+    background-color: #CD2576;
 }
 
 .text-pink {
     color: #CD2576;
+}
+
+.text-heavy {
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+/* ICONS */
+
+.icon-white {
+    color: #fff;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.icon-pink {
+    color: #CD2576;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* NAV-BARS */
+
+.main-logo-link {
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+
+.main-logo {
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    width: 150px
 }
