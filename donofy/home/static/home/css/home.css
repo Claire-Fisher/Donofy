@@ -1,8 +1,3 @@
-/* .hero-container {
-    position: relative;
-    width: 100vw;
-} */
-
 #hero-img {
     position: relative;
     object-fit: contain;
@@ -13,7 +8,8 @@
     height: auto;
 }
 
-#hero-text {
+#hero-text,
+#hero-text-xs {
     position: absolute;
     background-color: rgba(205, 37, 118, 0.7);
     margin: 0.75rem 0.75rem 0 0;
@@ -21,3 +17,14 @@
     top: 64px;
     left: 0px;
 }
+
+#hero-text-xs h2 {
+    font-size: 1.2rem;
+}
+
+/* @media screen and (min-width:320) and (max-width:991px) {
+    #hero-text-under {
+        position: static;
+        padding-top: 200px;
+    }
+} */

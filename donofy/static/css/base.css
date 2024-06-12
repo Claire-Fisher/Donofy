@@ -32,6 +32,32 @@ body {
 .btn-pink {
     background-color: #CD2576;
     color:#fff;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-pink:hover,
+.btn-pink:active,
+.btn-pink:focus {
+    background-color: #582E8E;
+    color:#fff;
+    border: 1px solid #fff;
+    
+}
+
+.btn-white {
+    background-color: #fff;
+    color:#CD2576;
+    border: 1px solid #fff;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-white:hover,
+.btn-white:active,
+.btn-white:focus {
+    color:#fff;
+    background-color: #582E8E;
 }
 
 .btn-outline-pink {
@@ -48,7 +74,10 @@ body {
 
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus {
+.nav-link:focus,
+.icon-link:hover,
+.icon-link:active,
+.icon-link:focus {
     color: #582E8E;
 }
 
@@ -64,6 +93,10 @@ body {
 
 .text-pink {
     color: #CD2576;
+}
+
+.text-dark {
+    color: #222;
 }
 
 .text-heavy {
