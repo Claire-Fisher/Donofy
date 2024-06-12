@@ -1,11 +1,16 @@
 /* GENERAL SITE STYLES */
 
+/* #CD2576 = rgb(205, 37, 118) */
+
 html {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: url('/media/hero-img.jpg') no-repeat center center fixed;
+    padding: 0;
+    margin: 0;
     height: calc(100vh - 64px);
     color: #222;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
