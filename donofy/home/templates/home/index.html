@@ -10,30 +10,29 @@
 {% block content %}
     <div class="container-fluid p-0 m-0">
         <div class="row p-0 m-0">
-            <img id="hero-img" class="col-12" src="../static/media/hero-img.jpg" center no-repeat>
-            <div id="hero-text" class="col-12 d-none d-sm-block">
-                <h1 class="text-heavy text-white pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
-                <h3 class="col-12 d-none d-lg-block text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
-                <p class="col-12 d-none d-lg-block text-white p-0">
+            <img id="hero-img" class="col-12 d-none d-lg-block" src="../static/media/hero-img.jpg" center no-repeat>
+            <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="../static/media/hero-img-small.jpg" center no-repeat>
+            <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
+                <h1 class="d-none d-lg-block text-white text-heavy pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
+                <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
+                <p class="col-12 text-white p-0 pb-3">
                     These words are at the core of what we do. We want to encourage anybody and everybody<br> 
                     to donate as a much or as little as they like to causes and charities they care about.
                 </p>
                 {% if request.user.is_authenticated %}
                 {% else %}
-                    <a class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white" href="#">Sign up / Login</a>
+                    <a class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white mb-3" href="#">Sign up / Login</a>
                 {% endif %}
             </div>
-            <div id="hero-text-xs" class="col-12 d-block d-sm-none rounded">
-                <h2 class="text-heavy text-white">Spreading affordable support,<br>to your causes, your way.</h2>
-            </div>
         </div>
-        <div id="hero-text-under" class="row col-12 d-lg-none p-0 m-0">
+        <div id="hero-text-sm" class="row text-center col-12 d-block d-lg-none mx-auto">
+            <h2 class="col-12 text-heavy text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
             {% if request.user.is_authenticated %}
             {% else %}
-                <a class="col-7 d-lg-none btn btn-lg btn-pink mx-auto" href="#">Sign up / Login</a>
+                <a class="col-xs-10 col-sm-6 btn btn-lg btn-pink mb-5" href="#">Sign up / Login</a>
             {% endif %}
-            <h3 class="d-lg-none text-center text-pink">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
-            <p class="d-lg-none text-center text-dark">
+            <h3 class="col-12 text-center text-pink">“Alone we can do so little; together we can do so much.”<br>- Helen Keller</h3>
+            <p class="text-center text-dark">
                 These words are at the core of what we do. We want to encourage anybody and everybody 
                 to donate as a much or as little as they like to causes and charities they care about.
             </p>
