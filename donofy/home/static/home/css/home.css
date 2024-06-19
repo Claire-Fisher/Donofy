@@ -139,11 +139,3 @@ p.power-text {
         line-height: 1;
     }
 }
-
-/* Bootstrap lg screens */
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-}
-
-/* Bootstrap xl screens */
-@media (min-width: 1200px) {
-}
