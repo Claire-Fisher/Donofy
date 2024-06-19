@@ -13,18 +13,9 @@ body {
     margin: 0;
     height: calc(100vh - 64px);
     color: #222;
+    background-color: #f6f6f6;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
     font-weight: 400;
-}
-
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #CD2576;
-    color: #fff;
 }
 
 /* BUTTONS & LINKS */
@@ -99,20 +90,24 @@ body {
     color: #222;
 }
 
-.text-heavy {
+/* TEXT STYLES */
+
+.bold {
     font-weight: 600;
     letter-spacing: 1.5px;
 }
 
 /* ICONS */
 
+i.icon-lg {
+    font-size: 5rem;
+}
+
 .icon-white {
     color: #fff;
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
 }
 
 .icon-pink {
@@ -122,8 +117,6 @@ body {
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    height: 3rem;
-    width: 3rem;
 }
 
 /* NAV-BARS */

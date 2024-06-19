@@ -12,8 +12,9 @@
         <div class="row p-0 m-0">
             <img id="hero-img" class="col-12 d-none d-lg-block" src="../static/media/hero-img.jpg" center no-repeat>
             <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="../static/media/hero-img-small.jpg" center no-repeat>
+            <!-- Displays on screens with min-width >= 992px -->
             <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
-                <h1 class="d-none d-lg-block text-white text-heavy pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
+                <h1 class="d-none d-lg-block text-white bold pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
                 <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
                 <p class="col-12 text-white p-0 pb-3">
                     These words are at the core of what we do. We want to encourage anybody and everybody<br> 
@@ -25,8 +26,9 @@
                 {% endif %}
             </div>
         </div>
-        <div id="hero-text-sm" class="row text-center col-12 d-block d-lg-none mx-auto">
-            <h2 class="col-12 text-heavy text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
+        <!-- Displays on screens with width < 992px -->
+        <div id="hero-text-sm" class="row bg-light-brand text-center col-12 d-block d-lg-none mx-auto">
+            <h2 class="col-12 bold text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
             {% if request.user.is_authenticated %}
             {% else %}
                 <a class="col-xs-10 col-sm-6 btn btn-lg btn-pink mb-5" href="#">Sign up / Login</a>
@@ -36,6 +38,28 @@
                 These words are at the core of what we do. We want to encourage anybody and everybody 
                 to donate as a much or as little as they like to causes and charities they care about.
             </p>
+        </div>
+        <!-- The power of together section -->
+        <div class="row power-together bg-light-brand mx-auto">
+            <h2 class="col-12 text-dark bold text-center mb-1">The power of together</h2>
+            <p class="col-12 text-dark text-center my-1">Below are just some of the numbers powered by Donofy supporters</p>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-users m-4"></i>
+                <p class="text-dark power-figure m-0">22,000</p>
+                <p class="text-dark power-text">Supporters</p>
+            </div>
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-gift m-4"></i>
+                <p class="text-dark power-figure m-0">£598,000</p>
+                <p class="text-dark power-text">Raised</p>
+            </div>
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-heart m-4"></i>
+                <p class="text-dark power-figure m-0">1,504</p>
+                <p class="text-dark power-text">Charities</p>
+            </div> 
         </div>
     </div>
 {% endblock %}
