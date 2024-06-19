@@ -72,6 +72,19 @@ body {
     color: #582E8E;
 }
 
+.card-white {
+    background-color: #f6f6f6;
+    color: #222;
+}
+
+.card-white:hover,
+.card-white:active,
+.card-white:focus {
+    text-decoration: none;
+    color: #fff;
+    background: #582E8E;
+}
+
 /* COLOUR SCHEME */
 
 .bg-light-brand {
@@ -132,6 +145,7 @@ i.icon-lg {
     width: 150px
 }
 
+
 .navbar-nav .nav-link {
     margin-top: 0.5rem;
     padding-right: 0.75rem;
@@ -158,4 +172,22 @@ i.icon-lg {
 
 .header-container {
     padding-top: 64px;
+}
+
+/* FOOTER */
+.footer-box {
+    height: 15rem;
+    background-color: #EDCBBD;
+}
+
+.footer-logo {
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    width: 60px;
+}
+
+.footer-logo-text {
+    margin: 0;
+    padding: 0;
 }

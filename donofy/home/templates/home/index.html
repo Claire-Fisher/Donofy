@@ -71,31 +71,52 @@
         <div class="row bg-pink-light justify-content-center pb-4 mx-auto">
             <div class="col-12 col-md-4 col-xl-3 text-center">
                 <div class="card stat-card mb-2">
-                    <div class="card-body text-center">
+                    {% if request.user.is_authenticated %}
+                    <a href="" class="card-body stat-card card-white text-center">
                         <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
-                        <h3 class="text-dark bold">Find your charities</h3>
-                        <p class="text-dark">Find charities that matter to you and add them to your Donofy favourites</p>
-                    </div>
+                        <h3 class="bold">Find your charities</h3>
+                        <p class="card-white">Find charities that matter to you and add them to your Donofy favourites</p>
+                    </a>
+                    {% else %}
+                    <a href="" class="card-body stat-card card-white text-center">
+                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
+                        <h3 class="bold">Find your charities</h3>
+                        <p>Find charities that matter to you and add them to your Donofy favourites</p>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-4 col-xl-3 text-center">
-                <div class="card stat-card mb-2">
+                <div class="card card-white stat-card mb-2">
                     <div class="card-body text-center">
                         <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
-                        <h3 class="text-dark bold">Set a donation amount</h3>
-                        <p class="text-dark">Choose how much you want to donate to each of your charities</p>
+                        <h3 class="bold">Set a donation amount</h3>
+                        <p>Choose how much you want to donate to each of your charities</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 col-xl-3 text-center">
-                <div class="card stat-card mb-2">
+                <div class="card card-white stat-card mb-2">
                     <div class="card-body text-center">
                         <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
-                        <h3 id="impact-header" class="text-dark bold">Make an impact</h3>
-                        <p class="text-dark">Track the impact your financial support has made</p>
+                        <h3 id="impact-header" class="bold">Make an impact</h3>
+                        <p>Track the impact your financial support has made</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $('.card-white').hover(
+        function() {
+            $(this).find('i').removeClass("icon-pink").addClass("text-white");
+        },
+        function() {
+            $(this).find('i').removeClass("text-white").addClass("icon-pink");
+        },
+    );
+</script>
 {% endblock %}
