@@ -10,8 +10,8 @@
 {% block content %}
     <div class="container-fluid p-0 m-0">
         <div class="row p-0 m-0">
-            <img id="hero-img" class="col-12 d-none d-lg-block" src="../static/media/hero-img.jpg" center no-repeat>
-            <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="../static/media/hero-img-small.jpg" center no-repeat>
+            <img id="hero-img" class="col-12 d-none d-lg-block" src="{% static '/media/hero-img.jpg' %}" center no-repeat>
+            <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static '/media/hero-img-small.jpg' %}" center no-repeat>
             <!-- Displays on screens with min-width >= 992px -->
             <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
                 <h1 class="d-none d-lg-block text-white bold pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
@@ -27,39 +27,75 @@
             </div>
         </div>
         <!-- Displays on screens with width < 992px -->
-        <div id="hero-text-sm" class="row bg-light-brand text-center col-12 d-block d-lg-none mx-auto">
+        <div id="hero-text-sm" class="row bg-light-brand text-center col-12 d-block d-lg-none p-0 m-0 mx-auto">
             <h2 class="col-12 bold text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
             {% if request.user.is_authenticated %}
             {% else %}
-                <a class="col-xs-10 col-sm-6 btn btn-lg btn-pink mb-5" href="#">Sign up / Login</a>
+                <a class="col-10 col-sm-6 btn btn-lg btn-pink mb-5" href="#">Sign up / Login</a>
             {% endif %}
             <h3 class="col-12 text-center text-pink">“Alone we can do so little; together we can do so much.”<br>- Helen Keller</h3>
-            <p class="text-center text-dark">
+            <p class="text-center text-dark px-3">
                 These words are at the core of what we do. We want to encourage anybody and everybody 
                 to donate as a much or as little as they like to causes and charities they care about.
             </p>
         </div>
         <!-- The power of together section -->
-        <div class="row power-together bg-light-brand mx-auto">
+        <div class="row power-together bg-light-brand py-2 mx-auto">
             <h2 class="col-12 text-dark bold text-center mb-1">The power of together</h2>
-            <p class="col-12 text-dark text-center my-1">Below are just some of the numbers powered by Donofy supporters</p>
+            <p class="col-12 text-dark text-center mb-4">Below are just some of the numbers powered by Donofy supporters</p>
         </div>
-        <div class="row justify-content-center mt-3">
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <i class="icon-lg icon-pink fa-solid fa-users m-4"></i>
-                <p class="text-dark power-figure m-0">22,000</p>
+        <div class="row bg-light-brand justify-content-center">
+            <div class="dono-stat col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-users"></i>
+                <p class="text-dark power-figure">22,000</p>
                 <p class="text-dark power-text">Supporters</p>
             </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <i class="icon-lg icon-pink fa-solid fa-gift m-4"></i>
-                <p class="text-dark power-figure m-0">£598,000</p>
+            <div class="dono-stat col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-gift"></i>
+                <p class="text-dark power-figure">£598,000</p>
                 <p class="text-dark power-text">Raised</p>
             </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <i class="icon-lg icon-pink fa-solid fa-heart m-4"></i>
-                <p class="text-dark power-figure m-0">1,504</p>
+            <div class="dono-stat col-12 col-md-4 col-xl-3 text-center">
+                <i class="icon-lg icon-pink fa-solid fa-heart"></i>
+                <p class="text-dark power-figure">1,504</p>
                 <p class="text-dark power-text">Charities</p>
             </div> 
+        </div>
+        <!-- How does Donofy work section -->
+        <div class="row bg-pink-light px-0 py-4 m-0">
+            <div class="col-12">
+                <h2 class="text-dark bold text-center">How does Donofy work?</h2>
+                <p class="text-dark text-center">Getting started with Donofy couldn't be easier!</p>
+            </div>
+        </div>
+        <div class="row bg-pink-light justify-content-center pb-4 mx-auto">
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <div class="card stat-card mb-2">
+                    <div class="card-body text-center">
+                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
+                        <h3 class="text-dark bold">Find your charities</h3>
+                        <p class="text-dark">Find charities that matter to you and add them to your Donofy favourites</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <div class="card stat-card mb-2">
+                    <div class="card-body text-center">
+                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
+                        <h3 class="text-dark bold">Set a donation amount</h3>
+                        <p class="text-dark">Choose how much you want to donate to each of your charities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-3 text-center">
+                <div class="card stat-card mb-2">
+                    <div class="card-body text-center">
+                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
+                        <h3 id="impact-header" class="text-dark bold">Make an impact</h3>
+                        <p class="text-dark">Track the impact your financial support has made</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

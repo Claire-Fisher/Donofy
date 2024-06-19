@@ -41,6 +41,10 @@ p {
     height: auto;
 }
 
+i.icon-lg {
+    margin-bottom: 1rem;
+}
+
 p.power-figure {
     font-size: 3rem;
     font-weight: 900;
@@ -53,19 +57,25 @@ p.power-text {
     line-height: 1;
 }
 
-
-@media screens and (min-width: 320px) and (max-width: 575px) {
-    h2, h3 {
-        font-size: 1.5rem;
-    }
+.stat-card {
+    border-radius: 1.5rem;
+    height: 290px;
+    width: auto;
 }
 
-@media (max-width: 991px) {
+#impact-header {
+    height: 67px;
+}
+
+
+/* Bootstrap xs screens */
+@media screen and (min-width: 320px) and (max-width: 575px) {
+    h2,
+    h3, {
+        font-size: 1.5rem;
+    }
     .power-together h2 {
         margin-top: 1rem;
-    }
-    i.icon-lg {
-        font-size: 3rem;
     }
     p.power-figure {
         font-size: 2.5rem;
@@ -78,4 +88,62 @@ p.power-text {
         font-weight: 400;
         line-height: 1;
     }
+    .stat-card {
+        height: 200px;
+    }
+}
+
+/* Bootstrap sm screens */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    h2,
+    h3, {
+        font-size: 1.5rem;
+    }
+    .power-together h2 {
+        margin-top: 1rem;
+    }
+    p.power-figure {
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+    
+    p.power-text {
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1;
+    }
+    .stat-card {
+        height: 200px;
+    }
+}
+
+/* Bootstrap md screens */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    h2,
+    h3, {
+        font-size: 1.5rem;
+    }
+    .power-together h2 {
+        margin-top: 1rem;
+    }
+    p.power-figure {
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+    
+    p.power-text {
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1;
+    }
+}
+
+/* Bootstrap lg screens */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Bootstrap xl screens */
+@media (min-width: 1200px) {
 }

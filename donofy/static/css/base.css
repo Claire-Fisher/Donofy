@@ -82,6 +82,10 @@ body {
     background-color: #CD2576;
 }
 
+.bg-pink-light {
+    background-color: rgba(205, 37, 118, 0.2);
+}
+
 .text-pink {
     color: #CD2576;
 }
@@ -100,7 +104,7 @@ body {
 /* ICONS */
 
 i.icon-lg {
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 .icon-white {
