@@ -10,15 +10,16 @@ html {
 
 body {
     padding: 0;
-    margin-top: 64px;
-    height: calc(100vh - 64px);
+    margin-top: 60px;
+    height: calc(100vh - 60px);
     color: #222;
     background-color: #f6f6f6;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
-/* BUTTONS & LINKS */
+/* BUTTONS, LINKS & ANCHORS */
 
 .btn-pink {
     background-color: #CD2576;
@@ -63,6 +64,17 @@ body {
     background: #582E8E;
 }
 
+a.a-pink {
+    color: #CD2576!important;
+}
+
+a.a-pink:hover,
+a.a-pink:active,
+a.a-pink:focus {
+    color: #582E8E!important;
+}
+
+
 .nav-link:hover,
 .nav-link:active,
 .nav-link:focus,
@@ -96,7 +108,7 @@ body {
 }
 
 .bg-pink-light {
-    background-color: rgba(205, 37, 118, 0.2);
+    background-color: rgba(205, 37, 118, 0.1);
 }
 
 .text-pink {
@@ -142,15 +154,13 @@ i.icon-lg {
     margin: 0;
     padding: 0;
     object-fit: contain;
-    width: 150px
+    max-width: 150px
 }
 
 
 .navbar-nav .nav-link {
     margin-top: 0.5rem;
     padding: 0;
-    /* padding-right: 0.75rem;
-    padding-left: 0.75rem; */
     text-align-last: right;
 }
 
@@ -177,18 +187,17 @@ i.icon-lg {
 
 /* FOOTER */
 .footer-box {
-    height: 15rem;
+    height: 10rem;
     background-color: #EDCBBD;
 }
 
 .footer-logo {
-    margin: 0;
-    padding: 0;
     object-fit: contain;
     width: 60px;
 }
 
 .footer-logo-text {
+    bottom: 0;
     margin: 0;
     padding: 0;
 }
