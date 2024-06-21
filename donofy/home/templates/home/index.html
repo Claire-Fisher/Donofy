@@ -121,6 +121,21 @@
                 </div>
             </div>
         </div>
+        <!-- Second call-to-action to sign up -->
+        {% if request.user.is_authenticated %}
+        {% else %}
+         <div class="row">
+            <div class="col-11 col-md-10 col-lg-8 mx-auto">
+                <div id="join-today" class="card bg-pink mb-4">
+                    <div class="card-body text-center px-2 py-5 p-md-4 mx-auto">
+                        <h3 class="text-white bold">Join Donofy today</h3>
+                        <p class="text-white">Support the charities and causes you care about, your way.</p>
+                        <a class="btn btn-lg btn-white" href="{% url 'account_signup' %}">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}
 

@@ -64,6 +64,14 @@ p.power-text {
     height: 67px;
 }
 
+#join-today {
+    border-radius: 1.5rem;
+}
+
+#join-today a {
+    width: 250px;
+}
+
 
 /* Bootstrap xs screens */
 @media screen and (min-width: 320px) and (max-width: 575px) {
