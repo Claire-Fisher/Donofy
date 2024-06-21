@@ -140,14 +140,15 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
-    $('.card-white').hover(
-        function() {
-            $(this).find('i').removeClass("icon-pink").addClass("text-white");
-        },
-        function() {
-            $(this).find('i').removeClass("text-white").addClass("icon-pink");
-        },
-    );
-</script>
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.card-white').hover(
+            function() {
+                $(this).find('i').removeClass("icon-pink").addClass("text-white");
+            },
+            function() {
+                $(this).find('i').removeClass("text-white").addClass("icon-pink");
+            },
+        );
+    </script>
 {% endblock %}
