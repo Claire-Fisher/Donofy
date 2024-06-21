@@ -10,3 +10,9 @@
     width: 205px;
     border: 1px solid #CD2576;
 }
+
+@media (max-width: 575px) {
+    h1.text-pink {
+        font-size: 2rem;
+    }
+}
