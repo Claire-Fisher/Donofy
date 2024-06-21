@@ -6,30 +6,37 @@
 {% block head_title %}{% trans "Confirm Email Address" %}{% endblock %}
 
 
-{% block content %}
-<h1>{% trans "Confirm Email Address" %}</h1>
+{% block inner_content %}
 
-{% if confirmation %}
+<div class="container-fluid bg-light-brand account-box p-3 p-md-5 my-3 my-md-5 mx-auto">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-pink bold">{% trans "Confirm Email Address" %}</h1>
 
-{% user_display confirmation.email_address.user as user_display %}
+            {% if confirmation %}
 
-{% if can_confirm %}
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}.{% endblocktrans %}</p>
+            {% user_display confirmation.email_address.user as user_display %}
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
-</form>
-{% else %}
-<p>{% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}</p>
-{% endif %}
+            {% if can_confirm %}
+            <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}.{% endblocktrans %}</p>
 
-{% else %}
-
-{% url 'account_email' as email_url %}
-
-<p>{% blocktrans %}This email confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new email confirmation request</a>.{% endblocktrans %}</p>
-
-{% endif %}
+        </div>
+    </div>
+    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+        {% csrf_token %}
+            <button class="primaryAction btn btn-lg btn-pink my-4" type="submit">{% trans 'Confirm' %}</button>
+        </form>
+        {% else %}
+        <p>{% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}</p>
+        {% endif %}
+        
+        {% else %}
+        
+        {% url 'account_email' as email_url %}
+        
+        <p>{% blocktrans %}This email confirmation link expired or is invalid. Please <a href="{{ email_url }}" class="a-pink">issue a new email confirmation request</a>.{% endblocktrans %}</p>
+        
+        {% endif %}
+</div>
 
 {% endblock %}

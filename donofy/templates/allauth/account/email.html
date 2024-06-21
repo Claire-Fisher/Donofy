@@ -4,13 +4,14 @@
 
 {% block head_title %}{% trans "Email Addresses" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "Email Addresses" %}</h1>
+{% block inner_content %}
+    <h1 class="text-pink bold">{% trans "Email Addresses" %}</h1>
 {% if emailaddresses %}
 <p>{% trans 'The following email addresses are associated with your account:' %}</p>
 
 <form action="{% url 'account_email' %}" class="email_list" method="post">
 {% csrf_token %}
+{{ form|crispy }}
 <fieldset class="blockLabels">
 
   {% for emailaddress in emailaddresses %}
@@ -31,9 +32,9 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="secondaryAction btn btn-lg btn-pink my-4" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="secondaryAction btn btn-lg btn-pink my-4" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="primaryAction btn btn-lg btn-pink my-4" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
