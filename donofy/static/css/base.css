@@ -34,7 +34,6 @@ body {
     background-color: #582E8E;
     color:#fff;
     border: 1px solid #fff;
-    
 }
 
 .btn-white {
@@ -50,18 +49,7 @@ body {
 .btn-white:focus {
     color:#fff;
     background-color: #582E8E;
-}
-
-.btn-outline-pink {
-    background: white;
-    color: #CD2576 !important;
-    border: 1px solid #CD2576;
-}
-
-.btn-pink:hover,
-.btn-pink:active,
-.btn-pink:focus {
-    background: #582E8E;
+    border: 1px solid #fff;
 }
 
 a.a-pink {
