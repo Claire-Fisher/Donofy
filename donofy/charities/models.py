@@ -16,6 +16,10 @@ class Category(models.Model):
 
 
 class Charity(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Charities'
+
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     active = models.BooleanField(default=False)
