@@ -1,155 +1,287 @@
 [
-    {
-       "pk":1,
-       "model":"charities.charity",
-       "fields":{
-          "active": true,
-          "name":"UK Boston Terrier Rescue",
-          "charity_num":1163435,
-          "description":"We love Boston Terriers! They're a cute, comical, caring breed who, when matched with the right owner, will provide many happy years of companionship.\n\nWe know there are lots of people like us, who love and care for their Bostons - and believe us, we'd much prefer it if we didn't even exist - but alas, there are Boston Terriers up and down the UK who are not being treated as they should be; beautiful, bouncy Bostons without a comfy bed at night, or a human to give them the best of everything...\n\nThere are also people who, for many reasons, are no longer able to keep their Boston Terrier and because of their love for their pet want to ensure they go to a home that has been fully checked and will have lifelong back-up.\n\nWe are a registered charity (number: 1163435) and are recognised by the Kennel Club as a breed specific rescue.",
-          "website_url":"https://www.ukbostonterrierrescue.co.uk/",
-          "category":1,
-          "image_url":"https://dogfriendlydirectory.com/wp-content/uploads/photo-gallery/d21vu35cjx7sd4.cloudfront.net.jpg",
-          "logo_image":"ukbtr-logo.webp",
-          "impact1":"£1 will feed a dog for a day",
-          "impact2":"£5 will provide boston foster care for a week",
-          "impact3":"£10 will help cover fuel and expenses to collect a Boston terrier in need."
-       }
-    },
-    {
-        "pk":2,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"The National Foundation for Retired Service Animals",
-           "charity_num":1200949,
-           "description": "Our job, quite simply, is to \"Protect Our Protectors\".\n\nWhen serving police/fire/prison/border force dogs and horses careers end, the financial support they have enjoyed whilst working, including food, kennels or stables, medical and veterinary requirements, training and equipment also comes to an end.\n\nUnfortunately, meaningful insurance is almost impossible to obtain due to their age and training, and even if available, the premiums insurance companies charge for retired animals is incredibly high. This is obviously a serious worry for handlers who have their own financial obligations, and medical bills can be a real challenge.\n\nAs is widely acknowledged, the relationship between a handler and their working partner is second to none, and it is unthinkable that the pair may be broken up due to financial pressure. Unfortunately, this does often happen, and it causes great distress for the handlers, their families, and of course the animals themselves.\n\nSo, the NFRSA is there to help to ensure these wonderful animals can stay where they belong, with the families they love, as the years advance. It's the least they deserve when they've devoted most of their lives to keeping us, the public, safe.",
-           "website_url":"https://www.nfrsa.org.uk/about-us/",
-           "category":1,
-           "image_url":"https://miro.medium.com/v2/resize:fit:720/format:webp/1*Sg7W16ZqHasPkTXS-hPGCA.jpeg",
-           "logo_image":"nfrsa-logo.jpeg",
-           "impact1":"£1 will feed a retired service dog for a day.",
-           "impact2":"£5 will provide stables and pasture for a retired service horse.",
-           "impact3":"£15 will cover the prescription cost for a service animal for 6 months."
-        }
-     },
-     {
-        "pk":3,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"The Donkey Sanctuary",
-           "charity_num":264818,
-           "description": "For over 50 years, we have worked to transform the lives of donkeys across the world.\n\nWe are transforming the lives of donkeys in need worldwide by fostering greater understanding, collaboration and support, and by promoting lasting, mutually life-enhancing relationships.\n\nWe invest in community-based projects involving donkeys in 35 countries around the world. Through major projects and collaborations, we not only relieve donkey suffering directly but also train and advise others to do the same.\n\nAs well as giving a home to donkeys at our sanctuaries and assisted therapy centres, we actively seek to rehome them with families, schools and other institutions through our Donkey Guardian scheme.\n\nTo help us achieve our vision, we operate seven closed farms that provide a refuge for rescued donkeys and offer professional training for prospective Donkey Guardians, staff, volunteers and donkey handlers. Across all our sites, we care for over 4,300 animals, giving them all a life of loving care, free from suffering.",
-           "website_url":"https://www.thedonkeysanctuary.org.uk/",
-           "category":1,
-           "image_url":"https://www.horseandrideruk.com/wp-content/uploads/2020/07/WEB_Working-donkey-carrying-water-The-Donkey-Sanctuary-scaled-1-767x511.jpg",
-           "logo_image":"tdonkey-sanc-logo.jpg",
-           "impact1":"£1 will feed a donkey for a day",
-           "impact2":"£4 will help pay for bandages to ease wounds and sores.",
-           "impact3":"£10 will help deliver first aid kits and training to donkey owners"
-        }
-     },
-     {
-        "pk":4,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"(NSPCC) National Society for the Prevention of Cruelty To Children",
-           "charity_num":216401,
-           "description": "Every childhood is worth fighting for\n\nWe're the only charity fighting to end child abuse in the UK and Channel Islands. That's why we help children who've been abused to rebuild their lives, we protect children at risk, and we find the best ways of preventing child abuse from ever happening.\n\nAbuse can happen at any time of the day or night. And when it does, it's vital that children have someone they can talk to - no matter the hour.That's why our Childline counsellors are here 24/7 to listen and help with whatever children are facing, from abuse to everyday worries. We're here all day, all night, always.",
-           "website_url":"https://www.nspcc.org.uk/",
-           "category":2,
-           "image_url":"https://www.verywellhealth.com/thmb/aLuNQTEl6LhhUGQqrUFY-yxKXxE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-471031808-5964057f5f9b583f18133963.jpg",
-           "logo_image":"nspcc-logo.jpg",
-           "impact1":"£1 helps us protect children with no one to turn to.",
-           "impact2":"£5 will answer a calls from children worried about money problems.",
-           "impact3":"£10 will help us train Childline volunteer counsellors to respond to children who are feeling anxious or overwhelmed."
-        }
-     },
-     {
-        "pk":5,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"The Children's Trust",
-           "charity_num":288018,
-           "description": "We are the UK's leading charity for children with brain injury and neurodisability. We deliver rehabilitation, education and community services through skilled teams who work with children and young people, and their families.\n\nEvery year 40,000 children in the UK are left with a brain injury as a result of an accident or illness and it can be devastating - they may no longer be able to walk, talk, stand, sit, or feed themselves - sometimes all of these abilities.\n\nAt The Children's Trust, we aim to help rebuild as many of their skills as possible, as well as their self-esteem. A child's confidence is central to that relearning.",
-           "website_url":"https://www.thechildrenstrust.org.uk/",
-           "category":2,
-           "image_url":"https://www.thechildrenstrust.org.uk/sites/default/files/styles/hero_image_/public/Kyan%20Blake%20%20photos%5B7836%5D.jpg?itok=CE8raVAA",
-           "logo_image":"childrens-trust-logo.jpg",
-           "impact1":"£1 will help pay for physiotherapy exercise for the children",
-           "impact2":"£5 will help fund a one to one therapy session with a brain injury specialist for a child in their local community.",
-           "impact3":"£10 will help pay for a specialised walking frame so that a child who has lost the ability to walk, can take those first precious steps."
-        }
-     },
-     {
-        "pk":6,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"Mcks Charitable Foundation UK",
-           "charity_num":1188773,
-           "description": "Our charity provides schools across the country with food, toiletries and sanitary products so that children have consistent access to essential supplies through our School Pantry Cupboards.\n\nWe also run breakfast clubs and provide emergency supplies over schools holidays and during exam times for children and families who may be struggling.",
-           "website_url":"https://mckscharity.co.uk/",
-           "category":2,
-           "image_url":"https://www.charitychoice.co.uk/sites/default/files/2023-07/MCKS-staff-photo-1.jpg",
-           "logo_image":"mcks-logo.jpg",
-           "impact1":"£1 will stop a child starting their school day hungry, by providing a nutritious breakfast.",
-           "impact2":"£5 will provide a week of sanitary products to a student in need.",
-           "impact3":"£10 will cover the cost of shipping an emergency supplies parcel to a UK school."
-        }
-     },
-     {
-        "pk":7,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"Reengage",
-           "charity_num":1146149,
-           "description": "Re-engage provides vital, life-enhancing social connections for older people at a time in their lives when their social circles are diminishing.\n\nAs we get older, our social circles diminish, and we find ourselves with fewer and fewer people to turn to. Imagine realising one day that all your friends and family have gone from your life. Loneliness can be cruel, and it affects millions of people over 75 who live in social isolation.",
-           "website_url":"https://www.reengage.org.uk/",
-           "category":3,
-           "image_url":"https://www.thegoodcaregroup.com/wp-content/uploads/2021/07/elderly_woman_sad_at_home.jpg.webp",
-           "logo_image":"reengage-logo.png",
-           "impact1":"£1 will help organise a social walking group for those over 75 in their local area.",
-           "impact2":"£5 will set up a personal volunteer call-companion for a weekly chat.",
-           "impact3":"£10 will contribute to social events that gives an isolated elderly person something to look forward to."
-        }
-     },
-     {
-        "pk":8,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"Alzheimers Society",
-           "charity_num":296645,
-           "description": "At Alzheimer's Society we're working towards a world where dementia no longer devastates lives. We do this by giving help to those living with dementia today, and providing hope for the future.\n\nAs a Society, we are made up of people with dementia, carers, trusted experts, campaigners, researchers and clinicians. We are the UK's largest collective force of people with unparalleled knowledge and over 40 years of experience addressing the biggest challenges facing people living with dementia.",
-           "website_url":"https://www.alzheimers.org.uk/",
-           "category":3,
-           "image_url":"https://www.alzheimers.org.uk/sites/default/files/styles/large/public/media/images/image/2020-05/Coronavirus%20care%20home.jpg?itok=vXhjEnir",
-           "logo_image":"alzheimers-society-logo.webp",
-           "impact1":"£1 will help provide access to vital support information by phone, online, and in local communities.",
-           "impact2":"£5 will help push the government to address the ongoing issues people with dementia in care homes, and their families, are facing.",
-           "impact3":"£10 will contribute to cutting-edge research to beat dementia, as well as improve treatment and care."
-        }
-     },
-     {
-        "pk":9,
-        "model":"charities.charity",
-        "fields":{
-           "active": true,
-           "name":"Age UK",
-           "charity_num":1128267,
-           "description": "Our focus, more than ever, is on the older people who need us the most.\n\nToo many older people are living in poverty or just above the poverty line. Too many find themselves without the care and support they desperately need. Too many have no one to turn to.\n\nWe're experts in the issues affecting older people. Whether it's providing information and advice, being a friendly voice on the other end of the phone or helping make sure the voices of older people are heard.",
-           "website_url":"https://www.ageuk.org.uk/",
-           "category":3,
-           "image_url":"https://www.ageuk.org.uk/globalassets/age-uk/media/featured/500x300/brenda_500x300_1.jpg",
-           "logo_image":"age-uk-logo.png",
-           "impact1":"£1 will help pay for free information guides and factsheets for an older person and their loved ones.",
-           "impact2":"£3 will make a regular telephone friendship call to a lonely older person when they have no one else to turn to..",
-           "impact3":"£5 will help to answer a call to our advice line from an older person needing information to cope with the impact of the cost of living crisis."
-        }
-     }
+   {
+      "pk":1,
+      "model":"charities.charity",
+      "fields":{
+      "active": true,
+      "name":"UK Boston Terrier Rescue",
+      "charity_num":1163435,
+      "description":"We love Boston Terriers! They're a cute, comical, caring breed who, when matched with the right owner, will provide many happy years of companionship.\n\nWe know there are lots of people like us, who love and care for their Bostons - and believe us, we'd much prefer it if we didn't even exist - but alas, there are Boston Terriers up and down the UK who are not being treated as they should be; beautiful, bouncy Bostons without a comfy bed at night, or a human to give them the best of everything...\n\nThere are also people who, for many reasons, are no longer able to keep their Boston Terrier and because of their love for their pet want to ensure they go to a home that has been fully checked and will have lifelong back-up.\n\nWe are a registered charity (number: 1163435) and are recognised by the Kennel Club as a breed specific rescue.",
+      "website_url":"https://www.ukbostonterrierrescue.co.uk/",
+      "category":1,
+      "image_url":"https://dogfriendlydirectory.com/wp-content/uploads/photo-gallery/d21vu35cjx7sd4.cloudfront.net.jpg",
+      "logo_image":"ukbtr-logo.webp",
+      "impact1":"£1 will feed a dog for a day",
+      "impact2":"£5 will provide boston foster care for a week",
+      "impact3":"£10 will help cover fuel and expenses to collect a Boston terrier in need.",
+      "total_received_monthly":{},
+      "total_received": 0
+      }
+   },
+   {
+      "pk":2,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"The National Foundation for Retired Service Animals",
+         "charity_num":1200949,
+         "description": "Our job, quite simply, is to \"Protect Our Protectors\".\n\nWhen serving police/fire/prison/border force dogs and horses careers end, the financial support they have enjoyed whilst working, including food, kennels or stables, medical and veterinary requirements, training and equipment also comes to an end.\n\nUnfortunately, meaningful insurance is almost impossible to obtain due to their age and training, and even if available, the premiums insurance companies charge for retired animals is incredibly high. This is obviously a serious worry for handlers who have their own financial obligations, and medical bills can be a real challenge.\n\nAs is widely acknowledged, the relationship between a handler and their working partner is second to none, and it is unthinkable that the pair may be broken up due to financial pressure. Unfortunately, this does often happen, and it causes great distress for the handlers, their families, and of course the animals themselves.\n\nSo, the NFRSA is there to help to ensure these wonderful animals can stay where they belong, with the families they love, as the years advance. It's the least they deserve when they've devoted most of their lives to keeping us, the public, safe.",
+         "website_url":"https://www.nfrsa.org.uk/about-us/",
+         "category":1,
+         "image_url":"https://miro.medium.com/v2/resize:fit:720/format:webp/1*Sg7W16ZqHasPkTXS-hPGCA.jpeg",
+         "logo_image":"nfrsa-logo.jpeg",
+         "impact1":"£1 will feed a retired service dog for a day.",
+         "impact2":"£5 will provide stables and pasture for a retired service horse.",
+         "impact3":"£15 will cover the prescription cost for a service animal for 6 months.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":3,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"The Donkey Sanctuary",
+         "charity_num":264818,
+         "description": "For over 50 years, we have worked to transform the lives of donkeys across the world.\n\nWe are transforming the lives of donkeys in need worldwide by fostering greater understanding, collaboration and support, and by promoting lasting, mutually life-enhancing relationships.\n\nWe invest in community-based projects involving donkeys in 35 countries around the world. Through major projects and collaborations, we not only relieve donkey suffering directly but also train and advise others to do the same.\n\nAs well as giving a home to donkeys at our sanctuaries and assisted therapy centres, we actively seek to rehome them with families, schools and other institutions through our Donkey Guardian scheme.\n\nTo help us achieve our vision, we operate seven closed farms that provide a refuge for rescued donkeys and offer professional training for prospective Donkey Guardians, staff, volunteers and donkey handlers. Across all our sites, we care for over 4,300 animals, giving them all a life of loving care, free from suffering.",
+         "website_url":"https://www.thedonkeysanctuary.org.uk/",
+         "category":1,
+         "image_url":"https://www.horseandrideruk.com/wp-content/uploads/2020/07/WEB_Working-donkey-carrying-water-The-Donkey-Sanctuary-scaled-1-767x511.jpg",
+         "logo_image":"tdonkey-sanc-logo.jpg",
+         "impact1":"£1 will feed a donkey for a day",
+         "impact2":"£4 will help pay for bandages to ease wounds and sores.",
+         "impact3":"£10 will help deliver first aid kits and training to donkey owners",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":4,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"(NSPCC) National Society for the Prevention of Cruelty To Children",
+         "charity_num":216401,
+         "description": "Every childhood is worth fighting for\n\nWe're the only charity fighting to end child abuse in the UK and Channel Islands. That's why we help children who've been abused to rebuild their lives, we protect children at risk, and we find the best ways of preventing child abuse from ever happening.\n\nAbuse can happen at any time of the day or night. And when it does, it's vital that children have someone they can talk to - no matter the hour.That's why our Childline counsellors are here 24/7 to listen and help with whatever children are facing, from abuse to everyday worries. We're here all day, all night, always.",
+         "website_url":"https://www.nspcc.org.uk/",
+         "category":2,
+         "image_url":"https://www.verywellhealth.com/thmb/aLuNQTEl6LhhUGQqrUFY-yxKXxE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-471031808-5964057f5f9b583f18133963.jpg",
+         "logo_image":"nspcc-logo.jpg",
+         "impact1":"£1 helps us protect children with no one to turn to.",
+         "impact2":"£5 will answer a calls from children worried about money problems.",
+         "impact3":"£10 will help us train Childline volunteer counsellors to respond to children who are feeling anxious or overwhelmed.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":5,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"The Children's Trust",
+         "charity_num":288018,
+         "description": "We are the UK's leading charity for children with brain injury and neurodisability. We deliver rehabilitation, education and community services through skilled teams who work with children and young people, and their families.\n\nEvery year 40,000 children in the UK are left with a brain injury as a result of an accident or illness and it can be devastating - they may no longer be able to walk, talk, stand, sit, or feed themselves - sometimes all of these abilities.\n\nAt The Children's Trust, we aim to help rebuild as many of their skills as possible, as well as their self-esteem. A child's confidence is central to that relearning.",
+         "website_url":"https://www.thechildrenstrust.org.uk/",
+         "category":2,
+         "image_url":"https://www.thechildrenstrust.org.uk/sites/default/files/styles/hero_image_/public/Kyan%20Blake%20%20photos%5B7836%5D.jpg?itok=CE8raVAA",
+         "logo_image":"childrens-trust-logo.jpg",
+         "impact1":"£1 will help pay for physiotherapy exercise for the children",
+         "impact2":"£5 will help fund a one to one therapy session with a brain injury specialist for a child in their local community.",
+         "impact3":"£10 will help pay for a specialised walking frame so that a child who has lost the ability to walk, can take those first precious steps.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":6,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Mcks Charitable Foundation UK",
+         "charity_num":1188773,
+         "description": "Our charity provides schools across the country with food, toiletries and sanitary products so that children have consistent access to essential supplies through our School Pantry Cupboards.\n\nWe also run breakfast clubs and provide emergency supplies over schools holidays and during exam times for children and families who may be struggling.",
+         "website_url":"https://mckscharity.co.uk/",
+         "category":2,
+         "image_url":"https://www.charitychoice.co.uk/sites/default/files/2023-07/MCKS-staff-photo-1.jpg",
+         "logo_image":"mcks-logo.jpg",
+         "impact1":"£1 will stop a child starting their school day hungry, by providing a nutritious breakfast.",
+         "impact2":"£5 will provide a week of sanitary products to a student in need.",
+         "impact3":"£10 will cover the cost of shipping an emergency supplies parcel to a UK school.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":7,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Reengage",
+         "charity_num":1146149,
+         "description": "Re-engage provides vital, life-enhancing social connections for older people at a time in their lives when their social circles are diminishing.\n\nAs we get older, our social circles diminish, and we find ourselves with fewer and fewer people to turn to. Imagine realising one day that all your friends and family have gone from your life. Loneliness can be cruel, and it affects millions of people over 75 who live in social isolation.",
+         "website_url":"https://www.reengage.org.uk/",
+         "category":3,
+         "image_url":"https://www.thegoodcaregroup.com/wp-content/uploads/2021/07/elderly_woman_sad_at_home.jpg.webp",
+         "logo_image":"reengage-logo.png",
+         "impact1":"£1 will help organise a social walking group for those over 75 in their local area.",
+         "impact2":"£5 will set up a personal volunteer call-companion for a weekly chat.",
+         "impact3":"£10 will contribute to social events that gives an isolated elderly person something to look forward to.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":8,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Alzheimers Society",
+         "charity_num":296645,
+         "description": "At Alzheimer's Society we're working towards a world where dementia no longer devastates lives. We do this by giving help to those living with dementia today, and providing hope for the future.\n\nAs a Society, we are made up of people with dementia, carers, trusted experts, campaigners, researchers and clinicians. We are the UK's largest collective force of people with unparalleled knowledge and over 40 years of experience addressing the biggest challenges facing people living with dementia.",
+         "website_url":"https://www.alzheimers.org.uk/",
+         "category":3,
+         "image_url":"https://www.alzheimers.org.uk/sites/default/files/styles/large/public/media/images/image/2020-05/Coronavirus%20care%20home.jpg?itok=vXhjEnir",
+         "logo_image":"alzheimers-society-logo.webp",
+         "impact1":"£1 will help provide access to vital support information by phone, online, and in local communities.",
+         "impact2":"£5 will help push the government to address the ongoing issues people with dementia in care homes, and their families, are facing.",
+         "impact3":"£10 will contribute to cutting-edge research to beat dementia, as well as improve treatment and care.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":9,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Age UK",
+         "charity_num":1128267,
+         "description": "Our focus, more than ever, is on the older people who need us the most.\n\nToo many older people are living in poverty or just above the poverty line. Too many find themselves without the care and support they desperately need. Too many have no one to turn to.\n\nWe're experts in the issues affecting older people. Whether it's providing information and advice, being a friendly voice on the other end of the phone or helping make sure the voices of older people are heard.",
+         "website_url":"https://www.ageuk.org.uk/",
+         "category":3,
+         "image_url":"https://www.ageuk.org.uk/globalassets/age-uk/media/featured/500x300/brenda_500x300_1.jpg",
+         "logo_image":"age-uk-logo.png",
+         "impact1":"£1 will help pay for free information guides and factsheets for an older person and their loved ones.",
+         "impact2":"£3 will make a regular telephone friendship call to a lonely older person when they have no one else to turn to...",
+         "impact3":"£5 will help to answer a call to our advice line from an older person needing information to cope with the impact of the cost of living crisis.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":10,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Mencap",
+         "charity_num":222377,
+         "description": "Everything we do is about valuing and supporting people with a learning disability, and their families and carers.\n\nOur vision is for the UK to be the best place in the world for people with a learning disability to live happy and healthy lives.\n\nPeople with a learning disability need to have their voices heard. At Mencap we make sure all our work is guided by them.\n\nWe are always looking to work with employers who can provide work experience to learners on our supported internships and other programmes like our Employ Me programmes working in schools.",
+         "website_url":"https://www.mencap.org.uk/",
+         "category":4,
+         "image_url":"https://www.psychologistehsaas.com/wp-content/uploads/2022/09/Learning-disabilities-in-children-the-psychological-implication-of-LD.jpg",
+         "logo_image":"mencap-logo.png",
+         "impact1":"£3 could help us provide support for someone calling us for information and advice on health and healthcare.",
+         "impact2":"£5 could help pay for our vital campaigning work to ensure people with a learning disability receive equal health care and treatment.",
+         "impact3":"£10 could enable us to use our expertise in delivering employment programmes to advise the government on improving routes into work for people with a learning disability.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":11,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"RNIB Royal National Institute of Blind People",
+         "charity_num":226227,
+         "description": "If you're affected by sight loss, we're here for you. Through our Sight Loss Advice Service, RNIB offers support to blind and partially sighted people across the UK. We can help you to find the right assistive technology, support you in education and work, access financial help and much more. We're here to help you live the life you want.",
+         "website_url":"https://www.rnib.org.uk/",
+         "category":4,
+         "image_url":"https://media.post.rvohealth.io/wp-content/uploads/2019/10/Female_Blind_1200x628-facebook.jpg",
+         "logo_image":"rnib-logo.jpg",
+         "impact1":"£3 could help us provide support for someone calling us for information and advice on health and healthcare.",
+         "impact2":"£5 could help someone overcome challenges associated with their sight loss through attending a Focus on Health and Wellbeing course.",
+         "impact3":"£10 could help someone join a Focus on Confident Living Outdoors course to hear about the services, equipment and aids that may be helpful for getting around.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":12,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"RNID Royal National Institute for Deaf People",
+         "charity_num":207720,
+         "description": "Hearing loss affects 1 in 3 adults.\n\nWe are the national charity supporting the 18 million people in the UK who are deaf, have hearing loss or tinnitus.\n\nIf our work doesn't directly impact you, it will almost certainly be making a difference for someone you know and love.\n\nWe work with our communities and partners across health, employment, research, government and more to change life for the better.\n\nFrom people who have just been diagnosed, those who feel isolated and alone to people who've had hearing loss all their lives, your support is providing incredible services dedicated to helping people live a full and rewarding life.",
+         "website_url":"https://rnid.org.uk/",
+         "category":4,
+         "image_url":"https://www.verywellhealth.com/thmb/H6r8pNSIDLxbj_Y3YuoorUpiHQ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1094158136-182616aa1c7a48a6b2c01cc94dab05e7.jpg",
+         "logo_image":"rnid-logo.jpg",
+         "impact1":"£1 helps us answer 26,000 calls, emails and webchats every year.",
+         "impact2":"£5 helps fund 52 hearing-loss research projects",
+         "impact3":"£10 helps towards helping the 4 million people living in the UK who need a hearing aid, but don't have one.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":13,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Mind",
+         "charity_num":219830,
+         "description": "We won't give up until everyone experiencing a mental health problem gets support and respect.\n\nWe change minds across England and Wales by making mental health an everyday priority. By standing up to the injustices - in healthcare, in work, in law - which make life harder for those of us with mental health problems.\n\nWe support minds - by offering help whenever you might need it through our information, advice and local services.\n\nAnd we connect minds. Bringing together an unstoppable network of individuals and communities - people who care about mental health to make a difference.",
+         "website_url":"https://www.mind.org.uk/",
+         "category":5,
+         "image_url":"https://www.bigissue.com/wp-content/uploads/2022/03/umit-bulut-qbTC7ZwJB64-unsplash-scaled-e1647434869153.jpg",
+         "logo_image":"mind-logo.jpg",
+         "impact1":"£1 helps put our information in local GP surgeries, helping people to make the crucial first step of asking their doctor for support.",
+         "impact2":"£3 helps us answer calls to our Infoline, providing someone with vital support and information about help in their area.",
+         "impact3":"£10 helps us campaign for better mental health services from the Government. With your help, we can make sure people get the support they need, as soon as they need it.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":14,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"OCD Action",
+         "charity_num":1154202,
+         "description": "OCD Action works for a society where OCD is better understood and diagnosed quickly, where appropriate treatment options are open and accessible, where support and information is readily available and where nobody feels ashamed to ask for help.\n\nWe are here because OCD tears families apart and leaves people isolated and exhausted. It is a sad fact that many people with OCD delay seeking help.\n\nWe want people affected by OCD to seek help, to understand their treatment options and find the support and motivation they need to fight back. OCD is treatable, it can get better.",
+         "website_url":"https://ocdaction.org.uk/",
+         "category":5,
+         "image_url":"https://www.ocduk.org/wp-content/uploads/2018/05/ocdpencil.jpg",
+         "logo_image":"ocd-action.jpeg",
+         "impact1":"£1 helps us provide support for someone calling us for information and advice on support and healthcare.",
+         "impact2":"£5 helps us connect an OCD sufferer with a specialist therapist.",
+         "impact3":"£10 contributes to facilitating research by bringing together credible researchers and volunteers willing to participate in trials and studies.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   },
+   {
+      "pk":14,
+      "model":"charities.charity",
+      "fields":{
+         "active": true,
+         "name":"Refuge",
+         "charity_num":277424,
+         "description": "Help women and their children fleeing an abuser.\n\nEvery two minutes someone turns to Refuge for support. Help keep our lifesaving services running such as our 44 refuges and 24/7 Helpline, to be a lifeline for women affected by domestic abuse.\n\nA common myth is that it's only domestic abuse if it involves physical or sexual violence. In fact, many women experience domestic abuse without ever being physically harmed. Remember: non-physical forms of abuse can be as destructive and as undermining as physical violence.",
+         "website_url":"https://refuge.org.uk/",
+         "category":5,
+         "image_url":"https://www.verywellmind.com/thmb/GnKtAHgNNrFwRbkdgQN3hBsZd8E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/close-up-of-woman-gesturing-760317307-5b22a12a0e23d900362b768b.jpg",
+         "logo_image":"refuge_logo.jpeg",
+         "impact1":"£3 could contribute to helping a child to overcome the trauma of witnessing or experiencing domestic abuse.",
+         "impact2":"£5 helps provide employment and financial advice to help give a woman back her independence and support her back into work.",
+         "impact3":"£10 could provide essentials like toiletries and food to help a woman through her first night after escaping abuse.",
+         "total_received_monthly":{},
+         "total_received": 0
+      }
+   }
 ]

@@ -27,32 +27,16 @@
         "pk": 4,
         "model": "charities.category",
         "fields": {
-            "name": "housing",
-            "friendly_name": "Housing"
+            "name": "disability",
+            "friendly_name": "Disability"
         }
     },
     {
         "pk": 5,
         "model": "charities.category",
         "fields": {
-            "name": "disability",
-            "friendly_name": "Disability"
-        }
-    },
-    {
-        "pk": 6,
-        "model": "charities.category",
-        "fields": {
             "name": "mental_health",
             "friendly_name": "Mental Health"
-        }
-    },
-    {
-        "pk": 7,
-        "model": "charities.category",
-        "fields": {
-            "name": "environment",
-            "friendly_name": "Environment"
         }
     }
 ]
