@@ -7,7 +7,10 @@
 
 {% block content %}
     {% include 'charities/includes/search-filters.html' %}
-    <div id="div1" class="container-fluid main-content">
+    <div id="div1" class="container-fluid bg-light-brand">
+        <div class="row bg-light-brand">
+            <h5 class="col-12 text-center text-dark m-0 p-0">{{ charities|length }} Charities Found</h5>
+        </div>
         {% for charity in charities %}
             <li class="text-pink">{{ charity.charity_name }}</li>
         {% endfor %}
