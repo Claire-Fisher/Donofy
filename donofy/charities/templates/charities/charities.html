@@ -6,13 +6,43 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'charities/includes/search-filters.html' %}
-    <div id="div1" class="container-fluid bg-light-brand">
+    <div class="container-fluid bg-light-brand m-0 p-0">
+        <h1 class="bg-pink text-white text-center charities-title m-0 pt-2">Donofy Charities Directory</h1>
+        {% include 'charities/includes/search-filters.html' %}
         <div class="row bg-light-brand">
-            <h5 class="col-12 text-center text-dark m-0 p-0">{{ charities|length }} Charities Found</h5>
+            <h5 class="col-12 text-center text-dark my-2 p-0">{{ charities|length }} Charities Found</h5>
         </div>
-        {% for charity in charities %}
-            <li class="text-pink">{{ charity.charity_name }}</li>
-        {% endfor %}
+    </div>
+    <div class="container-fluid">
+        <h2 class="text-dark text-center charities-title">Browse all Donofy listed charities, or find the ones that matter to you.</h2>
+        <h3 class="text-dark text-center charities-title"><a class="a-pink"href="{% url 'account_signup' %}">Sign up</a>, or <a class="a-pink"href="{% url 'account_login' %}">Log in</a>to start bookmarking your favourites.</h3>
+    </div>
+    <div class="container">
+        {% if charities|length > 0 %}
+        <div class="row mb-5">
+            {% for charity in charities %}
+            <div class="col-12 px-xs-0 col-md-6 col-xl-4 my-4 text-center">
+                <a href="{% url 'home' %}">
+                    <div class="card charity-card hover-float shadow bg-light-brand text-center mx-auto">
+                        <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{charity.charity_name}} logo"
+                            class="card-img-top charity-card-img">
+                        <h3 class="card-text charity-card-title text-dark bold p-2 mt-1">{{ charity.charity_name }}</h3>
+                        <div class="charity-card-btn-box">
+                            <button class="btn btn-lg btn-pink-outline charity-btn">Info</button>
+                            <button class="btn btn-lg btn-pink-outline charity-btn">Favourite</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+            <h4 class="col-12 text-center text-pink bold my-4">Oops! No charities matching your search found.</h4>
+            <a href="{% url 'charities' %}" class="btn btn-lg btn-pink col-11 col-sm-6 col-xl-2 mb-5 mx-auto">
+                <i class="fa-solid fa-chevron-left mx-1"></i><strong>Back</strong>
+            </a>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}

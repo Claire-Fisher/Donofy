@@ -1,3 +1,46 @@
+#charities-title {
+    font-size: 2.5rem;
+}
+
 .search-text {
     line-height: 2;
+    border: 2px dotted #fff;
+}
+
+.charity-card {
+    width: 290px;
+    height: 290px;
+    border-radius: 1.5rem;
+}
+
+.charity-card-img {
+    background-color: #fff;
+    object-fit: contain;
+    height: 50%;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+}
+
+.charity-card-title {
+    font-size: 1.2rem;
+}
+
+.charity-cards-row {
+    margin: 0 0.25rem;
+}
+
+.charity-card-btn-box {
+    position: absolute;
+    bottom: 0.7rem;
+    width: 100%;
+}
+
+.charity-btn {
+    width: 45%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .charities-title {
+        font-size: 1.5rem;
+    }
 }

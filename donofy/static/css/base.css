@@ -52,6 +52,23 @@ body {
     border: 1px solid #fff;
 }
 
+.btn-pink-outline {
+    background-color: #fff;
+    color: #CD2576;
+    border: 1px solid #CD2576;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-pink-outline:hover,
+.btn-pink-outline:active,
+.btn-pink-outline:focus {
+    color:#fff;
+    background-color: #582E8E;
+    border: 1px solid #fff;
+}
+
 a.a-pink {
     color: #CD2576!important;
 }
@@ -84,6 +101,24 @@ a.a-pink:focus {
     text-decoration: none;
     color: #fff;
     background: #582E8E;
+}
+
+.hover-float {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+}
+
+.hover-float:hover,
+.hover-float:active,
+.hover-float:focus {
+    transform: translateY(-8px);
 }
 
 /* COLOUR SCHEME */
