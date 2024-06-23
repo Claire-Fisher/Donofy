@@ -59,11 +59,23 @@ The functions are all tested via their output displayed in the terminal with pri
 
 Below is a list of bugs I found during the development process by testing myself :-
 
-1. **Deployment Issue** - 
+1. **Testing charities view - IntegrityError1** - 
     * ***Issue Found:*** 
-        * 
+        * IntegrityError thrown when testing charities.views.all_charities view
+        <details><summary>Integrity Error</summary>
+        <img src="documents/testing-images/charities-test-integrityError1.png">
+        </details>
+        <details><summary>Test code</summary>
+        <img src="documents/testing-images/charities-test-integrityError-code1.png">
+        </details>
     * ***Solution Used:*** 
-        * 
+        * Added all remaining fields that will not accept null according to the Charity Model, to the test setup.
+        <details><summary>Integrity Error code fix</summary>
+        <img src="documents/testing-images/charities-test-integrityError-code1-fix.png">
+        </details>
+        <details><summary>Test pass</summary>
+        <img src="documents/testing-images/charities-test-integrityError1-fixed.png">
+        </details>
 
 
 [**Back to top**](#testing-donofy)  
