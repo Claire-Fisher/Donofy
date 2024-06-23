@@ -8,6 +8,8 @@
 {% block content %}
     {% include 'charities/includes/search-filters.html' %}
     <div id="div1" class="container-fluid main-content">
-        <p class="text-pink">Hello</p>
+        {% for charity in charities %}
+            <li class="text-pink">{{ charity.charity_name }}</li>
+        {% endfor %}
     </div>
 {% endblock %}
