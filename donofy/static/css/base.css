@@ -158,7 +158,12 @@ i.icon-lg {
 }
 
 .burger-menu {
-    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.burger-icon {
+    font-size: 2.5rem;
 }
 
 .dropdown-menu.dropdown-menu-right.show {
@@ -252,17 +257,18 @@ i.icon-lg {
 
 /* FOOTER */
 .footer-box {
-    height: 10rem;
+    height: 15rem;
     background-color: #EDCBBD;
 }
 
-.footer-logo {
+.footer-svg {
     object-fit: contain;
-    width: 60px;
+    width: 200px;
+    padding: 4rem 1rem 0 1rem;
 }
 
-.footer-logo-text {
-    bottom: 0;
-    margin: 0;
-    padding: 0;
+.footer-copyright {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-left: 4.7rem;
 }

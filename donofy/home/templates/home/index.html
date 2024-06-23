@@ -5,138 +5,136 @@
     <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
 
-
-
 {% block content %}
-    <div class="container-fluid p-0 m-0">
-        <div class="row p-0 m-0">
-            <img id="hero-img" class="col-12 d-none d-lg-block" src="{% static '/media/hero-img.jpg' %}" center no-repeat>
-            <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static '/media/hero-img-small.jpg' %}" center no-repeat>
-            <!-- Displays on screens with min-width >= 992px -->
-            <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
-                <h1 class="d-none d-lg-block text-white bold pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
-                <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
-                <p class="col-12 text-white p-0 pb-3">
-                    These words are at the core of what we do. We want to encourage anybody and everybody<br> 
-                    to donate as a much or as little as they like to causes and charities they care about.
-                </p>
+<div class="container-fluid p-0 m-0">
+    <div class="row p-0 m-0">
+        <img id="hero-img" class="col-12 d-none d-lg-block" src="{% static '/media/hero-img.jpg' %}" center no-repeat>
+        <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static '/media/hero-img-small.jpg' %}" center no-repeat>
+        <!-- Displays on screens with min-width >= 992px -->
+        <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
+            <h1 class="d-none d-lg-block text-white bold pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
+            <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
+            <p class="col-12 text-white p-0 pb-3">
+                These words are at the core of what we do. We want to encourage anybody and everybody<br> 
+                to donate as a much or as little as they like to causes and charities they care about.
+            </p>
+            {% if request.user.is_authenticated %}
+            {% else %}
+                <a class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white mb-3" href="{% url 'account_login' %}">Sign up / Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Displays on screens with width < 992px -->
+    <div id="hero-text-sm" class="row bg-light-brand text-center col-12 d-block d-lg-none p-0 m-0 mx-auto">
+        <h2 class="col-12 bold text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
+        {% if request.user.is_authenticated %}
+        {% else %}
+            <a class="col-10 col-sm-6 btn btn-lg btn-pink mb-5" href="{% url 'account_login' %}">Sign up / Login</a>
+        {% endif %}
+        <h3 class="col-12 text-center text-pink">“Alone we can do so little; together we can do so much.”<br>- Helen Keller</h3>
+        <p class="text-center text-dark px-3">
+            These words are at the core of what we do. We want to encourage anybody and everybody 
+            to donate as a much or as little as they like to causes and charities they care about.
+        </p>
+    </div>
+    <!-- The power of together section -->
+    <div class="row power-together bg-light-brand py-2 mx-auto">
+        <h2 class="col-12 text-dark bold text-center mb-1">The power of together</h2>
+        <p class="col-12 text-dark text-center mb-4">Below are just some of the numbers powered by Donofy supporters</p>
+    </div>
+    <div class="row bg-light-brand justify-content-center pb-5 m-0">
+        <div class="col-12 col-md-4 col-xl-3 text-center p-0">
+            <i class="icon-lg icon-pink fa-solid fa-users"></i>
+            <p class="text-dark power-figure">22,000</p>
+            <p class="text-dark power-text">Supporters</p>
+        </div>
+        <div class="col-12 col-md-4 col-xl-3 text-center p-0">
+            <i class="icon-lg icon-pink fa-solid fa-gift"></i>
+            <p class="text-dark power-figure">£598,000</p>
+            <p class="text-dark power-text">Raised</p>
+        </div>
+        <div class="col-12 col-md-4 col-xl-3 text-center p-0">
+            <i class="icon-lg icon-pink fa-solid fa-heart"></i>
+            <p class="text-dark power-figure">1,504</p>
+            <p class="text-dark power-text">Charities</p>
+        </div> 
+    </div>
+    <!-- How does Donofy work section -->
+    <div class="row bg-pink-light px-0 py-4 m-0">
+        <div class="col-12">
+            <h2 class="text-dark bold text-center">How does Donofy work?</h2>
+            <p class="text-dark text-center">Getting started with Donofy couldn't be easier!</p>
+        </div>
+    </div>
+    <div class="row bg-pink-light justify-content-center pb-4 mx-auto mb-5">
+        <div class="col-12 col-md-4 col-xl-3 text-center">
+            <div class="card stat-card mb-2">
                 {% if request.user.is_authenticated %}
+                <a href="" class="card-body card-white text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
+                    <h3 class="bold">Find your charities</h3>
+                    <p>Find charities that matter to you and add them to your Donofy favourites</p>
+                </a>
                 {% else %}
-                    <a class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white mb-3" href="{% url 'account_login' %}">Sign up / Login</a>
+                <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
+                    <h3 class="bold">Find your charities</h3>
+                    <p>Find charities that matter to you and add them to your Donofy favourites</p>
+                </a>
                 {% endif %}
             </div>
         </div>
-        <!-- Displays on screens with width < 992px -->
-        <div id="hero-text-sm" class="row bg-light-brand text-center col-12 d-block d-lg-none p-0 m-0 mx-auto">
-            <h2 class="col-12 bold text-pink mx-auto">Spreading affordable support, to your causes, your way.</h2>
-            {% if request.user.is_authenticated %}
-            {% else %}
-                <a class="col-10 col-sm-6 btn btn-lg btn-pink mb-5" href="{% url 'account_login' %}">Sign up / Login</a>
-            {% endif %}
-            <h3 class="col-12 text-center text-pink">“Alone we can do so little; together we can do so much.”<br>- Helen Keller</h3>
-            <p class="text-center text-dark px-3">
-                These words are at the core of what we do. We want to encourage anybody and everybody 
-                to donate as a much or as little as they like to causes and charities they care about.
-            </p>
-        </div>
-        <!-- The power of together section -->
-        <div class="row power-together bg-light-brand py-2 mx-auto">
-            <h2 class="col-12 text-dark bold text-center mb-1">The power of together</h2>
-            <p class="col-12 text-dark text-center mb-4">Below are just some of the numbers powered by Donofy supporters</p>
-        </div>
-        <div class="row bg-light-brand justify-content-center pb-5 m-0">
-            <div class="col-12 col-md-4 col-xl-3 text-center p-0">
-                <i class="icon-lg icon-pink fa-solid fa-users"></i>
-                <p class="text-dark power-figure">22,000</p>
-                <p class="text-dark power-text">Supporters</p>
-            </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center p-0">
-                <i class="icon-lg icon-pink fa-solid fa-gift"></i>
-                <p class="text-dark power-figure">£598,000</p>
-                <p class="text-dark power-text">Raised</p>
-            </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center p-0">
-                <i class="icon-lg icon-pink fa-solid fa-heart"></i>
-                <p class="text-dark power-figure">1,504</p>
-                <p class="text-dark power-text">Charities</p>
-            </div> 
-        </div>
-        <!-- How does Donofy work section -->
-        <div class="row bg-pink-light px-0 py-4 m-0">
-            <div class="col-12">
-                <h2 class="text-dark bold text-center">How does Donofy work?</h2>
-                <p class="text-dark text-center">Getting started with Donofy couldn't be easier!</p>
+        <div class="col-12 col-md-4 col-xl-3 text-center">
+            <div class="card stat-card mb-2">
+                {% if request.user.is_authenticated %}
+                <a href="#" class="card-body card-white text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
+                    <h3 class="bold">Set a donation amount</h3>
+                    <p>Choose how much you want to donate to each of your charities</p>
+                </a>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
+                    <h3 class="bold">Set a donation amount</h3>
+                    <p>Choose how much you want to donate to each of your charities</p>
+                </a>
+                {% endif %}
             </div>
         </div>
-        <div class="row bg-pink-light justify-content-center pb-4 mx-auto mb-5">
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <div class="card stat-card mb-2">
-                    {% if request.user.is_authenticated %}
-                    <a href="" class="card-body card-white text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
-                        <h3 class="bold">Find your charities</h3>
-                        <p>Find charities that matter to you and add them to your Donofy favourites</p>
-                    </a>
-                    {% else %}
-                    <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-magnifying-glass"></i></div>
-                        <h3 class="bold">Find your charities</h3>
-                        <p>Find charities that matter to you and add them to your Donofy favourites</p>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <div class="card stat-card mb-2">
-                    {% if request.user.is_authenticated %}
-                    <a href="#" class="card-body card-white text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
-                        <h3 class="bold">Set a donation amount</h3>
-                        <p>Choose how much you want to donate to each of your charities</p>
-                    </a>
-                    {% else %}
-                    <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
-                        <h3 class="bold">Set a donation amount</h3>
-                        <p>Choose how much you want to donate to each of your charities</p>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-xl-3 text-center">
-                <div class="card stat-card mb-2">
-                    {% if request.user.is_authenticated %}
-                    <a href="#" class="card-body card-white text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
-                        <h3 id="impact-header" class="bold">Make an impact</h3>
-                        <p>Track the impact your financial support has made</p>
-                    </a>
-                    {% else %}
-                    <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
-                        <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
-                        <h3 id="impact-header" class="bold">Make an impact</h3>
-                        <p>Track the impact your financial support has made</p>
-                    </a>
-                    {% endif %}
-                </div>
+        <div class="col-12 col-md-4 col-xl-3 text-center">
+            <div class="card stat-card mb-2">
+                {% if request.user.is_authenticated %}
+                <a href="#" class="card-body card-white text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
+                    <h3 id="impact-header" class="bold">Make an impact</h3>
+                    <p>Track the impact your financial support has made</p>
+                </a>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="card-body card-white stat-card text-center">
+                    <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
+                    <h3 id="impact-header" class="bold">Make an impact</h3>
+                    <p>Track the impact your financial support has made</p>
+                </a>
+                {% endif %}
             </div>
         </div>
-        <!-- Second call-to-action to sign up -->
-        {% if request.user.is_authenticated %}
-        {% else %}
-         <div class="row">
-            <div class="col-11 col-md-10 col-lg-8 mx-auto">
-                <div id="join-today" class="card bg-pink mb-4">
-                    <div class="card-body text-center px-2 py-5 p-md-4 mx-auto">
-                        <h3 class="text-white bold">Join Donofy today</h3>
-                        <p class="text-white">Support the charities and causes you care about, your way.</p>
-                        <a class="btn btn-lg btn-white" href="{% url 'account_signup' %}">Sign Up</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
     </div>
+    <!-- Second call-to-action to sign up -->
+    {% if request.user.is_authenticated %}
+    {% else %}
+        <div class="row">
+        <div class="col-11 col-md-10 col-lg-8 mx-auto">
+            <div id="join-today" class="card bg-pink mb-4">
+                <div class="card-body text-center px-2 py-5 p-md-4 mx-auto">
+                    <h3 class="text-white bold">Join Donofy today</h3>
+                    <p class="text-white">Support the charities and causes you care about, your way.</p>
+                    <a class="btn btn-lg btn-white" href="{% url 'account_signup' %}">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}
 
 {% block postloadjs %}
