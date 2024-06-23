@@ -15,14 +15,17 @@
     </div>
     <div class="container-fluid">
         <h2 class="text-dark text-center charities-title">Browse all Donofy listed charities, or find the ones that matter to you.</h2>
-        <h3 class="text-dark text-center charities-title"><a class="a-pink"href="{% url 'account_signup' %}">Sign up</a>, or <a class="a-pink"href="{% url 'account_login' %}">Log in</a>to start bookmarking your favourites.</h3>
+        {% if request.user.is_authenticated %}
+        {% else %}
+        <h3 class="text-dark text-center charities-title"><a class="a-pink" href="{% url 'account_signup' %}">Sign up</a>, or <a class="a-pink"href="{% url 'account_login' %}">Log in </a>to start bookmarking your favourites.</h3>
+        {% endif %}
     </div>
     <div class="container">
         {% if charities|length > 0 %}
         <div class="row mb-5">
             {% for charity in charities %}
             <div class="col-12 px-xs-0 col-md-6 col-xl-4 my-4 text-center">
-                <a href="{% url 'home' %}">
+                <a href="{% url 'home' %}" aria-hidden="true" tabindex="-1">
                     <div class="card charity-card hover-float shadow bg-light-brand text-center mx-auto">
                         <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{charity.charity_name}} logo"
                             class="card-img-top charity-card-img">
