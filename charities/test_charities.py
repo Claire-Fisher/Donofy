@@ -13,9 +13,9 @@ class TestCharitiesURL(TestCase):
 class TestCharitiesView(TestCase):
 
     def setUp(self):
-        self.charity1 = Charity.objects.create(charity_name='Test-Charity 1', active=True, charity_num=123, description='Test description 1', total_received_monthly={})
-        self.charity2 = Charity.objects.create(charity_name='Test-Charity 2', active=True, charity_num=123, description='Test description 2', total_received_monthly={})
-        self.charity3 = Charity.objects.create(charity_name='Test-Charity 3', active=False, charity_num=123, description='Test description 3', total_received_monthly={})
+        self.charity1 = Charity.objects.create(charity_name='Test-Charity 1', active=True, charity_num=123, category=1, description='Test description 1', total_received_monthly={})
+        self.charity2 = Charity.objects.create(charity_name='Test-Charity 2', active=True, charity_num=123, category=2, description='Test description 2', total_received_monthly={})
+        self.charity3 = Charity.objects.create(charity_name='Test-Charity 3', active=False, charity_num=123, category=3, description='Test description 3', total_received_monthly={})
 
     def test_view_gets_all_charities(self):
         response = self.client.get(reverse('charities'))
