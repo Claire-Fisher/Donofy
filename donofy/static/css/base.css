@@ -121,6 +121,50 @@ a.a-pink:focus {
     transform: translateY(-8px);
 }
 
+/* FORM & INPUT */
+
+#searchbar {
+    background-color: #f6f6f6;
+    border: 1px solid #CD2576;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 90%;
+}
+
+#searchbar:hover,
+#searchbar:active,
+#searchbar:focus {
+    background-color: #fff;
+    border: 1px solid #CD2576!important;
+    outline: none;
+    box-shadow: #222;
+}
+
+.box-sizing:hover,
+.box-sizing:active,
+.box-sizing:hover {
+    border: 1px solid #CD2576;
+}
+
+.btn-white-search {
+    height: auto;
+    background-color: #f6f6f6;
+    color:#CD2576;
+    border: 1px solid #CD2576;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-weight: 600;
+}
+
+.btn-white-search:hover,
+.btn-white-search:active,
+.btn-white-search:focus {
+    background-color: #582E8E;
+    color: #fff;
+}
+
+
 /* COLOUR SCHEME */
 
 .bg-light-brand {
