@@ -128,7 +128,7 @@ a.a-pink:focus {
     border: 1px solid #CD2576;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    width: 90%;
+    width: 80%;
 }
 
 #searchbar:hover,
@@ -140,15 +140,9 @@ a.a-pink:focus {
     box-shadow: #222;
 }
 
-.box-sizing:hover,
-.box-sizing:active,
-.box-sizing:hover {
-    border: 1px solid #CD2576;
-}
-
 .btn-white-search {
     height: auto;
-    background-color: #f6f6f6;
+    box-sizing: content-box;
     color:#CD2576;
     border: 1px solid #CD2576;
     border-left: none;
@@ -160,8 +154,10 @@ a.a-pink:focus {
 .btn-white-search:hover,
 .btn-white-search:active,
 .btn-white-search:focus {
+    box-sizing: content-box;
     background-color: #582E8E;
     color: #fff;
+    border-left: none;
 }
 
 

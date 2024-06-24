@@ -49,3 +49,30 @@
         {% endif %}
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function() {
+            $("#searchbar").on("focus", function() {
+                $('.btn-white-search').removeClass('bg-light-brand');
+                $('.btn-white-search').addClass('bg-white');
+            });
+
+            $("#searchbar").on("blur", function() {
+                $('.btn-white-search').removeClass('bg-white');
+                $('.btn-white-search').addClass('bg-light-brand');
+            });
+
+            $("#searchbar").on("mouseenter", function() {
+                $('.btn-white-search').removeClass('bg-light-brand');
+                $('.btn-white-search').addClass('bg-white');
+            });
+
+            $("#searchbar").on("mouseleave", function() {
+                $('.btn-white-search').removeClass('bg-white');
+                $('.btn-white-search').addClass('bg-light-brand');
+            });
+        });
+    </script>
+{% endblock %}
