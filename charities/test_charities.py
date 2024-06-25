@@ -85,3 +85,13 @@ class TestCharitiesView(TestCase):
         self.assertEqual(charities[0].charity_name, 'A Test-Charity 2')
         self.assertEqual(charities[1].charity_name, 'B Test-Charity 3')
         self.assertEqual(charities[2].charity_name, 'C Test-Charity 1')
+
+    def test_sort_desc_order(self):
+        response = self.client.get(reverse('charities'), {'sort': 'charity_name', 'direction': 'desc'})
+        self.assertEqual(response.status_code, 200)
+        charities = response.context['charities']
+        
+        # Check the correct descending order by charity name
+        self.assertEqual(charities[0].charity_name, 'C Test-Charity 1')
+        self.assertEqual(charities[1].charity_name, 'B Test-Charity 3')
+        self.assertEqual(charities[2].charity_name, 'A Test-Charity 2')
