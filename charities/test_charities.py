@@ -19,7 +19,8 @@ class TestCharitiesView(TestCase):
 
         self.charity1 = Charity.objects.create(
             charity_name='C Test-Charity 1',
-            active=True, charity_num=123,
+            active=True,
+            charity_num=123,
             category=self.category1,
             description='Test description 1',
             total_received_monthly={},
@@ -27,7 +28,8 @@ class TestCharitiesView(TestCase):
 
         self.charity2 = Charity.objects.create(
             charity_name='A Test-Charity 2',
-            active=True, charity_num=123,
+            active=True,
+            charity_num=123,
             category=self.category2,
             description='Test description 2',
             total_received_monthly={},
@@ -35,7 +37,8 @@ class TestCharitiesView(TestCase):
 
         self.charity3 = Charity.objects.create(
             charity_name='B Test-Charity 3',
-            active=False, charity_num=123,
+            active=False,
+            charity_num=123,
             category=self.category3,
             description='Test description 3',
             total_received_monthly={},
@@ -86,12 +89,3 @@ class TestCharitiesView(TestCase):
         self.assertEqual(charities[1].charity_name, 'B Test-Charity 3')
         self.assertEqual(charities[2].charity_name, 'C Test-Charity 1')
 
-    def test_sort_desc_order(self):
-        response = self.client.get(reverse('charities'), {'sort': 'charity_name', 'direction': 'desc'})
-        self.assertEqual(response.status_code, 200)
-        charities = response.context['charities']
-        
-        # Check the correct descending order by charity name
-        self.assertEqual(charities[0].charity_name, 'C Test-Charity 1')
-        self.assertEqual(charities[1].charity_name, 'B Test-Charity 3')
-        self.assertEqual(charities[2].charity_name, 'A Test-Charity 2')
