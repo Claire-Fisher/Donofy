@@ -15,7 +15,7 @@ def all_charities(request):
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            charities = charities.filter(category__name__in=categories)
+            charities = charities.filter(category__id__in=categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
