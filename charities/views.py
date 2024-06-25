@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Charity
+from .models import Charity, Category
 
 
 def all_charities(request):
@@ -10,8 +10,21 @@ def all_charities(request):
     charities = Charity.objects.filter(active=True)
     inactive_charities = Charity.objects.filter(active=False)
     query = None
+    categories = None
+    sort = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'category':
+                sortkey = 'category__name'
+
+        if 'category' in request.GET:
+            categories = request.GET['category']
+            charities = charities.filter(category__name__in=categories, active=True)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -21,10 +34,15 @@ def all_charities(request):
             queries = Q(charity_name__icontains=query) | Q(description__icontains=query)
             charities = Charity.objects.filter(queries, active=True)
 
+        queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
+        charities = charities.filter(queries)
+
     context = {
         'charities': charities,
         'inactive_charities': inactive_charities,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'charities/charities.html', context)
