@@ -16,3 +16,17 @@
         </button>
     </div>
 </form>
+<div class="dropdown col-12 text-center">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+        Categories
+    </button>
+    <div class="dropdown-menu">
+        <a href="{% url 'charities' %}" class="dropdown-item">All Categories</a>
+        <a href="{% url 'charities' %}?category=animals_wildlife" class="dropdown-item">Animals &amp; Wildlife</a>
+        <a href="{% url 'charities' %}?category=children_youth" class="dropdown-item">Children &amp; Youth</a>
+        <a href="{% url 'charities' %}?category=aged" class="dropdown-item">Aged</a>
+        <a href="{% url 'charities' %}?category=disability" class="dropdown-item">Disability</a>
+        <a href="{% url 'charities' %}?category=mental_health" class="dropdown-item">Mental Health</a>
+    </div>
+</div>
+ 

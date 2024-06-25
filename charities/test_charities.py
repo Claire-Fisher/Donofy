@@ -71,7 +71,7 @@ class TestCharitiesView(TestCase):
         self.assertEqual(len(response.context['charities']), 0)
 
     def test_sort_by_category(self):
-        response = self.client.get(reverse('charities'), {'category': self.category1.id})
+        response = self.client.get(reverse('charities'), {'category': self.category1.name})
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.charity1.charity_name)
         self.assertNotContains(response, self.charity2.charity_name)
