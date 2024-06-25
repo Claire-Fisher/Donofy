@@ -18,7 +18,7 @@ class TestCharitiesView(TestCase):
         self.category3 = Category.objects.create(name='Category3')
 
         self.charity1 = Charity.objects.create(
-            charity_name='Test-Charity 1',
+            charity_name='C Test-Charity 1',
             active=True, charity_num=123,
             category=self.category1,
             description='Test description 1',
@@ -26,7 +26,7 @@ class TestCharitiesView(TestCase):
         )
 
         self.charity2 = Charity.objects.create(
-            charity_name='Test-Charity 2',
+            charity_name='A Test-Charity 2',
             active=True, charity_num=123,
             category=self.category2,
             description='Test description 2',
@@ -34,7 +34,7 @@ class TestCharitiesView(TestCase):
         )
 
         self.charity3 = Charity.objects.create(
-            charity_name='Test-Charity 3',
+            charity_name='B Test-Charity 3',
             active=False, charity_num=123,
             category=self.category3,
             description='Test description 3',
@@ -50,7 +50,7 @@ class TestCharitiesView(TestCase):
     
     def test_search_query(self):
         # Test search by name
-        response = self.client.get(reverse('charities'), {'q': 'Test-Charity 1'})
+        response = self.client.get(reverse('charities'), {'q': 'C Test-Charity 1'})
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.charity1.charity_name)
         self.assertNotContains(response, self.charity2.charity_name)
@@ -77,3 +77,11 @@ class TestCharitiesView(TestCase):
         self.assertNotContains(response, self.charity2.charity_name)
         self.assertNotContains(response, self.charity3.charity_name)
         self.assertEqual(len(response.context['charities']), 1)
+
+    def test_sort_asc_order(self):
+        response = self.client.get(reverse('charities'), {'sort': 'charity_name', 'direction': 'asc'})
+        self.assertEqual(response.status_code, 200)
+        charities = response.context['charities']
+        self.assertEqual(charities[0].charity_name, 'A Test-Charity 2')
+        self.assertEqual(charities[1].charity_name, 'B Test-Charity 3')
+        self.assertEqual(charities[2].charity_name, 'C Test-Charity 1')
