@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Charity, Category
 
-
 def all_charities(request):
     """ A view to show all charities, including search queries """
 
@@ -14,29 +13,18 @@ def all_charities(request):
     sort = None
 
     if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'category':
-                sortkey = 'category__name'
-
         if 'category' in request.GET:
-            categories = request.GET['category']
-            charities = charities.filter(category__name__in=categories, active=True)
-            categories = Category.objects.filter(name__in=categories)
+            categories = request.GET['category'].split(',')
+            charities = charities.filter(category__name__in=categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "Oops! You didn't search for anything!")
                 return redirect(reverse('charities'))
-            
-            queries = Q(charity_name__icontains=query) | Q(description__icontains=query)
-            charities = Charity.objects.filter(queries, active=True)
 
-        queries = Q(name__icontains=query) | Q(
-                description__icontains=query)
-        charities = charities.filter(queries)
+            queries = Q(charity_name__icontains=query) | Q(description__icontains=query)
+            charities = charities.filter(queries)
 
     context = {
         'charities': charities,
