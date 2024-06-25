@@ -24,6 +24,7 @@
 .form-control-lg-custom2:active,
 .form-control-lg-custom2:focus {
     border: 1px solid #CD2576!important;
+    background-color: #fff;
 }
 
 .form-control-lg-custom2 {
