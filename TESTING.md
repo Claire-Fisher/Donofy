@@ -77,7 +77,7 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <details><summary>Test pass</summary>
         <img src="documents/testing-images/charities-test-integrityError1-fixed.png">
         </details>
-2. **Testing charities category sort - ValueError** - 
+2. **Testing charities category sort**
     * ***Issue Found:***
         <details><summary>Initial test failing</summary>
         <img src="documents/testing-images/charities-test-cate-sort-fail.png">
@@ -93,6 +93,27 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         * Assertion Error: filters category by ID instead of name
         <details><summary>Test Pass</summary>
         <img src="documents/testing-images/charities-test-cate-sort-pass.png">
+        </details>
+3. **Testing charities ASC / DESC order sort**
+    * ***Issue Found:***
+        <details><summary>Initial test failing</summary>
+        <img src="documents/testing-images/charities-test-asc-desc-sort-fail.png">
+        </details>
+        <details><summary>Name Error: Lower is not defined</summary>
+        <img src="documents/testing-images/charities-test-asc-desc-sort-NameError-lower.png">
+        </details>
+        <details><summary>Assertion Error</summary>
+        <img src="documents/testing-images/charities-test-asc-desc-sort-AssertionError.png">
+        </details>
+        <details><summary>Assertion Error ASC only</summary>
+        <img src="documents/testing-images/charities-test-asc-sort-2.png">
+        </details>
+    * ***Solution Used:*** 
+        * Name Error: added from django.db.models.functions import Lower
+        * Assertion Error: had to abandon ascend/descend feature. Category sorts will automatically sort by ascending instead.
+        * Assertion Error ASC only: removed the charity with active=False as that was creating the mis-ording and causing the test to fail
+        <details><summary>Test Pass</summary>
+        <img src="documents/testing-images/charities-test-asc-sort-pass.png">
         </details>
 
 
