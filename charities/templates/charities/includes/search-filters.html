@@ -1,15 +1,17 @@
 <form method="GET" action="{% url 'charities' %}" class="row m-0 p-0">
-    <div class="input-group d-none d-sm-flex col-12 col-md-10 p-0 mx-auto justify-content-start searchbar-group">
-        <input class="searchbar form-control-lg" type="text" name="q" placeholder="Search our charities">
-        <div class="input-group-append">
-            <button class="form-control-lg btn btn-lg btn-white-search bg-light-brand" type="submit">
-                <span class="icon bold"><i class="fas fa-search"></i> Search</span>
+    <div class="input-group flex-nowrap d-none d-sm-flex col-12 col-md-10 mx-auto">
+        <input class="form-control-lg-custom"
+            type="text" placeholder="Search our charities" aria-label="Search our charities">
+        <div class="input-group-append d-none d-sm-flex">
+            <button class="input-group-text btn btn-lg btn-pink-search" id="basic-addon2">
+            <span class="icon bold"><i class="fas fa-search"></i> Search</span>
             </button>
         </div>
     </div>
-    <div class="col-12 p-0 mx-auto justify-content-center">
-        <input class="searchbar form-control-lg col-12 d-block d-sm-none searchbar-xs my-2" type="text" name="q" placeholder="Search our charities"></div>
-        <button class="form-control-lg col-12 d-block d-sm-none btn btn-lg btn-pink" type="submit">
+    <div class="col-12 d-sm-none px-0 mx-0">
+        <input class="searchbar-xs form-control-lg form-control-lg-custom2 my-2"
+            type="text" name="q" placeholder="Search our charities" aria-label="Search our charities"></div>
+        <button class="btn btn-lg btn-pink col-12 d-sm-none" type="submit">
             <span class="icon bold"><i class="fas fa-search"></i> Search</span>
         </button>
     </div>

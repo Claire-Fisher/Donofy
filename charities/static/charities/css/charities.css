@@ -1,13 +1,35 @@
 .charities-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
-.searchbar-group {
-    background-color: #f6f6f6;
+.charities-signup-prompt {
+    font-size: 1.2rem;
+}
+
+.search-row {
+    padding-left: 1rem;
+}
+
+.form-control-lg-custom {
     border: 1px solid #CD2576;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    flex: 1 1 auto;
+    width: 100%;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.form-control-lg-custom:hover,
+.form-control-lg-custom:active,
+.form-control-lg-custom:focus,
+.form-control-lg-custom2:hover,
+.form-control-lg-custom2:active,
+.form-control-lg-custom2:focus {
+    border: 1px solid #CD2576!important;
+}
+
+.form-control-lg-custom2 {
+    border: 1px solid #CD2576;
+    width: 100%;
+    border-radius: 0.25rem;
 }
 
 .searchbar-xs {
@@ -20,14 +42,12 @@
 .searchbar:focus {
     background-color: #fff;
     border: 1px solid #CD2576!important;
-    outline: none;
-    box-shadow: #222;
 }
 
-.btn-white-search {
+.btn-pink-search {
     height: auto;
-    box-sizing: content-box;
-    color:#CD2576;
+    background-color: #CD2576;
+    color:#fff;
     border: 1px solid #CD2576;
     border-left: none;
     border-top-left-radius: 0;
@@ -35,11 +55,12 @@
     white-space: nowrap;
 }
 
-.btn-white-search:hover,
-.btn-white-search:active,
-.btn-white-search:focus {
+.btn-pink-search:hover,
+.btn-pink-search:active,
+.btn-pink-search:focus {
     box-sizing: content-box;
     background-color: #582E8E;
+    border: 1px solid #fff;
     color: #fff;
     border-left: none;
 }
@@ -82,6 +103,12 @@
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .charities-title {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
+    }
+    .charities-signup-prompt {
+        font-size: 1rem;
+    }
+    .search-row {
+        padding-left: 0;
     }
 }

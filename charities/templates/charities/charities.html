@@ -6,29 +6,29 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid bg-light-brand">
-        <div class="row search-row py-2">
+    <div class="container bg-light-brand">
+        <!-- headings -->
+        <div class="row search-row pb-2 pt-5">
             <div class="col-12 col-md-10 mx-auto">
-                <h1 class="charities-title text-dark bold">Browse all Donofy listed charities, or find the ones that matter to you.</h1>
+                <h1 class="charities-title text-dark bold">Find charities that matter to you.</h1>
+                {% if request.user.is_authenticated %}
+                {% else %}
+                <!-- prompt user to signup/signin to use favourites feature -->
+                <h3 class="text-dark charities-signup-prompt my-2">
+                    <a class="a-pink" href="{% url 'account_signup' %}">Sign up</a>, or 
+                    <a class="a-pink"href="{% url 'account_login' %}">Log in </a>to start bookmarking your favourites.
+                </h3>
+                {% endif %}
             </div>
         </div>
         <!-- searchbar -->
         {% include 'charities/includes/search-filters.html' %}
     </div>
     <div class="container-fluid">
-        {% if request.user.is_authenticated %}
-        {% else %}
-        <!-- prompt user to signup/signin to use favourites feature -->
-        <h3 class="text-dark text-center charities-title">
-            <a class="a-pink" href="{% url 'account_signup' %}">Sign up</a>, or 
-            <a class="a-pink"href="{% url 'account_login' %}">Log in </a>to start bookmarking your favourites.
-        </h3>
-        {% endif %}
         <!-- user feedback on number of charities filters -->
         <div class="row bg-light-brand">
             <div class="col-12"></div>
-            <h5 class="col-12 text-center text-dark my-2 p-0">{{ charities|length }} Charities Found</h5>
-
+            <h5 class="col-12 text-center text-dark mt-5 mb-0 p-0">{{ charities|length }} Charities Found</h5>
         </div>
     </div>
     <div class="container">
@@ -59,31 +59,4 @@
         </div>
         {% endif %}
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    <script>
-        $(document).ready(function() {
-            $(".searchbar").on("focus", function() {
-                $('.btn-white-search').removeClass('bg-light-brand');
-                $('.btn-white-search').addClass('bg-white');
-            });
-
-            $(".searchbar").on("blur", function() {
-                $('.btn-white-search').removeClass('bg-white');
-                $('.btn-white-search').addClass('bg-light-brand');
-            });
-
-            $(".searchbar").on("mouseenter", function() {
-                $('.btn-white-search').removeClass('bg-light-brand');
-                $('.btn-white-search').addClass('bg-white');
-            });
-
-            $(".searchbar").on("mouseleave", function() {
-                $('.btn-white-search').removeClass('bg-white');
-                $('.btn-white-search').addClass('bg-light-brand');
-            });
-        });
-    </script>
 {% endblock %}
