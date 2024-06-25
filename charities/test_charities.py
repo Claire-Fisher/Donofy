@@ -76,4 +76,4 @@ class TestCharitiesView(TestCase):
         self.assertContains(response, self.charity1.charity_name)
         self.assertNotContains(response, self.charity2.charity_name)
         self.assertNotContains(response, self.charity3.charity_name)
-        self.assertEqual(len(response.context['charities'][0]), self.charity1)
+        self.assertEqual(len(response.context['charities']), 1)
