@@ -26,11 +26,25 @@
         <!-- searchbar -->
         {% include 'charities/includes/search-filters.html' %}
     </div>
-    <div class="container-fluid">
-        <!-- user feedback on number of charities filters -->
-        <div class="row bg-light-brand">
-            <div class="col-12"></div>
-            <h5 class="col-12 text-center text-dark mt-5 mb-0 p-0">{{ charities|length }} Charities Found</h5>
+    <div class="container">
+        <!-- categories dropdown menu -->
+        <div class="row bg-light-brand row m-0 p-0">
+            <div class="col-12">
+                <!-- user feedback on number of charities filters -->
+                <p class="text-dark my-1">{{ charities|length }} Charities Found</p>
+                <button class="btn btn-lg btn-pink-outline my-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <span class="icon bold"><i class="fas fa-chevron-down"></i> Categories</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="{% url 'charities' %}" class="dropdown-item">All Categories</a>
+                    <a href="{% url 'charities' %}?category=animals_wildlife" class="dropdown-item">Animals &amp; Wildlife</a>
+                    <a href="{% url 'charities' %}?category=children_youth" class="dropdown-item">Children &amp; Youth</a>
+                    <a href="{% url 'charities' %}?category=aged" class="dropdown-item">Aged</a>
+                    <a href="{% url 'charities' %}?category=disability" class="dropdown-item">Disability</a>
+                    <a href="{% url 'charities' %}?category=mental_health" class="dropdown-item">Mental Health</a>
+                </div>
+            </div>
+            <!-- categories dropdown menu button -->
         </div>
     </div>
     <div class="container">

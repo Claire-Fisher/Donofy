@@ -1,32 +1,22 @@
 <form method="GET" action="{% url 'charities' %}" class="row m-0 p-0">
+    <!-- searchbar on screens >= 576px -->
     <div class="input-group flex-nowrap d-none d-sm-flex col-12 col-md-10 mx-auto">
-        <input class="form-control-lg-custom"
-            type="text" placeholder="Search our charities" aria-label="Search our charities">
+        <input class="form-control-lg-custom shadow"
+            type="text" name="q" placeholder="Search our charities" aria-label="Search our charities">
         <div class="input-group-append d-none d-sm-flex">
-            <button class="input-group-text btn btn-lg btn-pink-search" id="basic-addon2">
-            <span class="icon bold"><i class="fas fa-search"></i> Search</span>
+            <button class="input-group-text btn btn-lg btn-pink-search shadow" type="submit">
+                <span class="icon bold"><i class="fas fa-search"></i> Search</span>
             </button>
         </div>
     </div>
+</form>
+<form method="GET" action="{% url 'charities' %}" class="row m-0 p-0">
+    <!-- searchbar on screens < 576px -->
     <div class="col-12 d-sm-none px-0 mx-0">
-        <input class="searchbar-xs form-control-lg form-control-lg-custom2 my-2"
+        <input class="searchbar-xs form-control-lg form-control-lg-custom2 my-2 shadow"
             type="text" name="q" placeholder="Search our charities" aria-label="Search our charities"></div>
-        <button class="btn btn-lg btn-pink col-12 d-sm-none" type="submit">
+        <button class="btn btn btn-lg btn-pink col-12 d-sm-none shadow" type="submit">
             <span class="icon bold"><i class="fas fa-search"></i> Search</span>
         </button>
     </div>
 </form>
-<div class="dropdown col-12 text-center">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-        Categories
-    </button>
-    <div class="dropdown-menu">
-        <a href="{% url 'charities' %}" class="dropdown-item">All Categories</a>
-        <a href="{% url 'charities' %}?category=animals_wildlife" class="dropdown-item">Animals &amp; Wildlife</a>
-        <a href="{% url 'charities' %}?category=children_youth" class="dropdown-item">Children &amp; Youth</a>
-        <a href="{% url 'charities' %}?category=aged" class="dropdown-item">Aged</a>
-        <a href="{% url 'charities' %}?category=disability" class="dropdown-item">Disability</a>
-        <a href="{% url 'charities' %}?category=mental_health" class="dropdown-item">Mental Health</a>
-    </div>
-</div>
- 
