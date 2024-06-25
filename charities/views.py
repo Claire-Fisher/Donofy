@@ -11,14 +11,10 @@ def all_charities(request):
     inactive_charities = Charity.objects.filter(active=False)
     query = None
     categories = None
-    sort = None
-    direction = None
+    sort = 'charity_name'
+    direction = 'asc'
 
     if request.GET:
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            charities = charities.filter(category__name__in=categories)
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -28,26 +24,28 @@ def all_charities(request):
             queries = Q(charity_name__icontains=query) | Q(description__icontains=query)
             charities = charities.filter(queries)
 
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'charity_name':
-                sortkey = 'lower_name'
-                charities = charities.annotate(lower_name=Lower('charity_name'))
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            charities = charities.order_by(sortkey)
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            charities = charities.filter(category__name__in=categories)
 
-    current_sorting = f'{sort}_{direction}' if sort and direction else None
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            if sort == 'charity_name':
+                charities = charities.annotate(lower_name=Lower('charity_name'))
+                sort = 'lower_name'
+
+        if 'direction' in request.GET:
+            direction = request.GET['direction']
+            if direction == 'desc':
+                sort = f'-{sort}'
+
+    charities = charities.order_by(sort)
 
     context = {
         'charities': charities,
         'inactive_charities': inactive_charities,
         'search_term': query,
         'current_categories': categories,
-        'current_sorting': current_sorting,
     }
 
     return render(request, 'charities/charities.html', context)
