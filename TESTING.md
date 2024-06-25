@@ -6,7 +6,7 @@ This project was tested continuously during development. Post build, the site ha
 **PLEASE NOTE: This documentation contains many images which can be viewed via a dropdown toggle.**
 ## Table of Contents
 * [**During Development Testing**](#during-development-testing)
-    * [*Manual Testing*](#manual-testing)
+    * [*Testing*](#testing)
     * [*Bugs and Fixes*](#bugs-and-fixes)
 * [**Post Development Testing**](#post-development-testing)
   * [**Post Development Testing Expanded**](#post-development-testing-expanded)
@@ -23,7 +23,8 @@ This project was tested continuously during development. Post build, the site ha
 * [**With Thanks**](#thank-you-to-my-product-testers)
 
 ## **During Development Testing**
-During the development process, I was manually testing in the following ways:-
+This project has been developed partially with a TTD approach. 
+During the development process, I also manually tested continuously in the following ways:-
 
 1. Manually tested each element for appearance and responsiveness via a simulated live server by running app.py in PORT 5000.
 
@@ -31,7 +32,7 @@ During the development process, I was manually testing in the following ways:-
     
 3. Sought feedback from my mentor and student peers at key intervals during development. 
 
-## Manual Testing:
+## Testing:
 
 ### Browser Compatibility
 During testing, I used three different browsers to ensure cross-compatibility. The desktop browsers used by myself were:
@@ -52,12 +53,12 @@ INSERT IMAGE MOBILE
 INSERT IMAGE DESKTOP
 
 ### Function Testing
-The functions are all tested via their output displayed in the terminal with print statements, the browser display, or both. (All print statements have been removed in the final version of the project).
+The functions are built using a TDD approach, and also thoroughly manually tested via their output displayed in the terminal with print statements, the browser display, or both. (All print statements have been removed in the final version of the project).
 
 [**Back to top**](#testing-donofy)
 ## ***Bugs and Fixes:***
 
-Below is a list of bugs I found during the development process by testing myself :-
+Below is a list of bugs I discovered and fixed using TDD and manual testing :-
 
 1. **Testing charities view - IntegrityError1** - 
     * ***Issue Found:*** 
@@ -75,6 +76,23 @@ Below is a list of bugs I found during the development process by testing myself
         </details>
         <details><summary>Test pass</summary>
         <img src="documents/testing-images/charities-test-integrityError1-fixed.png">
+        </details>
+2. **Testing charities category sort - ValueError** - 
+    * ***Issue Found:***
+        <details><summary>Initial test failing</summary>
+        <img src="documents/testing-images/charities-test-cate-sort-fail.png">
+        </details>
+        <details><summary>Value Error</summary>
+        <img src="documents/testing-images/charities-test-cate-sort-valueError.png">
+        </details>
+        <details><summary>Assertion Error</summary>
+        <img src="documents/testing-images/charities-test-cate-sort-AssertionError.png">
+        </details>
+    * ***Solution Used:*** 
+        * Value Error: required importing Charity model, and fixing some syntax.
+        * Assertion Error: filters category by ID instead of name
+        <details><summary>Test Pass</summary>
+        <img src="documents/testing-images/charities-test-cate-sort-pass.png">
         </details>
 
 
