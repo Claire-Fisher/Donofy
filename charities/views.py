@@ -49,3 +49,15 @@ def all_charities(request):
     }
 
     return render(request, 'charities/charities.html', context)
+
+
+def charity_detail(request, charity_id):
+    """ A view to show individual charity details """
+
+    charity = get_object_or_404(Charity, pk=charity_id)
+
+    context = {
+        'charity': charity,
+    }
+
+    return render(request, 'charities/charity_detail.html', context)
