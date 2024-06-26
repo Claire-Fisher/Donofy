@@ -1,5 +1,6 @@
 .charities-title {
     font-size: 1.5rem;
+    line-height: 1.5rem;
 }
 
 .charities-signup-prompt {
@@ -47,6 +48,25 @@
 
 .charity-card-btn {
     width: 45%;
+}
+
+/* CHARITY DETAILS PAGE */
+
+.charity-total-box {
+    padding-top: 1rem;
+    margin-left: 0.9rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.charity-total {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.charity-general-img {
+    background-color: #f6f6f6;
+    object-fit: contain;
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {

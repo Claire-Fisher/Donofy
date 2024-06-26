@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'charities/css/charities.css' %}">
+{% endblock %}
+
+{% block extra_title %}{charity-details}{% endblock %}
+
+{% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <!-- charity general image / swaps to order 2nd on screens >= 992px wide -->
+            <div class="col-12 col-lg-6 order-lg-2">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="{{charity.image_url}}" alt="{{charity.image_description|linebreaksbr }}"
+                            class="charity-general-img m-0 p-0">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 order-lg-1">
+                <!-- charity name and register number -->
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="bold text-dark">{{charity.charity_name}}</h1>
+                        <p>Registered charity number {{charity.charity_num}}</p>
+                    </div>
+                </div>
+                <!-- charity total pink box -->
+                <div class="row">
+                    <div class="col-12 charity-total-box bg-pink-light">
+                        <p class="charity-total text-dark text-center extra-bold mb-0">£{{charity.total_received}}</p>
+                        <p class="charities-title text-dark text-center">Money raised</p>
+                    </div>
+                </div>
+                <!-- charity description -->
+                <div class="row">
+                    <div class="col-12">
+                        <p class="text-dark">{{charity.description|linebreaksbr }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 
