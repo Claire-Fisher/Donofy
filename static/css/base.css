@@ -10,7 +10,7 @@ html {
 
 body {
     padding: 0;
-    margin-top: 90px;
+    margin-top: 80px;
     height: calc(100vh - 60px);
     color: #222;
     background-color: #f6f6f6;
@@ -153,6 +153,11 @@ a.a-pink:focus {
 
 .bold {
     font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.extra-bold {
+    font-weight: 800;
     letter-spacing: 1.5px;
 }
 
