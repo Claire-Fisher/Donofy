@@ -28,6 +28,7 @@ class Charity(models.Model):
     description = models.TextField(max_length=1800)
     website_url = models.URLField(max_length=1024, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_description = models.CharField(max_length=254, null=True, blank=True)
     logo_image = models.ImageField(null=True, blank=True)
     impact1 = models.TextField(max_length=254, null=True, blank=True)
     impact2 = models.TextField(max_length=254, null=True, blank=True)
