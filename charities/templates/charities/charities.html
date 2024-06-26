@@ -29,8 +29,9 @@
     <div class="container">
         <!-- categories dropdown menu -->
         <div class="row bg-light-brand justify-content-between m-0 p-0">
-            <button class="btn btn-lg btn-pink-outline shadow-sm order-sm-2 col-12 col-sm-6 col-lg-3 my-1" type="button" data-toggle="dropdown" aria-expanded="false">
-                <span class="icon bold"><i class="fas fa-chevron-down"></i> Categories</span>
+            <button class="dropdown-toggle btn btn-lg btn-pink-outline shadow-sm order-sm-2 col-12 col-sm-6 col-lg-3 my-1"
+                type="button" data-toggle="dropdown" aria-expanded="false">
+                Categories
             </button>
             <div class="dropdown-menu categories-btn dropdown-menu-right bg-pink-light">
                 <a href="{% url 'charities' %}" class="dropdown-item drop-item-h bg-pink-light bold">All Categories</a>
@@ -49,13 +50,13 @@
         <div class="row mb-5">
             {% for charity in charities %}
             <div class="col-12 px-xs-0 col-md-6 col-xl-4 my-4 text-center">
-                <a href="{% url 'home' %}" aria-hidden="true" tabindex="-1">
+                <a href="{% url 'charity_detail' charity.id %}" aria-hidden="true" tabindex="-1">
                     <div class="card charity-card hover-float shadow bg-light-brand text-center mx-auto">
                         <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{charity.charity_name}} logo"
                             class="card-img-top charity-card-img">
                         <h3 class="card-text charity-card-title text-dark bold p-2 mt-1">{{ charity.charity_name }}</h3>
                         <div class="charity-card-btn-box">
-                            <button class="btn btn-lg btn-pink-outline charity-card-btn">Info</button>
+                            <a href="{% url 'charity_detail' charity.id %}" class="btn btn-lg btn-pink-outline charity-card-btn">Info</a>
                             <button class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
                         </div>
                     </div>
