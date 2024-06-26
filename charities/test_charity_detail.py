@@ -16,4 +16,4 @@ class TestCharityDetailURL(TestCase):
 
     def test_charity_detail_template_used(self):
         response = self.client.get(reverse('charity_detail', args=[self.charity1.id]))
-        self.assertTemplateUsed(response, 'charity_detail.html')
+        self.assertTemplateUsed(response, 'charities/charity_detail.html')
