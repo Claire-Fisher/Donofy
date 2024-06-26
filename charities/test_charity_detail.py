@@ -7,7 +7,11 @@ class TestCharityDetailURL(TestCase):
     def setUp(self):
         self.charity1 = Charity.objects.create(
             id=1,
-            charity_name="Charity1",
+            charity_name='C Test-Charity 1',
+            active=True,
+            charity_num=123,
+            description='Test description 1',
+            total_received_monthly={},
         )
 
     def test_charity_detail_template_used(self):
