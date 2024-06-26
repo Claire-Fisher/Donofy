@@ -57,7 +57,7 @@
               <a class="nav-link drop-item-h text-pink bold dropdown-toggle" href="#" id="user-options"role="button" data-toggle="dropdown" aria-expanded="false">
                 My Account
               </a>
-              <div class="dropdown-menu dropdown-menu-right shadow border-pink bold" aria-labelledby="user-options">
+              <div class="dropdown-menu dropdown-menu-right shadow bold" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                     <a href="#" class="dropdown-item drop-item-h text-pink bold">Product Management</a>
