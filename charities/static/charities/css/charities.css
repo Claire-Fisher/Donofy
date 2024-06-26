@@ -6,69 +6,16 @@
     font-size: 1.2rem;
 }
 
-.search-row {
-    padding-left: 1rem;
-}
-
-.form-control-lg-custom {
-    border: 1px solid #CD2576;
-    width: 100%;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-
-.form-control-lg-custom:hover,
-.form-control-lg-custom:active,
-.form-control-lg-custom:focus,
-.form-control-lg-custom2:hover,
-.form-control-lg-custom2:active,
-.form-control-lg-custom2:focus {
-    border: 1px solid #CD2576!important;
-    background-color: #fff;
-}
-
-.form-control-lg-custom2 {
-    border: 1px solid #CD2576;
-    width: 100%;
-    border-radius: 0.25rem;
-}
-
-.searchbar-xs {
-    background-color: #f6f6f6;
+.search-control {
     border: 1px solid #CD2576;
 }
 
-.searchbar:hover,
-.searchbar:active,
-.searchbar:focus {
-    background-color: #fff;
-    border: 1px solid #CD2576!important;
-}
-
-.btn-pink-search {
-    height: auto;
-    background-color: #CD2576;
-    color:#fff;
-    border: 1px solid #CD2576;
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    white-space: nowrap;
-}
-
-.btn-pink-search:hover,
-.btn-pink-search:active,
-.btn-pink-search:focus {
-    box-sizing: content-box;
-    background-color: #582E8E;
-    border: 1px solid #fff;
-    color: #fff;
-    border-left: none;
-}
 .search-text {
     line-height: 2;
     border: 2px dotted #fff;
 }
+
+/* CHARITY CARDS */
 
 .charity-card {
     width: 290px;
@@ -98,7 +45,7 @@
     width: 100%;
 }
 
-.charity-btn {
+.charity-card-btn {
     width: 45%;
 }
 
@@ -111,5 +58,11 @@
     }
     .search-row {
         padding-left: 0;
+    }
+    .char-len {
+        text-align: center;
+    }
+    .categories-btn {
+        width: 100%;
     }
 }

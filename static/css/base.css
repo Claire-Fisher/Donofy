@@ -89,6 +89,15 @@ a.a-pink:focus {
     color: #582E8E;
 }
 
+.dropdown-item {
+    font-size: 1.2rem;
+}
+
+.drop-item-h {
+    height: 3rem;
+    line-height: 3rem;
+}
+
 .card-white {
     background-color: #f6f6f6;
     color: #222;

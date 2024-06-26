@@ -10,9 +10,9 @@
 {% block content %}
     <div class="container bg-light-brand">
         <!-- headings -->
-        <div class="row search-row pb-2 pt-5">
-            <div class="col-12 col-md-10 mx-auto">
-                <h1 class="charities-title text-dark bold">Find charities that matter to you.</h1>
+        <div class="row pt-5">
+            <div class="col-12 col-md-10">
+                <h1 class="charities-title text-pink bold">Find charities that matter to you.</h1>
                 {% if request.user.is_authenticated %}
                 {% else %}
                 <!-- prompt user to signup/signin to use favourites feature -->
@@ -28,23 +28,20 @@
     </div>
     <div class="container">
         <!-- categories dropdown menu -->
-        <div class="row bg-light-brand row m-0 p-0">
-            <div class="col-12">
-                <!-- user feedback on number of charities filters -->
-                <p class="text-dark my-1">{{ charities|length }} Charities Found</p>
-                <button class="btn btn-lg btn-pink-outline my-1" type="button" data-toggle="dropdown" aria-expanded="false">
-                    <span class="icon bold"><i class="fas fa-chevron-down"></i> Categories</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a href="{% url 'charities' %}" class="dropdown-item">All Categories</a>
-                    <a href="{% url 'charities' %}?category=animals_wildlife" class="dropdown-item">Animals &amp; Wildlife</a>
-                    <a href="{% url 'charities' %}?category=children_youth" class="dropdown-item">Children &amp; Youth</a>
-                    <a href="{% url 'charities' %}?category=aged" class="dropdown-item">Aged</a>
-                    <a href="{% url 'charities' %}?category=disability" class="dropdown-item">Disability</a>
-                    <a href="{% url 'charities' %}?category=mental_health" class="dropdown-item">Mental Health</a>
-                </div>
+        <div class="row bg-light-brand justify-content-between m-0 p-0">
+            <button class="btn btn-lg btn-pink-outline shadow-sm order-sm-2 col-12 col-sm-6 col-lg-3 my-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                <span class="icon bold"><i class="fas fa-chevron-down"></i> Categories</span>
+            </button>
+            <div class="dropdown-menu categories-btn dropdown-menu-right bg-pink-light">
+                <a href="{% url 'charities' %}" class="dropdown-item drop-item-h bg-pink-light bold">All Categories</a>
+                <a href="{% url 'charities' %}?category=animals_wildlife" class="dropdown-item drop-item-h bg-pink-light bold">Animals &amp; Wildlife</a>
+                <a href="{% url 'charities' %}?category=children_youth" class="dropdown-item drop-item-h bg-pink-light bold">Children &amp; Youth</a>
+                <a href="{% url 'charities' %}?category=aged" class="dropdown-item drop-item-h bg-pink-light bold">Aged</a>
+                <a href="{% url 'charities' %}?category=disability" class="dropdown-item drop-item-h bg-pink-light bold">Disability</a>
+                <a href="{% url 'charities' %}?category=mental_health" class="dropdown-item drop-item-h bg-pink-light bold">Mental Health</a>
             </div>
-            <!-- categories dropdown menu button -->
+            <!-- user feedback on number of charities filters -->
+            <p class="char-len charities-title text-dark order-sm-1 my-1 p-0 col-12 col-sm-6 pt-2">{{ charities|length }} Charities Found</p>
         </div>
     </div>
     <div class="container">
@@ -58,8 +55,8 @@
                             class="card-img-top charity-card-img">
                         <h3 class="card-text charity-card-title text-dark bold p-2 mt-1">{{ charity.charity_name }}</h3>
                         <div class="charity-card-btn-box">
-                            <button class="btn btn-lg btn-pink-outline charity-btn">Info</button>
-                            <button class="btn btn-lg btn-pink-outline charity-btn">Favourite</button>
+                            <button class="btn btn-lg btn-pink-outline charity-card-btn">Info</button>
+                            <button class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
                         </div>
                     </div>
                 </a>
