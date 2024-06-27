@@ -68,7 +68,7 @@
 					{% if request.user.is_superuser %}
 						<a href="#" class="dropdown-item drop-item-h text-pink bold">Product Management</a>
 					{% endif %}
-					<a href="#" aria-label="link to my profile page"
+					<a href="{% url 'profile' %}" aria-label="link to my profile page"
 						class="dropdown-item drop-item-h text-pink bold">My Profile</a>
 					<a href="{% url 'account_logout' %}" aria-label="link to logout page"
 						class="dropdown-item drop-item-h text-pink bold">Logout</a>
