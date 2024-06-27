@@ -250,6 +250,9 @@ Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com
 <details><summary>Bootstrap 4.6 Nav-tabs</summary>
 <img src="documents/readme-images/bootstrap4-nav-tabs.png">
 </details>
+<details><summary>Bootstrap 4.6 Image-card</summary>
+<img src="documents/readme-images/bootstrap4-img-card.png">
+</details>
 
 
 ## **Tutorials** ##
