@@ -141,6 +141,10 @@ a.a-pink:focus {
     background-color: rgba(205, 37, 118, 0.2);
 }
 
+.bg-lilac {
+    background-color: #D2BDED;
+}
+
 .text-pink {
     color: #CD2576;
 }
