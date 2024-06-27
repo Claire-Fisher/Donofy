@@ -19,8 +19,9 @@
                     </div>
                 </div>
             </div>
+            <!-- charity info -->
             <div class="col-12 col-lg-6 order-lg-1">
-                <!-- charity name and register number -->
+                <!-- name title & registered charity number -->
                 <div class="row">
                     <div class="col-12">
                         <h1 class="bold text-pink">{{charity.charity_name}}</h1>
@@ -41,9 +42,9 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+        <!-- donation impact card -->
         <div class="card impact-card mb-3">
-            <!-- donation impact card -->
             <div class="row no-gutters">
                 <div class="col-md-4 impact-card-logo-box">
                     <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{ charity.charity_name }} logo"
@@ -61,6 +62,7 @@
                 </div>
             </div>
         </div>
+        <!-- favourites & visit website buttons -->
         <div class="row mb-5">
             {% if request.user.is_authenticated %}
                 <div class="col-12 col-lg-6">
@@ -68,15 +70,17 @@
                         class="btn btn-lg btn-pink my-3 shadow">+ Add to Favourties</a>
                 </div>
             {% else %}
+                <!-- send to log in if no user -->
                 <div class="col-12 col-lg-6">
                     <a href="{% url 'account_login' %}" aria-label="link to log-in to use favourites feature"
                         class="btn btn-lg btn-pink w-100 my-3 shadow">+ Add to Favourties</a>
                 </div>
             {% endif %}
+            <!-- link to charity offical website -->
             <div class="col-12 col-lg-6">
                 <a href="{{ charity.website_url }}" aria-label="link to charity website (opens in a new tab)"
                     class="btn btn-lg btn-pink-outline w-100 my-3 shadow" target="_blank">Visit Website</a>
             </div>
         </div>
     </div>
-{% endblock %} 
+{% endblock %}
