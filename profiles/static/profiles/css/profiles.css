@@ -1,0 +1,11 @@
+.profile-tabs {
+    height: 3rem;
+    background-color: #f6f6f6;
+}
+
+.profile-tabs.nav-link.active,
+.profile-tabs.nav-link.focus {
+    color: #222;
+    background-color: #D2BDED;
+    border-color: #fff;
+}
