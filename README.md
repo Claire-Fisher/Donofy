@@ -1,5 +1,5 @@
 # Donofy
-![Custom Logo Image](donofy/media/donofy-full-logo.svg)
+![Custom Logo Image](static/media/donofy-full-logo.svg)
 
 ### This site is designed as a...
 ........
@@ -242,7 +242,14 @@ The footer provides copyright information and name of the site creator. Plus cli
 
 [**Back to top**](#donofy)
 ## **Imported Code**
-Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com/docs/4.6/components/navbar/). Heavily modified to suit my project requirements.
+Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com/docs/4.6/components/alerts/). Heavily modified to suit my project requirements.
+
+<details><summary>Bootstrap 4.6 Navbar</summary>
+<img src="documents/readme-images/bootstrap4-navbar.png">
+</details>
+<details><summary>Bootstrap 4.6 Nav-tabs</summary>
+<img src="documents/readme-images/bootstrap4-nav-tabs.png">
+</details>
 
 
 ## **Tutorials** ##
