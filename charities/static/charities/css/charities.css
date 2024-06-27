@@ -53,9 +53,10 @@
 /* CHARITY DETAILS PAGE */
 
 .charity-total-box {
-    padding-top: 1rem;
-    margin-left: 0.9rem;
-    margin-bottom: 1rem;
+    max-width: 90%;
+    margin-left: 15px;
+    margin-bottom: 1.2rem;
+    padding-top: 1.2rem;
     border-radius: 0.5rem;
 }
 
@@ -66,7 +67,28 @@
 
 .charity-general-img {
     background-color: #f6f6f6;
+    max-width: 100%;
     object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+}
+
+.impact-card {
+    border-radius: 1rem;
+}
+
+.impact-card-right {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.impact-card-img {
+    background-color: #fff;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -84,5 +106,18 @@
     }
     .categories-btn {
         width: 100%;
+    }
+    .impact-card-logo-box {
+        height: 200px;
+    }
+    .impact-card-img {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+    }
+    .impact-card-right {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
     }
 }

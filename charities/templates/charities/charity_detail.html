@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-12">
                         <img src="{{charity.image_url}}" alt="{{ charity.image_description }}"
-                            class="charity-general-img">
+                            class="charity-general-img w-100">
                     </div>
                 </div>
             </div>
@@ -27,9 +27,9 @@
                         <p>Registered charity number {{charity.charity_num}}</p>
                     </div>
                 </div>
-                <!-- charity total pink box -->
+                <!-- charity total lilac box -->
                 <div class="row">
-                    <div class="col-12 charity-total-box bg-pink-light">
+                    <div class="col-12 charity-total-box bg-lilac">
                         <p class="charity-total text-dark text-center extra-bold mb-0">£{{charity.total_received}}</p>
                         <p class="charities-title text-dark text-center">Money raised</p>
                     </div>
@@ -42,22 +42,40 @@
                 </div>
             </div>
         </div> 
-        <div class="card mb-3">
+        <div class="card impact-card mb-3">
+            <!-- donation impact card -->
             <div class="row no-gutters">
-                <div class="col-md-4">
+                <div class="col-md-4 impact-card-logo-box">
                     <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{ charity.charity_name }} logo"
                         class="bg-white impact-card-img">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body bg-pink-light">
-                        <h5 class="card-title text-dark bold">Donation Impact</h5>
+                    <div class="card-body impact-card-right bg-pink h-100">
+                        <h5 class="card-title text-white bold">Donation Impact</h5>
                         <ul>
-                            <li class="text-dark mb-1">{{ charity.impact1 }}<hr></li>
-                            <li class="text-dark mb-1">{{ charity.impact2 }}<hr></li>
-                            <li class="text-dark mb-1">{{ charity.impact3 }}</li>
+                            <li class="text-white mb-1">{{ charity.impact1 }}<hr></li>
+                            <li class="text-white mb-1">{{ charity.impact2 }}<hr></li>
+                            <li class="text-white mb-1">{{ charity.impact3 }}</li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            {% if request.user.is_authenticated %}
+                <div class="col-12 col-lg-6">
+                    <a href="#" aria-label="add to favourites link for logged in users only"
+                        class="btn btn-lg btn-pink my-3 shadow">+ Add to Favourties</a>
+                </div>
+            {% else %}
+                <div class="col-12 col-lg-6">
+                    <a href="{% url 'account_login' %}" aria-label="link to log-in to use favourites feature"
+                        class="btn btn-lg btn-pink w-100 my-3 shadow">+ Add to Favourties</a>
+                </div>
+            {% endif %}
+            <div class="col-12 col-lg-6">
+                <a href="{{ charity.website_url }}" aria-label="link to charity website (opens in a new tab)"
+                    class="btn btn-lg btn-pink-outline w-100 my-3 shadow" target="_blank">Visit Website</a>
             </div>
         </div>
     </div>
