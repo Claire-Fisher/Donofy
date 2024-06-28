@@ -23,13 +23,9 @@ class UserProfileAdmin(admin.ModelAdmin):
 
     list_display = (
         'charity_favs',
-        'donation_number',
-        'date',
-        'fullname',
-        'total',
     )
 
-    ordering = ('-date',)
+    ordering = ('last_name',)
 
 
 admin.site.register(UserProfile, UserProfileAdmin)
