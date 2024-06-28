@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'home',
     'charities',
     'profiles',
+    'donations',
 
     # Other
     'crispy_forms',
