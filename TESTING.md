@@ -115,6 +115,22 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <details><summary>Test Pass</summary>
         <img src="documents/testing-images/charities-test-asc-sort-pass.png">
         </details>
+4. **UserProfileAdmin errors**
+    * ***Issue Found:***
+        * The following errors were thrown for UserProfileAdmin during a makemigration --dry-run
+        * 1 x admin.E033 error
+        * 4 x admin.E108 errors
+        <details><summary>UserProfileAdmin Migration Errors</summary>
+        <img src="documents/testing-images/model-UserProfileAdmin-errors.png">
+        </details>
+    * ***Solution Used:***
+        * E108: changed ordering by non-existent 'date', to last_name instead
+        * E108: removed the referred to fields as they will now be stored in new donations data.
+        <details><summary>UserProfileAdmin Migration Fixed</summary>
+        <img src="documents/testing-images/model-UserProfileAdmin-fixed.png">
+        </details>
+
+
 
 
 [**Back to top**](#testing-donofy)  
