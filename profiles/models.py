@@ -10,6 +10,7 @@ class UserProfile(models.Model):
     User profile model for storing user personal data.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=25, blank=False, unique=True, default='default_user')
     active_user = models.BooleanField(default=True)
     first_name = models.CharField(max_length=25, blank=True)
     last_name = models.CharField(max_length=25, blank=True)
