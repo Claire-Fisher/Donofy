@@ -6,7 +6,12 @@ from charities.models import Charity
 
 
 class Donation(models.Model):
-    donation_number = models.CharField(max_length=32, null=False, editable=False, unique=True)
+    donation_number = models.CharField(
+        max_length=32,
+        null=False,
+        editable=False,
+        unique=True
+    )
     user_profile = models.ForeignKey(
         UserProfile,
         on_delete=models.CASCADE,
@@ -31,9 +36,10 @@ class Donation(models.Model):
         """
         self.selected_charities = []
         for target_charity in self.target_charities.all():
-            self.selected_charities.append({
-                target_charity.charity.charity_name: target_charity.charity_total
-            })
+            charity_name = target_charity.charity.charity_name
+            charity_total = target_charity.charity_total
+            self.selected_charities.append(
+                {charity_name: charity_total})
         self.save()
 
     def update_donation_total(self):
