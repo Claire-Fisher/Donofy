@@ -15,6 +15,7 @@ class Donation(models.Model):
         related_name='donations'
     )
     subscription = models.BooleanField(default=False, null=False)
+    selected_charities = models.JSONField(default=list, blank=False)
     donation_total = models.PositiveIntegerField(default=0, null=False)
     donation_date = models.DateField(auto_now_add=True)
 
@@ -23,6 +24,17 @@ class Donation(models.Model):
         Generate a random, unique donation number using UUID
         """
         return uuid.uuid4().hex.upper()
+
+    def update_donation_charities_list(self):
+        """
+        Create a list of the target charities and save it to the donation model
+        """
+        self.selected_charities = []
+        for target_charity in self.target_charities.all():
+            self.selected_charities.append({
+                target_charity.charity.charity_name: target_charity.charity_total
+            })
+        self.save()
 
     def update_donation_total(self):
         """
