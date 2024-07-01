@@ -14,6 +14,7 @@ class UserProfile(models.Model):
         max_length=25, blank=False, default='default_user'
     )
     active_user = models.BooleanField(default=True)
+    is_authenticated = models.BooleanField(default=False)
     first_name = models.CharField(max_length=25, blank=True)
     last_name = models.CharField(max_length=25, blank=True)
     phone_num = models.CharField(max_length=20, blank=True)
