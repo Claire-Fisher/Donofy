@@ -130,9 +130,16 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <img src="documents/testing-images/model-UserProfileAdmin-fixed.png">
         </details>
 5. **Testing profiles**
-    <details><summary>First Test fail</summary>
-    <img src="documents/testing-images/testing-profiles-first-test-fail.png">
-    </details>
+    * ***Issue Found:***
+        <details><summary>First Test fail</summary>
+        <img src="documents/testing-images/testing-profiles-first-test-fail.png">
+        </details>
+    * ***Solution Used:***
+      * Imported User from models & added a 'testuser' to provide log in details for the test.
+        <details><summary>First Test pass</summary>
+        <img src="documents/testing-images/testing-profiles-first-test-pass.png">
+        </details>
+
 
 
 
