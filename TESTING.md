@@ -129,6 +129,11 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <details><summary>UserProfileAdmin Migration Fixed</summary>
         <img src="documents/testing-images/model-UserProfileAdmin-fixed.png">
         </details>
+5. **Testing profiles**
+    <details><summary>First Test fail</summary>
+    <img src="documents/testing-images/testing-profiles-first-test-fail.png">
+    </details>
+
 
 
 
