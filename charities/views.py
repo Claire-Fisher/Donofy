@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Charity, Category
+from .models import Charity
+
 
 def all_charities(request):
     """ A view to show all charities, including search queries """
@@ -18,10 +19,13 @@ def all_charities(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "Oops! You didn't search for anything!")
+                messages.error(
+                    request, "Oops! You didn't search for anything!")
                 return redirect(reverse('charities'))
 
-            queries = Q(charity_name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                charity_name__icontains=query) | Q(
+                    description__icontains=query)
             charities = charities.filter(queries)
 
         if 'category' in request.GET:
