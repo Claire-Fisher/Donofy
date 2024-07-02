@@ -1,7 +1,7 @@
 <h2 class="tab-title text-pink bold col-12 col-lg-8 mx-auto px-1">Review / edit your billing details here.</h2>
 <p class="text-dark col-12 col-lg-8 mx-auto px-1">( Full profile info is required to have an active donation subscription. )</p>
 <div class="row">
-    <form action="{% url 'profile' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto">
+    <form action="{% url 'profile' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         {{ user_form|crispy }}
         {{ user_profile_form|crispy }}
