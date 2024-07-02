@@ -257,6 +257,8 @@ Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com
 
 ## **Tutorials** ##
 
+Very Academy - Tutorial Video [Django Custom User Model, Extend User Fields](https://www.google.com/search?q=django+4+extending+user+model+tutorial&sca_esv=bb6fb22019ea88f6&sca_upv=1&rlz=1C1GCEU_enGB1105GB1105&ei=VeuDZrvwHYSghbIPzIqKuAg&oq=django+4+extending+user+model+tuto&gs_lp=Egxnd3Mtd2l6LXNlcnAiImRqYW5nbyA0IGV4dGVuZGluZyB1c2VyIG1vZGVsIHR1dG8qAggAMgcQIRigARgKMgcQIRigARgKMgcQIRigARgKSLQUUJ4EWN8IcAF4AZABAJgBfKAB2gOqAQM0LjG4AQHIAQD4AQGYAgagAuUDwgIKEAAYsAMY1gQYR8ICBhAAGBYYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAgUQIRigAcICBBAhGBWYAwCIBgGQBgiSBwM1LjGgB6wW&sclient=gws-wiz-serp#fpstate=ive&vld=cid:662df13b,vid:NLHmadrP8Y4,st:0)
+
 
 
 ## **Credits**
