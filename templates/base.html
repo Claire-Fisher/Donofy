@@ -51,12 +51,16 @@
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item">
+				<a href="{% url 'home' %}" aria-label="link to home page"
+					class="nav-link drop-item-h text-pink bold">Home</a>
+				</li>
+				<li class="nav-item">
 				<a href="{% url 'charities' %}" aria-label="link to charities page"
 					class="nav-link drop-item-h text-pink bold">Charities</a>
 				</li>
 				<li class="nav-item">
 				<a href="#" aria-label="link to F A Q page"
-					class="nav-link drop-item-h text-pink bold">FAQs</a>
+					class="nav-link drop-item-h text-pink bold">Contact Us</a>
 				</li>
 				<li class="nav-item dropdown text-pink bold">
 				<a href="#" aria-label="my account dropdown menu" id="user-options" aria-expanded="false"
@@ -65,9 +69,6 @@
 				</a>
 				<div class="dropdown-menu dropdown-menu-right shadow bold" aria-labelledby="user-options">
 					{% if request.user.is_authenticated %}
-					{% if request.user.is_superuser %}
-						<a href="#" class="dropdown-item drop-item-h text-pink bold">Product Management</a>
-					{% endif %}
 					<a href="{% url 'profile' %}" aria-label="link to my profile page"
 						class="dropdown-item drop-item-h text-pink bold">My Profile</a>
 					<a href="{% url 'account_logout' %}" aria-label="link to logout page"
