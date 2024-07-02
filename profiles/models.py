@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.validators import RegexValidator
 
 
 class UserProfile(models.Model):
@@ -12,7 +13,17 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    phone_num = models.CharField(max_length=20, null=True, blank=True)
+    phone_num = models.CharField(
+        max_length=15,
+        null=True,
+        blank=True,
+        validators=[
+            RegexValidator(
+                regex='^\d+$',
+                message='Phone number must contain only digits.'
+            )
+        ]
+    )
     street_address_1 = models.CharField(max_length=80, null=True, blank=True)
     street_address_2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=True, blank=True)
