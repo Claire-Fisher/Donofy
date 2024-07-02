@@ -12,8 +12,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    first_name = models.CharField(max_length=25, null=True, blank=True)
-    last_name = models.CharField(max_length=25, null=True, blank=True)
     phone_num = models.CharField(max_length=20, null=True, blank=True)
     street_address_1 = models.CharField(max_length=80, null=True, blank=True)
     street_address_2 = models.CharField(max_length=80, null=True, blank=True)
