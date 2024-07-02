@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserForm, UserProfileForm
 
+
 @login_required
 def profile(request):
     user = request.user
@@ -24,9 +25,12 @@ def profile(request):
         user_form = UserForm(instance=user)
         user_profile_form = UserProfileForm(instance=user_profile)
 
+    active_tab = request.GET.get('tab', 'myDonofy')
+
     context = {
         'user_form': user_form,
         'user_profile_form': user_profile_form,
+        'active_tab': active_tab,
     }
 
     return render(request, 'profiles/profile.html', context)

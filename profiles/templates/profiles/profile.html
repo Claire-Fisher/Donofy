@@ -26,19 +26,19 @@
         </nav>
         <div class="tab-content shadow p-4 mb-5" id="nav-tabContent">
             <!-- manage my donofy pane -->
-            <div class="tab-pane fade show active" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
+            <div class="tab-pane fade show active{% if not active_tab %}show active{% endif %}" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
                 {% include 'profiles/includes/my-donofy.html' %}
             </div>
             <!-- impact pane -->
-            <div class="tab-pane fade" id="nav-myImpact" role="tabpanel" aria-labelledby="nav-manage-tab">
+            <div class="tab-pane fade {% if active_tab == 'myImpact' %}show active{% endif %}" id="nav-myImpact" role="tabpanel" aria-labelledby="nav-manage-tab">
                 {% include 'profiles/includes/my-impact.html' %}
             </div>
             <!-- details pane -->
-            <div class="tab-pane fade" id="nav-myDetails" role="tabpanel" aria-labelledby="nav-impact-tab">
+            <div class="tab-pane fade {% if not active_tab %}show active{% endif %}" id="nav-myDetails" role="tabpanel" aria-labelledby="nav-impact-tab">
                 {% include 'profiles/includes/my-details.html' %}
             </div>
             <!-- payment history pane -->
-            <div class="tab-pane fade" id="nav-myHistory" role="tabpanel" aria-labelledby="nav-history-tab">
+            <div class="tab-pane fade {% if not active_tab %}show active{% endif %}" id="nav-myHistory" role="tabpanel" aria-labelledby="nav-history-tab">
                 {% include 'profiles/includes/my-history.html' %}
             </div>
         </div>
@@ -48,9 +48,16 @@
 {% block postloadjs %}
     {{ block.super }}
     <script>
-        $('a[data-toggle="list"]').on('shown.bs.tab', function (event) {
-            event.target
-            event.relatedTarget
-        })
+        $(document).ready(function() {
+            var activeTab = "{{ active_tab }}";
+            if (activeTab) {
+                $('#nav-' + activeTab + '-tab').tab('show');
+            }
+            
+            $('a[data-toggle="list"]').on('shown.bs.tab', function (event) {
+                event.target;
+                event.relatedTarget;
+            });
+        });
     </script>
 {% endblock %}
