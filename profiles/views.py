@@ -8,6 +8,7 @@ from .forms import UserForm, UserProfileForm
 
 @login_required
 def profile(request):
+    # Get user and associated UserProfile
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
 
@@ -26,13 +27,20 @@ def profile(request):
         user_form = UserForm(instance=user)
         user_profile_form = UserProfileForm(instance=user_profile)
 
+    # Get charity favs list
+    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+
     active_tab = request.GET.get('tab', 'myDonofy')
 
     context = {
         'user_form': user_form,
         'user_profile_form': user_profile_form,
         'active_tab': active_tab,
+        'charity_favs': charity_favs,
     }
+    print("Charity Fav IDs:", charity_favs_ids)
+    print("Charity Favs Count:", charity_favs.count())
 
     return render(request, 'profiles/profile.html', context)
 

@@ -1,3 +1,26 @@
-<h2 class="tab-title bold">Manage My Donofy</h2>
-
-<!-- manage subscription amounts and favourites list -->
+{% if user_profile.charity_favs %}
+    <h2 class="tab-title text-pink bold col-12 col-lg-8 mx-auto px-1">Manage My Donofy</h2>
+    <p class="text-dark col-12 col-lg-8 mx-auto px-1">
+        Allocate a monthly donation to your favourited charities here.<br>
+        Values can be set to zero.<br>
+    </p>
+    <form action="#" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
+        {% csrf_token %}
+        <ul>
+            {% for charity in charity_favs %}
+                <li>{{ charity.charity_name }}</li>
+            {% endfor %}
+        </ul>
+    </form>
+{% else %}
+    <h3 class="text-pink col-12 col-lg-8 mx-auto mt-4 px-1">
+        Looks like you haven't saved any favourites yet.
+    </h3>
+    <p class="text-dark col-12 col-lg-8 mx-auto px-1">
+        You need at least one charity added to your favourites to start donating.<br>
+        Find the causes that matter to you here: 
+        <a href="{% url 'charities' %}" aria-label="link to charities page" class="a-pink col-12 col-lg-8 mx-auto px-1">
+            Charities
+        </a>
+    </p>
+{% endif %}
