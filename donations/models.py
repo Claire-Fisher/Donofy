@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models import Sum
 from profiles.models import UserProfile
 from charities.models import Charity
+from subscriptions.models import subscription
 
 
 class Donation(models.Model):
@@ -19,7 +20,6 @@ class Donation(models.Model):
         blank=False,
         related_name='donations'
     )
-    subscription = models.BooleanField(default=False, null=False)
     selected_charities = models.JSONField(default=list, blank=False)
     donation_total = models.PositiveIntegerField(default=0, null=False)
     donation_date = models.DateField(auto_now_add=True)
