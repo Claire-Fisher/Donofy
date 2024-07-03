@@ -1,7 +1,5 @@
 from django.db import models
-from djano.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 
 class subscription(models.Model):
@@ -11,4 +9,4 @@ class subscription(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sub_active = models.BooleanField(default=False)
     sub_total = models.PositiveIntegerField(default=0, null=False)
-    sub_breakdown = models.JSONField(defaul=dict)
+    sub_breakdown = models.JSONField(default=dict)
