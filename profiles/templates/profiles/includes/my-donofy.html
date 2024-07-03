@@ -1,21 +1,32 @@
 {% if charity_favs %}
     <h2 class="tab-title text-capitalize bold col-12 col-lg-8 mx-auto px-1">Hi {{ user.username }}</h2>
-    <p class="text-dark col-12 col-lg-8 mx-auto px-1">
-        Allocate a monthly donation to your favourited charities here.<br>
-        Values can be set to zero.<br>
-    </p>
-    <h2 class="tab-title text-capitalize text-pink bold col-12 col-lg-8 mx-auto px-1">Your Favourited Charities</h2>
+    {% if subscription.sub_active %}
+        <p class="text-pink bold col-12 col-lg-8 mx-auto mb-0 px-1">Your Subscription Is Active</p>
+        <p class="text-muted col-12 col-lg-8 mx-auto px-1">You will donate on the 1st of every month, according to your settings below.</p>
+        {% else %}
+            <p class="text-pink bold col-12 col-lg-8 mx-auto mb-0 px-1"><span><i class="fa-solid fa-circle-exclamation icon-pink"></i></span> Your donations are currently paused</p>
+            <p class="text-muted col-12 col-lg-8 mx-auto px-1">No donations will be taken whilst your account is set to inactive</p>
+    {% endif %}
+    <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities</h2>
     <form action="#" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         <ul class="favourites-list p-0">
+            <p class="text-dark mb-0">
+                Set a monthly donation for each of your favourited charities here.<br>
+                Values can be set to zero.<br>
+            </p>
             {% for charity in charity_favs %}
             <div class="row">
                 <li class="col-12 bold mb-5">
                     <hr>
-                    {{ charity.charity_name }}
+                    <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
+                                class="text-dark bold">{{ charity.charity_name }}</a>
                     <p class="text-small text-muted mb-0">Charity number: ({{ charity.charity_num}})</p>
                     <a href="#" class="a-pink">Remove from favourites</a>
                 </li>
+                <div class="col">
+
+                </div>
             </div>
             {% endfor %}
         </ul>
