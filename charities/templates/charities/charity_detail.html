@@ -65,10 +65,12 @@
         <!-- favourites & visit website buttons -->
         <div class="row mb-5">
             {% if request.user.is_authenticated %}
-                <div class="col-12 col-lg-6">
-                    <a href="#" aria-label="add to favourites link for logged in users only"
-                        class="btn btn-lg btn-pink w-100 my-3 shadow">+ Add to Favourties</a>
-                </div>
+                <form action="{% url 'add_to_favs' charity.id %}" method="POST" class="col-12 col-lg-6">
+                    {% csrf_token %}
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <button type="submit" aria-label="add to favourites link for logged in users only"
+                        class="btn btn-lg btn-pink w-100 my-3 shadow">+ Add to Favourties</button>
+                </form>
             {% else %}
                 <!-- send to log in if no user -->
                 <div class="col-12 col-lg-6">

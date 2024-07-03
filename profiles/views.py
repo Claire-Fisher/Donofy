@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+from charities.models import Charity
 from .forms import UserForm, UserProfileForm
 
 
@@ -34,3 +35,28 @@ def profile(request):
     }
 
     return render(request, 'profiles/profile.html', context)
+
+
+@login_required
+def add_to_favs(request, charity_id):
+    """ Add a charity to a user's charity_favs list """
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    charity = get_object_or_404(Charity, pk=charity_id)
+    redirect_url = request.POST.get('redirect_url', 'profile')
+
+    if request.method == "POST":
+        charity_favs = user_profile.charity_favs or []
+
+        if charity.id in charity_favs:
+            messages.info(
+                request, 'You already have that charity in your favourites')
+        else:
+            charity_favs.append(charity.id)
+            user_profile.charity_favs = charity_favs
+            user_profile.save()
+            messages.success(
+                request, f"Added {charity.charity_name} to your favourites"
+            )
+
+    return redirect(redirect_url)

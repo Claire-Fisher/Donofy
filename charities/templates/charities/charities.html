@@ -67,11 +67,13 @@
                                 class="card-img-top charity-card-img">
                         {% endif %}
                         <h3 class="card-text charity-card-title text-dark bold p-2 mt-1">{{ charity.charity_name }}</h3>
-                        <div class="charity-card-btn-box">
+                        <form action="{% url 'add_to_favs' charity.id %}" method="POST" class="charity-card-btn-box">
+                            {% csrf_token %}
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="btn btn-lg btn-pink-outline charity-card-btn">Info</a>
-                            <button class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
-                        </div>
+                            <button type="submit" class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
+                        </form>
                     </div>
                 </a>
             </div>
