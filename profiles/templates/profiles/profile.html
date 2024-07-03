@@ -26,7 +26,7 @@
         </nav>
         <div class="tab-content shadow p-4 mb-5" id="nav-tabContent">
             <!-- manage my donofy pane -->
-            <div class="tab-pane fade show active{% if not active_tab %}show active{% endif %}" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
+            <div class="tab-pane fade show active{% if active_tab == 'myDonofy' %}show active{% endif %}" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
                 {% include 'profiles/includes/my-donofy.html' %}
             </div>
             <!-- impact pane -->
@@ -34,11 +34,11 @@
                 {% include 'profiles/includes/my-impact.html' %}
             </div>
             <!-- details pane -->
-            <div class="tab-pane fade {% if not active_tab %}show active{% endif %}" id="nav-myDetails" role="tabpanel" aria-labelledby="nav-impact-tab">
+            <div class="tab-pane fade {% if active_tab == 'myDetails' %}show active{% endif %}" id="nav-myDetails" role="tabpanel" aria-labelledby="nav-impact-tab">
                 {% include 'profiles/includes/my-details.html' %}
             </div>
             <!-- payment history pane -->
-            <div class="tab-pane fade {% if not active_tab %}show active{% endif %}" id="nav-myHistory" role="tabpanel" aria-labelledby="nav-history-tab">
+            <div class="tab-pane fade {% if active_tab == 'myHistory' %}show active{% endif %}" id="nav-myHistory" role="tabpanel" aria-labelledby="nav-history-tab">
                 {% include 'profiles/includes/my-history.html' %}
             </div>
         </div>
@@ -54,9 +54,11 @@
                 $('#nav-' + activeTab + '-tab').tab('show');
             }
             
-            $('a[data-toggle="list"]').on('shown.bs.tab', function (event) {
-                event.target;
-                event.relatedTarget;
+            $('button[data-toggle="tab"]').on('shown.bs.tab', function (event) {
+                var newTab = event.target.getAttribute('data-target').substring(5);
+                var url = new URL(window.location);
+                url.searchParams.set('tab', newTab);
+                window.history.pushState({}, '', url);
             });
         });
     </script>
