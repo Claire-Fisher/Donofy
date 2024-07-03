@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from charities.models import Charity
+from subscriptions.models import Subscription
 from .forms import UserForm, UserProfileForm
 
 
@@ -11,6 +12,8 @@ def profile(request):
     # Get user and associated UserProfile
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
+    # Check or create a subscription object
+    subscription, created = Subscription.objects.get_or_create(user=user)
 
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=user)
@@ -38,6 +41,7 @@ def profile(request):
         'user_profile_form': user_profile_form,
         'active_tab': active_tab,
         'charity_favs': charity_favs,
+        'subscription': subscription,
     }
     print("Charity Fav IDs:", charity_favs_ids)
     print("Charity Favs Count:", charity_favs.count())
