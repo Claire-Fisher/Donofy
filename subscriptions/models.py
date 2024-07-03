@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class subscription(models.Model):
+class Subscription(models.Model):
     """
     Subscription model to hold the user's current subscription settings. 
     """

@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models import Sum
 from profiles.models import UserProfile
 from charities.models import Charity
-from subscriptions.models import subscription
+from subscriptions.models import Subscription
 
 
 class Donation(models.Model):
