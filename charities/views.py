@@ -35,7 +35,8 @@ def all_charities(request):
         if 'sort' in request.GET:
             sort = request.GET['sort']
             if sort == 'charity_name':
-                charities = charities.annotate(lower_name=Lower('charity_name'))
+                charities = charities.annotate(
+                    lower_name=Lower('charity_name'))
                 sort = 'lower_name'
 
         if 'direction' in request.GET:
