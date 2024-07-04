@@ -19,7 +19,7 @@ class UserProfile(models.Model):
         blank=True,
         validators=[
             RegexValidator(
-                regex='^\d+$',
+                regex=r'^\+\d{1,14}$',
                 message='Phone number must contain only digits.'
             )
         ]
