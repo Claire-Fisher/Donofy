@@ -5,6 +5,7 @@ from .models import UserProfile
 from charities.models import Charity
 from subscriptions.models import Subscription
 from .forms import UserForm, UserProfileForm
+from django.conf import settings
 
 
 @login_required
@@ -36,6 +37,8 @@ def profile(request):
 
 @login_required
 def update_profile(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+
     # Get user and associated UserProfile
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
@@ -68,6 +71,8 @@ def update_profile(request):
         'active_tab': active_tab,
         'charity_favs': charity_favs,
         'subscription': subscription,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': 'test client secret',
     }
 
     return redirect('profiles:profile', context)
