@@ -3,14 +3,14 @@
     {% if subscription.sub_active %}
         <h2 class="text-pink bold col-12 col-lg-8 mx-auto px-1">Your Subscription Is Active </h2>
         <p class="text-muted col-12 col-lg-8 mx-auto px-1">You will donate on the 1st of every month, according to your settings below.</p>
-        <form href="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
+        <form action="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
             {% csrf_token %}
             <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Pause Subscription</button>
         </form>
     {% else %}
         <h2 class="text-pink bold col-12 col-lg-8 mx-auto mb-0 px-1"><span><i class="fa-solid fa-circle-exclamation icon-pink"></i></span> Your donations are currently paused</h2>
         <p class="text-muted col-12 col-lg-8 mx-auto px-1">No donations will be taken whilst your subscription is set to inactive</p>
-        <form href="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
+        <form action="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
             {% csrf_token %}
             <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Activate Subscription</button>
         </form>
