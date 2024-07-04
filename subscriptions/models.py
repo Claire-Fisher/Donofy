@@ -9,4 +9,4 @@ class Subscription(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sub_active = models.BooleanField(default=False)
     sub_total = models.PositiveIntegerField(default=0, null=False)
-    sub_breakdown = models.JSONField(default=dict)
+    sub_breakdown = models.JSONField(default=dict, blank=True)
