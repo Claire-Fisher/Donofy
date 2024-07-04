@@ -2,11 +2,18 @@ from django.urls import path
 from . import views
 
 
+app_name = 'profiles'
+
+
 urlpatterns = [
-    path('profile/', views.profile, name='profile'),
     path(
-        'add_to_favs/<int:charity_id>/',
-        views.add_to_favs,
-        name='add_to_favs'
+        'profile/',
+        views.profile,
+        name='profile'
+    ),
+    path(
+        'update_profile/',
+        views.update_profile,
+        name='update_profile'
     ),
 ]
