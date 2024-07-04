@@ -85,7 +85,7 @@
         <div class="col-12 col-md-4 col-xl-3 text-center">
             <div class="card stat-card mb-2">
                 {% if request.user.is_authenticated %}
-                <a href="{% url 'profile' %}?tab=myDonofy" aria-label="link to profile" class="card-body card-white text-center">
+                <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="link to profile" class="card-body card-white text-center">
                     <div><i class="card-icon icon-lg icon-pink fa-solid fa-gear"></i></div>
                     <h3 class="bold">Set a donation amount</h3>
                     <p>Choose how much you want to donate to each of your charities</p>
@@ -103,7 +103,7 @@
         <div class="col-12 col-md-4 col-xl-3 text-center">
             <div class="card stat-card mb-2">
                 {% if request.user.is_authenticated %}
-                <a href="{% url 'profile' %}?tab=myImpact" aria-label="link to profile" class="card-body card-white text-center">
+                <a href="{% url 'profiles:profile' %}?tab=myImpact" aria-label="link to profile" class="card-body card-white text-center">
                     <div><i class="card-icon icon-lg icon-pink fa-solid fa-chart-line"></i></div>
                     <h3 id="impact-header" class="bold">Make an impact</h3>
                     <p>Track the impact your financial support has made</p>
