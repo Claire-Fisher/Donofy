@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+from profiles.models import UserProfile
 from django.db.models.functions import Lower
 from .models import Charity
 
@@ -46,11 +48,18 @@ def all_charities(request):
 
     charities = charities.order_by(sort)
 
+    # Get user and associated UserProfile
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+
     context = {
         'charities': charities,
         'inactive_charities': inactive_charities,
         'search_term': query,
         'current_categories': categories,
+        'charity_favs': charity_favs,
     }
 
     return render(request, 'charities/charities.html', context)
@@ -60,9 +69,57 @@ def charity_detail(request, charity_id):
     """ A view to show individual charity details """
 
     charity = get_object_or_404(Charity, pk=charity_id)
+    # Get user and associated UserProfile
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
 
     context = {
         'charity': charity,
+        'charity_favs': charity_favs,
     }
 
     return render(request, 'charities/charity_detail.html', context)
+
+
+@login_required
+def add_to_favs(request, charity_id):
+    """ Add a charity to a user's charity_favs list """
+    # Get user and associated UserProfile
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+
+    charity = get_object_or_404(Charity, pk=charity_id)
+    charities = Charity.objects.filter(active=True)
+    inactive_charities = Charity.objects.filter(active=False)
+    query = None
+    categories = None
+
+    # Get charity favs list
+    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+
+    if request.method == "POST":
+        charity_favs = user_profile.charity_favs or []
+
+        if charity.id in charity_favs:
+            messages.info(
+                request, 'You already have that charity in your favourites')
+        else:
+            charity_favs.append(charity.id)
+            user_profile.charity_favs = charity_favs
+            user_profile.save()
+            messages.success(
+                request, f"Added {charity.charity_name} to your favourites"
+            )
+
+    context = {
+        'charities': charities,
+        'inactive_charities': inactive_charities,
+        'search_term': query,
+        'current_categories': categories,
+        'charity_favs': charity_favs,
+    }
+
+    return render(request, 'charities/charities.html', context)
