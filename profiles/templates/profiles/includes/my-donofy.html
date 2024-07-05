@@ -1,3 +1,4 @@
+{% load custom_filters %}
 {% if charity_favs %}
     <h2 class="tab-title text-capitalize bold col-12 col-lg-8 mx-auto px-1">Hi {{ user.username }}</h2>
     {% if subscription.sub_active %}
@@ -17,14 +18,10 @@
             <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Activate Donations</button>
         </form>
         <h3 class="your-total text-dark bold col-12 col-lg-8 mx-auto mb-0 py-2 px-1 text-center strike">Your current donation total = £{{ subscription.sub_total }}</h3>
-    {% endif %}
-
-    <!-- displays current donation total according to the user's subscription settings. -->
-    
-    
+    {% endif %}   
     <!-- lists the users favourited charities. Functionality to remove charities, or adjust donation amounts -->
     <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities</h2>
-    <form action="#" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
+    <form action="{% url 'subscriptions:update_subscription' %}" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         <ul class="favourites-list p-0">
             <p class="text-dark mb-0">
@@ -42,7 +39,7 @@
                 </li>
                 <!-- add an if statement HERE to check for a currently saved sub_breakdown, prepopulate the inputs with the user's last saved values. -->
                 <div class="col-12">
-                    <input type="number" name="breakdown" value="0" min="0" max="999" data-item-id="{{ charity.id }}">
+                    <input type="number" name="breakdown_{{ charity.id }}" value="{{ subscription.sub_breakdown|get_item:charity.id }}" min="0" max="999">
                 </div>
             </div>
             {% endfor %}
