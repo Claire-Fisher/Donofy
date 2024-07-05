@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from profiles.models import UserProfile
+from charities.models import Charity
 from subscriptions.models import Subscription
 from django.contrib import messages
 
@@ -59,7 +60,9 @@ def update_subscription(request):
     """
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
-    charity_favs = user_profile.charity_favs
+    charity_favs_ids = user_profile.charity_favs
+    # Get the full charity obj, not just IDs
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
     subscription = Subscription.objects.get(user=user)
 
     if request.method == "POST":
@@ -67,7 +70,7 @@ def update_subscription(request):
         for charity in charity_favs:
             breakdown_value = request.POST.get(f'breakdown_{charity.id}')
             if breakdown_value is not None:
-                sub_breakdown.append[str(charity.id)] = int(breakdown_value)
+                sub_breakdown[charity.charity_name] = int(breakdown_value)
 
         subscription.sub_breakdown = sub_breakdown
         subscription.save()
