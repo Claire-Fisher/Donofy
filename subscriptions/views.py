@@ -6,6 +6,23 @@ from subscriptions.models import Subscription
 from django.contrib import messages
 
 
+# Helper functions for commonly used function variables
+def get_user_profile(user):
+    return get_object_or_404(UserProfile, user=user)
+
+
+def get_subscription(user):
+    return Subscription.objects.get_or_create(user=user)
+
+
+def get_charity_favs(user_profile):
+    return user_profile.charity_favs or []
+
+
+def get_full_charity_objs(charity_favs_ids):
+    return Charity.objects.filter(id__in=charity_favs_ids)
+
+
 @login_required
 def manage_subscription(request):
     """
@@ -14,10 +31,9 @@ def manage_subscription(request):
     """
     # Get user, associated UserProfile + subscription
     user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
-    # Get user charity_favs & subscription or creates empty ones if not found.
-    charity_favs = user_profile.charity_favs or []
-    subscription, created = Subscription.objects.get_or_create(user=user)
+    user_profile = get_user_profile(user)
+    charity_favs = get_charity_favs(user_profile)
+    subscription, created = get_subscription(user)
 
     active_tab = request.GET.get('tab', 'myDonofy')
 
@@ -34,7 +50,7 @@ def manage_subscription(request):
 def toggle_subscription_active(request):
     """ Toggle subscription active status """
     user = request.user
-    subscription = Subscription.objects.get(user=user)
+    subscription, _ = get_subscription(user)
 
     if request.method == "POST":
         if subscription.sub_active:
@@ -59,11 +75,10 @@ def update_subscription(request):
     Allow users to manage their subscription settings.
     """
     user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
-    charity_favs_ids = user_profile.charity_favs
-    # Get the full charity obj, not just IDs
-    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
-    subscription = Subscription.objects.get(user=user)
+    user_profile = get_user_profile(user)
+    charity_favs_ids = get_charity_favs(user_profile)
+    charity_favs = get_full_charity_objs(charity_favs_ids)
+    subscription, _ = get_subscription(user)
 
     if request.method == "POST":
         sub_breakdown = {}
@@ -83,13 +98,10 @@ def update_subscription(request):
 @login_required
 def delete_from_favs(request, charity_id):
     """Delete a charity from a user's charity_favs list."""
-    # Get user and associated UserProfile
     user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
-
-    # Get charity favs list
+    user_profile = get_user_profile(user)
     charity = get_object_or_404(Charity, pk=charity_id)
-    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs_ids = get_charity_favs(user_profile)
 
     if request.method == "POST":
         if charity.id in charity_favs_ids:
