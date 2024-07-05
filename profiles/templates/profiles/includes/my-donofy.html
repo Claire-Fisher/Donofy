@@ -1,26 +1,34 @@
 {% if charity_favs %}
     <h2 class="tab-title text-capitalize bold col-12 col-lg-8 mx-auto px-1">Hi {{ user.username }}</h2>
     {% if subscription.sub_active %}
-        <h2 class="text-pink bold col-12 col-lg-8 mx-auto px-1"><i id="icon-green" class="fa-solid fa-check-circle icon-green"></i> Your Subscription Is Active </h2>
+        <!-- displays to the user if their subscription is active or not, and give them an option to toggle this -->
+        <h2 class="text-pink bold col-12 col-lg-8 mx-auto px-1"><i id="icon-green" class="fa-solid fa-check-circle icon-green"></i> Your Donations are Active </h2>
         <p class="text-muted col-12 col-lg-8 mx-auto px-1">You will donate on the 1st of every month, according to your settings below.</p>
         <form action="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
             {% csrf_token %}
-            <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Pause Subscription</button>
+            <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Pause Donations</button>
         </form>
+        <h3 class="your-total text-pink bold col-12 col-lg-8 mx-auto mb-0 py-2 px-1 text-center">Your current donation total = £{{ subscription.sub_total }}</h3>
     {% else %}
         <h2 class="text-pink bold col-12 col-lg-8 mx-auto mb-0 px-1"><span><i class="fa-solid fa-circle-exclamation icon-pink"></i></span> Your donations are currently paused</h2>
         <p class="text-muted col-12 col-lg-8 mx-auto px-1">No donations will be taken whilst your subscription is set to inactive</p>
         <form action="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="col-12 col-lg-8 mx-auto p-0 mt-2 mb-4">
             {% csrf_token %}
-            <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Activate Subscription</button>
+            <button type="submit" class="btn btn-lg btn-pink-outline col-12 col-md-6 shadow">Activate Donations</button>
         </form>
+        <h3 class="your-total text-dark bold col-12 col-lg-8 mx-auto mb-0 py-2 px-1 text-center strike">Your current donation total = £{{ subscription.sub_total }}</h3>
     {% endif %}
+
+    <!-- displays current donation total according to the user's subscription settings. -->
+    
+    
+    <!-- lists the users favourited charities. Functionality to remove charities, or adjust donation amounts -->
     <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities</h2>
     <form action="#" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         <ul class="favourites-list p-0">
             <p class="text-dark mb-0">
-                Set a monthly donation for each of your favourited charities here.<br>
+                Set a monthly donation (£) for each of your favourited charities here.<br>
                 Values can be set to zero.<br>
             </p>
             {% for charity in charity_favs %}
@@ -43,11 +51,9 @@
         </ul>
         <input type="hidden" name="redirect_url" value="{{ request.path }}">
     </form>
-    <form href="{% url 'subscriptions:toggle_subscription_active' %}" method="POST" class="justify-content-end col-lg-6 p-0 m-0">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-lg btn-pink-outline">Pause Subscription</button>
-    </form>
+
 {% else %}
+    <!-- tells the user if their favourite charities list is empty and invites them to browse charities -->
     <h3 class="text-pink col-12 col-lg-8 mx-auto mt-4 px-1">
         Looks like you haven't saved any favourites yet.
     </h3>

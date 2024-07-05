@@ -160,6 +160,10 @@ a.a-pink:focus {
     letter-spacing: 1.5px;
 }
 
+.strike {
+    text-decoration: line-through;
+}
+
 .extra-bold {
     font-weight: 800;
     letter-spacing: 1.5px;
