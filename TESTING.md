@@ -139,6 +139,17 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <details><summary>First Test pass</summary>
         <img src="documents/testing-images/testing-profiles-first-test-pass.png">
         </details>
+6. **Update_subscription functionality**
+    * ***Issue Found:***
+        <details><summary>Attribute Error on save</summary>
+        <img src="documents/testing-images/update_subscription-attr-error.png">
+        </details>
+    * ***Solution Used:***
+      * Imported the Charity model and fetched the full charity details from the list of charity IDs.
+      * Changed the dict to show keys of charity_names (instead of ID ints), and int donation values. To make it easier for admin to understand the sub_breakdown by reading the dict. 
+        <details><summary>sub_breakdown dict saving as expected</summary>
+        <img src="documents/testing-images/update_subscription-attr-fixed.png">
+        </details>
 
 
 
