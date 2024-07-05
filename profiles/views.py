@@ -10,6 +10,7 @@ from django.conf import settings
 
 @login_required
 def profile(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
     # Get user and associated UserProfile
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
@@ -30,6 +31,8 @@ def profile(request):
         'active_tab': active_tab,
         'charity_favs': charity_favs,
         'subscription': subscription,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': 'test client secret',
     }
 
     return render(request, 'profiles/profile.html', context)
