@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'charities',
     'profiles',
     'subscriptions',
-    'donations',
 
     # Other
     'crispy_forms',
@@ -184,5 +183,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Stripe
-STRIPE_CURRENCY = 'usd'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
