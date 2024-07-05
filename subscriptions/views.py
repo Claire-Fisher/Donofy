@@ -78,3 +78,38 @@ def update_subscription(request):
     active_tab = request.GET.get('tab', 'myDonofy')
 
     return redirect(f'{reverse("profiles:profile")}?tab={active_tab}')
+
+
+@login_required
+def delete_from_favs(request, charity_id):
+    """Delete a charity from a user's charity_favs list."""
+    # Get user and associated UserProfile
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+
+    # Get charity favs list
+    charity = get_object_or_404(Charity, pk=charity_id)
+    charity_favs_ids = user_profile.charity_favs or []
+
+    if request.method == "POST":
+        if charity.id in charity_favs_ids:
+            charity_favs_ids.remove(charity.id)
+            user_profile.charity_favs = charity_favs_ids
+            user_profile.save()
+            messages.success(
+                request,
+                f'{charity.charity_name}'
+                f' successfully removed from your favourites.'
+            )
+        else:
+            messages.error(
+                request,
+                (
+                    'Oops! Something went wrong. '
+                    'Please refresh the page and try again.'
+                )
+            )
+
+    active_tab = request.GET.get('tab', 'myDonofy')
+
+    return redirect(f'{reverse("profiles:profile")}?tab={active_tab}')

@@ -111,7 +111,7 @@ def add_to_favs(request, charity_id):
             user_profile.charity_favs = charity_favs
             user_profile.save()
             messages.success(
-                request, f"Added {charity.charity_name} to your favourites"
+                request, f'Added {charity.charity_name} to your favourites'
             )
 
     context = {

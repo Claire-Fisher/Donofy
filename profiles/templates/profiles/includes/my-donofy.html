@@ -35,7 +35,10 @@
                     <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="text-dark bold">{{ charity.charity_name }}</a>
                     <p class="text-small text-muted mb-0">Charity number: ({{ charity.charity_num}})</p>
-                    <a href="#" class="a-pink">Remove from favourites</a>
+                    <form action="{% url 'subscriptions:delete_from_favs' charity.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-pink-outline btn-link my-1">Remove</button>
+                    </form>
                 </li>
                 <!-- add an if statement HERE to check for a currently saved sub_breakdown, prepopulate the inputs with the user's last saved values. -->
                 <div class="col-12">
