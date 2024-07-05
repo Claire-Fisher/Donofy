@@ -150,6 +150,17 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <details><summary>sub_breakdown dict saving as expected</summary>
         <img src="documents/testing-images/update_subscription-attr-fixed.png">
         </details>
+7. **Update_subscription Invalid Literal for Int error**
+    * ***Issue Found:***
+        * If value for charity donation left blank on save, Value error thrown.
+        <details><summary>Value Error on save</summary>
+        <img src="documents/testing-images/update_subscription-value-error-invalid-literal-for-int.png">
+        </details>
+    * ***Solution Used:***
+      * Added a default_if_none:0 condition to the input value logic. So 0 will always be displayed instead of blank.
+        <details><summary>Zero default fix</summary>
+        <img src="documents/testing-images/update_subscription-value-error-invalid-literal-for-int-fixed.png">
+        </details>
 
 
 
