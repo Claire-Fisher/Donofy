@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Subscription(models.Model):
     """
-    Subscription model to hold the user's current subscription settings. 
+    Subscription model to hold the user's current subscription settings.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sub_active = models.BooleanField(default=False)
