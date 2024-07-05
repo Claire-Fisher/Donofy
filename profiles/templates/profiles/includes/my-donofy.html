@@ -39,7 +39,7 @@
                 </li>
                 <!-- add an if statement HERE to check for a currently saved sub_breakdown, prepopulate the inputs with the user's last saved values. -->
                 <div class="col-12">
-                    <input type="number" name="breakdown_{{ charity.id }}" value="{{ subscription.sub_breakdown|get_item:charity.charity_name }}" min="0" max="999">
+                    <input type="number" name="breakdown_{{ charity.id }}" value="{{ subscription.sub_breakdown|get_item:charity.charity_name|default_if_none:0 }}" min="0" max="999">
                 </div>
             </div>
             {% endfor %}

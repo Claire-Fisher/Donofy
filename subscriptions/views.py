@@ -69,7 +69,7 @@ def update_subscription(request):
         sub_breakdown = {}
         for charity in charity_favs:
             breakdown_value = request.POST.get(f'breakdown_{charity.id}')
-            if breakdown_value is not None:
+            if breakdown_value:
                 sub_breakdown[charity.charity_name] = int(breakdown_value)
 
         subscription.sub_breakdown = sub_breakdown
