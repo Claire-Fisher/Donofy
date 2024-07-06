@@ -8,6 +8,16 @@ from .forms import UserForm, UserProfileForm
 from django.conf import settings
 
 
+def get_charity_favs(user_profile):
+    charity_ids = user_profile.charity_favs or []
+    charity_objects = Charity.objects.filter(id__in=charity_ids)
+    # Filter only the charity objects with active=True
+    active_charities = charity_objects.filter(active=True)
+    charity_favs = [charity.id for charity in active_charities]
+
+    return charity_favs
+
+
 @login_required
 def profile(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -20,7 +30,7 @@ def profile(request):
     # Check or create a subscription object
     subscription, created = Subscription.objects.get_or_create(user=user)
     # Get charity favs list
-    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs_ids = get_charity_favs(user_profile)
     charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
 
     active_tab = request.GET.get('tab', 'myDetails')
@@ -48,7 +58,7 @@ def update_profile(request):
     # Check or create a subscription object
     subscription, created = Subscription.objects.get_or_create(user=user)
     # Get charity favs list
-    charity_favs_ids = user_profile.charity_favs or []
+    charity_favs_ids = get_charity_favs(user_profile)
     charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
 
     if request.method == "POST":

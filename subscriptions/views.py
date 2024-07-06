@@ -16,7 +16,13 @@ def get_subscription(user):
 
 
 def get_charity_favs(user_profile):
-    return user_profile.charity_favs or []
+    charity_ids = user_profile.charity_favs or []
+    charity_objects = Charity.objects.filter(id__in=charity_ids)
+    # Filter only the charity objects with active=True
+    active_charities = charity_objects.filter(active=True)
+    charity_favs = [charity.id for charity in active_charities]
+
+    return charity_favs
 
 
 def get_full_charity_objs(charity_favs_ids):
@@ -33,6 +39,7 @@ def manage_subscription(request):
     user = request.user
     user_profile = get_user_profile(user)
     charity_favs = get_charity_favs(user_profile)
+    print(charity_favs)
     subscription, created = get_subscription(user)
 
     active_tab = request.GET.get('tab', 'myDonofy')
