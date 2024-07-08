@@ -95,6 +95,10 @@ def update_subscription(request):
                 sub_breakdown[charity.charity_name] = int(breakdown_value)
 
         subscription.sub_breakdown = sub_breakdown
+        # Add all the values of the sub_breakdown dict
+        sub_total = sum(sub_breakdown.values())
+        subscription.sub_total = sub_total
+
         subscription.save()
 
     active_tab = request.GET.get('tab', 'myDonofy')
@@ -108,13 +112,19 @@ def delete_from_favs(request, charity_id):
     user = request.user
     user_profile = get_user_profile(user)
     charity = get_object_or_404(Charity, pk=charity_id)
-    charity_favs_ids = get_charity_favs(user_profile)
+    charity_favs_ids = user_profile.charity_favs or []
 
     if request.method == "POST":
         if charity.id in charity_favs_ids:
-            charity_favs_ids.remove(charity.id)
+
+            print(f"Initial charity_favs: {charity_favs_ids}")
+
+            charity_favs_ids.remove(charity_id)
             user_profile.charity_favs = charity_favs_ids
             user_profile.save()
+
+            print(f"Updated charity_favs: {user_profile.charity_favs}")
+
             messages.success(
                 request,
                 f'{charity.charity_name}'
