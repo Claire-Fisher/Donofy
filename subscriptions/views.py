@@ -73,6 +73,26 @@ def toggle_subscription_active(request):
                 request, 'Hooray! Your donations are active! You are awesome!')
             subscription.save()
 
+        # Get today's date
+        today = timezone.now().date()
+        today_month = today.month
+        today_year = today.year
+
+        """ Check if a donation for that user,
+            with matching month and year, already exists """
+        existing_donation = Donation.objects.filter(
+            user=user,
+            date__month=today_month,
+            date__year=today_year
+        ).first()
+
+        if existing_donation:
+            # Update the donation if it exists
+            existing_donation.donation_active = subscription.sub_active
+            existing_donation.save()
+        else:
+            pass
+
     active_tab = request.GET.get('tab', 'myDonofy')
 
     return redirect(f'{reverse("profiles:profile")}?tab={active_tab}')
@@ -119,6 +139,7 @@ def update_subscription(request):
 
         if existing_donation:
             # Update the donation if it exists
+            existing_donation.donation_active = subscription.sub_active
             existing_donation.amount = subscription.sub_total
             existing_donation.donation_breakdown = subscription.sub_breakdown
             existing_donation.save()
