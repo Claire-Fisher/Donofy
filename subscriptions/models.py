@@ -2,6 +2,9 @@ import uuid
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from profiles.models import UserProfile
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 class Subscription(models.Model):
@@ -26,3 +29,27 @@ class Donation(models.Model):
         Generate a random, unique donation number using UUID
         """
         return uuid.uuid4().hex.upper()
+
+    def _send_donation_registered_email(self, donation):
+        """
+        Send the user notification of a pending donation email
+        """
+        cust_email = self.user.email
+        subject = render_to_string(
+            'subscriptions/confirmation_emails/confirmation_email_subject.txt',
+            {'donation': donation}
+        )
+        body = render_to_string(
+            'subscriptions/confirmation_emails/confirmation_email_body.txt',
+            {
+                'donation': donation,
+                'contact_email': settings.DEFAULT_FROM_EMAIL
+            }
+        )
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
