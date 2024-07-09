@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from profiles.models import UserProfile
 from charities.models import Charity
-from subscriptions.models import Subscription
+from subscriptions.models import Subscription, Donation
 from django.contrib import messages
+import datetime
+from django.utils import timezone
+from django.http import JsonResponse
 
 
 # Helper functions for commonly used function variables
@@ -39,7 +42,6 @@ def manage_subscription(request):
     user = request.user
     user_profile = get_user_profile(user)
     charity_favs = get_charity_favs(user_profile)
-    print(charity_favs)
     subscription, created = get_subscription(user)
 
     active_tab = request.GET.get('tab', 'myDonofy')
@@ -117,13 +119,9 @@ def delete_from_favs(request, charity_id):
     if request.method == "POST":
         if charity.id in charity_favs_ids:
 
-            print(f"Initial charity_favs: {charity_favs_ids}")
-
             charity_favs_ids.remove(charity_id)
             user_profile.charity_favs = charity_favs_ids
             user_profile.save()
-
-            print(f"Updated charity_favs: {user_profile.charity_favs}")
 
             messages.success(
                 request,
@@ -142,3 +140,37 @@ def delete_from_favs(request, charity_id):
     active_tab = request.GET.get('tab', 'myDonofy')
 
     return redirect(f'{reverse("profiles:profile")}?tab={active_tab}')
+
+
+def create_donation_if_24th(request):
+    """
+    Create a donation obj from the user's subscription if the date is the 24th.
+    """
+    today = timezone.now().date()
+
+    if today.day == 24:
+        # Get all active subscriptions
+        active_subscriptions = Subscription.objects.filter(sub_active=True)
+
+        for subscription in active_subscriptions:
+            user = subscription.user
+
+            # Check if a donation already exists for today
+            donation_exists = Donation.objects.filter(
+                user=user, date=today).exists()
+
+            if not donation_exists:
+                # Get the current sub_breakdown and sub_total
+                sub_breakdown = subscription.sub_breakdown
+                sub_total = subscription.sub_total
+
+                # Create a new Donation object
+                donation = Donation.objects.create(
+                    user=user,
+                    amount=sub_total,
+                    donation_breakdown=sub_breakdown,
+                )
+
+                donation.save()
+
+    return JsonResponse({'status': 'success'})
