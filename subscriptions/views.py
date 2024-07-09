@@ -206,6 +206,7 @@ def create_donation_if_24th(request):
     if today.day >= 1:
         # Get all active subscriptions
         active_subscriptions = Subscription.objects.filter(sub_active=True)
+        donations_created = False
 
         for subscription in active_subscriptions:
             user = subscription.user
@@ -228,5 +229,15 @@ def create_donation_if_24th(request):
 
                 donation.save()
                 donation._send_donation_registered_email()
+                donations_created = True
 
-    return JsonResponse({'status': 'success'})
+        if donations_created:
+            messages.success(request, 'User donations created')
+        else:
+            messages.info(
+                request,
+                'Donations not created. '
+                'Please see the admin panel for more info.'
+            )
+
+    return redirect('staff_action')
