@@ -1,1 +1,1 @@
-Donofy Donation notification for {{ donation.user }}
+Donofy Donation Notification for {{ donation.user|capfirst }}

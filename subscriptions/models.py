@@ -56,3 +56,29 @@ class Donation(models.Model):
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
+
+    def _send_donation_changed_email(self):
+        """
+        Send the user notification of a upcoming donation change via email
+        """
+        cust_email = self.user.email
+        subject = render_to_string(
+            'subscriptions/confirmation_emails/'
+            'donation-changed-subject.txt',
+            {'donation': self}
+        )
+        body = render_to_string(
+            'subscriptions/confirmation_emails/'
+            'donation-changed-body.txt',
+            {
+                'donation': self,
+                'contact_email': settings.DEFAULT_FROM_EMAIL
+            }
+        )
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )

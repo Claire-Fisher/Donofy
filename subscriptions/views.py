@@ -143,6 +143,7 @@ def update_subscription(request):
             existing_donation.amount = subscription.sub_total
             existing_donation.donation_breakdown = subscription.sub_breakdown
             existing_donation.save()
+            existing_donation._send_donation_changed_email()
         else:
             pass
 
