@@ -1,0 +1,19 @@
+Hello {{ subscription.user }}!
+
+We've received your donation instructions, you awesome human!
+
+Your donation total of £{{ donation.amount }} will be charged on the 1st of next month. 
+
+If you'd like to make changes, you can review and/or edit your donation by logging into your Donofy account. 
+
+Need to pause or cancel? No problem! Just toggle your donation to 'paused'. Your donations will pause indefinitely until you tell us otherwise. 
+
+Please remember to save any changes before the 1st, or you may still be charged.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you,
+
+Sincerely,
+
+Donofy
