@@ -4,6 +4,7 @@ from profiles.models import UserProfile
 from charities.models import Charity
 from subscriptions.models import Subscription, Donation
 from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
 import datetime
 from django.utils import timezone
 from django.http import JsonResponse
@@ -186,13 +187,23 @@ def delete_from_favs(request, charity_id):
     return redirect(f'{reverse("profiles:profile")}?tab={active_tab}')
 
 
+@login_required
 def create_donation_if_24th(request):
     """
     Create a donation obj from the user's subscription if the date is the 24th.
     """
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You do not have permissions for that. '
+            'Please log in as an authorised user.'
+        )
+        return redirect('home')
+
     today = timezone.now().date()
 
-    if today.day == 24:
+    # Date would be set to == 24 if donation creation is automated
+    if today.day >= 1:
         # Get all active subscriptions
         active_subscriptions = Subscription.objects.filter(sub_active=True)
 
