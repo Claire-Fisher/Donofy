@@ -15,7 +15,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
 
 class DonationAdmin(admin.ModelAdmin):
-    list_display = ('user', 'date', 'amount', 'donation_breakdown')
+    list_display = ('user', 'donation_active', 'date', 'amount', 'donation_breakdown')
     search_fields = ('user', 'date')
 
     fieldsets = (

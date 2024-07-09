@@ -20,6 +20,7 @@ class Subscription(models.Model):
 class Donation(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    donation_active = models.BooleanField(default=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     donation_breakdown = models.JSONField(default=dict, blank=False)
     date = models.DateField(auto_now_add=True)
