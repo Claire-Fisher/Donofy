@@ -1,9 +1,16 @@
+amqp==5.2.0
 asgiref==3.8.1
+billiard==4.2.0
+click==8.1.7
+click-didyoumean==0.3.1
+click-plugins==1.1.1
+click-repl==0.3.0
 coverage==7.5.3
 Django==3.2.25
 django-allauth==0.55.0
 django-countries==7.2.1
 django-crispy-forms==1.14.0
+kombu==5.3.7
 oauthlib==3.2.2
 Pillow==7.0.0
 PyJWT==2.8.0
@@ -12,3 +19,6 @@ python3-openid==3.2.0
 pytz==2024.1
 requests-oauthlib==2.0.0
 sqlparse==0.5.0
+stripe==10.1.0
+tzdata==2024.1
+vine==5.1.0
