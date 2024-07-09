@@ -192,7 +192,7 @@ def create_donation_if_24th(request):
     """
     today = timezone.now().date()
 
-    if today.day == 9:
+    if today.day == 24:
         # Get all active subscriptions
         active_subscriptions = Subscription.objects.filter(sub_active=True)
 
