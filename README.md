@@ -27,6 +27,7 @@
   * [Go to TESTING.md](TESTING.md)
 * [**Deployment**](#deployment)
   * [Click here to deploy this project live](/https://boardgame-buddy-c89ff5d28931.herokuapp.com/)
+* [**Admin Access**](#admin-access)
 * [**Languages**](#languages)
 * [**Frameworks and Tools**](#frameworks-and-tools)
 * [**Software**](#software)
@@ -195,8 +196,7 @@ The footer provides copyright information and name of the site creator. Plus cli
 [**Back to top**](#donofy)
 ## Future Features
 
-
-## Future Features Requested my user testers
+* 
 
 
 [**Back to top**](#donofy)
@@ -206,6 +206,15 @@ The footer provides copyright information and name of the site creator. Plus cli
 ## Deployment
 [Click here to deploy this project live](###)
 
+## Admin Access
+
+A general superuser has been created for this project to view backend features and access some project functions and permissions that need to be secure. A staff_actions page has been created for improved superuser UX. Common superuser actions can be called with a simple button click instead of navigating via the url. 
+
+To log in as a superuser and access the admin features. Please log in with the following details:
+
+  - username = superuser
+  - password = Auth0risedAdmin0nly123
+  - Once signed in, use the My Account dropdown on the main navbar, and select Admin.
 
 ### **Languages**
 - HTML
