@@ -30,19 +30,21 @@ class Donation(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    def _send_donation_registered_email(self, donation):
+    def _send_donation_registered_email(self):
         """
         Send the user notification of a pending donation email
         """
         cust_email = self.user.email
         subject = render_to_string(
-            'subscriptions/confirmation_emails/confirmation_email_subject.txt',
-            {'donation': donation}
+            'subscriptions/confirmation_emails/'
+            'donation-registered-subject.txt',
+            {'donation': self}
         )
         body = render_to_string(
-            'subscriptions/confirmation_emails/confirmation_email_body.txt',
+            'subscriptions/confirmation_emails/'
+            'donation-registered-body.txt',
             {
-                'donation': donation,
+                'donation': self,
                 'contact_email': settings.DEFAULT_FROM_EMAIL
             }
         )
