@@ -100,8 +100,30 @@ def update_subscription(request):
         # Add all the values of the sub_breakdown dict
         sub_total = sum(sub_breakdown.values())
         subscription.sub_total = sub_total
+        subscription.date = timezone.now().date()
 
         subscription.save()
+
+        # Get today's date
+        today = timezone.now().date()
+        today_month = today.month
+        today_year = today.year
+
+        """ Check if a donation for that user,
+            with matching month and year, already exists """
+        existing_donation = Donation.objects.filter(
+            user=user,
+            date__month=today_month,
+            date__year=today_year
+        ).first()
+
+        if existing_donation:
+            # Update the donation if it exists
+            existing_donation.amount = subscription.sub_total
+            existing_donation.donation_breakdown = subscription.sub_breakdown
+            existing_donation.save()
+        else:
+            pass
 
     active_tab = request.GET.get('tab', 'myDonofy')
 
@@ -148,7 +170,7 @@ def create_donation_if_24th(request):
     """
     today = timezone.now().date()
 
-    if today.day == 24:
+    if today.day == 9:
         # Get all active subscriptions
         active_subscriptions = Subscription.objects.filter(sub_active=True)
 
@@ -172,5 +194,6 @@ def create_donation_if_24th(request):
                 )
 
                 donation.save()
+                donation._send_donation_registered_email()
 
     return JsonResponse({'status': 'success'})
