@@ -25,5 +25,10 @@ urlpatterns = [
         'delete_from_favs/<int:charity_id>/',
         views.delete_from_favs,
         name='delete_from_favs'
-    )
+    ),
+    path(
+        'create-donation/',
+        views.create_donation_if_24th,
+        name='create_donation_if_24th'
+    ),
 ]
