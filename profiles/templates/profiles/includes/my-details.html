@@ -7,7 +7,7 @@
         {{ user_profile_form|crispy }}
         <button type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Save Changes</button>
     </form>
-    <form id="payment-form" action="" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
+    <form id="payment-form" action="{% url 'profiles:save_card' %}" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         {{ form|crispy }}
         <label class="fieldset-label text-pink px-2 w-auto">Payment</label>

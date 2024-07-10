@@ -92,28 +92,53 @@ def update_profile(request):
     return render(request, 'profiles/profile.html', context)
 
 
-stripe_public_key = settings.STRIPE_PUBLIC_KEY
-stripe_secret_key = settings.STRIPE_SECRET_KEY
-
-
 @login_required
 def save_card(request):
     """
-    A view to save a user's card payment details with Stripe
+    A view to save or update a user's card payment details with Stripe
     """
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+
     if request.method == 'POST':
         stripe_token = request.POST.get('stripeToken')
 
         if stripe_token:
-            user = request.user
             try:
-                # Create a new customer object
-                customer = stripe.Customer.create(
-                    email=user.email,
-                    source=stripe_token
-                )
-                user_profile = get_object_or_404(UserProfile, user=user)
-                user_profile.stripe_customer_id = customer.id
+                # Check if the user has a Stripe customer ID
+                if user_profile.stripe_customer_id:
+                    # Retrieve the existing customer from Stripe
+                    customer = stripe.Customer.retrieve(
+                        user_profile.stripe_customer_id)
+                    # Update the customer with the new payment source
+                    customer.source = stripe_token
+                    customer.address = {
+                        'line1': user_profile.street_address_1,
+                        'line2': user_profile.street_address_2,
+                        'city': user_profile.town_or_city,
+                        'state': user_profile.county,
+                        'postal_code': user_profile.post_code_zip,
+                        'country': user_profile.country,
+                    }
+                    customer.save()
+                else:
+                    # Create a new customer object
+                    customer = stripe.Customer.create(
+                        email=user.email,
+                        source=stripe_token,
+                        address={
+                            'line1': user_profile.street_address_1,
+                            'line2': user_profile.street_address_2,
+                            'city': user_profile.town_or_city,
+                            'state': user_profile.county,
+                            'postal_code': user_profile.post_code_zip,
+                            'country': user_profile.country,
+                        }
+                    )
+                    user_profile.stripe_customer_id = customer.id
+                
+                # Save the user profile with the Stripe customer ID
                 user_profile.save()
 
                 messages.success(
@@ -123,21 +148,22 @@ def save_card(request):
         else:
             messages.error(request, "Invalid payment information.")
 
-        user_form = UserForm(instance=user)
-        user_profile_form = UserProfileForm(instance=user_profile)
-        active_tab = request.GET.get('tab', 'myDonofy')
-        charity_favs_ids = get_charity_favs(user_profile)
-        charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
-        subscription, created = Subscription.objects.get_or_create(user=user)
+    # Prepare context for rendering the profile page
+    user_profile = get_object_or_404(UserProfile, user=user)
+    user_form = UserForm(instance=user)
+    user_profile_form = UserProfileForm(instance=user_profile)
+    active_tab = request.GET.get('tab', 'myDetails')
+    charity_favs_ids = get_charity_favs(user_profile)
+    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+    subscription, created = Subscription.objects.get_or_create(user=user)
 
-        context = {
-            'user_form': user_form,
-            'user_profile_form': user_profile_form,
-            'active_tab': active_tab,
-            'charity_favs': charity_favs,
-            'subscription': subscription,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': 'test client secret',
-        }
+    context = {
+        'user_form': user_form,
+        'user_profile_form': user_profile_form,
+        'active_tab': active_tab,
+        'charity_favs': charity_favs,
+        'subscription': subscription,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
+    }
 
-    return redirect('profiles:profile', context)
+    return render(request, 'profiles/profile.html', context)
