@@ -20,7 +20,7 @@
         <h3 class="your-total bg-white text-dark bold col-12 col-lg-8 mx-auto mb-0 py-2 px-1 text-center strike">Your current donation total = £{{ subscription.sub_total }}</h3>
     {% endif %}   
     <!-- lists the users favourited charities. Functionality to remove charities, or adjust donation amounts -->
-    <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities</h2>
+    <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities ({{ charity_favs|length }})</h2>
     <form action="{% url 'subscriptions:update_subscription' %}" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         <ul class="favourites-list p-0">
@@ -35,10 +35,10 @@
                     <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="text-dark bold">{{ charity.charity_name }}</a>
                     <p class="text-small text-muted mb-0">Charity number: ({{ charity.charity_num}})</p>
-                    <form action="{% url 'subscriptions:delete_from_favs' charity.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-pink-outline btn-link my-1">Remove</button>
-                    </form>
+                    <a href="{% url 'subscriptions:delete_from_favs' charity.id %}" aria-label="action to remove charity from favourites list"
+                        class="a-pink">
+                        Remove from favourites
+                    </a>
                 </li>
                 <!-- add an if statement HERE to check for a currently saved sub_breakdown, prepopulate the inputs with the user's last saved values. -->
                 <div class="col-12">
