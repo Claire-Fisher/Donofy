@@ -25,7 +25,10 @@ class UserProfile(models.Model):
         validators=[
             RegexValidator(
                 regex=r'^\+\d{1,14}$',
-                message='Phone number must contain only digits.'
+                message=(
+                    'Phone number must start with a "+" '
+                    'followed by 1 to 14 digits.'
+                )
             )
         ]
     )
