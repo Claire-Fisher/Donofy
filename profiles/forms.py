@@ -8,6 +8,15 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('first_name', 'last_name', 'email',)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs.update(
+            {'placeholder': 'First Name'})
+        self.fields['last_name'].widget.attrs.update(
+            {'placeholder': 'Last Name'})
+        self.fields['email'].widget.attrs.update(
+            {'placeholder': 'Email Address'})
+
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
@@ -22,3 +31,20 @@ class UserProfileForm(forms.ModelForm):
             'post_code_zip',
             'country',
             )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['phone_num'].widget.attrs.update(
+            {'placeholder': 'Phone Number'})
+        self.fields['street_address_1'].widget.attrs.update(
+            {'placeholder': 'Street Address 1'})
+        self.fields['street_address_2'].widget.attrs.update(
+            {'placeholder': 'Street Address 2'})
+        self.fields['town_or_city'].widget.attrs.update(
+            {'placeholder': 'Town or City'})
+        self.fields['county'].widget.attrs.update(
+            {'placeholder': 'County'})
+        self.fields['post_code_zip'].widget.attrs.update(
+            {'placeholder': 'Post Code / Zip'})
+        self.fields['country'].widget.attrs.update(
+            {'placeholder': 'Country'})
