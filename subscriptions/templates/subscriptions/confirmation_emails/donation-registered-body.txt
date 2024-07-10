@@ -2,12 +2,12 @@ Hello {{ donation.user|capfirst }}!
 
 We've received your donation instructions, you awesome human!
 
-Your current donation total of £{{ donation.amount }} will be charged on the 1st of next month. 
+Your current donation total of £{{ donation.amount }} will be charged on the last day of this month. 
 
 We are committed to giving you full control over your donations. You are welcome to make as many changes as you need before the 1st of next month by logging onto your Donofy account.
 
 Need to pause or cancel? No problem! Just toggle your donation to 'paused'. Your donations will pause indefinitely until you tell us otherwise. 
-Please remember to save any changes before the 1st, or you may still be charged.
+Please remember to save any changes before the last day of this month, or you may still be charged.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 

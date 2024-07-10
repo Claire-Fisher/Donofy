@@ -3,7 +3,7 @@ Hello {{ donation.user|capfirst }}!
 You're receiving this email because you've made changes to your upcoming donation.
 
 We've adjusted your next donation according to your instructions.
-Your current donation total will be charged on the 1st of next month. (Unless you've chosen to 'pause')
+Your current donation total will be charged on the last of this month. (Unless you've chosen to 'pause')
 
 We are committed to giving you full control over your donations. You are welcome to make as many changes as you need before the 1st of next month by logging onto your Donofy account. 
 
