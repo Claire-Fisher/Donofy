@@ -24,6 +24,7 @@ class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     donation_breakdown = models.JSONField(default=dict, blank=False)
     date = models.DateField(auto_now_add=True)
+    status = models.CharField(max_length=12, null=False, default='Not charged')
 
     def _generate_donation_number(self):
         """
