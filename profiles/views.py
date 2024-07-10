@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from charities.models import Charity
-from subscriptions.models import Subscription
+from subscriptions.models import Subscription, Donation
 from .forms import UserForm, UserProfileForm
 
 
@@ -106,13 +106,22 @@ def save_card(request):
 
         if stripe_token:
             try:
+                # Create a PaymentMethod using the token
+                payment_method = stripe.PaymentMethod.create(
+                    type='card',
+                    card={
+                        'token': stripe_token,
+                    },
+                )
+
                 # Check if the user has a Stripe customer ID
                 if user_profile.stripe_customer_id:
                     # Retrieve the existing customer from Stripe
                     customer = stripe.Customer.retrieve(
-                        user_profile.stripe_customer_id)
-                    # Update the customer with the new payment source
-                    customer.source = stripe_token
+                        user_profile.stripe_customer_id
+                    )
+                    # Update the customer with the new payment info
+                    customer.payment_method = payment_method.id
                     customer.address = {
                         'line1': user_profile.street_address_1,
                         'line2': user_profile.street_address_2,
@@ -126,7 +135,6 @@ def save_card(request):
                     # Create a new customer object
                     customer = stripe.Customer.create(
                         email=user.email,
-                        source=stripe_token,
                         address={
                             'line1': user_profile.street_address_1,
                             'line2': user_profile.street_address_2,
@@ -137,19 +145,43 @@ def save_card(request):
                         }
                     )
                     user_profile.stripe_customer_id = customer.id
-                
-                # Save the user profile with the Stripe customer ID
-                user_profile.save()
 
-                messages.success(
-                    request, 'Your card details have been saved successfully.')
+                """ Create a SetupIntent to save the payment method
+                for future use """
+                setup_intent = stripe.SetupIntent.create(
+                    customer=customer.id,
+                    automatic_payment_methods={
+                        'enabled': True,
+                        'allow_redirects': 'never',
+                    }
+                )
+
+                # Confirm the SetupIntent with the PaymentMethod
+                confirmation = stripe.SetupIntent.confirm(
+                    setup_intent.id,
+                    payment_method=payment_method.id,
+                )
+
+                if confirmation.status == 'succeeded':
+                    # Save the user profile with the Stripe payment method ID
+                    user_profile.stripe_payment_method_id = payment_method.id
+                    user_profile.save()
+
+                    messages.success(
+                        request,
+                        'Your card details have been saved successfully.'
+                    )
+                else:
+                    messages.error(
+                        request,
+                        f"SetupIntent confirmation failed: {confirmation.status}"
+                    )
             except stripe.error.StripeError as e:
                 messages.error(request, f"Error saving card: {str(e)}")
         else:
             messages.error(request, "Invalid payment information.")
 
     # Prepare context for rendering the profile page
-    user_profile = get_object_or_404(UserProfile, user=user)
     user_form = UserForm(instance=user)
     user_profile_form = UserProfileForm(instance=user_profile)
     active_tab = request.GET.get('tab', 'myDetails')
