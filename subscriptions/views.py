@@ -187,9 +187,9 @@ def delete_from_favs(request, charity_id):
 
 
 @login_required
-def create_donation_if_24th(request):
+def create_donation(request):
     """
-    Create a donation obj from the user's subscription if the date is the 24th.
+    Create a donation obj from the user's subscription.
     """
     if not request.user.is_superuser:
         messages.error(
