@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
+{% block extra_title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card bg-light-brand p-3 p-lg-4 shadow my-1 my-lg-5">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
+                <h1 class="text-pink bold profile-title text-center text-capitalize mt-3 mt-lg-5">
+                    <span><i class="fa-solid fa-circle-check icon-green"></i></span> Billing details for {{ user.username|capfirst }} successfully saved.
+                </h1>
+                <h2 class="text-dark profile-title text-center mb-5">
+                    Thank you, you awesome human!
+                </h2>
+                <p class="text-dark profile-sub-title text-left">
+                    Your payment details are now saved and authorised to allow us to process your Donofy donations.
+                </p>
+                <p class="text-dark profile-sub-title text-left mb-5">We want to reassure you that the security of your billing data is our top priority.
+                    Rest assured that your donations will be charged strictly according to the preferences you have set, with no hidden fees.
+                    You also have the flexibility to pause or cancel your donations at any time, ensuring you remain in full control of your contributions.<br><br>
+                    Thank you for your trust and support.<br><br>Your contributions, no matter how small, have a huge positive impact.
+                </p>
+                <h2 class="text-pink profile-title text-center mb-4"><span><i class="fa-solid fa-circle-question icon-pink"></i></span> What do I do now?</h2>
+                <p class="text-dark profile-sub-title text-left">
+                    <span><i class="fa-solid fa-1 icon-pink mr-2"></i></span> 
+                    Find the charities that matter to you and add them to your Favouries <a href="{% url 'charities' %}" class="a-pink">here.</a>
+                </p>
+                <p class="text-dark profile-sub-title text-left">
+                    <span><i class="fa-solid fa-2 icon-pink mr-2"></i></span> 
+                    Set your donations instructions on your My Donofy page <a href="{% url 'profiles:profile' %}?tab=myDonofy" class="a-pink">here.</a>
+                </p>
+                </p class="text-dark profile-sub-title text-left mb-5">
+                    <span><i class="fa-solid fa-3 icon-pink mr-2 mb-5"></i></span> We'll do all the rest. Easy peasy!
+                <p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
