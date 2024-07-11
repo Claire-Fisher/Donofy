@@ -1,7 +1,6 @@
-<h2 class="tab-title text-pink bold col-12 col-lg-8 mx-auto px-1">Review / edit your billing details here.</h2>
-<p class="text-dark col-12 col-lg-8 mx-auto px-1">( Full profile info is required to have an active donation subscription. )</p>
+<h2 class="tab-title text-pink bold col-12 col-lg-8 mx-auto px-1">Enter your billing details here.</h2>
 <div class="row">
-    <form id="setup-form" action="{% url 'profiles:save_card' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
+    <form id="payment-form" action="{% url 'profiles:checkout' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
         {% csrf_token %}
         {{ user_form|crispy }}
         {{ user_profile_form|crispy }}
@@ -10,17 +9,15 @@
         <!-- A Stripe card element will go here -->
         <div class="mb-3" id="card-element"></div>
         <!-- Used to display form errors -->
-        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+        <div class="mb-5 text-danger" id="card-errors" role="alert"></div>
         <!-- Pass the client secret to the view so we can get the payment intent id -->
         <input type="hidden" value="{{ client_secret }}" name="client_secret">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="consent" value="consent" id="consent" required>
-            <label class="form-check-label" for="consent">
-                I give Donofy permission to process payments in accordance with my specified donation settings.
-            </label>
-        </div>
-        <button type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Save Billing Details</button>
-        <p class="text-dark my-0"><i class="icon fas fa-exclamation-circle"></i> Please ensure all billing information is correct.</p>
+        <p class="text-pink bold">Your current donation amount = £{{ subscription.sub_total }}</p>
+        <p class="text-dark">
+            If you need to change this amount, or any of your donation details, please go to the My Donofy section.
+            Clicking "Make Donation" below will charge you for your current donation total.
+        </p>
+        <button type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Make donation</button>
     </form>
 </div>
 
