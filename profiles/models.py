@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    payment_consent = models.BooleanField(default=False)
     stripe_customer_id = models.CharField(
         max_length=255,
         blank=True,
