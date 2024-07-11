@@ -94,108 +94,59 @@ def update_profile(request):
 
 @login_required
 def save_card(request):
-    """
-    A view to save or update a user's card payment details with Stripe
-    """
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
+    if request.method == "POST":
+        stripe.api_key = settings.STRIPE_SECRET_KEY
 
-    if request.method == 'POST':
-        stripe_token = request.POST.get('stripeToken')
+        # Check for payment consent
+        if 'consent' not in request.POST or not request.POST.get('consent'):
+            messages.error(request, 'You must consent to payment processing.')
+            return redirect('profiles:update_profile')
 
-        if stripe_token:
-            try:
-                # Create a PaymentMethod using the token
-                payment_method = stripe.PaymentMethod.create(
-                    type='card',
-                    card={
-                        'token': stripe_token,
-                    },
+        user_profile = UserProfile.objects.get(user=request.user)
+        user_data = {
+            'name': f"{request.user.first_name} {request.user.last_name}",
+            'email': request.user.email,
+            'address': {
+                'line1': user_profile.street_address_1,
+                'line2': user_profile.street_address_2,
+                'city': user_profile.town_or_city,
+                'state': user_profile.county,
+                'postal_code': user_profile.post_code_zip,
+                'country': user_profile.country.code
+            },
+            'phone': user_profile.phone_num,
+            'metadata': {
+                'consent': 'true'
+            }
+        }
+
+        try:
+            # Check if the user already has a Stripe customer ID
+            if user_profile.stripe_customer_id:
+                customer = stripe.Customer.modify(
+                    user_profile.stripe_customer_id, **user_data
                 )
+            else:
+                # Create a new customer
+                customer = stripe.Customer.create(**user_data)
+                user_profile.stripe_customer_id = customer['id']
+                user_profile.save()
 
-                # Check if the user has a Stripe customer ID
-                if user_profile.stripe_customer_id:
-                    # Retrieve the existing customer from Stripe
-                    customer = stripe.Customer.retrieve(
-                        user_profile.stripe_customer_id
-                    )
-                    # Update the customer with the new payment info
-                    customer.payment_method = payment_method.id
-                    customer.address = {
-                        'line1': user_profile.street_address_1,
-                        'line2': user_profile.street_address_2,
-                        'city': user_profile.town_or_city,
-                        'state': user_profile.county,
-                        'postal_code': user_profile.post_code_zip,
-                        'country': user_profile.country,
-                    }
-                    customer.save()
-                else:
-                    # Create a new customer object
-                    customer = stripe.Customer.create(
-                        email=user.email,
-                        address={
-                            'line1': user_profile.street_address_1,
-                            'line2': user_profile.street_address_2,
-                            'city': user_profile.town_or_city,
-                            'state': user_profile.county,
-                            'postal_code': user_profile.post_code_zip,
-                            'country': user_profile.country,
-                        }
-                    )
-                    user_profile.stripe_customer_id = customer.id
+            # Create a SetupIntent for future payments
+            setup_intent = stripe.SetupIntent.create(
+                customer=user_profile.stripe_customer_id,
+                payment_method_types=["card"]
+            )
 
-                """ Create a SetupIntent to save the payment method
-                for future use """
-                setup_intent = stripe.SetupIntent.create(
-                    customer=customer.id,
-                    automatic_payment_methods={
-                        'enabled': True,
-                        'allow_redirects': 'never',
-                    }
-                )
+            return render(request, 'profiles/billing-success.html', {
+                'client_secret': setup_intent.client_secret
+            })
 
-                # Confirm the SetupIntent with the PaymentMethod
-                confirmation = stripe.SetupIntent.confirm(
-                    setup_intent.id,
-                    payment_method=payment_method.id,
-                )
-
-                if confirmation.status == 'succeeded':
-                    # Save the user profile with the Stripe payment method ID
-                    user_profile.stripe_payment_method_id = payment_method.id
-                    user_profile.save()
-
-                    messages.success(
-                        request,
-                        'Your card details have been saved successfully.'
-                    )
-                else:
-                    messages.error(
-                        request,
-                        f"SetupIntent confirmation failed: {confirmation.status}"
-                    )
-            except stripe.error.StripeError as e:
-                messages.error(request, f"Error saving card: {str(e)}")
-        else:
-            messages.error(request, "Invalid payment information.")
-
-    # Prepare context for rendering the profile page
-    user_form = UserForm(instance=user)
-    user_profile_form = UserProfileForm(instance=user_profile)
-    active_tab = request.GET.get('tab', 'myDetails')
-    charity_favs_ids = get_charity_favs(user_profile)
-    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
-    subscription, created = Subscription.objects.get_or_create(user=user)
-
-    context = {
-        'user_form': user_form,
-        'user_profile_form': user_profile_form,
-        'active_tab': active_tab,
-        'charity_favs': charity_favs,
-        'subscription': subscription,
-        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
-    }
-
-    return render(request, 'profiles/profile.html', context)
+        except stripe.error.StripeError as e:
+            messages.error(request, f"Stripe error: {str(e)}")
+            return redirect('profiles:update_profile')
+        except Exception as e:
+            messages.error(request, f"An error occurred: {str(e)}")
+            return redirect('profiles:update_profile')
+    else:
+        return redirect('profiles:update_profile')
