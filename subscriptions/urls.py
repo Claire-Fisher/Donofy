@@ -28,7 +28,7 @@ urlpatterns = [
     ),
     path(
         'create-donation/',
-        views.create_donation_if_24th,
-        name='create_donation_if_24th'
+        views.create_donation,
+        name='create_donation'
     ),
 ]
