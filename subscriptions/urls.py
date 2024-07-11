@@ -12,11 +12,6 @@ urlpatterns = [
         name='manage_subscription'
     ),
     path(
-        'toggle_subscription/',
-        views.toggle_subscription_active,
-        name='toggle_subscription_active'
-    ),
-    path(
         'update_subscription/',
         views.update_subscription,
         name='update_subscription'
