@@ -12,8 +12,8 @@ urlpatterns = [
         name='profile'
     ),
     path(
-        'save-card/',
-        views.save_card,
-        name='save_card'
+        'checkout/',
+        views.checkout,
+        name='checkout'
     ),
 ]
