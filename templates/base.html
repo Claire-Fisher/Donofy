@@ -72,7 +72,7 @@
 				<div class="dropdown-menu dropdown-menu-right shadow bold" aria-labelledby="user-options">
 					{% if request.user.is_authenticated %}
 						{% if request.user.is_superuser %}
-							<a href="{% url 'staff_action' %}" aria-label="link to admin page"
+							<a href="/admin/" aria-label="go to site admin pages"
 								class="dropdown-item drop-item-h text-pink bold hover-float">Admin</a>
 						{% endif %}
 						<a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="link to my donofy page"
