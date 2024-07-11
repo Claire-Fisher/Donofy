@@ -12,11 +12,6 @@ urlpatterns = [
         name='profile'
     ),
     path(
-        'update_profile/',
-        views.update_profile,
-        name='update_profile'
-    ),
-    path(
         'save-card/',
         views.save_card,
         name='save_card'
