@@ -149,6 +149,11 @@ a.a-pink:focus {
     color: #CD2576;
 }
 
+.border-pink {
+    border: 1px solid #CD2576;
+    border-radius: 0.5rem;
+}
+
 .text-dark {
     color: #222;
 }
