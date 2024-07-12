@@ -11,9 +11,4 @@ urlpatterns = [
         views.profile,
         name='profile'
     ),
-    path(
-        'checkout/',
-        views.checkout,
-        name='checkout'
-    ),
 ]

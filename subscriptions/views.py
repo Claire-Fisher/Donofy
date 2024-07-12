@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from profiles.models import UserProfile
 from charities.models import Charity
-from subscriptions.models import Subscription, Donation
+from subscriptions.models import Subscription
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
 import datetime

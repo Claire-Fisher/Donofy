@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Subscription, Donation
 
 
 class SubscriptionAdmin(admin.ModelAdmin):
@@ -12,23 +11,3 @@ class SubscriptionAdmin(admin.ModelAdmin):
             'fields': ('user', 'sub_active', 'sub_total', 'sub_breakdown')
         }),
     )
-
-
-class DonationAdmin(admin.ModelAdmin):
-    list_display = (
-        'user',
-        'date',
-        'amount',
-        'donation_breakdown'
-    )
-    search_fields = ('user', 'date')
-
-    fieldsets = (
-        (None, {
-            'fields': ('user', 'date', 'amount', 'donation_breakdown')
-        }),
-    )
-
-
-admin.site.register(Subscription, SubscriptionAdmin)
-admin.site.register(Donation, DonationAdmin)
