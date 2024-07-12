@@ -1,28 +1,62 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block extra_title %}Donate{% endblock %}
 
 {% block content %}
 <div class="container">
-    <div class="card bg-light-brand p-3 p-lg-4 shadow my-1 my-lg-5">
-        <h1>Checkout page</h1>
-        <h2 class="tab-title text-pink bold col-12 col-lg-8 mx-auto px-1">Enter your billing details here.</h2>
+    <div class="card bg-light-brand  shadow my-1 my-lg-5">
+        <h1 class="checkout-title text-white bg-pink py-4 pl-4 mb-1 mb-lg-5">Donation Payment</h1>
+        <div class="row p-3 p-lg-4">
+            <div class="donation-info border-pink col-12 col-lg-8 mx-auto p-3 p-lg-5 py-5">
+                <h2 class="checkout-sub-title text-pink">Your donation summary</h2>
+                <p class="text-dark mb-1">Your current donation total = £{{ subscription.sub_total }}</p>
+                <p class="text-dark mb-1">Which you've chosen to divide as follows:</p>
+                {% for key, value in donation_breakdown.items %}
+                    <ul class="pl-2 mb-1">
+                        <li>
+                            <strong>£{{ value }}</strong> to {{ key }}
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <h2 class="checkout-sub-title text-pink col-12 col-lg-8 mx-auto mt-5 px-1">Enter your billing details here.</h2>
         <div class="row">
             <form id="payment-form" action="{% url 'checkout' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
                 {% csrf_token %}
-                <label for="name">Full name</label>
-                <input type="text">
-                {{ DonationForm|crispy }}
-                {{ form|crispy }}
-                <label class="fieldset-label text-pink px-2 w-auto">Payment</label>
-                <!-- A Stripe card element will go here -->
-                <div class="mb-3" id="card-element"></div>
-                <!-- Used to display form errors -->
-                <div class="mb-5 text-danger" id="card-errors" role="alert"></div>
-                <!-- Pass the client secret to the view so we can get the payment intent id -->
-                <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                <p class="text-pink bold">Your current donation total = £{{ subscription.sub_total }}</p>
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-pink px-2 w-auto">Your Details</legend>
+                    {{ donation_form.full_name | as_crispy_field }}
+                    {{ donation_form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-pink px-2 w-auto">Billing Address</legend>
+                    {{ donation_form.phone_number | as_crispy_field }}
+                    {{ donation_form.country | as_crispy_field }}
+                    {{ donation_form.postcode | as_crispy_field }}
+                    {{ donation_form.town_or_city | as_crispy_field }}
+                    {{ donation_form.street_address1 | as_crispy_field }}
+                    {{ donation_form.street_address2 | as_crispy_field }}
+                    {{ donation_form.county | as_crispy_field }}
+                    <div class="form-check form-check-inline float-right mr-0">
+                        <label class="form-check-label" for="id-save-info">Save this information to my profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                    </div>
+                </fieldset>
+                <fieldset class="px-3">
+                    <label class="fieldset-label text-pink px-2 w-auto">Payment</label>
+                    <!-- A Stripe card element will go here -->
+                    <div class="mb-3" id="card-element"></div>
+                    <!-- Used to display form errors -->
+                    <div class="mb-5 text-danger" id="card-errors" role="alert"></div>
+                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                
                 <p class="text-dark">
                     If you need to change this amount, or any of your donation details, please go to the My Donofy section.
                     Clicking "Make Donation" below will charge you for your current donation total.
