@@ -3,8 +3,8 @@ from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from profiles.models import UserProfile, Subscription
-from profiles.forms import UserForm, UserProfileForm
+from profiles.models import Subscription
+from .forms import DonationForm
 
 
 @login_required
@@ -21,8 +21,7 @@ def checkout(request):
         return redirect(f'{reverse("profiles:profile")}?tab=myDonofy')
 
     client_data = {
-            'first_name': request.POST['first_name'],
-            'last_name': request.POST['last_name'],
+            'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
