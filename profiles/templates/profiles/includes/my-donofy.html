@@ -1,7 +1,6 @@
 {% load custom_filters %}
 {% if charity_favs %}
-    <h2 class="tab-title text-capitalize bold col-12 col-lg-8 mx-auto px-1">Hi {{ user.username }}</h2>
-    <h3 class="your-total bg-white text-pink bold col-12 col-lg-8 mx-auto mb-0 py-2 px-1 text-center">Your current donation total = £{{ subscription.sub_total }}</h3>
+    <h2 class="your-total bg-white text-pink bold col-12 col-lg-8 mx-auto mb-0 mt-3 py-2 px-1 text-center">Your current donation total = £{{ subscription.sub_total }}</h2>
     <!-- lists the users favourited charities. Functionality to remove charities, or adjust donation amounts -->
     <h2 class="tab-title text-capitalize text-white bg-pink bold col-12 col-lg-8 pl-2 py-2 mx-auto px-1">Your Favourited Charities ({{ charity_favs|length }})</h2>
     <form action="{% url 'subscriptions:update_subscription' %}" method="POST" class="col-12 col-lg-8 mx-auto mb-5">
