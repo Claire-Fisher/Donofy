@@ -4,10 +4,6 @@ from profiles.models import UserProfile
 from charities.models import Charity
 from subscriptions.models import Subscription
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
-import datetime
-from django.utils import timezone
-from django.http import JsonResponse
 
 
 # Helper functions for commonly used function variables
@@ -78,32 +74,8 @@ def update_subscription(request):
         # Add all the values of the sub_breakdown dict
         sub_total = sum(sub_breakdown.values())
         subscription.sub_total = sub_total
-        subscription.date = timezone.now().date()
 
         subscription.save()
-
-        # Get today's date
-        today = timezone.now().date()
-        today_month = today.month
-        today_year = today.year
-
-        """ Check if a donation for that user,
-            with matching month and year, already exists """
-        existing_donation = Donation.objects.filter(
-            user=user,
-            date__month=today_month,
-            date__year=today_year
-        ).first()
-
-        if existing_donation:
-            # Update the donation if it exists
-            existing_donation.donation_active = subscription.sub_active
-            existing_donation.amount = subscription.sub_total
-            existing_donation.donation_breakdown = subscription.sub_breakdown
-            existing_donation.save()
-            existing_donation._send_donation_changed_email()
-        else:
-            pass
 
     active_tab = request.GET.get('tab', 'myDonofy')
 
