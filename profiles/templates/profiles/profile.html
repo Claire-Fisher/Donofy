@@ -20,7 +20,6 @@
         <nav>
             <div class="nav nav-tabs flex-column flex-md-row" id="nav-tab" role="tablist">
                 <button class="nav-link flex-md-fill text-md-center profile-tabs shadow text-pink hover-float bold active" id="myDonofy-tab" data-toggle="tab" data-target="#nav-myDonofy" type="button" role="tab" aria-controls="nav-manage" aria-selected="true">Manage My Donofy</button>
-                <button class="nav-link flex-md-fill text-md-center profile-tabs shadow text-pink hover-float bold" id="nav-myImpact-tab" data-toggle="tab" data-target="#nav-myImpact" type="button" role="tab" aria-controls="nav-impact" aria-selected="false">My Impact</button>
                 <button class="nav-link flex-md-fill text-md-center profile-tabs shadow text-pink hover-float bold" id="nav-myHistory-tab" data-toggle="tab" data-target="#nav-myHistory" type="button" role="tab" aria-controls="nav-history" aria-selected="false">My Payment History</button>
             </div>
         </nav>
@@ -28,10 +27,6 @@
             <!-- manage my donofy pane -->
             <div class="tab-pane fade show active{% if active_tab == 'myDonofy' %}show active{% endif %}" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
                 {% include 'profiles/includes/my-donofy.html' %}
-            </div>
-            <!-- impact pane -->
-            <div class="tab-pane fade {% if active_tab == 'myImpact' %}show active{% endif %}" id="nav-myImpact" role="tabpanel" aria-labelledby="nav-manage-tab">
-                {% include 'profiles/includes/my-impact.html' %}
             </div>
             <!-- payment history pane -->
             <div class="tab-pane fade {% if active_tab == 'myHistory' %}show active{% endif %}" id="nav-myHistory" role="tabpanel" aria-labelledby="nav-history-tab">
