@@ -1,12 +1,9 @@
 import stripe
-import json
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from profiles.models import UserProfile
-from charities.models import Charity
-from subscriptions.models import Subscription
+from profiles.models import UserProfile, Subscription
 from profiles.forms import UserForm, UserProfileForm
 
 

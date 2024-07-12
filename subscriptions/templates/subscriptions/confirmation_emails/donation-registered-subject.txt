@@ -1,1 +1,0 @@
-Donofy Donation Notification for {{ donation.user|capfirst }}
