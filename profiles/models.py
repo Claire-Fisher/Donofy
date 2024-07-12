@@ -66,5 +66,3 @@ class Subscription(models.Model):
     sub_total = models.PositiveIntegerField(default=0, null=False)
     sub_breakdown = models.JSONField(default=dict, blank=True)
 
-    def __str__(self):
-        return self.user.subscription
