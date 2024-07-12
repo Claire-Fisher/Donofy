@@ -4,7 +4,7 @@ from .models import Donation
 
 class DonationAdmin(admin.ModelAdmin):
     list_display = (
-        'user',
+        'user_profile',
         'date',
         'total',
         'donation_breakdown'
@@ -13,7 +13,7 @@ class DonationAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('user', 'date', 'total', 'donation_breakdown')
+            'fields': ('user_profile', 'date', 'total', 'donation_breakdown')
         }),
     )
 
