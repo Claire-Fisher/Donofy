@@ -1,14 +1,18 @@
 import uuid
 from django.db import models
-from django.conf import settings
+from profiles.models import UserProfile
 
 
 class Donation(models.Model):
     donation_number = models.CharField(
         max_length=32, null=False, editable=False, default=0
     )
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='Donations'
     )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
