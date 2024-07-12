@@ -1,10 +1,5 @@
-import uuid
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
-from profiles.models import UserProfile
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
 
 
 class Subscription(models.Model):
