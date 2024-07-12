@@ -21,9 +21,4 @@ urlpatterns = [
         views.delete_from_favs,
         name='delete_from_favs'
     ),
-    path(
-        'create-donation/',
-        views.create_donation,
-        name='create_donation'
-    ),
 ]
