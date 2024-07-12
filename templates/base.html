@@ -78,12 +78,13 @@
 						<a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="link to my donofy page"
 							class="dropdown-item drop-item-h text-pink bold hover-float">My Donofy
 						</a>
-						<a href="{% url 'checkout' %}" aria-label="link to donate page"
-							class="dropdown-item drop-item-h text-pink bold hover-float">Donate
-						</a>
 						<a href="{% url 'profiles:profile' %}?tab=myHistory" aria-label="link to my payments page"
 							class="dropdown-item drop-item-h text-pink bold hover-float">My History
 						</a>
+						<a href="{% url 'checkout' %}" aria-label="link to donate page"
+							class="dropdown-item drop-item-h text-pink bold hover-float">Donate
+						</a>
+						
 						<a href="{% url 'account_logout' %}" aria-label="link to logout page"
 							class="dropdown-item drop-item-h text-pink bold">Logout
 						</a>
