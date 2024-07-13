@@ -58,10 +58,10 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 
                 <p class="text-dark">
-                    If you need to change this amount, or any of your donation details, please go to the My Donofy section.
-                    Clicking "Make Donation" below will charge you for your current donation total.
+                    If you need to change this amount, or any of your donation details, please go to the
+                        <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section.
                 </p>
-                <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Make donation</button>
+                <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Make £{{ subscription.sub_total }} donation</button>
             </form>
         </div>
     </div>
