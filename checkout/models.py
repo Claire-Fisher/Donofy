@@ -7,6 +7,8 @@ class Donation(models.Model):
     donation_number = models.CharField(
         max_length=32, null=False, editable=False, default=0
     )
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
     user_profile = models.ForeignKey(
         UserProfile,
         on_delete=models.SET_NULL,
@@ -43,6 +45,6 @@ class Donation(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.donation_number
+        return self.self.full_name
 
 # ADD A SEND CONFIRMATION OF DONATION EMAIL HERE
