@@ -1,2 +1,23 @@
 
 <h2 class="your-total bg-white text-pink bold col-12 col-lg-8 mx-auto mb-0 mt-3 py-2 px-1 text-center">Review / edit your details here</h2>
+<form action="#" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
+    {% csrf_token %}
+    <fieldset class="rounded px-3 mb-5">
+        <legend class="fieldset-label small text-pink px-2 w-auto">Your Details</legend>
+        {{ user_form.first_name | as_crispy_field }}
+        {{ user_form.last_name | as_crispy_field }}
+        {{ user_form.email | as_crispy_field }}
+        {{ user_form.phone_num | as_crispy_field }}
+        {{ user_form.street_address_1 | as_crispy_field }}
+        {{ user_form.street_address_2 | as_crispy_field }}
+        {{ user_form.town_or_city | as_crispy_field }}
+        {{ user_form.county | as_crispy_field }}
+        {{ user_form.postcode | as_crispy_field }}
+        {{ user_form.country | as_crispy_field }}
+        <div class="form-check form-check-inline float-right mr-0">
+            <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+        </div>
+    </fieldset>
+    <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Make £{{ subscription.sub_total }} donation</button>
+</form>
