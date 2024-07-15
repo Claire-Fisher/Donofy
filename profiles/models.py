@@ -59,4 +59,3 @@ class Subscription(models.Model):
     sub_active = models.BooleanField(default=True)
     sub_total = models.PositiveIntegerField(default=0, null=False)
     sub_breakdown = models.JSONField(default=dict, blank=True)
-
