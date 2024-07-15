@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import UserProfile, Subscription
+from .forms import UserForm, UserProfileForm
 from charities.models import Charity
 
 
@@ -27,9 +28,27 @@ def profile(request):
     charity_favs_ids = get_charity_favs(user_profile)
     charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
 
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile was updated successfully!')
+            return redirect('profiles:profile')
+        else:
+            messages.error(request, 'Please correct the error below.')
+
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.userprofile)
+
     active_tab = request.GET.get('tab', 'myDetails')
 
     context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
         'active_tab': active_tab,
         'charity_favs': charity_favs,
         'subscription': subscription,
