@@ -30,7 +30,9 @@ def profile(request):
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        profile_form = UserProfileForm(
+            request.POST, instance=request.user.userprofile
+        )
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
@@ -64,16 +66,6 @@ def get_user_profile(user):
 
 def get_subscription(user):
     return Subscription.objects.get_or_create(user=user)
-
-
-def get_charity_favs(user_profile):
-    charity_ids = user_profile.charity_favs or []
-    charity_objects = Charity.objects.filter(id__in=charity_ids)
-    # Filter only the charity objects with active=True
-    active_charities = charity_objects.filter(active=True)
-    charity_favs = [charity.id for charity in active_charities]
-
-    return charity_favs
 
 
 def get_full_charity_objs(charity_favs_ids):
