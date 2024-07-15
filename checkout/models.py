@@ -12,7 +12,7 @@ class Donation(models.Model):
         max_length=254, null=False, blank=False, default='')
     user_profile = models.ForeignKey(
         UserProfile,
-        on_delete=models.SET_NULL,
+        on_delete=models.SET_NULL,  
         null=True,
         blank=True,
         related_name='Donations'
