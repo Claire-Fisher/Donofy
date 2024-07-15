@@ -1,8 +1,7 @@
 # Donofy
 ![Custom Logo Image](static/media/donofy-full-logo.svg)
 
-### This site is designed as a...
-........
+### This site is designed as a Charities doantion site. 
 
 ![A mock-up image of the Donofy project]()
 
@@ -41,9 +40,8 @@
 ### Target Users
 - Users of all age groups, but primary audience are working age.
 - Users who want fast and easily accessible information on a range of charities.
-- Users who want to give to multiple charities but consolidate their charity contributions into one monthly payment.
+- Users who want to give to multiple charities but consolidate their charity contributions into one payment.
 - Users who want full control over a charity amount they can afford. 
-- Charity representatives who would like their charity included on the plafform. 
 
 ### User Stories
 1. **As a new/guest user, I want to:**
@@ -58,14 +56,10 @@
   - E: have full control over how my donation amount is split between multiple causes.
   - F: be able to adjust my donations as my preferences change.
   - G: see a summary of my donation breakdown before I set/adjust my subscription.
-  - H: receive a notification before my any sub is paid, with time to adjust it if I want to make changes.
-  - I: receive a thank you email, every time a donation payment from me is processed. 
-  - J: easily contact the site admins for any reason, including account deletion. 
-  - K: receive a notification email if there are any issues with my subscription, so I can address them. 
-4. **As a Charity representative, I want to**
-  - A: easily contact the site admins to register a new charity with the platform.
-  - B: easily contact the site admins if I need information on my charity page editing.
-5. **As any user, I want to**
+  - H: receive a thank you email, every time a donation payment from me is processed. 
+  - I: easily contact the site admins for any reason, including account deletion. 
+
+4. **As any user, I want to**
   - A: view and use the platform on any device.
   - B: have the site be accessible.
   - C: easily direct to a charity's main website for more information.
@@ -79,7 +73,7 @@
 6. To allow users to create their own profiles, with log in functionality that is secure.
 7. To give users the functionality to update their own profile.
 8. To allow users full CRUD functionality on their Favourited Charties list.
-9. To provide a secure subscription payment system, that's easy to use and adjust.
+9. To provide a secure payment system, that's user friendly.
 
 ### Approach
 - Mobile first design.
@@ -196,7 +190,13 @@ The footer provides copyright information and name of the site creator. Plus cli
 [**Back to top**](#donofy)
 ## Future Features
 
-* 
+* **Automated subscription payment methods.** Users can set regular monthly payments to be taken on a set day every month. Users would be able to edit their subscription details (selected charities, and amounts etc) in between payments. Users could cancel or pause their subscriptions between payments.
+
+* **Single payments for guest users** who do not want to create an account.
+
+* **Authorised admin access for Charity representatives**, to give access to update their own charity page information.
+
+* **Badges or 'achievement' awards/icons** users can earn and 'collect' on their profile. Adding to positive UX, giving a greater sense of making an impact, and gamifying the UX to encourage more donations. 'Achievements' examples such as: 1st donation made, 3 doantions, 10 donations etc, subcription created, 6 months of consecutive donations etc. Achievements would be focused on actions rather than amounts donated to keep in line with the site ethos: every donation counts, even the smallest. 
 
 
 [**Back to top**](#donofy)
