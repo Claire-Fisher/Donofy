@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import DonationForm
 from .models import Donation
 from profiles.models import UserProfile, Subscription
-from profiles.forms import UserProfileForm
+from profiles.forms import UserProfileForm, UserForm
 
 import stripe
 
@@ -30,8 +30,16 @@ def checkout(request):
             'county': request.POST.get('county', ''),
         }
         donation_form = DonationForm(form_data)
+        user_profile_form = UserProfileForm(
+            form_data, instance=user.userprofile
+        )
+        user_form = UserForm({
+            'first_name': form_data['full_name'].split(' ')[0],
+            'last_name': ' '.join(form_data['full_name'].split(' ')[1:]),
+            'email': form_data['email'],
+        }, instance=user)
 
-        if request.method == 'POST' and donation_form.is_valid():
+        if donation_form.is_valid():
             donation = donation_form.save(commit=False)
             pid = request.POST.get('client_secret', '').split('_secret')[0]
             donation.stripe_pid = pid
@@ -49,9 +57,15 @@ def checkout(request):
             }
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('billing-success', args=[donation.donation_number]))
+            return redirect(reverse(
+                'billing-success', args=[donation.donation_number]
+            ))
         else:
-            messages.error(request, 'There was an error with your form. Please double check your information.')
+            messages.error(
+                request,
+                'There was an error with your form.'
+                'Please double check your information.'
+            )
 
     total = subscription.sub_total
     stripe_total = round(total * 100)
@@ -66,7 +80,6 @@ def checkout(request):
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.phone_num,
-                    'country': profile.country,
                     'postcode': profile.post_code_zip,
                     'town_or_city': profile.town_or_city,
                     'street_address1': profile.street_address_1,
@@ -90,7 +103,11 @@ def checkout(request):
 
     # Handle cases where Stripe public key might be missing
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. Did you forget to set it in your environment?')
+        messages.warning(
+            request,
+            'Stripe public key is missing.'
+            'Did you forget to set it in your environment?'
+        )
 
     template = 'checkout/checkout.html'
     context = {
