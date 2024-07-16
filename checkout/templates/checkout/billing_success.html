@@ -19,16 +19,21 @@
                     Thank you, you awesome human!
                 </h2>
                 <p class="text-dark">Your donation information is below. A confirmation email will be sent to <strong>{{ donation.email }}</strong>.</p>
-                {% for key, value in donation_breakdown.items %}
-                    <ul class="pl-2 mb-1">
-                        <li>
-                            <strong>£{{ value }}</strong> to {{ key }}
-                        </li>
-                    </ul>
-                {% endfor %}
+                <div class="border-pink p-3 p-lg-5 py-5">
+                    <p class="text-dark"><strong>Donation Number:</strong> {{ donation.donation_number }}</p>
+                    <p class="text-dark"><strong>Donation Date:</strong> {{ donation.date }}</p>
+                    {% for key, value in donation.donation_breakdown.items %}
+                        <ul class="pl-2 mb-1">
+                            <li class="no-bullets">
+                                <strong>£{{ value }}</strong> to {{ key }}
+                            </li>
+                        </ul>
+                    {% endfor %}
+                    <p class="text-dark"><strong>Donation total: £{{ donation.total }}</strong></p>
+                </div>
 
                 <p class="text-dark profile-sub-title text-left mb-5">   
-                    Thank you for your trust and support.<br><br>Your contributions, no matter how small, have a huge positive impact.
+                    Thankyou. Your contributions, no matter how small, have a huge positive impact.
                 </p>
             </div>
         </div>
