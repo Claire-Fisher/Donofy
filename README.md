@@ -268,6 +268,9 @@ Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com
 
 Very Academy - Tutorial Video [Django Custom User Model, Extend User Fields](https://www.google.com/search?q=django+4+extending+user+model+tutorial&sca_esv=bb6fb22019ea88f6&sca_upv=1&rlz=1C1GCEU_enGB1105GB1105&ei=VeuDZrvwHYSghbIPzIqKuAg&oq=django+4+extending+user+model+tuto&gs_lp=Egxnd3Mtd2l6LXNlcnAiImRqYW5nbyA0IGV4dGVuZGluZyB1c2VyIG1vZGVsIHR1dG8qAggAMgcQIRigARgKMgcQIRigARgKMgcQIRigARgKSLQUUJ4EWN8IcAF4AZABAJgBfKAB2gOqAQM0LjG4AQHIAQD4AQGYAgagAuUDwgIKEAAYsAMY1gQYR8ICBhAAGBYYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAgUQIRigAcICBBAhGBWYAwCIBgGQBgiSBwM1LjGgB6wW&sclient=gws-wiz-serp#fpstate=ive&vld=cid:662df13b,vid:NLHmadrP8Y4,st:0)
 
+Loading Overlay animation / css / js - taken from Code Institute's Boutique Ado walkthrough project. Colour modified to align with my project's colour scheme.
+[View Boutique Ado Project here](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/4f4a39d898c2c347e0d0a0201e4c0d2d6ef1c500)
+
 
 
 ## **Credits**
