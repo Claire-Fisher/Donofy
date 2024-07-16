@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .webhooks import webhook
 
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
         views.billing_success,
         name='billing_success'
     ),
+    path('wh/', webhook, name='webhook'),
 ]
