@@ -8,6 +8,10 @@
     line-height: 1.75rem;
 }
 
+.no-bullets {
+    list-style: none;
+}
+
 /* STRIPE */
 .StripeElement {
     box-sizing: border-box;
