@@ -119,6 +119,7 @@ def update_subscription(request):
         subscription.sub_total = sub_total
 
         subscription.save()
+        messages.success(request, 'Save successful')
 
     active_tab = request.GET.get('tab', 'myDonofy')
 
