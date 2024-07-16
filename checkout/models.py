@@ -13,7 +13,7 @@ class Donation(models.Model):
     )
     user_profile = models.ForeignKey(
         UserProfile,
-        on_delete=models.PROTECT,  
+        on_delete=models.PROTECT,
         null=True,
         blank=True,
         related_name='donations'
@@ -47,6 +47,6 @@ class Donation(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Donation {self.id} by {self.user}"
+        return f"Donation {self.id} by {self.full_name}"
 
 # ADD A SEND CONFIRMATION OF DONATION EMAIL HERE
