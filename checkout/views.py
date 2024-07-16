@@ -37,7 +37,7 @@ def checkout(request):
             donation.stripe_pid = pid
             donation.total = subscription.sub_total
             donation.donation_breakdown = subscription.sub_breakdown
-            donation.user = user
+            donation.user_profile = user_profile
 
             donation.save()
 
@@ -60,7 +60,6 @@ def checkout(request):
             )
 
     total = subscription.sub_total
-    stripe_total = round(total * 100)
     if request.method == 'POST' and donation_form.is_valid():
         total = donation.total
     else:
@@ -93,6 +92,8 @@ def checkout(request):
         )
         client_secret = intent.client_secret
 
+        print(intent)
+
     # Handle cases where Stripe public key might be missing
     if not stripe_public_key:
         messages.warning(
@@ -108,6 +109,7 @@ def checkout(request):
         'client_secret': client_secret,
         'subscription': subscription,
         'subscription_breakdown': subscription.sub_breakdown,
+        'total': total,
     }
 
     return render(request, template, context)

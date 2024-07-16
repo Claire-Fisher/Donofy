@@ -6,16 +6,17 @@ from django_countries.fields import CountryField
 
 class Donation(models.Model):
     donation_number = models.CharField(
-        max_length=32, null=False, editable=False, default=0
+        max_length=32, null=False, editable=False, unique=True
     )
     stripe_pid = models.CharField(
-        max_length=254, null=False, blank=False, default='')
+        max_length=254, null=False, blank=False, unique=True
+    )
     user_profile = models.ForeignKey(
         UserProfile,
-        on_delete=models.SET_NULL,  
+        on_delete=models.PROTECT,  
         null=True,
         blank=True,
-        related_name='Donations'
+        related_name='donations'
     )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -46,6 +47,6 @@ class Donation(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.self.full_name
+        return f"Donation {self.id} by {self.user}"
 
 # ADD A SEND CONFIRMATION OF DONATION EMAIL HERE
