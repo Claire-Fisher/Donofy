@@ -67,6 +67,11 @@ form.addEventListener('submit', function(ev) {
             $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
+                var stripePidInput = document.createElement('input');
+                stripePidInput.setAttribute('type', 'hidden');
+                stripePidInput.setAttribute('name', 'stripe_pid');
+                stripePidInput.setAttribute('value', result.paymentIntent.id);
+                form.appendChild(stripePidInput);
                 form.submit();
             }
         }
