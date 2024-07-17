@@ -1,4 +1,3 @@
-import logging
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
@@ -6,9 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 from checkout.webhook_handler import StripeWH_Handler
 import stripe
-
-
-logger = logging.getLogger(__name__)
 
 
 @require_POST
@@ -24,23 +20,17 @@ def webhook(request):
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
 
-    logger.debug('Webhook received: %s', payload)
-
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, wh_secret
         )
-        logger.info('Webhook signature verified: %s', event)
-    except ValueError as e:
+    except ValueError:
         # Invalid payload
-        logger.error('Invalid payload: %s', e)
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
+    except stripe.error.SignatureVerificationError:
         # Invalid signature
-        logger.error('Invalid signature: %s', e)
         return HttpResponse(status=400)
     except Exception as e:
-        logger.error('Error processing webhook: %s', e)
         return HttpResponse(content=e, status=400)
 
     # Set up a webhook handler
@@ -58,7 +48,6 @@ def webhook(request):
 
     # Get the webhook type from Stripe
     event_type = event['type']
-    logger.info('Webhook event type: %s', event_type)
 
     # If there's a handler for it, get it from the event map
     # Use the generic one by default
@@ -66,5 +55,4 @@ def webhook(request):
 
     # Call the event handler with the event
     response = event_handler(event)
-    logger.info('Webhook event handled: %s', event_type)
     return response
