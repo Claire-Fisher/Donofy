@@ -76,7 +76,7 @@
                             {% if charity.id not in charity_favs_ids %}
                                 <button type="submit" class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
                             {% else %}
-                                <a href="{% url 'profiles:delete_from_favs' charity.id %}" class="btn btn-lg charity-card-btn unfavourite">Unfavourite</a>
+                                <a href="{% url 'delete_from_favs_on_charities_page' charity.id %}" class="btn btn-lg charity-card-btn unfavourite">Unfavourite</a>
                             {% endif %}
                         </form>
                     </div>

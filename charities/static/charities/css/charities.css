@@ -50,6 +50,13 @@
     width: 45%;
 }
 
+.unfavourite {
+    background-color: #CD2576;
+    color: #fff;
+    padding: 0.5rem;
+    letter-spacing: 1;
+}
+
 /* CHARITY DETAILS PAGE */
 
 .charity-total-box {

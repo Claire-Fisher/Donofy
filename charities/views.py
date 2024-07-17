@@ -48,6 +48,7 @@ def all_charities(request):
 
     charities = charities.order_by(sort)
 
+    charity_favs_ids = []
     if request.user.is_authenticated:
         # Get user and associated UserProfile
         user = request.user
@@ -63,6 +64,7 @@ def all_charities(request):
         'search_term': query,
         'current_categories': categories,
         'charity_favs': charity_favs,
+        'charity_favs_ids': charity_favs_ids,
     }
 
     return render(request, 'charities/charities.html', context)
@@ -84,6 +86,7 @@ def charity_detail(request, charity_id):
     context = {
         'charity': charity,
         'charity_favs': charity_favs,
+        'charity_favs_ids': charity_favs_ids,
     }
 
     return render(request, 'charities/charity_detail.html', context)
@@ -97,10 +100,6 @@ def add_to_favs(request, charity_id):
     user_profile = get_object_or_404(UserProfile, user=user)
 
     charity = get_object_or_404(Charity, pk=charity_id)
-    charities = Charity.objects.filter(active=True)
-    inactive_charities = Charity.objects.filter(active=False)
-    query = None
-    categories = None
 
     # Get charity favs list
     charity_favs_ids = user_profile.charity_favs or []
@@ -120,19 +119,49 @@ def add_to_favs(request, charity_id):
                 request, f'Added {charity.charity_name} to your favourites'
             )
 
-    context = {
-        'charities': charities,
-        'inactive_charities': inactive_charities,
-        'search_term': query,
-        'current_categories': categories,
-        'charity_favs': charity_favs,
-    }
+    return redirect(request.POST.get('redirect_url', 'all_charities'))
 
-    return render(request, 'charities/charities.html', context)
+
+@login_required
+def delete_from_favs_on_charities_page(request, charity_id):
+    """
+    Delete a charity from a user's charity_favs list
+    from all charities page
+    """
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    charity = get_object_or_404(Charity, pk=charity_id)
+    charity_favs_ids = user_profile.charity_favs or []
+
+    if charity.id in charity_favs_ids:
+
+        charity_favs_ids.remove(charity_id)
+        user_profile.charity_favs = charity_favs_ids
+        user_profile.save()
+
+        messages.success(
+            request,
+            f'{charity.charity_name}'
+            f' successfully removed from your favourites.'
+        )
+    else:
+        messages.error(
+            request,
+            (
+                'Oops! Something went wrong. '
+                'Please refresh the page and try again.'
+            )
+        )
+
+    return redirect('charities')
 
 
 @login_required
 def deactivate_charity(request, charity_id):
+    """
+    Allows superusers to 'delete' / deactivate charities. 
+    Charities are toggled to inactive to preserve data history.
+    """
     charity = get_object_or_404(Charity, pk=charity_id)
     charity.active = False
     charity.save()
