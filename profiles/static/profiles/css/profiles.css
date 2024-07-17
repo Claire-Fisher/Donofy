@@ -29,6 +29,14 @@ h1.profile-title,
     color: #CD2678;
 }
 
+.no-bullets {
+    list-style: none;
+}
+
+.wrap-text {
+    overflow-wrap: break-word;
+}
+
 .favourites-list {
     list-style-type: none;
 }
@@ -52,5 +60,8 @@ h1.profile-title,
     .profile-sub-title {
         font-size: 1.5rem;
         line-height: 1.5rem;
+    }
+    .donation-num {
+        font-size: 1rem;
     }
 }

@@ -24,7 +24,7 @@
                 <button class="nav-link flex-md-fill text-md-center profile-tabs shadow text-pink hover-float bold" id="nav-myHistory-tab" data-toggle="tab" data-target="#nav-myHistory" type="button" role="tab" aria-controls="nav-history" aria-selected="false">My Payment History</button>
             </div>
         </nav>
-        <div class="tab-content shadow p-4 mb-5" id="nav-tabContent">
+        <div class="tab-content shadow p-0 p-md-4 mb-5" id="nav-tabContent">
             <!-- manage my donofy pane -->
             <div class="tab-pane fade {% if active_tab == 'myDonofy' %}show active{% endif %}" id="nav-myDonofy" role="tabpanel" aria-labelledby="nav-manage-tab">
                 {% include 'profiles/includes/my-donofy.html' %}

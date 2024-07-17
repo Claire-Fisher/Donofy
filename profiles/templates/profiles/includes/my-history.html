@@ -1,3 +1,24 @@
-<h2 class="your-total bg-white text-pink bold col-12 col-lg-8 mx-auto mb-0 mt-3 py-2 px-1 text-center">My Donation History</h2>
-
-<!-- loop through payment history data -->
+<h2 class="your-total bg-white text-pink bold col-12 col-lg-8 mx-auto mb-0 mt-3 py-2 px-1 text-center mb-5">My Donation History</h2>
+<hr>
+{% if donations_history %}
+<div class="col-12">
+    <ul class="px-0">
+        {% for donation in donations_history %}
+            <li class="no-bullets">
+                <strong class="text-pink">Date:</strong> {{ donation.date }}<br>
+                <strong class="text-pink">Donation Number:</strong><span class="donation-num wrap-text"> {{ donation.donation_number }}</span><br>
+                <strong class="text-pink">Amount:</strong> £{{ donation.total }}<br>
+                <strong class="text-pink">Charities:</strong><br>
+                <ul>
+                    {% for key, value in donation.donation_breakdown.items %}
+                        <li><strong>£{{ value }}</strong> to {{ key }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No donations found.</p>
+{% endif %}
+</div>

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import UserProfile, Subscription
 from .forms import UserForm, UserProfileForm
+from checkout.models import Donation
 from charities.models import Charity
 
 
@@ -27,6 +28,8 @@ def profile(request):
     # Get charity favs list
     charity_favs_ids = get_charity_favs(user_profile)
     charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+    donations_history = {}
+    donations_history = Donation.objects.filter(user_profile=user_profile)
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -54,6 +57,7 @@ def profile(request):
         'active_tab': active_tab,
         'charity_favs': charity_favs,
         'subscription': subscription,
+        'donations_history': donations_history,
     }
 
     return render(request, 'profiles/profile.html', context)
