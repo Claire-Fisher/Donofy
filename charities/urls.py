@@ -1,5 +1,4 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 
@@ -18,5 +17,10 @@ urlpatterns = [
         'add_to_favs/<int:charity_id>/',
         views.add_to_favs,
         name='add_to_favs'
+    ),
+    path(
+        'deactivate_charity/<int:charity_id>/',
+        views.deactivate_charity,
+        name='deactivate_charity'
     ),
 ]

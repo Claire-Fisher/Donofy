@@ -63,7 +63,7 @@
             </div>
         </div>
         <!-- favourites & visit website buttons -->
-        <div class="row mb-5">
+        <div class="row">
             {% if request.user.is_authenticated %}
                 <form action="{% url 'add_to_favs' charity.id %}" method="POST" class="col-12 col-lg-6">
                     {% csrf_token %}
@@ -83,5 +83,15 @@
                     class="btn btn-lg btn-pink-outline w-100 my-3 shadow" target="_blank">Visit Website</a>
             </div>
         </div>
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <a href="{% url  'deactivate_charity' charity.id %}" aria-label="admin link to deactivate this charity"
+                            class="btn btn-lg btn-danger w-100 my-3 shadow bold">Deactivate Charity</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 {% endblock %}

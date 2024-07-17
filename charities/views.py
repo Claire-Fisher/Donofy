@@ -123,3 +123,17 @@ def add_to_favs(request, charity_id):
     }
 
     return render(request, 'charities/charities.html', context)
+
+
+@login_required
+def deactivate_charity(request, charity_id):
+    charity = get_object_or_404(Charity, pk=charity_id)
+    charity.active = False
+    charity.save()
+    messages.success(
+        request,
+        f'{charity.charity_name} has been deactivated.'
+        'This can be reactivated in the site admin'
+        )
+
+    return redirect('charities')
