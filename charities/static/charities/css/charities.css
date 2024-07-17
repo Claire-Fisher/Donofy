@@ -50,9 +50,15 @@
     width: 45%;
 }
 
-.unfavourite {
+.btn-pink-unfav {
     background-color: #CD2576;
-    color: #fff;
+    color:#fff;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+.unfavourite {
+    font-weight: 600;
     padding: 0.5rem;
     letter-spacing: 1;
 }

@@ -66,11 +66,20 @@
         <!-- favourites & visit website buttons -->
         <div class="row">
             {% if request.user.is_authenticated %}
-                <form action="{% url 'add_to_favs' charity.id %}" method="POST" class="col-12 col-lg-6">
-                    {% csrf_token %}
-                    <button type="submit" aria-label="add to favourites link for logged in users only"
-                        class="btn btn-lg btn-pink w-100 my-3 shadow">+ Add to Favourties</button>
-                </form>
+                {% if charity.id not in charity_favs_ids %}
+                    <form action="{% url 'add_to_favs' charity.id %}" method="POST" class="col-12 col-lg-6">
+                        {% csrf_token %}
+                        <button type="submit" aria-label="add {{ charity.charity_name}} to favourites link for logged in users only"
+                            class="btn btn-lg btn-pink-outline w-100 my-3 shadow">+ Add to Favourties</button>
+                    </form>
+                {% else %}
+                    <form action="{% url 'delete_from_favs_on_charity_detail' charity.id %}" method="POST" class="col-12 col-lg-6">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button type="submit" aria-label="remove {{ charity.charity_name}} from favourites"
+                            class="btn btn-lg btn-pink w-100 my-3 unfavourite">Unfavourite</button>
+                    </form>
+                {% endif %}
             {% else %}
                 <!-- send to log in if no user -->
                 <div class="col-12 col-lg-6">
@@ -80,7 +89,7 @@
             {% endif %}
             <!-- link to charity offical website -->
             <div class="col-12 col-lg-6">
-                <a href="{{ charity.website_url }}" aria-label="link to charity website (opens in a new tab)"
+                <a href="{{ charity.website_url }}" aria-label="link to {{ charity.charity_name }} website (opens in a new tab)"
                     class="btn btn-lg btn-pink-outline w-100 my-3 shadow" target="_blank">Visit Website</a>
             </div>
         </div>

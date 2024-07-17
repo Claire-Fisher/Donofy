@@ -118,8 +118,9 @@ def add_to_favs(request, charity_id):
             messages.success(
                 request, f'Added {charity.charity_name} to your favourites'
             )
+    redirect_url = request.POST.get('redirect_url', reverse('charity_detail', args=[charity_id]))
 
-    return redirect(request.POST.get('redirect_url', 'all_charities'))
+    return redirect(redirect_url)
 
 
 @login_required
@@ -154,6 +155,41 @@ def delete_from_favs_on_charities_page(request, charity_id):
         )
 
     return redirect('charities')
+
+
+@login_required
+def delete_from_favs_on_charity_detail(request, charity_id):
+    """
+    Delete a charity from a user's charity_favs list
+    from charity detail
+    """
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    charity = get_object_or_404(Charity, pk=charity_id)
+    charity_favs_ids = user_profile.charity_favs or []
+
+    if charity.id in charity_favs_ids:
+
+        charity_favs_ids.remove(charity_id)
+        user_profile.charity_favs = charity_favs_ids
+        user_profile.save()
+
+        messages.success(
+            request,
+            f'{charity.charity_name}'
+            f' successfully removed from your favourites.'
+        )
+    else:
+        messages.error(
+            request,
+            (
+                'Oops! Something went wrong. '
+                'Please refresh the page and try again.'
+            )
+        )
+
+    redirect_url = request.POST.get('redirect_url', reverse('charity_detail', args=[charity_id]))
+    return redirect(redirect_url)
 
 
 @login_required
