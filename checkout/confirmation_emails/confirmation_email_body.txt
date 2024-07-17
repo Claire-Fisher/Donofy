@@ -1,0 +1,19 @@
+Hello {{ donation.user|capfirst }}!
+
+We've received your £{{ donation.amount }} donation, you awesome human!
+
+As you've instructed, we've spread your donation across your chosen charites. 
+
+Please log into you Donofy account and go to My History to view more details. 
+
+Then sit back and feel good about the fantastic contribution you've made.
+
+“Alone we can do so little; together we can do so much.” - Helen Keller
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you,
+
+Sincerely,
+
+Donofy
