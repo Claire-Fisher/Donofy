@@ -8,7 +8,6 @@ from .forms import DonationForm
 from .models import Donation
 from profiles.models import UserProfile, Subscription
 import stripe
-import json
 from django.db import IntegrityError
 
 
@@ -17,11 +16,32 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        donation_data = request.session.get('donation', {})
+        donation_data = {
+            'full_name': request.POST.get('full_name', ''),
+            'email': request.POST.get('email', ''),
+            'phone_number': request.POST.get('phone_number', ''),
+            'country': request.POST.get('country', ''),
+            'postcode': request.POST.get('postcode', ''),
+            'town_or_city': request.POST.get('town_or_city', ''),
+            'street_address1': request.POST.get('street_address1', ''),
+            'street_address2': request.POST.get('street_address2', ''),
+            'county': request.POST.get('county', ''),
+            'total': request.POST.get('total', ''),
+        }
+        request.session['donation'] = donation_data
         stripe.PaymentIntent.modify(pid, metadata={
-            'donation': json.dumps(donation_data),
+            'full_name': donation_data['full_name'],
+            'email': donation_data['email'],
+            'phone_number': donation_data['phone_number'],
+            'country': donation_data['country'],
+            'postcode': donation_data['postcode'],
+            'town_or_city': donation_data['town_or_city'],
+            'street_address1': donation_data['street_address1'],
+            'street_address2': donation_data['street_address2'],
+            'county': donation_data['county'],
+            'total': donation_data['total'],
             'save_info': request.POST.get('save_info'),
-            'username': request.user,
+            'username': request.user.username,
         })
         return HttpResponse(status=200)
     except Exception as e:

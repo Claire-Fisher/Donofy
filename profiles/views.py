@@ -118,8 +118,15 @@ def update_subscription(request):
         sub_total = sum(sub_breakdown.values())
         subscription.sub_total = sub_total
 
-        subscription.save()
-        messages.success(request, 'Save successful')
+        if sub_total >= 0:
+            subscription.save()
+            messages.success(request, 'Save successful')
+        else:
+            messages.error(
+                request,
+                'Total value cannot be a negative number.'
+                'Please check your info and try again.'
+            )
 
     active_tab = request.GET.get('tab', 'myDonofy')
 
