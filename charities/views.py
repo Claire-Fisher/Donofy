@@ -72,11 +72,14 @@ def charity_detail(request, charity_id):
     """ A view to show individual charity details """
 
     charity = get_object_or_404(Charity, pk=charity_id)
-    # Get user and associated UserProfile
-    user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
-    charity_favs_ids = user_profile.charity_favs or []
-    charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+    if request.user.is_authenticated:
+        # Get user and associated UserProfile
+        user = request.user
+        user_profile = get_object_or_404(UserProfile, user=user)
+        charity_favs_ids = user_profile.charity_favs or []
+        charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
+    else:
+        charity_favs = []
 
     context = {
         'charity': charity,
