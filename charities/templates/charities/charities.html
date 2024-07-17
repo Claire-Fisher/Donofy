@@ -8,6 +8,7 @@
 {% block extra_title %}Charities{% endblock %}
 
 {% block content %}
+<div class="container-fluid bg-light-brand pb-5">
     <div class="container bg-light-brand">
         <!-- headings -->
         <div class="row pt-5">
@@ -27,7 +28,7 @@
         {% include 'charities/includes/search-filters.html' %}
     </div>
     <!-- categories dropdown menu -->
-    <div class="container">
+    <div class="container bg-light-brand">
         <div class="row bg-light-brand justify-content-between m-0 p-0">
             <button class="dropdown-toggle btn btn-lg btn-pink-outline shadow-sm order-sm-2 col-12 col-sm-6 col-lg-3 my-1"
                 type="button" data-toggle="dropdown" aria-expanded="false">
@@ -52,7 +53,7 @@
         </div>
     </div>
     <!-- loop through charities and display an info cards -->
-    <div class="container">
+    <div class="container bg-light-brand">
         {% if charities|length > 0 %}
         <div class="row mb-5">
             {% for charity in charities %}
@@ -72,7 +73,11 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="btn btn-lg btn-pink-outline charity-card-btn">Info</a>
-                            <button type="submit" class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
+                            {% if charity.id not in charity_favs_ids %}
+                                <button type="submit" class="btn btn-lg btn-pink-outline charity-card-btn">Favourite</button>
+                            {% else %}
+                                <a href="{% url 'profiles:delete_from_favs' charity.id %}" class="btn btn-lg charity-card-btn unfavourite">Unfavourite</a>
+                            {% endif %}
                         </form>
                     </div>
                 </a>
@@ -90,4 +95,6 @@
         </div>
         {% endif %}
     </div>
+</div>
+    
 {% endblock %}

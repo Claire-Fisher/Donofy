@@ -1,7 +1,5 @@
 /* GENERAL SITE STYLES */
 
-/* #CD2576 = rgb(205, 37, 118) */
-
 html {
     height: 100%;
     margin: 0;
@@ -10,10 +8,10 @@ html {
 
 body {
     padding: 0;
-    margin-top: 150px;
+    margin-top: 4.5rem;
     height: calc(100vh - 60px);
     color: #222;
-    background-color: #f6f6f6;
+    background-color: #EDCBBD;
     font-family: 'League Spartan', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 1.2rem;
@@ -138,7 +136,7 @@ a.a-pink:focus {
 }
 
 .bg-pink-light {
-    background-color: rgba(205, 37, 118, 0.2);
+    background-color: #e9cbde;
 }
 
 .bg-lilac {
@@ -318,6 +316,8 @@ i.icon-lg {
 .footer-box {
     height: 15rem;
     background-color: #EDCBBD;
+    display: absolute;
+    bottom: 0;
 }
 
 .footer-svg {
