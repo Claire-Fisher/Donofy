@@ -61,10 +61,10 @@
                 <a href="{% url 'charity_detail' charity.id %}" aria-hidden="true" tabindex="-1">
                     <div class="card charity-card hover-float shadow bg-light-brand text-center mx-auto">
                         {% if charity.logo_image %}
-                            <img src="{% static '/media/' %}{{ charity.logo_image }}" alt="{{ charity.charity_name }} logo"
+                            <img src="{% static 'media/' %}{{ charity.logo_image }}" alt="{{ charity.charity_name }} logo"
                                 class="card-img-top charity-card-img">
                         {% else %}
-                            <img src="{% static '/media/no-img.jpg' %}" alt="{{ charity.charity_name }}"
+                            <img src="{% static 'media/no-img.jpg' %}" alt="{{ charity.charity_name }}"
                                 class="card-img-top charity-card-img">
                         {% endif %}
                         <h3 class="card-text charity-card-title text-dark bold p-2 mt-1">{{ charity.charity_name }}</h3>
