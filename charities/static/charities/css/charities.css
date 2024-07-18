@@ -105,6 +105,9 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
+    body {
+        margin-top: 4rem;
+    }
     .charities-title {
         font-size: 1.35rem;
     }
