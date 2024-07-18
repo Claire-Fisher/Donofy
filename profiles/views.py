@@ -29,8 +29,7 @@ def profile(request):
     charity_favs_ids = get_charity_favs(user_profile)
     charity_favs = Charity.objects.filter(id__in=charity_favs_ids)
     donations_history = {}
-    donations_history = Donation.objects.filter(
-        user_profile=user_profile).order_by('-date')
+    donations_history = Donation.objects.filter(user_profile=user_profile)
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
