@@ -11,7 +11,9 @@
                 <strong class="text-pink">Charities:</strong><br>
                 <ul>
                     {% for key, value in donation.donation_breakdown.items %}
+                        {% if value > 0 %}
                         <li><strong>£{{ value }}</strong> to {{ key }}</li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </li>

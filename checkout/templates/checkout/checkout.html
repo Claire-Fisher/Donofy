@@ -8,7 +8,7 @@
 {% block extra_title %}Donate{% endblock %}
 
 {% block content %}
-<div class="container-fluid bg-light-brand pb-5">
+<div class="container-fluid bg-light-brand pt-3 pb-5">
     <div class="container">
         <div class="card bg-light-brand  shadow my-1 my-lg-5">
             <h1 class="checkout-title text-white bg-pink py-4 pl-4 mb-1 mb-lg-5">Donation Payment</h1>
@@ -18,11 +18,13 @@
                     <p class="text-dark mb-1">Your current donation total = £{{ subscription.sub_total }}</p>
                     <p class="text-dark mb-1">Which you've chosen to divide as follows:</p>
                     {% for key, value in subscription_breakdown.items %}
+                        {% if value > 0 %}
                         <ul class="pl-2 mb-1">
                             <li class="no-bullets">
                                 <strong>£{{ value }}</strong> to {{ key }}
                             </li>
                         </ul>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
