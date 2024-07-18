@@ -1,4 +1,7 @@
 /* GENERAL SITE STYLES */
+* {
+    font-synthesis: none !important;
+}
 
 html {
     height: 100%;
