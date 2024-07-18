@@ -19,6 +19,7 @@ SECRET_KEY = config('SECRET_KEY', '')
 DEBUG = development
 
 ALLOWED_HOSTS = [
+    '.herokuapp.com',
     'donofy-de544b6e546f.herokuapp.com',
     'localhost',
     '8000-clairefisher-donofy-45bt6uk2gpy.ws.codeinstitute-ide.net'
