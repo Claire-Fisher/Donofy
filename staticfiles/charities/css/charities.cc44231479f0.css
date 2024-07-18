@@ -1,0 +1,139 @@
+.charities-title {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.charities-signup-prompt {
+    font-size: 1.2rem;
+}
+
+.search-control {
+    border: 1px solid #CD2576;
+}
+
+.search-text {
+    line-height: 2;
+    border: 2px dotted #fff;
+}
+
+/* CHARITY CARDS */
+
+.charity-card {
+    width: 290px;
+    height: 290px;
+    border-radius: 1.5rem;
+}
+
+.charity-card-img {
+    background-color: #fff;
+    object-fit: contain;
+    height: 50%;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+}
+
+.charity-card-title {
+    font-size: 1.2rem;
+}
+
+.charity-cards-row {
+    margin: 0 0.25rem;
+}
+
+.charity-card-btn-box {
+    position: absolute;
+    bottom: 0.7rem;
+    width: 100%;
+}
+
+.charity-card-btn {
+    width: 45%;
+}
+
+.btn-pink-unfav {
+    background-color: #CD2576;
+    color:#fff;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+.unfavourite {
+    font-weight: 600;
+    padding: 0.5rem;
+    letter-spacing: 1;
+}
+
+/* CHARITY DETAILS PAGE */
+
+.charity-total-box {
+    max-width: 90%;
+    margin-left: 15px;
+    margin-bottom: 1.2rem;
+    padding-top: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.charity-total {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.charity-general-img {
+    background-color: #f6f6f6;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+}
+
+.impact-card {
+    border-radius: 1rem;
+}
+
+.impact-card-right {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.impact-card-img {
+    background-color: #fff;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 575px) {
+    body {
+        margin-top: 4rem;
+    }
+    .charities-title {
+        font-size: 1.35rem;
+    }
+    .charities-signup-prompt {
+        font-size: 1rem;
+    }
+    .search-row {
+        padding-left: 0;
+    }
+    .char-len {
+        text-align: center;
+    }
+    .categories-btn {
+        width: 100%;
+    }
+    .impact-card-logo-box {
+        height: 200px;
+    }
+    .impact-card-img {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+    }
+    .impact-card-right {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+}

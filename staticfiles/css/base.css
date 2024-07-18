@@ -1,0 +1,341 @@
+/* GENERAL SITE STYLES */
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin-top: 4.5rem;
+    color: #222;
+    background-color: #EDCBBD;
+    font-family: 'League Spartan', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+/* BUTTONS, LINKS & ANCHORS */
+
+.btn-pink {
+    background-color: #CD2576;
+    color:#fff;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-pink:hover,
+.btn-pink:active,
+.btn-pink:focus,
+.btn-pink-unfav:hover,
+.btn-pink-unfav:active,
+.btn-pink-unfav:focus {
+    background-color: #582E8E;
+    color:#fff;
+    border: 1px solid #fff;
+}
+
+.btn-white {
+    background-color: #fff;
+    color:#CD2576;
+    border: 1px solid #fff;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-white:hover,
+.btn-white:active,
+.btn-white:focus {
+    color:#fff;
+    background-color: #582E8E;
+    border: 1px solid #fff;
+}
+
+.btn-pink-outline {
+    background-color: #fff;
+    color: #CD2576;
+    border: 1px solid #CD2576;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    letter-spacing:1.5px;
+}
+
+.btn-pink-outline:hover,
+.btn-pink-outline:active,
+.btn-pink-outline:focus {
+    color:#fff;
+    background-color: #582E8E;
+    border: 1px solid #fff;
+}
+
+a.a-pink {
+    color: #CD2576!important;
+}
+
+a.a-pink:hover,
+a.a-pink:active,
+a.a-pink:focus {
+    color: #582E8E!important;
+}
+
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+    color: #582E8E;
+}
+
+.dropdown-item {
+    font-size: 1.2rem;
+}
+
+.drop-item-h {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.card-white {
+    background-color: #f6f6f6;
+    color: #222;
+    border-radius: 1.5rem;
+}
+
+.card-white:hover,
+.card-white:active,
+.card-white:focus {
+    text-decoration: none;
+    color: #fff;
+    background: #582E8E;
+}
+
+.hover-float {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+}
+
+.hover-float:hover,
+.hover-float:active,
+.hover-float:focus {
+    transform: translateY(-8px);
+}
+
+/* COLOUR SCHEME */
+
+.bg-light-brand {
+    background-color: #f6f6f6;
+}
+
+.bg-pink {
+    background-color: #CD2576;
+}
+
+.bg-pink-light {
+    background-color: #e9cbde;
+}
+
+.bg-lilac {
+    background-color: #D2BDED;
+}
+
+.text-pink {
+    color: #CD2576;
+}
+
+.border-pink {
+    border: 1px solid #CD2576;
+    border-radius: 0.5rem;
+}
+
+.text-dark {
+    color: #222;
+}
+
+/* TEXT STYLES */
+
+.bold {
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.extra-bold {
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* ICONS */
+
+i.icon-lg {
+    font-size: 3rem;
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    line-height: 50px;
+}
+
+.icon-white {
+    color: #fff;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.icon-pink {
+    padding: 0;
+    margin: 0;
+    color: #CD2576;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* NAV-BARS */
+
+.main-logo {
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    max-width: 150px
+}
+
+
+.navbar-nav .nav-link {
+    margin-top: 0.5rem;
+    padding: 0;
+    text-align-last: right;
+}
+
+.burger-menu {
+    height: 3rem;
+    width: 3rem;
+}
+
+.burger-icon {
+    font-size: 2.5rem;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+    padding: 0;
+    border: none;
+    background-color: #f6f6f6;
+    text-align-last: right;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus {
+    color: #582E8E;
+}
+
+.header-container {
+    padding-top: 64px;
+}
+
+/* BOOTSTRAP TOASTS */
+
+.message-container {
+    position: fixed;
+    top: 64px;
+    right: 15px;
+    min-width: 280px;
+    z-index: 99999999999;
+}
+
+.toast-header {
+    font-size: 1.2rem;
+}
+
+.toast-body {
+    font-size: 1rem;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 10px;
+}
+
+
+/* FROM CSS-TRICKS.COM: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+/* FOOTER */
+.footer-box {
+    height: 15rem;
+    background-color: #EDCBBD;
+    display: absolute;
+    bottom: 0;
+}
+
+.footer-svg {
+    object-fit: contain;
+    width: 200px;
+    padding: 4rem 1rem 0 1rem;
+}
+
+.footer-copyright {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-left: 4.7rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    body {
+        margin-top: 4rem;
+    }
+}
