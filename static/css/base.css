@@ -27,7 +27,10 @@ body {
 
 .btn-pink:hover,
 .btn-pink:active,
-.btn-pink:focus {
+.btn-pink:focus,
+.btn-pink-unfav:hover,
+.btn-pink-unfav:active,
+.btn-pink-unfav:focus {
     background-color: #582E8E;
     color:#fff;
     border: 1px solid #fff;
