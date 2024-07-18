@@ -4,7 +4,7 @@
 ### This site is designed as a Charities doantion site. 
 
 ![A mock-up image of the Donofy project]()
-
+SZGDZGF
 ## [Click here to deploy this project live]()
 
 **PLEASE NOTE: This documentation contains many images which can be viewed via a dropdown toggle.**

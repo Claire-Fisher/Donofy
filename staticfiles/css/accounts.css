@@ -1,0 +1,22 @@
+/* ALLAUTH ACCOUNTS FORMS */
+
+.account-box {
+    border: 2px solid #CD2576;
+    border-radius: 1.5rem;
+}
+
+.btn-white,
+.btn-pink {
+    width: 205px;
+    border: 1px solid #CD2576;
+}
+
+.btn-custom-size {
+    width: 230px;
+}
+
+@media (max-width: 575px) {
+    h1.text-pink {
+        font-size: 2rem;
+    }
+}

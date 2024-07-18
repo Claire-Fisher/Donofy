@@ -1,0 +1,82 @@
+.checkout-title {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.checkout-sub-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+}
+
+.no-bullets {
+    list-style: none;
+}
+
+/* STRIPE */
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #ced4da;
+}
+
+/* LOADING OVERLAY SPINNER FOR PAYMENTS */
+#loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(205, 37, 118, 0.85);
+    z-index: 9999;
+    }
+    
+    .loading-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        height: 100%;
+    }
+
+@media screen and (min-width: 320px) and (max-width: 575px) {
+    .checkout-title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+    .checkout-sub-title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+}
