@@ -106,7 +106,7 @@ class StripeWH_Handler:
                     street_address2=billing_details.address.line2,
                     county=billing_details.address.state,
                     total=total,
-                    dontation_breakdown=donation_breakdown,
+                    donation_breakdown=donation_breakdown,
                 )
             except Exception as e:
                 if donation:
