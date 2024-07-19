@@ -47,6 +47,8 @@
                         {{ donation_form.street_address2 | as_crispy_field }}
                         {{ donation_form.county | as_crispy_field }}
                         {{ donation_form.country | as_crispy_field }}
+                        <p class="text-dark mb-1">For faster, easier donation payments, please save your billing details in
+                            <a href="{% url 'profiles:profile' %}?tab=myDetails" class="a-pink" aria-label="link to My Details"> My Details.</a></p>
                         <input type="hidden" value="{{ subscription.sub_total }}" id="total">
                     </fieldset>
                     <fieldset class="px-3">
