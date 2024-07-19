@@ -1,6 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from .models import Donation
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Subscription
 import stripe
 import time
 
@@ -46,8 +47,15 @@ class StripeWH_Handler:
                 ),
                 status=400
             )
-
-        donation_breakdown = intent.metadata.donation_breakdown
+        # Get the subscription for the user
+        try:
+            subscription = Subscription.objects.get(user=profile.user)
+            donation_breakdown = subscription.sub_breakdown
+        except Subscription.DoesNotExist:
+            return HttpResponse(
+                content=f"Subscription for user {username} does not exist.",
+                status=400
+            )
 
         # Create a new donation obj if it doesn't already exist.
         donation_exists = False

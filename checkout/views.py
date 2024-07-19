@@ -25,7 +25,6 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'amount': amount,
             'username': request.user.username,
-            'donation_breakdown': json.dumps(subscription.sub_breakdown),
             }
         )
         return HttpResponse(status=200)
