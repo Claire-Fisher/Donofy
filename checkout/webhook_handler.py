@@ -29,8 +29,8 @@ class StripeWH_Handler:
         try:
             stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
         except Exception as e:
-            print(f"Error retrieving charge: {e}")
-            return HttpResponse(content=f"Error retrieving charge: {e}", status=500)
+            return HttpResponse(
+                content=f"Error retrieving charge: {e}", status=500)
 
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
@@ -39,8 +39,13 @@ class StripeWH_Handler:
         try:
             profile = UserProfile.objects.get(user__username=username)
         except UserProfile.DoesNotExist:
-            print(f"UserProfile with username {username} does not exist.")
-            return HttpResponse(content=f"UserProfile with username {username} does not exist.", status=400)
+            return HttpResponse(
+                content=(
+                    f"UserProfile with username {username} \
+                    does not exist."
+                ),
+                status=400
+            )
 
         donation_breakdown = intent.metadata.donation_breakdown
 
@@ -96,7 +101,6 @@ class StripeWH_Handler:
                     dontation_breakdown=donation_breakdown,
                 )
             except Exception as e:
-                print(f"Error creating donation: {e}")
                 if donation:
                     donation.delete()
                 return HttpResponse(

@@ -3,7 +3,6 @@ from django.shortcuts import (
 )
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.conf import settings
 from .forms import DonationForm
@@ -14,7 +13,6 @@ import json
 
 
 @require_POST
-@csrf_exempt
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
@@ -32,7 +30,6 @@ def cache_checkout_data(request):
         )
         return HttpResponse(status=200)
     except Exception as e:
-        print(f"Error in cache_checkout_data: {e}") 
         messages.error(request, 'CACHE ERROR MESSAGE: \
             Sorry, your payment cannot be \
             processed right now. Please try again later.')
@@ -75,7 +72,6 @@ def checkout(request):
         if donation_form.is_valid():
             donation = donation_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            print(pid)
             donation.stripe_pid = pid
             donation.user_profile = user_profile
             donation.total = total
@@ -95,7 +91,6 @@ def checkout(request):
                 amount=total_pence,
                 currency=settings.STRIPE_CURRENCY,
             )
-        print(f'PAYMENT INTENT = {intent}')
 
     # Prepopulate checkout form if user has their info saved
     if request.user.is_authenticated:
