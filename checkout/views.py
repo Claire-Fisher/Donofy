@@ -10,6 +10,7 @@ from .forms import DonationForm
 from .models import Donation
 from profiles.models import UserProfile, Subscription
 import stripe
+import json
 
 
 @require_POST
@@ -26,10 +27,14 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'amount': amount,
             'username': request.user.username,
-        })
+            'donation_breakdown': json.dumps(subscription.sub_breakdown),
+            }
+        )
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
+        print(f"Error in cache_checkout_data: {e}") 
+        messages.error(request, 'CACHE ERROR MESSAGE: \
+            Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
@@ -86,32 +91,9 @@ def checkout(request):
         total_pence = round(total * 100)
         stripe.api_key = stripe_secret_key
 
-        billing_details = {
-            'name': user_profile.user.get_full_name(),
-            'email': user_profile.user.email,
-            'phone': user_profile.phone_num,
-            'address': {
-                'line1': user_profile.street_address_1,
-                'line2': user_profile.street_address_2,
-                'city': user_profile.town_or_city,
-                'state': user_profile.county,
-                'postal_code': user_profile.post_code_zip,
-                'country': user_profile.country,
-            }
-        }
-
         intent = stripe.PaymentIntent.create(
                 amount=total_pence,
                 currency=settings.STRIPE_CURRENCY,
-                payment_method_options={
-                    'card': {
-                        'billing_details': billing_details
-                    }
-                },
-                metadata={
-                    'username': request.user.username,
-                    'donation_breakdown': subscription.sub_breakdown,
-                }
             )
         print(f'PAYMENT INTENT = {intent}')
 

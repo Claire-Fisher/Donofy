@@ -1,7 +1,4 @@
 from django.http import HttpResponse
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
 from .models import Donation
 from profiles.models import UserProfile
 import stripe
@@ -13,23 +10,6 @@ class StripeWH_Handler:
 
     def __init__(self, request):
         self.request = request
-
-    def _send_confirmation_email(self, donation):
-        """Send the user a confirmation email"""
-        cust_email = donation.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'donation': donation})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'donation': donation, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )
 
     def handle_event(self, event):
         """
@@ -46,16 +26,22 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
 
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
+        try:
+            stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+        except Exception as e:
+            print(f"Error retrieving charge: {e}")
+            return HttpResponse(content=f"Error retrieving charge: {e}", status=500)
 
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        profile = None
         username = intent.metadata.username
-        profile = UserProfile.objects.get(user__username=username)
+        try:
+            profile = UserProfile.objects.get(user__username=username)
+        except UserProfile.DoesNotExist:
+            print(f"UserProfile with username {username} does not exist.")
+            return HttpResponse(content=f"UserProfile with username {username} does not exist.", status=400)
+
         donation_breakdown = intent.metadata.donation_breakdown
 
         # Create a new donation obj if it doesn't already exist.
@@ -85,7 +71,6 @@ class StripeWH_Handler:
                 # Waits 1 second, before next attempt
                 time.sleep(1)
         if donation_exists:
-            self._send_confirmation_email(donation)
             return HttpResponse(
                 content=(
                     f'Webhook received: {event["type"]} | SUCCESS: '
@@ -111,13 +96,13 @@ class StripeWH_Handler:
                     dontation_breakdown=donation_breakdown,
                 )
             except Exception as e:
+                print(f"Error creating donation: {e}")
                 if donation:
                     donation.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
 
-        self._send_confirmation_email(donation)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '
