@@ -16,7 +16,7 @@ class StripeWH_Handler:
 
     def _send_confirmation_email(self, donation):
         """Send the user a confirmation email"""
-        email = donation.email
+        cust_email = donation.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'donation': donation})
@@ -28,7 +28,7 @@ class StripeWH_Handler:
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [email]
+            [cust_email]
         )
 
     def handle_event(self, event):
@@ -45,35 +45,18 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
-        metadata = intent.metadata
-        donation_data = {
-            "full_name": metadata.get('full_name'),
-            "email": metadata.get('email'),
-            "phone_number": metadata.get('phone_number'),
-            "country": metadata.get('country'),
-            "postcode": metadata.get('postcode'),
-            "town_or_city": metadata.get('town_or_city'),
-            "street_address1": metadata.get('street_address1'),
-            "street_address2": metadata.get('street_address2'),
-            "county": metadata.get('county'),
-            "total": metadata.get('total'),
-        }
 
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
         )
 
         billing_details = stripe_charge.billing_details
-        intent.total = round(stripe_charge.amount / 100, 2)
-
-        # Clean up shipping details, of which there are none. 
-        for field, value in billing_details.address.items():
-            if value == "":
-                billing_details.address[field] = None
+        total = round(stripe_charge.amount / 100, 2)
 
         profile = None
         username = intent.metadata.username
         profile = UserProfile.objects.get(user__username=username)
+        donation_breakdown = intent.metadata.donation_breakdown
 
         # Create a new donation obj if it doesn't already exist.
         donation_exists = False
@@ -81,18 +64,18 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 donation = Donation.objects.get(
-                    user_profile=profile,
-                    full_name__iexact=donation_data['full_name'],
-                    email__iexact=donation_data['email'],
-                    phone_number__iexact=donation_data['phone_number'],
-                    country__iexact=donation_data['country'],
-                    postcode__iexact=donation_data['postcode'],
-                    town_or_city__iexact=donation_data['town_or_city'],
-                    street_address1__iexact=donation_data['street_address1'],
-                    street_address2__iexact=donation_data['street_address2'],
-                    county__iexact=donation_data['county'],
-                    total=donation_data['total'],
                     stripe_pid=pid,
+                    user_profile=profile,
+                    full_name__iexact=billing_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    country__iexact=billing_details.address.country,
+                    postcode__iexact=billing_details.address.postal_code,
+                    town_or_city__iexact=billing_details.address.city,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    county__iexact=billing_details.address.state,
+                    total=total,
                 )
                 # If a match found, the order already exists
                 donation_exists = True
@@ -113,18 +96,19 @@ class StripeWH_Handler:
             try:
                 # If no match found, after 5 attempts, create the donation obj
                 donation = Donation.objects.create(
-                    user_profile=profile,
-                    full_name=donation_data['full_name'],
-                    email=donation_data['email'],
-                    phone_number=donation_data['phone_number'],
-                    country=donation_data['country'],
-                    postcode=donation_data['postcode'],
-                    town_or_city=donation_data['town_or_city'],
-                    street_address1=donation_data['street_address1'],
-                    street_address2=donation_data['street_address2'],
-                    county=donation_data['county'],
-                    total=donation_data['total'],
                     stripe_pid=pid,
+                    user_profile=profile,
+                    full_name=billing_details.name,
+                    email=billing_details.email,
+                    phone_number=billing_details.phone,
+                    country=billing_details.address.country,
+                    postcode=billing_details.address.postal_code,
+                    town_or_city=billing_details.address.city,
+                    street_address1=billing_details.address.line1,
+                    street_address2=billing_details.address.line2,
+                    county=billing_details.address.state,
+                    total=total,
+                    dontation_breakdown=donation_breakdown,
                 )
             except Exception as e:
                 if donation:
