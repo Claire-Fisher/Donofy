@@ -17,7 +17,7 @@
                     <h2 class="checkout-sub-title text-pink">Your donation summary</h2>
                     <p class="text-dark mb-1">Your current donation total = £{{ subscription.sub_total }}</p>
                     <p class="text-dark mb-1">Which you've chosen to divide as follows:</p>
-                    {% for key, value in subscription_breakdown.items %}
+                    {% for key, value in subscription.sub_breakdown.items %}
                         {% if value > 0 %}
                         <ul class="pl-2 mb-1">
                             <li class="no-bullets">
@@ -46,10 +46,7 @@
                         {{ donation_form.street_address2 | as_crispy_field }}
                         {{ donation_form.county | as_crispy_field }}
                         {{ donation_form.country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-right mr-0">
-                            <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                        </div>
+                        <input type="hidden" value="{{ subscription.sub_total }}" id="total">
                     </fieldset>
                     <fieldset class="px-3">
                         <label class="fieldset-label text-pink px-2 w-auto">Payment</label>
@@ -58,8 +55,8 @@
                         <!-- Used to display form errors -->
                         <div class="mb-5 text-danger" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
-                        <input type="hidden" value="{{ client_secret }}" id="id_client_secret">
-                    
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
                     <p class="text-dark">
                         If you need to change this amount, or any of your donation details, please go to the
                             <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section.
