@@ -35,13 +35,13 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        username = intent.metadata.username
+        user_id = intent.metadata.user_id
         try:
-            profile = UserProfile.objects.get(user__username=username)
+            profile = UserProfile.objects.get(user__id=user_id)
         except UserProfile.DoesNotExist:
             return HttpResponse(
                 content=(
-                    f"UserProfile with username {username} \
+                    f"UserProfile with username {profile.username} \
                     does not exist."
                 ),
                 status=400
@@ -52,7 +52,7 @@ class StripeWH_Handler:
             donation_breakdown = subscription.sub_breakdown
         except Subscription.DoesNotExist:
             return HttpResponse(
-                content=f"Subscription for user {username} does not exist.",
+                content=f"Subscription for user {profile.username} does not exist.",
                 status=400
             )
 

@@ -19,11 +19,10 @@ def cache_checkout_data(request):
         user = request.user
         subscription = get_object_or_404(Subscription, user=user)
         amount = round(subscription.sub_total * 100)
-
         # Create a Payment Intent
         stripe.PaymentIntent.modify(pid, metadata={
             'amount': amount,
-            'username': user.username,
+            'user_id': user.id
             }
         )
         return HttpResponse(status=200)
