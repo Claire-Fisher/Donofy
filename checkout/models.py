@@ -48,5 +48,3 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"Donation {self.id} by {self.full_name}"
-
-# ADD A SEND CONFIRMATION OF DONATION EMAIL HERE
