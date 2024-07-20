@@ -11,6 +11,23 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
+    def _send_confirmation_email(self, donation):
+        """Send the user a confirmation email"""
+        cust_email = donation.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'donation': donation})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'donation': donation, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
+
     def handle_event(self, event):
         """
         Handle webhook event
@@ -93,6 +110,7 @@ class StripeWH_Handler:
                 # Waits 1 second, before next attempt
                 time.sleep(1)
         if donation_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=(
                     f'Webhook received: {event["type"]} | SUCCESS: '
@@ -123,6 +141,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '

@@ -10,7 +10,7 @@ Then sit back and feel good about the fantastic contribution you've made.
 
 “Alone we can do so little; together we can do so much.” - Helen Keller
 
-If you have any questions, feel free to contact us at {{ contact_email }}.
+If you have any questions, feel free to contact us at donofy.uk@gmail.com
 
 Thank you,
 
