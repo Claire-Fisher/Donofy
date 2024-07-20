@@ -1,6 +1,6 @@
-Hello {{ donation.user|capfirst }}!
+Hello {{ donation.full_name|capfirst }}!
 
-We've received your £{{ donation.amount }} donation, you awesome human!
+We've received your £{{ donation.total }} donation, you awesome human!
 
 As you've instructed, we've spread your donation across your chosen charites. 
 

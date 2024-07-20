@@ -1,7 +1,12 @@
 import uuid
 from django.db import models
+from django.conf import settings
 from profiles.models import UserProfile
 from django_countries.fields import CountryField
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 
 class Donation(models.Model):
@@ -48,3 +53,22 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"Donation {self.id} by {self.full_name}"
+
+
+@receiver(post_save, sender=Donation)
+def send_confirmation_email(sender, instance, created, **kwargs):
+    """Send the user a confirmation email"""
+    if created:
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'donation': instance})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'donation': instance, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        recipient = [instance.email]
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            recipient,
+        )

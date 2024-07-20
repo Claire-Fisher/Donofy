@@ -1,0 +1,1 @@
+Donofy Donation Confirmation for {{ donation.full_name|capfirst }}
