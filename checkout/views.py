@@ -9,7 +9,6 @@ from .forms import DonationForm
 from .models import Donation
 from profiles.models import UserProfile, Subscription
 import stripe
-import json
 
 
 @require_POST
@@ -24,7 +23,7 @@ def cache_checkout_data(request):
         # Create a Payment Intent
         stripe.PaymentIntent.modify(pid, metadata={
             'amount': amount,
-            'username': request.user.username,
+            'username': user.username,
             }
         )
         return HttpResponse(status=200)
