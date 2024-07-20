@@ -23,6 +23,7 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+
         intent = event.data.object
         pid = intent.id
 
@@ -35,7 +36,13 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        user_id = intent.metadata.user_id
+        user_id = intent.metadata.user__id
+        print(f'The user_id = {user_id}.')
+        if not user_id:
+            return HttpResponse(
+                content="User ID not found in payment intent metadata.",
+                status=400
+            )
         try:
             profile = UserProfile.objects.get(user__id=user_id)
         except UserProfile.DoesNotExist:
@@ -52,7 +59,10 @@ class StripeWH_Handler:
             donation_breakdown = subscription.sub_breakdown
         except Subscription.DoesNotExist:
             return HttpResponse(
-                content=f"Subscription for user {profile.username} does not exist.",
+                content=(
+                    f"Subscription for user {profile.username} "
+                    "does not exist."
+                    ),
                 status=400
             )
 
