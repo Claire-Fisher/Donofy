@@ -1,6 +1,4 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from django.db import transaction, IntegrityError
 from .models import Donation
 from profiles.models import UserProfile, Subscription
 import stripe
@@ -63,24 +61,23 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                with transaction.atomic():
-                    donation = Donation.objects.get_or_create(
-                        stripe_pid=pid,
-                        user_profile=profile,
-                        full_name__iexact=billing_details.name,
-                        email__iexact=billing_details.email,
-                        phone_number__iexact=billing_details.phone,
-                        country__iexact=billing_details.address.country,
-                        postcode__iexact=billing_details.address.postal_code,
-                        town_or_city__iexact=billing_details.address.city,
-                        street_address1__iexact=billing_details.address.line1,
-                        street_address2__iexact=billing_details.address.line2,
-                        county__iexact=billing_details.address.state,
-                        total=total,
-                    )
-                    # If a match found, the order already exists
-                    donation_exists = True
-                    break
+                donation = Donation.objects.get(
+                    stripe_pid=pid,
+                    user_profile=profile,
+                    full_name__iexact=billing_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    country__iexact=billing_details.address.country,
+                    postcode__iexact=billing_details.address.postal_code,
+                    town_or_city__iexact=billing_details.address.city,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    county__iexact=billing_details.address.state,
+                    total=total,
+                )
+                # If a match found, the order already exists
+                donation_exists = True
+                break
             except Donation.DoesNotExist:
                 attempt += 1
                 # Waits 1 second, before next attempt
@@ -116,15 +113,10 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} | SUCCESS: '
-                f'Created order in webhook'),
-            status=200)
-
-        return HttpResponse(
-            content=f'Unhandled webhook received: {event["type"]}',
+                f'Created donation in webhook'),
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
