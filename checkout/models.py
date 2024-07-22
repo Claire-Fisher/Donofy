@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.core.validators import RegexValidator, EmailValidator
 
 
 class Donation(models.Model):
@@ -24,8 +25,13 @@ class Donation(models.Model):
         related_name='donations'
     )
     full_name = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    email = models.EmailField(
+        validators=[EmailValidator(message="Enter a valid email address.")],
+        max_length=254,
+        null=False,
+        blank=False
+    )
+    phone_number = models.CharField(max_length=15, null=True, blank=True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
@@ -64,7 +70,8 @@ def send_confirmation_email(sender, instance, created, **kwargs):
             {'donation': instance})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'donation': instance, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {'donation': instance,
+                'contact_email': settings.DEFAULT_FROM_EMAIL})
         recipient = [instance.email]
         send_mail(
             subject,

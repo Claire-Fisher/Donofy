@@ -1,8 +1,17 @@
 from django import forms
 from .models import Donation
+from django.core.validators import EmailValidator
 
 
 class DonationForm(forms.ModelForm):
+    email = forms.EmailField(
+        validators=[EmailValidator(message="Enter a valid email address.")],
+        widget=forms.EmailInput(attrs={
+            'placeholder': 'Email Address',
+            'class': 'form-control'
+        })
+    )
+
     class Meta:
         model = Donation
         fields = (
