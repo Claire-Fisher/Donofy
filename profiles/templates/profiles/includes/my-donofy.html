@@ -12,7 +12,7 @@
             </p>
             {% for charity in charity_favs %}
             <div class="row">
-                <li class="col-12 bold mb-5">
+                <li class="col-12 bold mb-2">
                     <hr>
                     <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="text-dark bold">{{ charity.charity_name }}</a>
@@ -24,12 +24,13 @@
                 </li>
                 <!-- add an if statement HERE to check for a currently saved sub_breakdown, prepopulate the inputs with the user's last saved values. -->
                 <div class="col-12">
-                    <input type="number" name="breakdown_{{ charity.id }}" value="{{ subscription.sub_breakdown|get_item:charity.charity_name|default_if_none:0 }}" min="0" max="999">
+                    <label for="{{ charity.charity_name }}">Set amount (£)</label>
+                    <input type="number" id="{{ charity.charity_name }}" name="breakdown_{{ charity.id }}" value="{{ subscription.sub_breakdown|get_item:charity.charity_name|default_if_none:0 }}" min="0" max="999">
                 </div>
             </div>
             {% endfor %}
             <hr>
-            <button type="submit" class="btn btn-lg btn-pink mt-3">Save</button>
+            <button type="submit" class="btn btn-lg btn-pink mt-3 mb-5 col-12 col-md-6">Save</button>
         </ul>
         <input type="hidden" name="redirect_url" value="{{ request.path }}">
     </form>
