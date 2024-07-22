@@ -23,12 +23,12 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'amount': amount,
             'user_id': user.id
-            }
-        )
+        })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'CACHE ERROR MESSAGE: \
-            Sorry, your payment cannot be \
+        messages.error(
+            request,
+            'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
