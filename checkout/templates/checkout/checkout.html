@@ -11,7 +11,7 @@
 <div class="overlay"></div>
 <div class="container-fluid bg-light-brand pt-3 pb-5">
     <div class="container">
-        <div class="card bg-light-brand  shadow my-1 my-lg-5">
+        <div class="card bg-light-brand shadow my-1 my-lg-5">
             <h1 class="checkout-title text-white bg-pink py-4 pl-4 mb-1 mb-lg-5">Donation Payment</h1>
             <div class="row p-3 p-lg-4">
                 <div class="donation-info border-pink col-12 col-lg-8 mx-auto p-3 p-lg-5 py-5">
@@ -29,10 +29,10 @@
                     {% endfor %}
                 </div>
             </div>
-            <h2 class="checkout-sub-title text-pink col-12 col-lg-8 mx-auto mt-5 px-1">Enter your billing details here.</h2>
             <div class="row">
                 <form id="payment-form" action="{% url 'checkout' %}" method="POST" class="profile-forms col-12 col-lg-8 mx-auto mb-5">
                     {% csrf_token %}
+                    <h2 class="checkout-sub-title text-pink col-12 col-lg-8 mt-5 px-2">Enter your billing details here.</h2>
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-pink px-2 w-auto">Your Details</legend>
                         {{ donation_form.full_name | as_crispy_field }}
@@ -60,11 +60,14 @@
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                    <p class="text-dark">
-                        If you need to change this amount, or any of your donation details, please go to the
-                            <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section.
-                    </p>
-                    <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-12 col-md-5 my-3">Make £{{ subscription.sub_total }} donation</button>
+                    <fieldset class="text-center">
+                        <p class="text-dark px-2">
+                            If you need to change this amount, or any of your donation details, please go to the
+                                <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section.
+                        </p>
+                        <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-11 col-md-5 my-3">Make £{{ subscription.sub_total }} donation</button>
+    
+                    </fieldset>
                 </form>
             </div>
         </div>
