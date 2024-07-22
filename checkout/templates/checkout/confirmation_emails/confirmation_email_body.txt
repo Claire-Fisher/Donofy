@@ -2,7 +2,11 @@ Hello {{ donation.full_name|capfirst }}!
 
 We've received your £{{ donation.total }} donation, you awesome human!
 
-As you've instructed, we've spread your donation across your chosen charites. 
+As you've instructed, we've spread your donation across your chosen charites.
+
+{% for key, value in donation.donation_breakdown.items %}
+    £{{ value }} to {{ key }}
+{% endfor %}
 
 Please log into you Donofy account and go to My History to view more details. 
 
