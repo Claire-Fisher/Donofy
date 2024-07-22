@@ -335,6 +335,7 @@ i.icon-lg {
     font-size: 1.2rem;
     font-weight: 600;
     padding-left: 4.7rem;
+    margin-bottom: 0.2rem;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
