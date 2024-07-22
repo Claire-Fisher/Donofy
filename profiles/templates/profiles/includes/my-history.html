@@ -10,6 +10,7 @@
                 <strong class="text-pink">Amount:</strong> £{{ donation.total }}<br>
                 <strong class="text-pink">Charities:</strong><br>
                 <ul>
+                    <!-- loop through user's payment history -->
                     {% for key, value in donation.donation_breakdown.items %}
                         {% if value > 0 %}
                         <li><strong>£{{ value }}</strong> to {{ key }}</li>
