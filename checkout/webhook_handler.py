@@ -37,7 +37,6 @@ class StripeWH_Handler:
         total = round(stripe_charge.amount / 100, 2)
 
         user_id = intent.metadata.user_id
-        print(f'The user_id = {user_id}.')
         if not user_id:
             return HttpResponse(
                 content="User ID not found in payment intent metadata.",
