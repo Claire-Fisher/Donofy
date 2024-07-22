@@ -38,71 +38,71 @@
 	<body>
 		<header class="container-fluid fixed-top m-0 p-0">
 		<!-- main nav bar -->
-		<nav class="row navbar navbar-expand-md shadow-sm bg-light-brand m-0 pl-3">
-			<!-- logo -->
-			<a href="{% url 'home' %}" aria-label="link to home page"
-				class="col-8 col-md-4 my-auto main-logo nav-link" >
-			<img class="main-logo" src="{% static 'media/donofy-full-logo.svg' %}" alt="Donofy logo">
-			</a>
-			<!-- dropdown toggle for smaller screens -->
-			<button type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
-				class="navbar-toggler btn btn-lg icon-pink p-0 m-0 burger-menu" aria-expanded="false" aria-label="Toggle navigation">
-			<span><i class="fa-solid fa-bars burger-icon"></i></span>
-			</button>
-			<!-- nav links -->
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item px-2">
+			<nav class="row navbar navbar-expand-md shadow-sm bg-light-brand m-0 pl-3">
+				<!-- logo -->
 				<a href="{% url 'home' %}" aria-label="link to home page"
-					class="nav-link drop-item-h text-pink bold hover-float">Home</a>
-				</li>
-				<li class="nav-item px-2">
-				<a href="{% url 'charities' %}" aria-label="link to charities page"
-					class="nav-link drop-item-h text-pink bold hover-float">Charities</a>
-				</li>
-				<li class="nav-item px-2">
-					<a href="{% url 'contact' %}" aria-label="link to contact us page"
-						class="nav-link drop-item-h text-pink bold hover-float">Contact Us</a>
-				</li>
-				<li class="nav-item px-2 dropdown text-pink bold">
-				<a href="#" aria-label="my account dropdown menu" id="user-options" aria-expanded="false"
-					class="nav-link drop-item-h text-pink bold hover-float dropdown-toggle" role="button" data-toggle="dropdown">
-					My Account
+					class="col-8 col-md-4 my-auto main-logo nav-link" >
+				<img class="main-logo" src="{% static 'media/donofy-full-logo.svg' %}" alt="Donofy logo">
 				</a>
-				<div class="dropdown-menu dropdown-menu-right shadow bold" aria-labelledby="user-options">
-					{% if request.user.is_authenticated %}
-						{% if request.user.is_superuser %}
-							<a href="/admin/" aria-label="go to site admin pages"
-								class="dropdown-item drop-item-h text-pink bold hover-float">Admin</a>
+				<!-- dropdown toggle for smaller screens -->
+				<button type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+					class="navbar-toggler btn btn-lg icon-pink p-0 m-0 burger-menu" aria-expanded="false" aria-label="Toggle navigation">
+				<span><i class="fa-solid fa-bars burger-icon"></i></span>
+				</button>
+				<!-- nav links -->
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item px-2">
+					<a href="{% url 'home' %}" aria-label="link to home page"
+						class="nav-link drop-item-h text-pink bold hover-float">Home</a>
+					</li>
+					<li class="nav-item px-2">
+					<a href="{% url 'charities' %}" aria-label="link to charities page"
+						class="nav-link drop-item-h text-pink bold hover-float">Charities</a>
+					</li>
+					<li class="nav-item px-2">
+						<a href="{% url 'contact' %}" aria-label="link to contact us page"
+							class="nav-link drop-item-h text-pink bold hover-float">Contact Us</a>
+					</li>
+					<li class="nav-item px-2 dropdown text-pink bold">
+					<a href="#" aria-label="my account dropdown menu" id="user-options" aria-expanded="false"
+						class="nav-link drop-item-h text-pink bold hover-float dropdown-toggle" role="button" data-toggle="dropdown">
+						My Account
+					</a>
+					<div class="dropdown-menu dropdown-menu-right shadow bold" aria-labelledby="user-options">
+						{% if request.user.is_authenticated %}
+							{% if request.user.is_superuser %}
+								<a href="/admin/" aria-label="go to site admin pages"
+									class="dropdown-item drop-item-h text-pink bold hover-float">Admin</a>
+							{% endif %}
+							<a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="link to my donofy page"
+								class="dropdown-item drop-item-h text-pink bold hover-float">My Donofy
+							</a>
+							<a href="{% url 'profiles:profile' %}?tab=myDetails" aria-label="link to my details page"
+								class="dropdown-item drop-item-h text-pink bold hover-float">My Details
+							</a>
+							<a href="{% url 'profiles:profile' %}?tab=myHistory" aria-label="link to my history page"
+								class="dropdown-item drop-item-h text-pink bold hover-float">My History
+							</a>
+							<a href="{% url 'checkout' %}" aria-label="link to donate page"
+								class="dropdown-item drop-item-h text-pink bold hover-float">Donate
+							</a>
+							<a href="{% url 'account_logout' %}" aria-label="link to logout page"
+								class="dropdown-item drop-item-h text-pink bold">Logout
+							</a>
+							{% else %}
+							<a href="{% url 'account_signup' %}" aria-label="link to register page"
+								class="dropdown-item drop-item-h text-pink bold">Register
+							</a>
+							<a href="{% url 'account_login' %}" aria-label="link to log in page"
+								class="dropdown-item drop-item-h text-pink bold">Login
+							</a>
 						{% endif %}
-						<a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="link to my donofy page"
-							class="dropdown-item drop-item-h text-pink bold hover-float">My Donofy
-						</a>
-						<a href="{% url 'profiles:profile' %}?tab=myDetails" aria-label="link to my details page"
-							class="dropdown-item drop-item-h text-pink bold hover-float">My Details
-						</a>
-						<a href="{% url 'profiles:profile' %}?tab=myHistory" aria-label="link to my history page"
-							class="dropdown-item drop-item-h text-pink bold hover-float">My History
-						</a>
-						<a href="{% url 'checkout' %}" aria-label="link to donate page"
-							class="dropdown-item drop-item-h text-pink bold hover-float">Donate
-						</a>
-						<a href="{% url 'account_logout' %}" aria-label="link to logout page"
-							class="dropdown-item drop-item-h text-pink bold">Logout
-						</a>
-						{% else %}
-						<a href="{% url 'account_signup' %}" aria-label="link to register page"
-							class="dropdown-item drop-item-h text-pink bold">Register
-						</a>
-						<a href="{% url 'account_login' %}" aria-label="link to log in page"
-							class="dropdown-item drop-item-h text-pink bold">Login
-						</a>
-					{% endif %}
+					</div>
+					</li>
+				</ul>
 				</div>
-				</li>
-			</ul>
-			</div>
-		</nav>
+			</nav>
 		</header>
 
 		{% if messages %}

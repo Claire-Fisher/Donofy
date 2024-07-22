@@ -118,7 +118,9 @@ def add_to_favs(request, charity_id):
             messages.success(
                 request, f'Added {charity.charity_name} to your favourites'
             )
-    redirect_url = request.POST.get('redirect_url', reverse('charity_detail', args=[charity_id]))
+    redirect_url = request.POST.get(
+        'redirect_url', reverse('charity_detail', args=[charity_id])
+    )
 
     return redirect(redirect_url)
 
@@ -188,14 +190,16 @@ def delete_from_favs_on_charity_detail(request, charity_id):
             )
         )
 
-    redirect_url = request.POST.get('redirect_url', reverse('charity_detail', args=[charity_id]))
+    redirect_url = request.POST.get(
+        'redirect_url', reverse('charity_detail', args=[charity_id])
+    )
     return redirect(redirect_url)
 
 
 @login_required
 def deactivate_charity(request, charity_id):
     """
-    Allows superusers to 'delete' / deactivate charities. 
+    Allows superusers to 'delete' / deactivate charities.
     Charities are toggled to inactive to preserve data history.
     """
     charity = get_object_or_404(Charity, pk=charity_id)
