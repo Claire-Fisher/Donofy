@@ -60,6 +60,10 @@
 				<a href="{% url 'charities' %}" aria-label="link to charities page"
 					class="nav-link drop-item-h text-pink bold hover-float">Charities</a>
 				</li>
+				<li class="nav-item px-2">
+					<a href="{% url 'contact' %}" aria-label="link to contact us page"
+						class="nav-link drop-item-h text-pink bold hover-float">Contact Us</a>
+				</li>
 				<li class="nav-item px-2 dropdown text-pink bold">
 				<a href="#" aria-label="my account dropdown menu" id="user-options" aria-expanded="false"
 					class="nav-link drop-item-h text-pink bold hover-float dropdown-toggle" role="button" data-toggle="dropdown">
@@ -130,7 +134,7 @@
 				<div class="col-12 footer-box">
 				<img class="icon footer-svg" src="{% static 'media/donofy-full-logo-grey.svg' %}" alt="Donofy logo">
 				<p class="text-dark footer-copyright">Copyright Claire Fisher 2024</p>
-				<p class="text-dark footer-copyright">Contact Us: donofy.uk@gmail.com</p>
+				<a href="{% url 'contact' %}" class="footer-copyright a-dark" aria-label="link to contact us page">Contact Us</a>
 				</div>
 			</div>
 		</footer>

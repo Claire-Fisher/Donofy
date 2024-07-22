@@ -78,8 +78,15 @@ a.a-pink {
 
 a.a-pink:hover,
 a.a-pink:active,
-a.a-pink:focus {
+a.a-pink:focus,
+a.a-dark:hover,
+a.a-dark:active,
+a.a-dark:focus {
     color: #582E8E!important;
+}
+
+.a-dark {
+    color:#222;
 }
 
 
@@ -245,6 +252,13 @@ i.icon-lg {
     padding-top: 64px;
 }
 
+/* HEADINGS */
+
+.cap-title {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
 /* BOOTSTRAP TOASTS */
 
 .message-container {
@@ -342,4 +356,10 @@ i.icon-lg {
     body {
         margin-top: 4rem;
     }
+    .cap-title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
 }
+
+

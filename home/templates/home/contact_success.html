@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-light-brand pt-3 pb-5">
+    <div class="container text-center mb-5">
+        <div class="card bg-light-brand border-pink shadow p-2 my-4 my-lg-5">
+            <h1 class="cap-title text-pink py-4 mb-1 mb-lg-5">Message Sent.</h1>
+            <p class="text-dark">Thank you for contacting Donofy.</p>
+        </div>
+        <a href="{% url 'home' %}" aria-label="Back to home page" class="a-pink bold">Back to Home page</a>
+    </div>
+</div>
+{% endblock %}

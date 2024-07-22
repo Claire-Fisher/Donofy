@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-light-brand pt-3 pb-5">
+    <div class="container">
+        <div class="card bg-light-brand shadow my-1 my-lg-5">
+            <h1 class="cap-title text-white bg-pink py-4 pl-4 mb-1 mb-lg-5">Contact Us</h1>
+            <form method="post" action="{% url 'contact_send' %}">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5">
+                    <p class="text-dark">If you would like to contact us about Donofy for any reason, please complete the form below.</p>
+                    <label for="your-name" class="text-pink">Your Name *</label>
+                    <input type="text" name="name" id="your-name" class="form-control mb-3" placeholder="Name" required/>
+
+                    <label for="your-email" class="text-pink">Your Email *</label>
+                    <input type="email" name="email" id="your-email" class="form-control mb-3" placeholder="Email" required/>
+
+                    <label for="message" class="text-pink">Your message *</label>
+                    <textarea rows="6" name="message" id="message" class="form-control mb-3" placeholder="Your message..." required></textarea>
+
+                    <p class="text-dark text-muted">All form fields above are required</p>
+                    <button type="submit" class="btn btn-lg btn-pink col-12 col-md-6 col-xl-3" aria-label="Send message">Send</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
