@@ -36,7 +36,7 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         total = round(stripe_charge.amount / 100, 2)
 
-        user_id = intent.metadata.user__id
+        user_id = intent.metadata.user_id
         print(f'The user_id = {user_id}.')
         if not user_id:
             return HttpResponse(

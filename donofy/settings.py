@@ -3,6 +3,7 @@ import dj_database_url
 from pathlib import Path
 from decouple import config
 
+
 development = config("DEVELOPMENT", default=False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
