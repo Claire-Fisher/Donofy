@@ -14,7 +14,7 @@
         <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static 'media/hero-img-small.png' %}" center no-repeat>
         <!-- Displays on screens with min-width >= 992px -->
         <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
-            <h1 class="d-none d-lg-block text-white bold pb-5">Spreading affordable support,<br>to your causes, your way.</h1>
+            <h1 class="d-none d-lg-block text-white bold pb-3">Spreading affordable support,<br>to your causes, your way.</h1>
             <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
             <p class="col-12 text-white p-0 pb-3">
                 These words are at the core of what we do. We want to encourage anybody and everybody<br> 
@@ -24,6 +24,13 @@
             {% else %}
                 <a href="{% url 'account_login' %}" aria-label="link to log in"
                     class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white mb-3">Sign up / Login</a>
+                <div class="p-2 pl-4 account-info col-lg-8 col-6">
+                    <p class="text-white mb-0">
+                        Creating an account will allow you to save charities to a favourites list.<br>
+                        With a favourites list, you can make a single donation payment,<br>
+                        and spread it across your favourited charities however you choose.
+                    </p>
+                </div>
             {% endif %}
         </div>
     </div>
@@ -33,7 +40,12 @@
         {% if request.user.is_authenticated %}
         {% else %}
             <a href="{% url 'account_login' %}" aria-label="link to log in"
-                class="col-10 col-sm-6 btn btn-lg btn-pink mb-5">Sign up / Login</a>
+                class="col-10 col-sm-6 btn btn-lg btn-pink mb-2">Sign up / Login</a>
+                <p class="text-dark mb-5">
+                    Creating an account will allow you to save charities to a favourites list.<br>
+                    With a favourites list, you can make a single donation payment,<br>
+                    and spread it across your favourited charities however you choose.
+                </p>
         {% endif %}
         <h3 class="col-12 text-center text-pink">“Alone we can do so little; together we can do so much.”<br>- Helen Keller</h3>
         <p class="text-center text-dark px-3">
