@@ -19,7 +19,6 @@ def get_charity_favs(user_profile):
 
 @login_required
 def profile(request):
-
     # Get user and UserProfile
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
