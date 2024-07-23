@@ -107,6 +107,15 @@ My adjustments to suit my project aims:
 [**Back to top**](#donofy)
 ### Data Schema
 
+![Donofy Data Schema](documents/readme-images/data-schema.png)
+
+**Data Flow Notes.**
+- Donofy site has a directory of Charities, which are assigned a Category for search/filtering purposes. 
+- Users can create a profile with create, read, and update functionality. 
+- Users can Add and Delete charities to their Favourites List.
+- The subscription model is the user's latest preferences of values to donate to selected charities in their favourites list. 
+- Donation objects are created on successful checkout of a donation payment by the user. It is an instance of the user's billing details, plus subsciption total and breakdown at the time/date the donation was made.
+- 'Active' booleans have been given to data tables where would deletion would erase data that needs to be preserved. (e.g User's and their history of donations. Charities and their running totals data.)
 
 ### Wireframes
 
@@ -202,13 +211,26 @@ The footer provides copyright information and name of the site creator. Plus cli
 [**Back to top**](#donofy)
 ## Future Features
 
-* **Automated subscription payment methods.** Users can set regular monthly payments to be taken on a set day every month. Users would be able to edit their subscription details (selected charities, and amounts etc) in between payments. Users could cancel or pause their subscriptions between payments.
+* **Automated subscription payment methods.**
+  - Users can set regular monthly payments to be taken on a set day every month.
+  - Users would be able to edit their subscription details (selected charities, and amounts etc) in between payments.
+  - Users could cancel or pause their subscriptions between payments.
+  - Users would receive a notification of an upcoming payment (approx 5 days notice) with an opportunity to edit or cancel before their billing date.
+  - Users would continue to receive an email everytime a donation is made (automated or not) for as long as their subscription is active.
 
 * **Single payments for guest users** who do not want to create an account.
 
 * **Authorised admin access for Charity representatives**, to give access to update their own charity page information.
 
-* **Badges or 'achievement' awards/icons** users can earn and 'collect' on their profile. Adding to positive UX, giving a greater sense of making an impact, and gamifying the UX to encourage more donations. 'Achievements' examples such as: 1st donation made, 3 doantions, 10 donations etc, subcription created, 6 months of consecutive donations etc. Achievements would be focused on actions rather than amounts donated to keep in line with the site ethos: every donation counts, even the smallest. 
+* **Badges or 'achievement' awards/icons**
+  - users can earn and 'collect' on their profile. Adding to positive UX, giving a greater sense of making an impact, and gamifying the UX to encourage more donations.
+  - 'Achievements' examples such as: 1st donation made, 3 doantions, 10 donations etc, subcription created, 6 months of consecutive donations etc.
+  - Achievements would be focused on actions rather than amounts donated to keep in line with the site ethos: every donation counts, even the smallest. 
+
+* **Automated running totals**
+  - Home page stats would dynamically update according to site wide statics on donation figures. 
+  - As well as a payment history, users could view their own dynamic totals of how much they donated via Donofy, and a breakdown of how much given to each charity. 
+  - The totals per charity, could link to a charity's impact statments, and a user could toggle between, how much they've donated, or how their donations translate into real-life impact. (e.g User 1 has donated £32 to Dogs Trust /toggle/ User 1 has kept a rescue dog fed for 31 days ).
 
 
 [**Back to top**](#donofy)
