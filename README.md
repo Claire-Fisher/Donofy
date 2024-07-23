@@ -86,19 +86,23 @@
 
 ### Research
 The following sites were examined as part of my project research:
-...
-...
-...
+- [charitychoice.co.uk](https://www.charitychoice.co.uk/charities)
+- [YouGov.co.uk](https://yougov.co.uk/ratings/politics/popularity/charities-organisations/all)
+- [gov.uk register of charities](https://register-of-charities.charitycommission.gov.uk/charity-search)
 
 Common themes found:
   - Responsive design.
-  - ...
-  - ...
+  - Accessible Design
+  - Statistics
+  - Offical registered Charity numbers
 
 My adjustments to suit my project aims:
-  - Reduce info on the main library page to what's essential.
-  - Give full page space to a single game when the user wants more info.
-  - ...
+  - Provide enough data without overwhelming my user.
+    - Visual charity cards directory, and charity logos are obvious.
+    - Summary of the charity and the impact of donations.
+    - Button to direct the user to the offical charity site for more info. (Opens in a new tab)
+  - Bright and friendly colour scheme, not affliated with any particular charity. Also not so sterile that the data is unappealing to browse. Whilst still keeping to good accessibility standards.
+  - User has the ability to bookmark charities that interest them in a Favourites list. Invites future visits as user can easily find their selected favourites and build on their list according to their preferences.
 
 [**Back to top**](#donofy)
 ### Data Schema
@@ -131,9 +135,13 @@ The highly legible and readable googlefont, League Spartan, has been selected. W
 This project includes many features, these include:
 
 ### Fully Responsive 
-![Site mockup image showing different screen sizes]()
 - This site adapts to all devices and screen sizes ranging between 320px to 2560px wide (Tested).
-- Responsive break points tested on screen widths: 320px / 576px / 768px / 992px / 1200px / 1400px / 2560px. 
+- Responsive break points tested on screen widths: 320px / 576px / 768px / 992px / 1200px / 1400px / 2560px.
+
+![Screen 2560px Wide](documents//readme-images/screen-2560px.png)
+![Screen 2560px Wide](documents//readme-images/screen-320px.png)
+
+
 
 ### Intuitive Navigation
 
