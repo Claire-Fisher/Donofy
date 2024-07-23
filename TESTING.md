@@ -18,9 +18,7 @@ This project was tested continuously during development. Post build, the site ha
       * [*JavaScript*](#javascript---httpsjshint.com)
   * [**Lighthouse Scores**](#lighthouse-scores)
   * [**Accessibility**](#accessibility)
-* [**Third Party Testing**](#third-party-testing)
-*  [**Third Party Feedback**](#third-party-feedback)
-* [**With Thanks**](#thank-you-to-my-product-testers)
+* [**Future Bug Fixes**](#future-bug-fixes)
 
 ## **During Development Testing**
 This project has been developed partially with a TTD approach. 
@@ -288,17 +286,13 @@ In addition to the accessibility score on lighthouse, WAVE - Web accessibility e
     * 
 
 
-[**Back to top**](#testing-donofy) 
-### **Third Party Testing**
-I sent my deployed project to multiple user testers with different devices, browsers, and skill sets:
-- Richard Wells - Senior full stack developer.
-- Shaun Russell - Senior UI/UX/Product Designer.
-- Tom Harris - Enterprise Account Manager, krystal.io and Safari user.
+## **Future Bug Fixes** 
+Due to deadline constraints, some bugs remain in this version of Donofy. Whilst they are not project breaking, these are some bugs I'm aware are left unsolved. I would address these going forward before expanding to additional future features.
 
-### Third Party Feedback
-<hr>
+**USA Stripe Element**
+ - The current stripe element input for card payments asks for a zipcode. Zip codes are not applicable for UK users. I would change the Stripe element to it's UK version. Better still, I would have it change dynamically based on a user's input in the Country field (if the site were to go global).
 
-**Shaun Russell - User tester - Senior UI/UX designer**
+
 
 <hr>
 
@@ -307,7 +301,6 @@ I sent my deployed project to multiple user testers with different devices, brow
 - Richard Wells
 - Shaun Russell
 - Tom Harris
-
 
 [**Back to top**](#testing-donofy)
 
