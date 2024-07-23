@@ -1,11 +1,11 @@
 # Donofy
 ![Custom Logo Image](static/media/donofy-full-logo.svg)
 
-### This site is designed as a Charities doantion site. 
+### This site is designed as a Charities donation site. 
 
-![A mock-up image of the Donofy project]()
-SZGDZGF
-## [Click here to deploy this project live]()
+![A mock-up image of the Donofy project](documents/readme-images/donofy-responsive.png)
+
+## [Click here to deploy this project live](https://donofy-de544b6e546f.herokuapp.com/)
 
 **PLEASE NOTE: This documentation contains many images which can be viewed via a dropdown toggle.**
 
@@ -25,7 +25,7 @@ SZGDZGF
 * [**Testing**](#testing)
   * [Go to TESTING.md](TESTING.md)
 * [**Deployment**](#deployment)
-  * [Click here to deploy this project live](/https://boardgame-buddy-c89ff5d28931.herokuapp.com/)
+  * [Click here to deploy this project live](https://donofy-de544b6e546f.herokuapp.com/)
 * [**Admin Access**](#admin-access)
 * [**Languages**](#languages)
 * [**Frameworks and Tools**](#frameworks-and-tools)
@@ -204,7 +204,7 @@ The footer provides copyright information and name of the site creator. Plus cli
 - Please see full documentation for testing and bug reports [here](./TESTING.md)
 
 ## Deployment
-[Click here to deploy this project live](###)
+[Click here to deploy this project live](https://donofy-de544b6e546f.herokuapp.com/)
 
 ## Admin Access
 
@@ -230,6 +230,7 @@ To log in as a superuser and access the admin features. Please log in with the f
 - Django
 - django-allauth
 - Stripe
+- Amazon Web Services (S3)
 - Visual Studio Code
 - Font Awesome
 - GoogleFonts - League Spartan
