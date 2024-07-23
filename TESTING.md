@@ -26,10 +26,10 @@ This project was tested continuously during development. Post build, the site ha
 This project has been developed partially with a TTD approach. 
 During the development process, I also manually tested continuously in the following ways:-
 
-1. Manually tested each element for appearance and responsiveness via a simulated live server by running app.py in PORT 5000.
+1. Manually tested each element for appearance and responsiveness via a simulated live server by running app.py in PORT 8000.
 
 2. Checked functionality as I built. Dealing with bugs and error messages during development. (See bugs and fixes)
-    
+
 3. Sought feedback from my mentor and student peers at key intervals during development. 
 
 ## Testing:
