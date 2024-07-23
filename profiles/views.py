@@ -144,9 +144,14 @@ def delete_from_favs(request, charity_id):
     user_profile = get_user_profile(user)
     charity = get_object_or_404(Charity, pk=charity_id)
     charity_favs_ids = user_profile.charity_favs or []
+    subscription, _ = get_subscription(user)
 
-    if charity.id in charity_favs_ids:
+    if subscription and charity.id in charity_favs_ids:
 
+        subscription.sub_breakdown.pop(charity.charity_name, None)
+        sub_total = sum(subscription.sub_breakdown.values())
+        subscription.sub_total = sub_total
+        subscription.save()
         charity_favs_ids.remove(charity_id)
         user_profile.charity_favs = charity_favs_ids
         user_profile.save()
