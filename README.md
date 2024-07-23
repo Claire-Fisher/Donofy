@@ -1,4 +1,4 @@
-# Donofy
+# Welcome to Donofy
 ![Custom Logo Image](static/media/donofy-full-logo.svg)
 
 ### This site is designed as a Charities donation site. 
@@ -119,11 +119,9 @@ My adjustments to suit my project aims:
 
 ### Wireframes
 
-Balsamiq was used to create initial layouts and wireframes.
-Some features and pages have been edited or removed entirely to meet project deadlines.
+- Some differences can be seen from planning to build.
 
-
-Please toggle the following dropdowns to view the wireframe images.
+![Donofy Wireframes on Figma Board](documents/readme-images/wireframes.png)
 
 This planning and development work is uploaded to Figma. The design page on Figma is a useful tool to layout all my early project documents in one space, and share online with others for additional input. It allowed my mentor to quickly view and understand my project themes and objectives. 
 
@@ -275,6 +273,8 @@ The footer provides copyright information and name of the site creator. Plus cli
   - The totals per charity, could link to a charity's impact statments, and a user could toggle between, how much they've donated, or how their donations translate into real-life impact. (e.g User 1 has donated £32 to Dogs Trust /toggle/ User 1 has kept a rescue dog fed for 31 days ).
 
 
+
+
 [**Back to top**](#donofy)
 ## Testing
 - Please see full documentation for testing and bug reports [here](./TESTING.md)
@@ -284,7 +284,7 @@ The footer provides copyright information and name of the site creator. Plus cli
 
 ## Admin Access
 
-A general superuser has been created for this project to view backend features and access some project functions and permissions that need to be secure. A handy Admin nav link will appear in the "My Account" dropdown on the main navbar. This takes an authorised user directly to the site admin backend panels to view/edit/delete data. (To preserve data, users and charities can be toggled to Inactive, instead of deleted.).
+A general superuser has been created for this project to view backend features and access some project functions and permissions that need to be secure. A handy Admin nav link will appear in the "My Account" dropdown on the main navbar. This takes an authorised user directly to the site admin backend panels to view/edit/delete data. (To preserve data, users and charities can be toggled to Inactive, instead of being deleted.).
 Superusers can directly toggle a charity to inactive on the frontend, by navigating to that charity's details page. A deactivate button appears at the bottom of the details page. 
 
 To log in as a superuser and access the admin features. Please log in with the following details:
@@ -418,6 +418,7 @@ Template code blocks taken from [Bootstrap 4.6 Library](https://getbootstrap.com
 <img src="documents/readme-images/bootstrap4-img-card.png">
 </details>
 
+[Bootstrap 4.6 Toasts](https://getbootstrap.com/docs/4.6/components/toasts/)
 
 ## **Tutorials** ##
 
@@ -426,7 +427,7 @@ Very Academy - Tutorial Video [Django Custom User Model, Extend User Fields](htt
 Loading Overlay animation / css / js - taken from Code Institute's Boutique Ado walkthrough project. Colour modified to align with my project's colour scheme.
 [View Boutique Ado Project here](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/4f4a39d898c2c347e0d0a0201e4c0d2d6ef1c500)
 
-
+Checkout Views and webhook_handler taken from Code Institute's [Boutique Ado walkthrough](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/933797d5e14d6c3f072df31adf0ca6f938d02218) and heavily modified to suit my projects requirements. 
 
 ## **Credits**
 - Shaun Russell: site logo.
@@ -435,13 +436,16 @@ Loading Overlay animation / css / js - taken from Code Institute's Boutique Ado 
 - Accessguide.io an excellent accessibility guide [View here](https://www.accessguide.io/)
 
 ## Site Testers
+- Richard Wells - Senior Developer, site tester, and my Code Institute Mentor.
 - Shaun Russell - Senior UI/UX designer
-
+- Tom Harris - Site Tester
 
 ## **Thanks**
 - Richard Wells: Senior Developer, site tester, and my Code Institute Mentor. Thank you for going above and beyond with your support and patience! I massively appreciate the time and expertise you've given me.
 
 - Tom Harris: Site tester, and my biggest cheerleader.
+
+- To all my friends and family, who have supported me, asked after me, listened to me, commisserated with me, and celebrated with me. To all those who have felt my absence over the last 12 months. 
 
 - Shaun Russell: Senior UX/UI/Product Designer. My site tester, my partner, and my provider while I study. Building my new development career change would have been infinitely harder without you. Thank you.
 
