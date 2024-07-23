@@ -28,6 +28,7 @@
   * [Click here to deploy this project live](https://donofy-de544b6e546f.herokuapp.com/)
 * [**Admin Access**](#admin-access)
 * [**Test Payments**](#test-payments)
+* [**Setup and Installation**](#setup-and-installation)
 * [**Languages**](#languages)
 * [**Frameworks and Tools**](#frameworks-and-tools)
 * [**Software**](#software)
@@ -228,12 +229,72 @@ Donofy has fully functioning, secure, online payment functionality with Stripe. 
 5. OPTIONAL: Navigate to My Details, enter personal details and save.
 6. Navigate to My Accounts/Donate. (If you followed step 5, the form will prepopulate for you). Fill out the donation form. 
 7. To make a test payment, please use the following card details:
-    - **Card No:**  4242 4242 4242 4242
-    - **Any future expiry date:**  (e.g. 01/25)
-    - **Any CVC code:**  (e.g. 123)
-    - **Any 5 digit zip:**  (e.g. 12345)
+    - **Card No:** 4242 4242 4242 4242
+
+
+    - **Any future expiry date:**  (e.g. 01/25 )
+    - **Any CVC code:**  (e.g. 123 )
+    - **Any 5 digit zip:**  (e.g. 12345 )
 
 8. Please note, stripe card input element is currently set to USA (hence the zip code required). This would be changed if the site is ever launched in the UK or otherwise. For now, the USA version remains to meet project deadlines, and demonstrate payment functionality. 
+
+## Setup and Installation
+### Dependencies
+To run this project, you need to install the following dependencies. You can do this by running pip install -r requirements.txt in your command line. Ensure you are in the project's root directory where the requirements.txt file is located. (Gmail has been used for live emails. You may need to force Heroku to use an earlier version of Python. To do this: create a runtime.txt in the project root. In this file save this: python-3.10.12)
+
+![requirements.txt](documents/readme-images/requirements.png)
+
+### Deployment
+**1. Setup Heroku**
+  - Sign up or log into [Heroku](https://www.heroku.com/)
+  - On the main Heroku Dashboard, click 'New' > 'Create New App'.
+  - Name your project (e.g. donofy ). The app name must be unique.
+  - Choose your region and then click 'Create app'.
+
+**2. Setup an PostgreSQL database**
+  - Choose a PostgreSQL database provider (e.g ElephantSQL, NeonTech)
+  - In your Heroku app config vars give it your database URL.
+
+**3. Create a Procfile in the root of your development project**
+  - Add: web: gunicorn PROJECT_NAME.wsgi
+
+**4. Configure Heroku to your Django app**
+  - Create an env.py in the root of your development project.
+  - **In env.py, include the following variables :**
+    - SECRET_KEY = <your_secret_key>
+    - STRIPE_PUBLIC_KEY = <your_stripe_public_key>
+    - STRIPE_PUBLIC_KEY = <your_stripe_public_key>
+    - STRIPE_WH_SECRET = <your_webhook_signing_secret_for_your_endpoint>
+    - DATABASE_URL = <your_database_url>
+    - AWS_ACCESS_KEY_ID = <your_amazon_web_services_key_id>
+    - AWS_SECRET_ACCESS_KEY = <your_amazon_web_services_access_key>
+    - DEVELOPMENT=1
+  - **In your project settings.py :**
+    - ALLOWED_HOSTS = <your_deployed_heroku_url>
+      - You can initially deploy to heroku without your static files uploaded to get your project URL. (See Heroku app config vars below.)
+    - AWS_STORAGE_BUCKET_NAME = <your_amazon_web_services_S3_bucket_name>
+    - AWS_S3_REGION_NAME = <your_AWS_region>
+    - EMAIL_HOST = <your_live_email_provider>
+  - **In your Heroku app config vars:**
+    - DATABASE_URL = <your_database_url>
+    - EMAIL_HOST_PASS = <your_live_email_passkey>
+    - SECRET_KEY = <your_secret_key>
+    - DISABLE_COLLECTSTATIC = 1
+      - Deploy your site without static and media files first.
+      - This is the purpose of: DISABLE_COLLECTSTATIC = 1
+      - In Deployment method section of heroku: connect your Heroku app to your GitHub repo, then deploy.
+      - Your initial deployed project will have no styles or images. But you will have your project URL.
+    - **Setup your STRIPE, AWS S3 bucket and then include config vars:**
+    - AWS_ACCESS_KEY_ID = <your_amazon_web_services_key_id>
+    - AWS_SECRET_ACCESS_KEY = <your_amazon_web_services_access_key>
+    - DATABASE_URL = <your_database_url>
+    - EMAIL_HOST_PASS = <your_live_email_passkey>
+    - SECRET_KEY = <your_secret_key>
+    - STRIPE_PUBLIC_KEY = <your_stripe_public_key>
+    - STRIPE_PUBLIC_KEY = <your_stripe_public_key>
+    - STRIPE_WH_SECRET = <your_webhook_signing_secret_for_HEROKU_endpoint> **( Different to above )**
+    - USE_AWS = True
+    - ( REMEMBER TO REMOVE DISABLE_COLLECTSTATIC = 1 )
 
 ### **Languages**
 - HTML
