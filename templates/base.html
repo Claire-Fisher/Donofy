@@ -134,12 +134,32 @@
 		{% block content %}
 		{% endblock %}
 
-		<footer class="container-fluid m-0 p-0">
+		<footer class="container-fluid footer-box m-0 p-0">
 			<div class="row">
-				<div class="col-12 footer-box">
-				<img class="icon footer-svg" src="{% static 'media/donofy-full-logo-grey.svg' %}" alt="Donofy logo">
-				<p class="text-black footer-copyright">Copyright Claire Fisher 2024</p>
-				<a href="{% url 'contact' %}" class="footer-copyright a-black" aria-label="link to contact us page">Contact Us</a>
+				<div class="col-12">
+					<img class="icon footer-svg" src="{% static 'media/donofy-full-logo-grey.svg' %}" alt="Donofy logo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<p class="text-black footer-info">Copyright Claire Fisher 2024</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<a href="{% url 'contact' %}" class="footer-info a-black" aria-label="link to contact us page">Contact Us</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<a href="https://github.com/Claire-Fisher/Donofy" class="footer-info"
+						target="_blank" aria-label="Link to site develeper's gitHub (opens in a new tab)">
+						<i class="fa-brands fa-github text-black hover icon-lg mx-2"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/claire-fisher-coder/" class="ml-2"
+						target="_blank" aria-label="Link to site develeper's Linkedin (opens in a new tab)">
+						<i class="fa-brands fa-linkedin text-black hover icon-lg mx-2"></i>
+					</a>
 				</div>
 			</div>
 		</footer>
