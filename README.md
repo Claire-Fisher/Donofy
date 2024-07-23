@@ -27,6 +27,7 @@
 * [**Deployment**](#deployment)
   * [Click here to deploy this project live](https://donofy-de544b6e546f.herokuapp.com/)
 * [**Admin Access**](#admin-access)
+* [**Test Payments**](#test-payments)
 * [**Languages**](#languages)
 * [**Frameworks and Tools**](#frameworks-and-tools)
 * [**Software**](#software)
@@ -215,6 +216,24 @@ To log in as a superuser and access the admin features. Please log in with the f
 
   - username = superuser1
   - password = Auth0risedAdmin0nly123
+
+## Test Payments
+
+Donofy has fully functioning, secure, online payment functionality with Stripe. To test this please follow these steps. 
+
+1. Create a Donofy account and log in. (Please use a real email if you want to test email confirmations).
+2. Navigate to the charities page and add at least 1 charity to your favourites. 
+3. Navigate to My Accounts/My Donofy to view your created favourites list.
+4. Enter donation amounts in whole integers (£) for at least one charity.
+5. OPTIONAL: Navigate to My Details, enter personal details and save.
+6. Navigate to My Accounts/Donate. (If you followed step 5, the form will prepopulate for you). Fill out the donation form. 
+7. To make a test payment, please use the following card details:
+    - **Card No:**  4242 4242 4242 4242
+    - **Any future expiry date:**  (e.g. 01/25)
+    - **Any CVC code:**  (e.g. 123)
+    - **Any 5 digit zip:**  (e.g. 12345)
+
+8. Please note, stripe card input element is currently set to USA (hence the zip code required). This would be changed if the site is ever launched in the UK or otherwise. For now, the USA version remains to meet project deadlines, and demonstrate payment functionality. 
 
 ### **Languages**
 - HTML
