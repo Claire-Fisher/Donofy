@@ -150,31 +150,73 @@ This project includes many features, these include:
 ![Screen 2560px Wide](documents//readme-images/screen-2560px.png)
 ![Screen 2560px Wide](documents//readme-images/screen-320px.png)
 
-
-
 ### Intuitive Navigation
-
+- The navigation bar remains at the top of the screen with navigation links to the right. In keeping with typical user expectations.
+- All pages can be accessed within 1-3 user clicks.
+- Often there are multiple ways for the user to navigate to the same pages/sections.
+- If no data is found for a particular section (e.g No favourites saved for the My Donofy panel), user's will see a message explaining why the content is blank and be prompted with instruction on how to proceed.
+- When Favourites are selected by clicking the Favourite button. The button changes colour and toggles to Deactivate. A highly visible, and easily-understood indication of which charities are in a user's favourites list.
+- All interactive elements (buttons, anchors, nav-links) have colour changes, or underline decorators, or hover animations, or shadows, or any combination of these signals, to indicate interactivity. 
 
 ### Clear typography
-- League Spartan is a highly readable font, with Arial, Helvetica and standard sans-serif as backups. 
+- [League Spartan](https://fonts.google.com/specimen/League+Spartan) is a highly readable font, with Arial, Helvetica and standard sans-serif as backups. 
 
 ### Custom Logo
-![Custom Logo Image](donofy/media/donofy-full-logo.svg)
+![Custom Logo Image](static/media/donofy-full-logo.svg)
 - Custom designed Logo in keeping with project brand aesthetics: both in colour and typography.
 - SVG format for optimum resolution quality at all screen sizes.
 - With thanks to Shaun Russell for the logo design.
 
 ### Images
+- A striking hero image greets the user on the landing page. Overlayed with a colour filter in the same site brand pink. 
+- Charity logos and emotive images are used for charity brand recognition, and charity mission context.
 
 ### Search filters functionality
 - Users can filter the charities library to view only the causes that interest them. 
 - Searches are instantaneous
 
+![Search bar and filters](documents/readme-images/search-functionality.png)
+
 ### High performance / fast loading times. 
 
 
 ### User profile creation and editing
-- Users are allowed to create and edit their own profile account. 
+- Users are allowed to create, view and edit their own profile account. 
+
+![Profile creation and editing](documents/readme-images/profile-editing.png)
+
+### Form autofill for user's with saved profile information.
+
+![Autofill form](documents/readme-images/autofill-form.png)
+
+### Built in form validation
+![Form Validation](documents/readme-images/validation.png)
+
+### User feedback via messaging and button toggles
+
+![User Feedback1](documents/readme-images/user-feedback1.png)
+![User Feedback2](documents/readme-images/user-feedback2.png)
+![User Feedback button](documents/readme-images/user-feedback-btn1.png)
+![User Feedback button](documents/readme-images/user-feedback-btn.png)
+
+### Secure online payment functionality with Stripe
+- https:// site address
+- With immediate positive user feedback on successful checkout.
+
+![Donation Successful](documents/readme-images/donation-successful.png)
+
+### Payment History logs
+
+![Payment History](documents/readme-images/payment-history.png)
+
+### Live email functionality
+- The site sends automated emails on successful donations, confirming the donation paid, it's details and thanking the user for additional positive experience. 
+- Live email also allows for additional functionality such as Password Reset.
+
+### Contact Us Page
+
+![Contact Us](documents/readme-images/contact-us.png)
+
 
 ### Large Font and Buttons
 - With the exception of some form/button help text, all main site text remains a minimum of 1rem (16pt) font size for readability and accessibility. 
