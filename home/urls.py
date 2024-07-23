@@ -10,5 +10,3 @@ urlpatterns = [
     path('contact/send/', views.contact_send, name='contact_send'),
     path('contact/success', views.contact_success, name='contact_success'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-handler404 = 'home.views.custom_404'
