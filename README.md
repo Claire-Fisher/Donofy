@@ -117,7 +117,9 @@ This planning and development work is uploaded to Figma. The design page on Figm
 Using Figma's wireframes capabilities, I was able to play with initial layouts and plan intuitive flow around my site. This has given me a good understanding of how an MVP might be presented to me by a frontend designer.
 
 ### Colour Scheme
-![Image of colour palette]()
+![Image of colour palette](documents/readme-images/donofy-colours.png)
+
+A dark pink has been selected as the main brand colour. A compassionate shade, without being too light and feminine. It has the urgency of red, without the alarm or aggression.  The black and whites have been softened from their extreme #000 and #fff. This is to reduce screen glare. White or black have been used where text constrast has needed to be increased on other brand colours for readability. 
 
 
 ### Typography
