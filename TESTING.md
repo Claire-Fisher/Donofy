@@ -172,20 +172,104 @@ Post development, I manually tested in the following ways:-
 
 1. Manually tested each element for appearance and responsiveness via a simulated live server.
 
-2. The code passed through HTML, CSS, JavaScript(ES6), pep8 validators to check for errors.
-* [**Validators Results**](#validators)
-3. The code passed through an Accessibility evaluation. 
-*  [**Accessibility Results**](#accessibility)
-4. Published the page via GitHub pages and shared with fellow students and friends to test and receive feedback.
-
-5. Sent my deployed project to multiple user testers with different devices, browsers, and skill sets.
-    - Jump to: [**Third Party Testing**](#third-party-testing) here
+2. The code passed through HTML, CSS, JavaScript(ES6), pep8 validators to check for errors. As well as an Accessibility evaluation.
+- [**Validators Results**](#validators)
+3. Published the page via GitHub pages and shared with fellow students and friends to test and receive feedback.
 
 ## **Post Development Testing Expanded**
 
 My manual testing logs are as follows:
 ***
 ### Home Page Manual Testing
+***
+**Home Page: Main Nav bar**
+* Expected:
+  * All nav links to redirect to their correct page template. (Including links only present when a user/superuser is logged in).
+  * All nav elements, including site logo (home link), to respond with colour change, and/or hover animation on mouse hover to indicate they are interactive.
+  * Nav links turn to a burger menu on screens <768px wide.
+  * Dropdown nav menus, and sub menus to stay ontop of content on all screens sizes.
+  * Drop down menu toggles dropdown list of nav elements and changes dynamically based on user logged in:
+    - **Guest User** = Only Register and Login present in dropdown.
+    - **User logged in** = 
+      - Register / Login not present.
+      - My Donofy / My Details / My History / Donate / Logout, present.
+    - **SuperUser logged in** = 
+      - Register / Login, not present.
+      - Admin / My Donofy / My Details / My History / Donate / Logout, present.
+* Testing:
+  * Clicked each nav link in turn to check for broken links or incorrect pages rendered.
+  * Hovered my mouse over each element to check for interactive indicators.
+  * Used Chrome Dev tools to check screen widths 767px and 768px wide.
+  * Toggled dropdown menus on screen sizes 320px / 576px / 992px wide.
+  * Inspected nav bar as a Guest User / User / Superuser
+* Result:
+  * All nav links routing behaved as expected.
+  * All nav links changed colour and hovered on mouse hover. Donofy navbar did nothing.
+  * Nav links switched to burger menu at 767px screen width.
+  * Dropdowns stayed ontop of content.
+  * Correct nav links show in dropdown menu according to user type.
+* Action: 
+  * Added custom hover class to Donofy main logo.
+***
+**Home Page: "How Does Donofy Work?" Nav Card Links**
+* Expected:
+  * The cards to respond with colour change on mouse hover, to indicate they are interactive elements.
+  * The cards to go to redirect to their correct page templates, according to user:
+    - Guest User:
+      - **Find Your Charities** goes to Charities page.
+      - **Set a Donation amount** goes to sign in page.
+      - **Make an Impact** goes to sign in page.
+    - Registered User:
+      - **Find Your Charities** goes to Charities page.
+      - **Set a Donation amount** goes to Mange My Donofy tab on profile page.
+      - **Make an Impact** goes to My Payment History tab on profile page.
+* Testing:
+  * Hovered over each nav card
+  * Clicked each card in turn to check for broken links or incorrect pages rendered.
+* Result:
+  * Colour changed as expected.
+  * All Guest user cards redirected as expected. First two User cards behaved as expected. "Make an Impact" card incorrectly directed to Manage My Donofy tab.
+* Action: 
+  * Added a shadow to make it more obvious they're interactive before the user hovers over them.
+  * Corrected href on "Make an Impact" card to redirect to My Payment History tab.
+***
+**Home Page: Footer**
+* Expected:
+  * All link elements Contact Us / Github / Linkedin, to indicate they are interactive.
+  * Footer link elements to redirect to their correct targets
+    - Contact us redirects to Contact Us page
+    - Github icon opens a new tab to my Donofy repo on Github
+    - Linkedin icon opens a new tab to my Linkedin page.
+* Testing:
+  * Hovered my mouse over each element.
+  * Clicked each element.
+* Result:
+  * Contact Us behaved as expected. Github & Linkedin Icons did nothing.
+  * All links redirected as expected. 
+* Action: 
+  * Corrected colour change and hover classes for Icon links
+***
+**Home Page: Additional Sign up buttons**
+* Expected:
+  * Guest users see additional Sign Up call-to-action buttons at the top and bottom of the home page.
+* Testing:
+  * Logged out and inspected the page.
+* Result:
+  * Sign up buttons appeared as expected.
+* Action: 
+  * Added additional sign up info the bottom sign up button so it matches the top version.
+***
+**Home Page: Responsiveness**
+* Expected:
+  * All page content to shrink, grow and rearrange according to screen width.
+  * Hero text ontop of hero image to disappear on screen width <992px and reappear below instead.
+  * Hero image to switch to a different version with a shorter aspect ratio. 
+* Testing:
+  * Used Chrome Dev Tools to inspect the home page at screen widths 320px / 576px / 768px / 992px / 1200px / 2560px.
+* Result:
+  * All content behaved as expected.
+* Action: 
+  * None
 ***
 **TEST NAME**
 * Expected:
@@ -206,10 +290,20 @@ My manual testing logs are as follows:
 [**Back to top**](#testing-donofy)
 ## **Validators**
 
-### HTML validator checks w3.org
+I've thoroughly validated Donofy with the following validators:
+  - **HTML** https://validator.w3.org/
+  - **CSS** https://jigsaw.w3.org/css-validator/
+  - **JS** https://jshint.com/
+  - **CI Python Linter** https://pep8ci.herokuapp.com/
+  - **Accessibility** https://wave.webaim.org/
+
+Here are my reports on validation tests by page. 
+
+### Index Page [View current results here]()
 <hr>
 
-### Home [View current results here]()
+
+
 <details><summary>HTML validator for ### Initial Results</summary>
 <img src="">
 </details>
@@ -288,6 +382,9 @@ In addition to the accessibility score on lighthouse, WAVE - Web accessibility e
 
 ## **Future Bug Fixes** 
 Due to deadline constraints, some bugs remain in this version of Donofy. Whilst they are not project breaking, these are some bugs I'm aware are left unsolved. I would address these going forward before expanding to additional future features.
+
+**Most site images nested inside the project Static folder**
+  - During development MEDIA links to images inside the correct root Media folder would not display. To get around this I relocated them to static instead so the site displays as intended.
 
 **USA Stripe Element**
  - The current stripe element input for card payments asks for a zipcode. Zip codes are not applicable for UK users. I would change the Stripe element to it's UK version. Better still, I would have it change dynamically based on a user's input in the Country field (if the site were to go global).
