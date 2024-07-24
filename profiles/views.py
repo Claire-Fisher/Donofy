@@ -156,7 +156,7 @@ def delete_from_favs(request, charity_id):
         user_profile.charity_favs = charity_favs_ids
         user_profile.save()
 
-        messages.success(
+        messages.info(
             request,
             f'{charity.charity_name}'
             f' successfully removed from your favourites.'
