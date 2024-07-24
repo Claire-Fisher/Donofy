@@ -415,7 +415,7 @@ View Current Home Page validator results here:
     * Removed display: absolute;
 <hr>
 
-### Index JavaScript Validator - [View initial results here]()
+### Index JavaScript Validator
 
 <details><summary>Initial JS results for Home</summary>
 <img src="documents/testing-images/home-initial-js.png">
@@ -472,18 +472,61 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 <hr>
 View Current Charities Page validator results here:
 
-- [HTML results](#)
-- [CSS results](#)
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcharities%2Fcharities%2F)
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcharities%2Fcharities%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - No JS for charities page
 - <details><summary>PEP8 linter for charities/views.py</summary>
-  <img src="#">
+  <img src="documents/testing-images/charities-initial-py-views.png">
   </details> 
 - <details><summary>PEP8 linter for charities/urls.py</summary>
-  <img src="#">
+  <img src="documents/testing-images/charities-initial-py-urls.png">
   </details> 
-- [ACCESSIBILITY results](#)
+- [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/charities/charities/)
 <hr>
 
+### Charities HTML Validator
+<details><summary>HTML validator inital results</summary>
+<img src="documents/testing-images/charities-initial-html.png">
+</details>
+
+* ***Errors Found:***
+    * Nested anchor errors for each charity card looped through. 
+* ***Action Taken:***
+    * Removed the anchor surrounding the whole card body.
+    * Put an anchor around the card image instead.
+<hr>
+
+### Charities CSS Validator
+<details><summary>CSS validator inital results</summary>
+<img src="documents/testing-images/charities-initial-css.png">
+</details>
+
+* ***Errors Found:***
+    * Line spacing issue on redundant css custom class .unfavourite.
+* ***Action Taken:***
+    * Removed class .unfavourite.
+    * Adjusted the current css class that controls the pink unfavourite button styles. 
+<hr>
+
+### Charities JavaScript Validator
+
+No Javascript used for Charities page
+<hr>
+
+### Charities Python CI Linter (PEP8 check)
+
+* ***Errors Found:***
+    * None.
+* ***Action Taken:***
+    * None.
+
+### Charities Accessibility Evaluation
+
+* ***Errors Found:***
+    * None
+* ***Action Taken:***
+    * None
+<hr>
 
 
 ## **Future Bug Fixes** 
