@@ -11,13 +11,13 @@ This project was tested continuously during development. Post build, the site ha
 * [**Post Development Testing**](#post-development-testing)
   * [**Manual Testing**](#manual-testing)
     * [Home Page Manual Testing](#home-page-manual-testing)
+    * [Charities Page Manual Testing](#charities-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
     * [Index Page](#index-page)
-  * [**Lighthouse Scores**](#lighthouse-scores)
-  * [**Accessibility**](#accessibility)
 * [**Future Bug Fixes**](#future-bug-fixes)
+
 
 ## **During Development Testing**
 This project has been developed partially with a TTD approach. 
@@ -159,11 +159,6 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <img src="documents/testing-images/update_subscription-value-error-invalid-literal-for-int-fixed.png">
         </details>
 
-
-
-
-
-
 [**Back to top**](#testing-donofy)  
 ## **Post Development Testing**
 
@@ -268,6 +263,77 @@ My manual testing logs are as follows:
   * All content behaved as expected.
 * Action: 
   * None
+***
+### Charities Page Manual Testing
+***
+**Charities Page: Available for all users including guests**
+* Expected:
+  * Charities page to be available to all users.
+* Testing:
+  * Navigated to Charities page as a guest / user / superuser
+* Result:
+  * Page behaved as expected
+* Action: 
+  * None
+***
+**Charities Page: Search Bar**
+* Expected:
+  * Charities to filter by keyword in the search bar.
+  * Number of charities shown to indicate how many charities have been found.
+* Testing:
+  * Searched for "dog".
+  * Searched for "donkey".
+  * Searched for "child".
+* Result:
+  * Searches behaved as expected. Relevant charities displayed, and all others hidden. Charities found number updated correctly.
+* Action: 
+  * None
+***
+**Charities Page: Categories dropdown**
+* Expected:
+  * Charities to filter according to their category group.
+* Testing:
+  * Searched by each of the categories via the dropdown.
+* Result:
+  * Category filtering behaved as expected. Relevant charities displayed, and all others hidden. Charities found number updated correctly.
+* Action: 
+  * None
+***
+**Charities Page: Charity cards**
+* Expected:
+  * All charity cards to respond with colour change, and/or hover animation on mouse hover to indicate they are interactive.
+  * Clicking the info button, or the image of the card, will direct the user to the correct charity detail page.
+* Testing:
+  * Hovered my mouse over each element to check for interactive indicators.
+  * Clicked multiple cards in turn. Clicked multiple card Info buttons in turn.
+* Result:
+  * Interactive indicators present and behaving as expected.
+  * Cards behaved as expected and directed to the correct charity detail page.
+* Action: 
+  * None
+***
+**Charities Page: Charity cards - Favourite Button**
+* Expected:
+  * Favourite button to redirect GUEST USERS to sign in page.
+  * Favourite button as a LOGGED IN USER:
+    - On click of Favourite, button should change to pink "Unfavourite" button.
+    - On click of Favourite, message should display telling the user that charity was Successfully added to their list.
+    - On click of pink Unfavourite, button should change back to white "Favourite" button.
+    - On click of pint Unfavourite, message should display telling the user that charity was Successfully removed from their list.
+  * Favourite's list on profiles/my Donofy should mirror the favourited charities on the charity page. 
+  * Charities removed from favourites in the profiles/My Donofy, should display the correct white "Favourite" button on the charities page.
+* Testing:
+  * Logged out. Clicked a favourite button on a charity card.
+  * Whilst logged in:
+    - Clicked various favourite buttons on different charity cards.
+    - Clicked various Unfavourite buttons on different charity cards.
+    - Checked the My Donofy page mirrored the corrected Favourited/Unfavourited charities on the charities page.
+    - Checked removing a Favourite from the user's My Donofy page, was also mirrored in the charities page.
+* Result:
+  * Guest User Favourite button behaved as expected and directed to the Donofy Sigin In page.
+  * Logged in user: all actions behaved as expected.
+* Action: 
+  * Changed the message type for Unfavouriting to blue info to make it clearer to the user.
 ***
 **TEST NAME**
 * Expected:
@@ -382,7 +448,7 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
     * Darkened background on all hero text to increase contrast.
 <hr>
 
-## Lighthouse Scores
+### Index Lighthouse Scores
 ### Test conditions
 * All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
 * Both mobile and desktop performance are tested.
@@ -401,6 +467,22 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 <img src="documents/testing-images/home-lighthouse-current-mobile.png">
 </details> 
 <br/>
+
+### Charities Page
+<hr>
+View Current Charities Page validator results here:
+
+- [HTML results](#)
+- [CSS results](#)
+- No JS for charities page
+- <details><summary>PEP8 linter for charities/views.py</summary>
+  <img src="#">
+  </details> 
+- <details><summary>PEP8 linter for charities/urls.py</summary>
+  <img src="#">
+  </details> 
+- [ACCESSIBILITY results](#)
+<hr>
 
 
 
