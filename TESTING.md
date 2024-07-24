@@ -13,6 +13,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Home Page Manual Testing](#home-page-manual-testing)
     * [Charities Page Manual Testing](#charities-page-manual-testing)
     * [Charity Detail Page Manual Testing](#charity-detail-page-manual-testing)
+    * [Contact Us Page Manual Testing](#contact-us-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
@@ -379,6 +380,38 @@ My manual testing logs are as follows:
   * Button behaved as expected and directed guest user to sign in.
   * Adding to favourites button behaved as expected.
   * Unfavourite button behaved as expected.
+* Action: 
+  * None
+***
+### Contact Us Page Manual Testing
+***
+**Contact Us Form Validation**
+* Expected:
+  * Validation checks on input fields.
+* Testing:
+  * Blank fields:
+    * Left name field blank and tried to submit.
+    * Left email field blank and tried to submit.
+    * Left message field blank and tried to submit.
+  * Input validation:
+    * Entered numbers for name field. 
+    * Entered characters with no @ symbol for email.
+* Result:
+  * All validation behaved as expected and error messages shown to the user. 
+  * Except: Name field would accept random numbers and special characters instead of a-z.
+* Action: 
+  * None
+  * Future validation on name field would be preferable.
+***
+**Contact Us Form - Sending a live message**
+* Expected:
+  * With valid inputs:
+    - Expect contact/success template to show.
+    - Expect an email to appear in donofy.uk@gmail.com inbox.
+* Testing:
+  * Completed the contact us form with valid inputs and clicked Send
+* Result:
+  * Behaved as expect. Correct template and message received in inbox.
 * Action: 
   * None
 ***
