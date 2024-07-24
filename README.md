@@ -175,7 +175,9 @@ This project includes many features, these include:
 
 ![Search bar and filters](documents/readme-images/search-functionality.png)
 
-### High performance / fast loading times. 
+### High performance / good loading times.
+- Some short delays have been recorded on some load times. These are mainly due to Heroku, Stripe, and large layout reshuffles to maintain a responsive site. 
+![Lighthouse Score for Charities page](documents/testing-images/charities-lighthouse-current.png)
 
 
 ### User profile creation and editing

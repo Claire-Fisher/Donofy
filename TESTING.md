@@ -528,6 +528,21 @@ No Javascript used for Charities page
     * None
 <hr>
 
+### Charities Lighthouse Scores
+### Test conditions
+* All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
+* Both mobile and desktop performance are tested.
+* The drop in performance is mainly due to Heroku, Stripe, and a large amount of layout behaviours to keep my site responsive. 
+* All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
+
+<details><summary>Desktop Results Current</summary>
+<img src="documents/testing-images/charities-lighthouse-current.png">
+</details> 
+<details><summary>Mobile Results Current</summary>
+<img src="documents/testing-images/charities-lighthouse-current-mobile.png">
+</details> 
+<br/>
+
 
 ## **Future Bug Fixes** 
 Due to deadline constraints, some bugs remain in this version of Donofy. Whilst they are not project breaking, these are some bugs I'm aware are left unsolved. I would address these going forward before expanding to additional future features.
