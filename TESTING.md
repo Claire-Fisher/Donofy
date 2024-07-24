@@ -18,6 +18,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Donofy Base App](#donofy-base-app)
     * [Index Page](#index-page)
     * [Charities Page](#charities-page)
+    * [Charity Details Page](#charity-details-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -561,17 +562,11 @@ No Javascript used for Charities page
 
 ### Charities Python CI Linter (PEP8 check)
 
-* ***Errors Found:***
-    * None.
-* ***Action Taken:***
-    * None.
+Passed first time. See current results above.
 
 ### Charities Accessibility Evaluation
 
-* ***Errors Found:***
-    * None
-* ***Action Taken:***
-    * None
+Passed first time. See current results above.
 <hr>
 
 ### Charities Lighthouse Scores
@@ -588,6 +583,49 @@ No Javascript used for Charities page
 <img src="documents/testing-images/charities-lighthouse-current-mobile.png">
 </details> 
 <br/>
+
+### Charity Details Page
+<hr>
+View Current Charity Details Page validator results here:
+
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcharities%2Fcharity_detail%2F4%2F)
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcharities%2Fcharity_detail%2F4%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- No JS for charities page
+- <details><summary>PEP8 linter for charities/views.py</summary>
+  <img src="documents/testing-images/charities-initial-py-views.png">
+  </details> 
+- <details><summary>PEP8 linter for charities/urls.py</summary>
+  <img src="documents/testing-images/charities-initial-py-urls.png">
+  </details> 
+- [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/charities/charity_detail/4/)
+<hr>
+
+### Charity Details HTML Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Charity Details CSS Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Charity Details JavaScript Validator
+
+No Javascript used for Charities page
+<hr>
+
+### Charity Details Python CI Linter (PEP8 check)
+
+Passed first time. See current results above.
+<hr>
+
+### Charity Details Accessibility Evaluation
+
+Passed first time. See current results above.
+<hr>
+
+
 
 
 ## **Future Bug Fixes** 
