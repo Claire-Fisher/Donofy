@@ -663,7 +663,7 @@ Passed first time. See current results above.
 <hr>
 View Current Contact Us Page validator results here:
 
-- [HTML results]()
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcontact%2F)
 - [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcontact%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - No JS for charities page
 - <details><summary>PEP8 linter for home/views.py</summary>
@@ -672,7 +672,7 @@ View Current Contact Us Page validator results here:
 - <details><summary>PEP8 linter for home/urls.py</summary>
   <img src="documents/testing-images/home-initial-py-urls.png">
   </details> 
-- [ACCESSIBILITY results]()
+- [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/contact/)
 <hr>
 
 ### Contact Us HTML Validator
