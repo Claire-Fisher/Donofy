@@ -9,13 +9,11 @@ This project was tested continuously during development. Post build, the site ha
     * [*Testing*](#testing)
     * [*Bugs and Fixes*](#bugs-and-fixes)
 * [**Post Development Testing**](#post-development-testing)
-  * [**Post Development Testing Expanded**](#post-development-testing-expanded)
+  * [**Manual Testing**](#manual-testing)
     * [Home Page Manual Testing](#home-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
-      * [*HTML*](#html---httpsvalidatorw3orgnu)
-      * [*CSS*](#css---httpsjigsaww3orgcss-validator)
-      * [*JavaScript*](#javascript---httpsjshint.com)
+    *
   * [**Lighthouse Scores**](#lighthouse-scores)
   * [**Accessibility**](#accessibility)
 * [**Future Bug Fixes**](#future-bug-fixes)
@@ -173,13 +171,12 @@ Post development, I manually tested in the following ways:-
 1. Manually tested each element for appearance and responsiveness via a simulated live server.
 
 2. The code passed through HTML, CSS, JavaScript(ES6), pep8 validators to check for errors. As well as an Accessibility evaluation.
-- [**Validators Results**](#validators)
+
 3. Published the page via GitHub pages and shared with fellow students and friends to test and receive feedback.
 
-## **Post Development Testing Expanded**
+## **Manual Testing**
 
 My manual testing logs are as follows:
-***
 ### Home Page Manual Testing
 ***
 **Home Page: Main Nav bar**
@@ -297,61 +294,85 @@ I've thoroughly validated Donofy with the following validators:
   - **CI Python Linter** https://pep8ci.herokuapp.com/
   - **Accessibility** https://wave.webaim.org/
 
-Here are my reports on validation tests by page. 
+Here are my reports on validation tests by page.
 
-### Index Page [View current results here]()
+### Donofy Base App
+<hr>
+View current donofy app PEP8 Linter results here:
+<details><summary>PEP8 linter for settings.py</summary>
+<img src="documents/testing-images/donofy-settings-py.png">
+</details>
+<details><summary>PEP8 linter for donofy/urls.py</summary>
+<img src="documents/testing-images/donofy-urls-py.png">
+</details> 
+
+### Index Page
+<hr>
+View Current Home Page validator results here:
+- [HTML results]()
+- [CSS results]()
+- <details><summary>Current JS results</summary>
+  <img src="documents/testing-images/home-current-js.png">
+  </details> 
+- <details><summary>PEP8 linter for home/views.py</summary>
+  <img src="documents/testing-images/home-initial-py-views.png">
+  </details> 
+- <details><summary>PEP8 linter for home/urls.py</summary>
+  <img src="documents/testing-images/home-initial-py-urls.png">
+  </details> 
+- [ACCESSIBILITY results]()
 <hr>
 
-
-
-<details><summary>HTML validator for ### Initial Results</summary>
-<img src="">
+### Index HTML
+<details><summary>HTML validator inital results</summary>
+<img src="documents/testing-images/home-initial-html.png">
 </details>
 
 * ***Errors Found:***
-    * 
+    * 6 Attribute Errors.
+    * 2 Type Attribute Warnings.
 * ***Action Taken:***
-    * 
+    * Removed unecessary attributes.
+    * Gave the hero images blank alt tags, as they're decorative and offer no additional info to the user.
 <hr>
 
-### CSS - [View current results here]()
+### Index CSS
+<details><summary>CSS validator inital results</summary>
+<img src="documents/testing-images/home-initial-css.png">
+</details>
 
 * ***Errors Found:***
-    * 
+    * Value Error on .footer-box
 * ***Action Taken:***
-    * 
+    * Removed display: absolute;
 <hr>
 
-### JavaScript Validator
+### Index JavaScript Validator - [View initial results here]()
 
-<details><summary>JS validator Results Image</summary>
-<img src="">
+<details><summary>Initial JS results for Home</summary>
+<img src="documents/testing-images/home-initial-js.png">
 </details> 
 
 JSHint validator was configured to recognise New JavaScript Features (ES6), and jQuery.
 * ***Errors Found:***
-    * 
+    * Trailing comma
 * ***Action Taken:***
-    * 
+    * Removed comma
 <hr>
 
-### Python CI Linter (PEP8 check)
-
-<details><summary>Python linter results</summary>
-<img src="">
-</details>
+### Index Python CI Linter (PEP8 check)
 
 * ***Errors Found:***
-    * 
+    * None.
 * ***Action Taken:***
-    * 
+    * None.
 
 ## Lighthouse Scores
 ### Test conditions
 * All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
 * Both mobile and desktop performance are tested.
 * The drop in performance on mobile is likely due to Heroku. 
-* All my user testers reported fast load and response times on both desktop and mobile devices, so no adjusts will be made at this time. 
+* All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
 
 <details><summary>Desktop Results</summary>
 <img src="">

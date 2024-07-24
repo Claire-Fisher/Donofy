@@ -9,8 +9,8 @@
 
 #hero-text {
     position: absolute;
-    margin: 0.75rem 0.75rem 0 0;
-    padding: 0.75rem;
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 0.5rem;
     left: 0px;
 }
 
@@ -21,7 +21,8 @@ p {
 .account-info {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1.5rem;
-    max-width: 620px;
+    margin-left: 100px;
+    max-width: 870px;
 }
 
 #hero-text-sm {

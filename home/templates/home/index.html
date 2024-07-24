@@ -10,10 +10,10 @@
 <div class="container-fluid bg-light-brand pb-5 px-0">
     <div class="row p-0 m-0">
         <!-- hero image -->
-        <img id="hero-img" class="col-12 d-none d-lg-block" src="{% static 'media/hero-img.png' %}" center no-repeat>
-        <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static 'media/hero-img-small.png' %}" center no-repeat>
+        <img id="hero-img" class="col-12 d-none d-lg-block" src="{% static 'media/hero-img.png' %}" alt="Hero image- people jumping together on a sunset beach">
+        <img id="hero-img-sm" class="col-12 d-block d-lg-none" src="{% static 'media/hero-img-small.png' %}" alt="Hero image- people jumping together on a sunset beach">
         <!-- Displays on screens with min-width >= 992px -->
-        <div id="hero-text" class="col-12 d-none d-lg-block pl-5">
+        <div id="hero-text" class="col-12 d-none d-lg-block pl-4 account-info">
             <h1 class="d-none d-lg-block text-white bold pb-3">Spreading affordable support,<br>to your causes, your way.</h1>
             <h3 class="col-12 text-white p-0">“Alone we can do so little; together we can do so much.” - Helen Keller</h3>
             <p class="col-12 text-white p-0 pb-3">
@@ -24,11 +24,11 @@
             {% else %}
                 <a href="{% url 'account_login' %}" aria-label="link to log in"
                     class="d-none d-lg-block col-md-3 col-lg-4 btn btn-lg btn-white mb-3">Sign up / Login</a>
-                <div class="p-2 pl-4 account-info col-lg-8 col-6">
+                <div class="p-1 col-12">
                     <p class="text-white mb-0">
-                        Creating an account will allow you to save charities to a favourites list.<br>
-                        With a favourites list, you can make a single donation payment,<br>
-                        and spread it across your favourited charities however you choose.
+                        Creating an account will allow you to save charities to a favourites list. 
+                        With a favourites list, you can make a single donation payment, and spread it 
+                        across your favourited charities however you choose.
                     </p>
                 </div>
             {% endif %}
@@ -157,14 +157,14 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
         $('.card-white').hover(
             function() {
                 $(this).find('i').removeClass("icon-pink").addClass("text-white");
             },
             function() {
                 $(this).find('i').removeClass("text-white").addClass("icon-pink");
-            },
+            }
         );
     </script>
 {% endblock %}
