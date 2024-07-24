@@ -13,7 +13,8 @@ This project was tested continuously during development. Post build, the site ha
     * [Home Page Manual Testing](#home-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
-    *
+    * [Donofy Base App](#donofy-base-app)
+    * [Index Page](#index-page)
   * [**Lighthouse Scores**](#lighthouse-scores)
   * [**Accessibility**](#accessibility)
 * [**Future Bug Fixes**](#future-bug-fixes)
@@ -309,8 +310,9 @@ View current donofy app PEP8 Linter results here:
 ### Index Page
 <hr>
 View Current Home Page validator results here:
-- [HTML results]()
-- [CSS results]()
+
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2F)
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - <details><summary>Current JS results</summary>
   <img src="documents/testing-images/home-current-js.png">
   </details> 
@@ -320,10 +322,10 @@ View Current Home Page validator results here:
 - <details><summary>PEP8 linter for home/urls.py</summary>
   <img src="documents/testing-images/home-initial-py-urls.png">
   </details> 
-- [ACCESSIBILITY results]()
+- [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/)
 <hr>
 
-### Index HTML
+### Index HTML Validator
 <details><summary>HTML validator inital results</summary>
 <img src="documents/testing-images/home-initial-html.png">
 </details>
@@ -336,7 +338,7 @@ View Current Home Page validator results here:
     * Gave the hero images blank alt tags, as they're decorative and offer no additional info to the user.
 <hr>
 
-### Index CSS
+### Index CSS Validator
 <details><summary>CSS validator inital results</summary>
 <img src="documents/testing-images/home-initial-css.png">
 </details>
@@ -367,38 +369,39 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 * ***Action Taken:***
     * None.
 
+### Index Accessibility Evaluation
+<details><summary>Wave inital results</summary>
+<img src="documents/testing-images/home-initial-wave.png">
+</details>
+
+* ***Errors Found:***
+    * Missing alt tags
+    * 3x contrast errors on hero text
+* ***Action Taken:***
+    * Add alt tags to hero images
+    * Darkened background on all hero text to increase contrast.
+<hr>
+
 ## Lighthouse Scores
 ### Test conditions
 * All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
 * Both mobile and desktop performance are tested.
-* The drop in performance on mobile is likely due to Heroku. 
+* The drop in performance is mainly due to Heroku, Stripe, and a large amount of layout behaviours to keep my site responsive. 
 * All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
 
-<details><summary>Desktop Results</summary>
-<img src="">
+- Actions taken:
+    - Hero images PNGs were replaced with webp files to try to increase performance. Small improvement recorded.
+<details><summary>Desktop Results Inital</summary>
+<img src="documents/testing-images/home-lighthouse-initial.png">
+</details>
+<details><summary>Desktop Results Current</summary>
+<img src="documents/testing-images/home-lighthouse-current.png">
 </details> 
-
-<details><summary>Mobile Results</summary>
-<img src="">
+<details><summary>Mobile Results Current</summary>
+<img src="documents/testing-images/home-lighthouse-current-mobile.png">
 </details> 
 <br/>
 
-## **Accessibility** 
-In addition to the accessibility score on lighthouse, WAVE - Web accessibility evaluation tool has been used to check the site for accessibility issues..<br>
-[View my results here]()  
-<details><summary>Wave Accessibility Evaluation Results Image</summary>
-<img src="">
-</details> 
-<details><summary>Wave Alerts Image</summary>
-<img src="">
-</details> 
-
-* ***Errors Found:***
-    * 
-* ***Alerts Found:***
-    * 
-* ***Action Taken:***
-    * 
 
 
 ## **Future Bug Fixes** 
