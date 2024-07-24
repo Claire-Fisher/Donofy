@@ -20,6 +20,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Index Page](#index-page)
     * [Charities Page](#charities-page)
     * [Charity Details Page](#charity-details-page)
+    * [Contact Us Page](#contact-us-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -656,6 +657,60 @@ Passed first time. See current results above.
 ### Charity Details Accessibility Evaluation
 
 Passed first time. See current results above.
+<hr>
+
+### Contact Us Page
+<hr>
+View Current Contact Us Page validator results here:
+
+- [HTML results]()
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcontact%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- No JS for charities page
+- <details><summary>PEP8 linter for home/views.py</summary>
+  <img src="documents/testing-images/home-initial-py-views.png">
+  </details> 
+- <details><summary>PEP8 linter for home/urls.py</summary>
+  <img src="documents/testing-images/home-initial-py-urls.png">
+  </details> 
+- [ACCESSIBILITY results]()
+<hr>
+
+### Contact Us HTML Validator
+<details><summary>HTML validator inital results</summary>
+<img src="documents/testing-images/contact-us-initial-html.png">
+</details>
+
+* ***Errors Found:***
+    * 2x Trailing slash errors.
+* ***Action Taken:***
+    * Removed the trailing slashes.
+<hr>
+
+### Contact Us CSS Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Contact Us JavaScript Validator
+
+No Javascript used for Charities page
+<hr>
+
+### Contact Us Python CI Linter (PEP8 check)
+
+Passed first time. See current results above.
+<hr>
+
+### Contact Us Accessibility Evaluation
+
+<details><summary>Contact Us inital results</summary>
+<img src="documents/testing-images/contact-us-initial-wave.png">
+</details>
+
+* ***Errors Found:***
+    * Contrast Error on "All form fields above are required" message above Send button.
+* ***Action Taken:***
+    * Removed text-muted class.
 <hr>
 
 
