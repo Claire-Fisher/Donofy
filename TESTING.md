@@ -12,10 +12,12 @@ This project was tested continuously during development. Post build, the site ha
   * [**Manual Testing**](#manual-testing)
     * [Home Page Manual Testing](#home-page-manual-testing)
     * [Charities Page Manual Testing](#charities-page-manual-testing)
+    * [Charity Detail Page Manual Testing](#charity-detail-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
     * [Index Page](#index-page)
+    * [Charities Page](#charities-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -334,6 +336,50 @@ My manual testing logs are as follows:
   * Logged in user: all actions behaved as expected.
 * Action: 
   * Changed the message type for Unfavouriting to blue info to make it clearer to the user.
+***
+### Charity Detail Page Manual Testing
+***
+**Charity Details Page: Available for all users including guests**
+* Expected:
+  * Charity detail page to be available to all users.
+  * Correct title / charity number / money raised figure / description / image / logo / impact statements to display for target charity.
+  * Visit Website button to open the target charity's offical website in a new tab.
+  * Deactivate Charity button to be present for SUPERUSERS ONLY.
+* Testing:
+  * Navigated to various Charity detail pages as a guest / user / superuser.
+  * Navigated to various charity detail pages.
+  * Clicked the Visited website button a various charity detail pages.
+  * Checked for button presence as a guest / user / superuser.
+* Result:
+  * Page behaved as expected.
+  * Pages all showed the correct information.
+  * Website button behaved as expected and opened the correct site in a new tab.
+  * Deactivate Button behaved as expected and only present when logged in as a superuser.
+* Action: 
+  * None
+***
+**Charity Details Page: Favourite Button**
+* Expected:
+  * Add to Favourite button will direct Guest User's to sign in page.
+  * Users & Superusers:
+    - Clicking Add to favourites button should:
+      - toggle button to pink Unfavourite.
+      - show success message that charity was added to favourites list. 
+      - add the charity to the favourite's list on User's profile/My Donofy page.
+    - Clicking the Unfavourite button should:
+      - toggle the button back to white "Add to Favourites" button.
+      - show an info message that charity was removed from favourites list.
+      - remove the charity from the favourite's list on the User's profile/My Donofy page.
+* Testing:
+  * Clicked Add to Favourites button as a guest user.
+  * Clicked add to favourites button on a charity detail page.
+  * Clicked the Unfavourite button on a charity detail page. 
+* Result:
+  * Button behaved as expected and directed guest user to sign in.
+  * Adding to favourites button behaved as expected.
+  * Unfavourite button behaved as expected.
+* Action: 
+  * None
 ***
 **TEST NAME**
 * Expected:
