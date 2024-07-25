@@ -262,6 +262,8 @@ The footer provides copyright information and name of the site creator. Plus cli
 
 * **Single payments for guest users** who do not want to create an account.
 
+* **Donation preferences auto updating**. Donation preferences on the My Donofy section would have change event listeners, and update the breakdown and total dynamically, without the user being required to "Save" their changes. 
+
 * **Authorised admin access for Charity representatives**, to give access to update their own charity page information.
 
 * **Badges or 'achievement' awards/icons**
