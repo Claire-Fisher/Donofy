@@ -856,6 +856,24 @@ View Current Profile Page validator results here:
 - [ACCESSIBILITY results: My Donofy tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myDonofy)
 - [ACCESSIBILITY results: My Details tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myDetails)
 - [ACCESSIBILITY results: My History tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myHistory)
+- <details><summary>Lighthouse Scores MY DONOFY Desktop</summary>
+  <img src="documents/testing-images/profile-my-donofy-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores MY DONOFY Mobile</summary>
+  <img src="documents/testing-images/profile-my-donofy-lighthouse-mobile.png">
+  </details>
+- <details><summary>Lighthouse Scores MY DETAILS Desktop</summary>
+  <img src="documents/testing-images/profile-my-details-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores MY DETAILS Mobile</summary>
+  <img src="documents/testing-images/profile-my-details-lighthouse-mobile.png">
+  </details>
+- <details><summary>Lighthouse Scores MY HISTORY Desktop</summary>
+  <img src="documents/testing-images/profile-my-history-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores MY HISTORY Mobile</summary>
+  <img src="documents/testing-images/profile-my-history-lighthouse-mobile.png">
+  </details>
 <hr>
 
 ### Profile HTML Validator
