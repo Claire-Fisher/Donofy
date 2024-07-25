@@ -17,7 +17,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Profile Page My Donofy Manual Testing](#profile-page-my-donofy-manual-testing)
     * [Checkout-Donate Page: Manual Testing](#checkout-donate-page-manual-testing)
     * [Checkout-Success Page: Manual Testing](#checkout-success-page-manual-testing)
-  * [**User Story Testing**](#user-story-testing)
+  * [**User Stories Testing**](#user-stories-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
     * [Index Page](#index-page)
@@ -540,7 +540,46 @@ My manual testing logs are as follows:
 [**Back to top**](#testing-donofy)
 
 ### User Stories Testing
+### User Stories
+1. **As a new/guest user, I want to:**
+  - A: quickly understand the purpose of the site.
+    * Detailed index page quickly explains the purpose of the site in bitesized information sections.
+  - B: find the navigation intuituve, with information easy and quick to find.
+    * All main nav links remain in user expected positions, and are available on every page.
+    * Visual cues on all interactive elements to intuitively inform the user they're clickable.
+  - C: understand the value of registering for an account.
+    * Account registration explained on index page. 
+    * Account registration explained next to Sign Up buttons.
+    * If a guest user tries to access any pages that are for registers users's only (e.g. Favouriting a Charity), they are directed to Log In.
+2. **As a registered user, I want to:**
+  - A: log in and manage my account details so they're current.
+    * Users can create an account. 
+    * Registered users can create and read full personal profile information. 
+  - B: quickly find charities that interest me, and add them to my own "Favourites" list.
+    * Users can create, read, update, and delete Charities from their own personal Favourites list.
+  - C: feel positive feedback from even the smallest donation I make.
+    * Multiple Thank you messages appear on making a donation from only £1 (e.g. Thank you on Donation success page, thank you on pop up message donation successful, thank you confirmation email).
+  - D: understand my impact over a longer period of time / see my payment history.
+    * User's can view their personal payment history, which includes detailed information on which charities they've donated to, and for how much.
+  - E: have full control over how my donation amount is split between multiple causes.
+    * Users have full control to adjust their donation, and how it's split between multiple charities in their My Donofy profile section.
+  - F: be able to adjust my donations as my preferences change.
+    * Users can edit their donation preferences anytime they wish.
+  - G: see a summary of my donation breakdown before I set/adjust my subscription.
+    * Donation summary on Donation checkout page included.
+  - H: receive a thank you email, every time a donation payment from me is processed.
+    * Thank you email functionality implemented.
+  - I: easily contact the site admins for any reason, including account deletion.
+    * Contact us form available for all users.
 
+4. **As any user, I want to**
+  - A: view and use the platform on any device.
+    * Donofy is fully responsive from screen widths 320px to 2560px (Tested).
+  - B: have the site be accessible.
+    * Donofy can be viewed on mobile devices, allowing for screen reader access and other assistive technologies.
+    * Care has been taken on colour scheme. Font size. Button sizes. etc, to be as inclusive to as many user's as possible. Please see Features in the profject Readme, for more details on Donofy's accessibility standards.
+  - C: easily direct to a charity's main website for more information.
+    * Users can easily find a charities official website on each Charity detail page.
 
 [**Back to top**](#testing-donofy)
 ## **Validators**
