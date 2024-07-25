@@ -421,8 +421,10 @@ My manual testing logs are as follows:
 ***
 **Profile Page: My Donofy Tab**
 * Expected:
+  * Guest user's cannot access profile pages. Redirect to sign in if attempt made by forcing the url.
   * Tab navigation allows the user to flick through different sections of their profile information. Tab changes colour to indicate which section the user is viewing.
   * (Favourtes list has already been tested as part of Charities/Charity Detail Testing).
+  * If no favourites. Direct user to the charites page.
   * Donation total reflects the current entries in the listed inputs.
   * "Your favourited charities" title number accurately reflects the favourited list length.
   * Inputs values will:
@@ -433,15 +435,19 @@ My manual testing logs are as follows:
     - Nor accept a float.
   * Save button accurately sums the total of the donation inputs in the in favourites list.
 * Testing:
+  * Logged out. Added /profiles/profile/?tab=myDonofy to the end of the site url.
   * Clicked the three different tabs in different orders.
   * (Favourites previously tested).
+  * Removed all favourites from the users list.
   * Inspected the page following multiple adding/removing of charities from previous manual testing.
   * Added and removed favourites. Checking the list length each time.
   * Tested all the input variants above.
   * Entered various values. Including leaving some blank or 0.
 * Result:
+  * Behaved as expected and directed to the sign in page.
   * Navigation tabs worked as expected.
   * (Favourites previously tested).
+  * No Favourites message appears as expected.
   * The total did not show the total reflected in the inputs, but the last total saved.
   * "Your Favourite charities" title number behaved as expected.
   * The inputs behaved as expected.
@@ -449,15 +455,38 @@ My manual testing logs are as follows:
 * Action: 
   * Add additional info for the user, above the save button on My Donofy page, and again on the Donate/checkout page. Explaining they need Save their donation preferences so their donation breakdown and total is what they expect.  
 ***
-**TEST NAME**
+**Profile Page: My Details Tab**
 * Expected:
-  * 
+  * Generic placeholders show if no user data saved.
+  * Data entered into the form to update the user data on save.
+  * Saved data prepopulates the form instead of generic placeholders.
+  * Form validation on phone number field. 
 * Testing:
-  * 
+  * Removed all previously saved info, saved.
+  * Entered a full form, saved, and inspected the data in the admin.
+  * Inspected the form from previous save. Refreshed the page, navigated to home and returned.
+  * Attempted to save letters and special characters in phone number input. 
 * Result:
-  * 
+  * Form behaved as expected. Except for Country. On save, a validation message does not allow country to be blank.
+  * Save behaved as expected. Except for email. Email will not change from the email the user registered with.
+  * Form behaved as expected with prepopulated saved data.
+  * Phone input behaved as expected. Showed and error and gave formet instructions to the user when they try to save an invalid phone number.
 * Action: 
-  * 
+  * Edited UserProfile model to accept blank=True.
+  * Removed the email input in the form. Plus added a message under the form header, to inform the user that username and email cannot be changed. Prompts them to Contact Us with a helpful anchor. 
+***
+**Profile Page: My Payment History Tab**
+* Expected:
+  * If no payment history exists, display a helpful message.
+  * User's payment history listed with relevent info, and in descending date order (most recent at the top).
+* Testing:
+  * Logged in as admin user with no donations. Inspected the page.
+  * Logged on as a user with donation history. Inspected the page.
+* Result:
+  * Behaved as expected, but the message just a basic paragraph that said "No donations found".
+  * Listed donation history behaved as expected.
+* Action: 
+  * Added a friendlier message with site styling, and a helpful anchor directing them to their My Donofy section.
 ***
 **TEST NAME**
 * Expected:
