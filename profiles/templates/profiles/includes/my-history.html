@@ -22,6 +22,10 @@
         {% endfor %}
     </ul>
 {% else %}
-    <p>No donations found.</p>
+    <h3 class="text-pink text-center mt-5">No donations found.</h3>
+    <h4 class="text-dark text-center pb-5 mb-5">Please visit your
+        <a href="{% url 'profiles:profile' %}?tab=myDonofy" class="a-pink"> My Donofy </a>
+        to get started.
+    </h4>
 {% endif %}
 </div>
