@@ -16,7 +16,7 @@
                     <hr>
                     <a href="{% url 'charity_detail' charity.id %}" aria-label="link to charity page"
                                 class="text-dark bold">{{ charity.charity_name }}</a>
-                    <p class="text-small text-muted mb-0">Charity number: ({{ charity.charity_num}})</p>
+                    <p class="text-small mb-0">Charity number: ({{ charity.charity_num}})</p>
                     <a href="{% url 'profiles:delete_from_favs' charity.id %}" aria-label="action to remove charity from favourites list"
                         class="a-pink">
                         Remove from favourites
