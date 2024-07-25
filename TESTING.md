@@ -14,7 +14,9 @@ This project was tested continuously during development. Post build, the site ha
     * [Charities Page Manual Testing](#charities-page-manual-testing)
     * [Charity Detail Page Manual Testing](#charity-detail-page-manual-testing)
     * [Contact Us Page Manual Testing](#contact-us-page-manual-testing)
-    * [Profile Page: My Donofy Manual Testing](#profile-page-my-donofy-manual-testing)
+    * [Profile Page My Donofy Manual Testing](#profile-page-my-donofy-manual-testing)
+    * [Checkout-Donate Page: Manual Testing](#checkout-donate-page-manual-testing)
+    * [Checkout-Success Page: Manual Testing](#checkout-success-page-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
@@ -489,6 +491,35 @@ My manual testing logs are as follows:
 * Action: 
   * Added a friendlier message with site styling, and a helpful anchor directing them to their My Donofy section.
 ***
+### Checkout-Donate Page: Manual Testing
+***
+**TEST NAME**
+* Expected:
+  * If donation total = 0, give user an error message and send back to index page.
+  * Donate page shows current SAVED donation preferences with correct info.
+  * If no user personal details saved, donation form will show generic placeholders in all fields.
+  * If user personal details save, donation form will prepopulate form with their data.
+  * Form fields left blank. Expect donation attempt to halt and error message display to the user.
+  * Form validation on email, phone number, and card payments.
+* Testing:
+  * Set and saved a zero subscription in My Donofy, navigated to Donate page.
+  * Set and saved some different values, for varying number of charities. Navigated to the Donate page.
+  * Cleared all personal data from user, inspected Donate page.
+  * Saved full profile info in My Details for the current user. Inspected the Donate page.
+  * Tried a blank entry for each field in turn and tried to submit the form.
+  * Entered invalid data for each field in turn. Tried to submit the form.
+* Result:
+  * Site behaved as expected, error message and redirect to index page.
+  * Donate page behaved as expected and showed the correct data.
+  * Placeholders displaying as expected.
+  * Donation form prepopulated as expected. Except for email since this was removed as part of profile manual testing.
+  * All strictly required fields behaved as expected. Form submitted with option data blank.
+  * Invalid email, phone and card payments halted the donation as expected. Error message appeared.
+* Action: 
+  * None. Email autofill included in Future Bug Fixes list.
+***
+### Checkout-Success Page: Manual Testing
+***
 **TEST NAME**
 * Expected:
   * 
@@ -776,7 +807,7 @@ Passed first time. See current results above.
 
 ### Contact Us Accessibility Evaluation
 
-<details><summary>Contact Us inital results</summary>
+<details><summary>Contact Us inital results</summary> 
 <img src="documents/testing-images/contact-us-initial-wave.png">
 </details>
 
@@ -846,6 +877,8 @@ Due to deadline constraints, some bugs remain in this version of Donofy. Whilst 
 
 **Most site images nested inside the project Static folder**
   - During development MEDIA links to images inside the correct root Media folder would not display. To get around this I relocated them to static instead so the site displays as intended.
+
+**Donation form doesn't prepopulate with user's email**. Discovered during manual testing, following the removal of the email field in the My Details form. This would be future bug fix. 
 
 **USA Stripe Element**
  - The current stripe element input for card payments asks for a zipcode. Zip codes are not applicable for UK users. I would change the Stripe element to it's UK version. Better still, I would have it change dynamically based on a user's input in the Country field (if the site were to go global).
