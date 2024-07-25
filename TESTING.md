@@ -657,10 +657,10 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 <details><summary>Desktop Results Inital</summary>
 <img src="documents/testing-images/home-lighthouse-initial.png">
 </details>
-<details><summary>Lighthouse Scores Desktop</summary>
+<details><summary>Lighthouse Scores Index Desktop</summary>
 <img src="documents/testing-images/home-lighthouse-current.png">
 </details> 
-<details><summary>Lighthouse Scores Mobile</summary>
+<details><summary>Lighthouse Scores Index Mobile</summary>
 <img src="documents/testing-images/home-lighthouse-current-mobile.png">
 </details> 
 <br/>
@@ -679,6 +679,12 @@ View Current Charities Page validator results here:
   <img src="documents/testing-images/charities-initial-py-urls.png">
   </details> 
 - [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/charities/charities/)
+- <details><summary>Lighthouse Scores Charities Desktop</summary>
+  <img src="documents/testing-images/charities-lighthouse-current.png">
+  </details> 
+- <details><summary>Lighthouse Scores Charities Mobile</summary>
+  <img src="documents/testing-images/charities-lighthouse-mobile.png">
+  </details> 
 <hr>
 
 ### Charities HTML Validator
@@ -726,11 +732,11 @@ Passed first time. See current results above.
 * The drop in performance is mainly due to Heroku, Stripe, and a large amount of layout behaviours to keep my site responsive. 
 * All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
 
-<details><summary>Desktop Results Current</summary>
+<details><summary>Lighthouse Scores Charities Desktop</summary>
 <img src="documents/testing-images/charities-lighthouse-current.png">
 </details> 
-<details><summary>Mobile Results Current</summary>
-<img src="documents/testing-images/charities-lighthouse-current-mobile.png">
+<details><summary>Lighthouse Scores Charities Mobile</summary>
+<img src="documents/testing-images/charities-lighthouse-mobile.png">
 </details> 
 <br/>
 
@@ -748,6 +754,12 @@ View Current Charity Details Page validator results here:
   <img src="documents/testing-images/charities-initial-py-urls.png">
   </details> 
 - [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/charities/charity_detail/4/)
+- <details><summary>Lighthouse Scores Charity Detail Desktop</summary>
+  <img src="documents/testing-images/charity-detail-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores Charity Detail Mobile</summary>
+  <img src="documents/testing-images/charity-detail-lighthouse-mobile.png">
+  </details>
 <hr>
 
 ### Charity Details HTML Validator
@@ -789,6 +801,12 @@ View Current Contact Us Page validator results here:
   <img src="documents/testing-images/home-initial-py-urls.png">
   </details> 
 - [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/contact/)
+- <details><summary>Lighthouse Scores Contact Us Desktop</summary>
+  <img src="documents/testing-images/contact-us-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores Contact Us Mobile</summary>
+  <img src="documents/testing-images/contact-us-lighthouse-mobile.png">
+  </details>
 <hr>
 
 ### Contact Us HTML Validator
