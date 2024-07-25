@@ -26,6 +26,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Contact Us Page](#contact-us-page)
     * [Profile Page](#profile-page)
     * [Donate Page](#donate-page)
+    * [Donation Success Page](#donation-success-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -494,7 +495,7 @@ My manual testing logs are as follows:
 ***
 ### Checkout-Donate Page: Manual Testing
 ***
-**TEST NAME**
+**Donation form**
 * Expected:
   * If donation total = 0, give user an error message and send back to index page.
   * Donate page shows current SAVED donation preferences with correct info.
@@ -521,15 +522,19 @@ My manual testing logs are as follows:
 ***
 ### Checkout-Success Page: Manual Testing
 ***
-**TEST NAME**
+**Donation/Checkout Success**
 * Expected:
-  * 
+  * On valid form submission, direct to checkout/billing_success page.
+  * Donation Successful page gives a breakdown of all the correct data.
+  * Live email thank you a breakdown of donation made sent to the user.
 * Testing:
-  * 
+  * Made a test payment.
 * Result:
-  * 
+  * Site behaved as expected and correct success template rendered.
+  * Site behaved as expected and Donation Successful template displayed all the correct information.
+  * Site behaved as expected and confirmation email, with all the correct data, received.
 * Action: 
-  * 
+  * None
 ***
 
 [**Back to top**](#testing-donofy)
@@ -575,6 +580,12 @@ View Current Home Page validator results here:
   <img src="documents/testing-images/home-initial-py-urls.png">
   </details> 
 - [ACCESSIBILITY results](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/)
+- <details><summary>Lighthouse Scores Desktop</summary>
+  <img src="documents/testing-images/home-lighthouse-current.png">
+  </details> 
+- <details><summary>Lighthouse Scores Mobile</summary>
+  <img src="documents/testing-images/home-lighthouse-current-mobile.png">
+  </details>
 <hr>
 
 ### Index HTML Validator
@@ -646,10 +657,10 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 <details><summary>Desktop Results Inital</summary>
 <img src="documents/testing-images/home-lighthouse-initial.png">
 </details>
-<details><summary>Desktop Results Current</summary>
+<details><summary>Lighthouse Scores Desktop</summary>
 <img src="documents/testing-images/home-lighthouse-current.png">
 </details> 
-<details><summary>Mobile Results Current</summary>
+<details><summary>Lighthouse Scores Mobile</summary>
 <img src="documents/testing-images/home-lighthouse-current-mobile.png">
 </details> 
 <br/>
@@ -869,7 +880,7 @@ Passed first time. See current results above.
 
 ### Profile Accessibility Evaluation
 
-Attempts were made to check each page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
+Attempts were made to check each page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing user pages with sensitive data.
 <hr>
 
 ### Donate Page
@@ -902,7 +913,14 @@ View Current Donate Page validator results here:
 - <details><summary>PEP8 linter for checkout/webhook_handler.py</summary>
   <img src="documents/testing-images/donate-initial-py-webhook-handler.png">
   </details> 
-- [ACCESSIBILITY results](#)
+- No ACCESSIBILITY results
+- <details><summary>Lighthouse Scores Desktop</summary>
+  <img src="documents/testing-images/donate-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores Mobile</summary>
+  <img src="documents/testing-images/donate-lighthouse-mobile.png">
+  </details>
+
 <hr>
 
 ### Donate HTML Validator
@@ -931,7 +949,49 @@ Passed first time. See current results above.
 
 ### Donate Accessibility Evaluation
 
-Attempts were made to check the donate page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
+Attempts were made to check the donate page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing user pages with sensitive data.
+<hr>
+
+### Donation Success Page
+<hr>
+View Current Donate Page validator results here:
+
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcheckout%2Fbilling_success%2F4AFBF03E63A440028672F0396D777EBE)
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcheckout%2Fbilling_success%2F4AFBF03E63A440028672F0396D777EBE&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- No JS for Donation Success page
+- Python Linter checked as part of Donate page (see above)
+- No ACCESSIBILITY results
+- <details><summary>Lighthouse Scores Desktop</summary>
+  <img src="documents/testing-images/donation-success-lighthouse-desktop.png">
+  </details> 
+- <details><summary>Lighthouse Scores Mobile</summary>
+  <img src="documents/testing-images/donation-success-lighthouse-mobile.png">
+  </details>
+<hr>
+
+### Donation Success HTML Validator
+
+Passed first time. See current results above.
+<hr>
+
+ ### Donation Success CSS Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Donation Success JavaScript Validator
+
+No JS for Donation Success page.
+<hr>
+
+### Donation Success Python CI Linter (PEP8 check)
+
+Python Linter checked as part of Donate page (see above)
+<hr>
+
+### Donation Success Accessibility Evaluation
+
+Attempts were made to check the Donation Success page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing user pages with sensitive data.
 <hr>
 
 
