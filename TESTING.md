@@ -22,6 +22,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Charities Page](#charities-page)
     * [Charity Details Page](#charity-details-page)
     * [Contact Us Page](#contact-us-page)
+    * [Profile Page](#profile-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -785,7 +786,59 @@ Passed first time. See current results above.
     * Removed text-muted class.
 <hr>
 
+### Profile Page
+<hr>
+View Current Contact Us Page validator results here:
 
+- [HTML results: My Donofy tab](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDonofy)
+- [HTML results: My Details tab](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDetails)
+- [HTML results: My History tab](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyHistory)
+- [CSS results: My Donofy tab](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDonofy&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [CSS results: My Details tab](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDetails&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [CSS results: My History tab](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyHistory&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- <details><summary>JS current results</summary>
+  <img src="documents/testing-images/profiles-initial-js.png">
+  </details> 
+- <details><summary>PEP8 linter for profiles/views.py</summary>
+  <img src="documents/testing-images/profiles-initial-py-views.png">
+  </details> 
+- <details><summary>PEP8 linter for profiles/urls.py</summary>
+  <img src="documents/testing-images/profiles-initial-py-urls.png">
+- <details><summary>PEP8 linter for profiles/admin.py</summary>
+  <img src="documents/testing-images/profiles-initial-py-admin.png">
+- <details><summary>PEP8 linter for profiles/forms.py</summary>
+  <img src="documents/testing-images/profiles-initial-py-forms.png">
+- <details><summary>PEP8 linter for profiles/models.py</summary>
+  <img src="documents/testing-images/profiles-initial-py-models.png">
+- [ACCESSIBILITY results: My Donofy tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myDonofy)
+- [ACCESSIBILITY results: My Details tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myDetails)
+- [ACCESSIBILITY results: My History tab](https://wave.webaim.org/report#/https://donofy-de544b6e546f.herokuapp.com/profiles/profile/?tab=myHistory)
+<hr>
+
+### Profile HTML Validator
+
+All 3 tabs passed first time. See current results above.
+<hr>
+
+ ### Profile CSS Validator
+
+All 3 tabs passed first time. See current results above.
+<hr>
+
+### Profile JavaScript Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Profile Python CI Linter (PEP8 check)
+
+Passed first time. See current results above.
+<hr>
+
+### Profile Accessibility Evaluation
+
+Attempts were made to check each page, but on closer inspection it looks like it defaulted to checkinf the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
+<hr>
 
 
 ## **Future Bug Fixes** 
