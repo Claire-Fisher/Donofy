@@ -1,5 +1,5 @@
 # Testing Donofy
-This project was tested continuously during development. Post build, the site has been manually tested by myself and third party testers. It has also passed on html, CSS, JS, and accessibility validators. The python has pass linting checks and is compliant with PEP8 industry standards.
+This project was tested continuously during development. Post build, the site has been manually tested by myself and third party testers. It has also passed on html, CSS, JS, and accessibility validators. The python has passed linting checks and is compliant with PEP8 industry standards.
 
 [return to README.md](./README.md)
 
@@ -118,7 +118,7 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         </details>
     * ***Solution Used:*** 
         * Name Error: added from django.db.models.functions import Lower
-        * Assertion Error: had to abandon ascend/descend feature. Category sorts will automatically sort by ascending instead.
+        * Assertion Error: had to abandon the ascend and descend feature. Category sorts will automatically sort by ascending instead.
         * Assertion Error ASC only: removed the charity with active=False as that was creating the mis-ording and causing the test to fail
         <details><summary>Test Pass</summary>
         <img src="documents/testing-images/charities-test-asc-sort-pass.png">
@@ -143,7 +143,7 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         <img src="documents/testing-images/testing-profiles-first-test-fail.png">
         </details>
     * ***Solution Used:***
-      * Imported User from models & added a 'testuser' to provide log in details for the test.
+      * Imported User from models & added a 'testuser' to provide login details for the test.
         <details><summary>First Test pass</summary>
         <img src="documents/testing-images/testing-profiles-first-test-pass.png">
         </details>
@@ -154,7 +154,7 @@ Below is a list of bugs I discovered and fixed using TDD and manual testing :-
         </details>
     * ***Solution Used:***
       * Imported the Charity model and fetched the full charity details from the list of charity IDs.
-      * Changed the dict to show keys of charity_names (instead of ID ints), and int donation values. To make it easier for admin to understand the sub_breakdown by reading the dict. 
+      * Changed the dict to show keys of charity_names (instead of ID ints), and int donation values. To make it easier for the admin to understand the sub_breakdown by reading the dict. 
         <details><summary>sub_breakdown dict saving as expected</summary>
         <img src="documents/testing-images/update_subscription-attr-fixed.png">
         </details>
@@ -188,10 +188,10 @@ My manual testing logs are as follows:
 ***
 **Home Page: Main Nav bar**
 * Expected:
-  * All nav links to redirect to their correct page template. (Including links only present when a user/superuser is logged in).
+  * All nav links redirect to their correct page template. (Including links only present when a user/superuser is logged in).
   * All nav elements, including site logo (home link), to respond with colour change, and/or hover animation on mouse hover to indicate they are interactive.
   * Nav links turn to a burger menu on screens <768px wide.
-  * Dropdown nav menus, and sub menus to stay ontop of content on all screens sizes.
+  * Dropdown nav menus, and submenus to stay on top of content on all screens sizes.
   * Drop down menu toggles dropdown list of nav elements and changes dynamically based on user logged in:
     - **Guest User** = Only Register and Login present in dropdown.
     - **User logged in** = 
@@ -204,35 +204,35 @@ My manual testing logs are as follows:
   * Clicked each nav link in turn to check for broken links or incorrect pages rendered.
   * Hovered my mouse over each element to check for interactive indicators.
   * Used Chrome Dev tools to check screen widths 767px and 768px wide.
-  * Toggled dropdown menus on screen sizes 320px / 576px / 992px wide.
+  * Toggle dropdown menus on screen sizes 320px / 576px / 992px wide.
   * Inspected nav bar as a Guest User / User / Superuser
 * Result:
   * All nav links routing behaved as expected.
   * All nav links changed colour and hovered on mouse hover. Donofy navbar did nothing.
-  * Nav links switched to burger menu at 767px screen width.
-  * Dropdowns stayed ontop of content.
-  * Correct nav links show in dropdown menu according to user type.
+  * Nav links switched to the burger menu at 767px screen width.
+  * Dropdowns stayed on top of content.
+  * Correct nav links show in the dropdown menu according to user type.
 * Action: 
   * Added custom hover class to Donofy main logo.
 ***
 **Home Page: "How Does Donofy Work?" Nav Card Links**
 * Expected:
-  * The cards to respond with colour change on mouse hover, to indicate they are interactive elements.
+  * The cards respond with colour change on mouse hover, to indicate they are interactive elements.
   * The cards to go to redirect to their correct page templates, according to user:
     - Guest User:
-      - **Find Your Charities** goes to Charities page.
-      - **Set a Donation amount** goes to sign in page.
+      - **Find Your Charities** goes to the Charities page.
+      - **Set a Donation amount** goes to the sign in page.
       - **Make an Impact** goes to sign in page.
     - Registered User:
-      - **Find Your Charities** goes to Charities page.
-      - **Set a Donation amount** goes to Mange My Donofy tab on profile page.
-      - **Make an Impact** goes to My Payment History tab on profile page.
+      - **Find Your Charities** goes to the Charities page.
+      - **Set a Donation amount** goes to the "Mange My Donofy" tab on profile page.
+      - **Make an Impact** goes to the "My Payment History" tab on profile page.
 * Testing:
   * Hovered over each nav card
   * Clicked each card in turn to check for broken links or incorrect pages rendered.
 * Result:
-  * Colour changed as expected.
-  * All Guest user cards redirected as expected. First two User cards behaved as expected. "Make an Impact" card incorrectly directed to Manage My Donofy tab.
+  * The colour changed as expected.
+  * All Guest user cards redirected as expected. First two User cards behaved as expected. "Make an Impact" card incorrectly directed to the "Manage My Donofy" tab.
 * Action: 
   * Added a shadow to make it more obvious they're interactive before the user hovers over them.
   * Corrected href on "Make an Impact" card to redirect to My Payment History tab.
@@ -261,12 +261,12 @@ My manual testing logs are as follows:
 * Result:
   * Sign up buttons appeared as expected.
 * Action: 
-  * Added additional sign up info the bottom sign up button so it matches the top version.
+  * Added additional sign up info to the bottom sign up button so it matches the top version.
 ***
 **Home Page: Responsiveness**
 * Expected:
   * All page content to shrink, grow and rearrange according to screen width.
-  * Hero text ontop of hero image to disappear on screen width <992px and reappear below instead.
+  * Hero text on top of hero image to disappear on screen width <992px and reappear below instead.
   * Hero image to switch to a different version with a shorter aspect ratio. 
 * Testing:
   * Used Chrome Dev Tools to inspect the home page at screen widths 320px / 576px / 768px / 992px / 1200px / 2560px.
@@ -312,13 +312,13 @@ My manual testing logs are as follows:
 ***
 **Charities Page: Charity cards**
 * Expected:
-  * All charity cards to respond with colour change, and/or hover animation on mouse hover to indicate they are interactive.
+  * All charity cards respond with colour change, and/or hover animation on mouse hover to indicate they are interactive.
   * Clicking the info button, or the image of the card, will direct the user to the correct charity detail page.
 * Testing:
   * Hovered my mouse over each element to check for interactive indicators.
   * Clicked multiple cards in turn. Clicked multiple card Info buttons in turn.
 * Result:
-  * Interactive indicators present and behaving as expected.
+  * Interactive indicators present and behave as expected.
   * Cards behaved as expected and directed to the correct charity detail page.
 * Action: 
   * None
@@ -327,10 +327,10 @@ My manual testing logs are as follows:
 * Expected:
   * Favourite button to redirect GUEST USERS to sign in page.
   * Favourite button as a LOGGED IN USER:
-    - On click of Favourite, button should change to pink "Unfavourite" button.
-    - On click of Favourite, message should display telling the user that charity was Successfully added to their list.
-    - On click of pink Unfavourite, button should change back to white "Favourite" button.
-    - On click of pint Unfavourite, message should display telling the user that charity was Successfully removed from their list.
+    - On click of Favourite, the button should change to the pink "Unfavourite" button.
+    - On click of Favourite, a message should display telling the user that charity was Successfully added to their list.
+    - On click of the pink Unfavourite, button should change back to white "Favourite" button.
+    - On click of the pink Unfavourite, message should display telling the user that charity was Successfully removed from their list.
   * Favourite's list on profiles/my Donofy should mirror the favourited charities on the charity page. 
   * Charities removed from favourites in the profiles/My Donofy, should display the correct white "Favourite" button on the charities page.
 * Testing:
@@ -341,7 +341,7 @@ My manual testing logs are as follows:
     - Checked the My Donofy page mirrored the corrected Favourited/Unfavourited charities on the charities page.
     - Checked removing a Favourite from the user's My Donofy page, was also mirrored in the charities page.
 * Result:
-  * Guest User Favourite button behaved as expected and directed to the Donofy Sigin In page.
+  * Guest User Favourite button behaved as expected and directed to the Donofy Sign In page.
   * Logged in user: all actions behaved as expected.
 * Action: 
   * Changed the message type for Unfavouriting to blue info to make it clearer to the user.
@@ -352,12 +352,12 @@ My manual testing logs are as follows:
 * Expected:
   * Charity detail page to be available to all users.
   * Correct title / charity number / money raised figure / description / image / logo / impact statements to display for target charity.
-  * Visit Website button to open the target charity's offical website in a new tab.
+  * "Visit Website" button to open the target charity's official website in a new tab.
   * Deactivate Charity button to be present for SUPERUSERS ONLY.
 * Testing:
   * Navigated to various Charity detail pages as a guest / user / superuser.
   * Navigated to various charity detail pages.
-  * Clicked the Visited website button a various charity detail pages.
+  * Clicked the Visited website button on various charity detail pages.
   * Checked for button presence as a guest / user / superuser.
 * Result:
   * Page behaved as expected.
@@ -369,7 +369,7 @@ My manual testing logs are as follows:
 ***
 **Charity Details Page: Favourite Button**
 * Expected:
-  * Add to Favourite button will direct Guest User's to sign in page.
+  * "Add to Favourite" button will direct Guest User's to sign in.
   * Users & Superusers:
     - Clicking Add to favourites button should:
       - toggle button to pink Unfavourite.
@@ -380,13 +380,13 @@ My manual testing logs are as follows:
       - show an info message that charity was removed from favourites list.
       - remove the charity from the favourite's list on the User's profile/My Donofy page.
 * Testing:
-  * Clicked Add to Favourites button as a guest user.
-  * Clicked add to favourites button on a charity detail page.
-  * Clicked the Unfavourite button on a charity detail page. 
+  * Clicked "Add to Favourites" button as a guest user.
+  * Clicked "Add to favourites" button on a charity detail page.
+  * Clicked the "Unfavourite" button on a charity detail page. 
 * Result:
   * Button behaved as expected and directed guest user to sign in.
   * Adding to favourites button behaved as expected.
-  * Unfavourite button behaved as expected.
+  * "Unfavourite" button behaved as expected.
 * Action: 
   * None
 ***
@@ -397,18 +397,18 @@ My manual testing logs are as follows:
   * Validation checks on input fields.
 * Testing:
   * Blank fields:
-    * Left name field blank and tried to submit.
-    * Left email field blank and tried to submit.
-    * Left message field blank and tried to submit.
+    * Left the name field blank and tried to submit.
+    * Left the email field blank and tried to submit.
+    * Left the message field blank and tried to submit.
   * Input validation:
     * Entered numbers for name field. 
     * Entered characters with no @ symbol for email.
 * Result:
-  * All validation behaved as expected and error messages shown to the user. 
+  * All validation behaved as expected and error are messages shown to the user. 
   * Except: Name field would accept random numbers and special characters instead of a-z.
 * Action: 
   * None
-  * Future validation on name field would be preferable.
+  * Future validation on the name field would be preferable.
 ***
 **Contact Us Form - Sending a live message**
 * Expected:
@@ -418,7 +418,7 @@ My manual testing logs are as follows:
 * Testing:
   * Completed the contact us form with valid inputs and clicked Send
 * Result:
-  * Behaved as expect. Correct template and message received in inbox.
+  * Behaved as expected. Correct template and message received in inbox.
 * Action: 
   * None
 ***
@@ -426,12 +426,12 @@ My manual testing logs are as follows:
 ***
 **Profile Page: My Donofy Tab**
 * Expected:
-  * Guest user's cannot access profile pages. Redirect to sign in if attempt made by forcing the url.
+  * Guest users cannot access profile pages. Redirect to sign in if an attempt is made by forcing the url.
   * Tab navigation allows the user to flick through different sections of their profile information. Tab changes colour to indicate which section the user is viewing.
-  * (Favourtes list has already been tested as part of Charities/Charity Detail Testing).
-  * If no favourites. Direct user to the charites page.
+  * (Favourites list has already been tested as part of Charities/Charity Detail Testing).
+  * If no favourites. Direct user to the Charites page.
   * Donation total reflects the current entries in the listed inputs.
-  * "Your favourited charities" title number accurately reflects the favourited list length.
+  * "Your favourited charities" title number accurately reflects the favourites list length.
   * Inputs values will:
     - Accept integers.
     - Accept 0.
@@ -456,26 +456,26 @@ My manual testing logs are as follows:
   * The total did not show the total reflected in the inputs, but the last total saved.
   * "Your Favourite charities" title number behaved as expected.
   * The inputs behaved as expected.
-  * Save button behaved as expected. Data saved in backend. Donation total title updated in frontend. 
+  * Save button behaved as expected. Data saved in the backend. Donation total title updated in frontend. 
 * Action: 
   * Add additional info for the user, above the save button on My Donofy page, and again on the Donate/checkout page. Explaining they need Save their donation preferences so their donation breakdown and total is what they expect.  
 ***
 **Profile Page: My Details Tab**
 * Expected:
-  * Generic placeholders show if no user data saved.
+  * Generic placeholders show if no user data is saved.
   * Data entered into the form to update the user data on save.
-  * Saved data prepopulates the form instead of generic placeholders.
+  * Saved data pre-populates the form instead of generic placeholders.
   * Form validation on phone number field. 
 * Testing:
   * Removed all previously saved info, saved.
   * Entered a full form, saved, and inspected the data in the admin.
-  * Inspected the form from previous save. Refreshed the page, navigated to home and returned.
+  * Inspected the form from the previous save. Refreshed the page, navigated to home and returned.
   * Attempted to save letters and special characters in phone number input. 
 * Result:
-  * Form behaved as expected. Except for Country. On save, a validation message does not allow country to be blank.
+  * Form behaved as expected. Except for Country. On save, a validation message does not allow the country field to be blank.
   * Save behaved as expected. Except for email. Email will not change from the email the user registered with.
   * Form behaved as expected with prepopulated saved data.
-  * Phone input behaved as expected. Showed and error and gave formet instructions to the user when they try to save an invalid phone number.
+  * Phone input behaved as expected. Showed an error and gave format instructions to the user when they try to save an invalid phone number.
 * Action: 
   * Edited UserProfile model to accept blank=True.
   * Removed the email input in the form. Plus added a message under the form header, to inform the user that username and email cannot be changed. Prompts them to Contact Us with a helpful anchor. 
@@ -483,12 +483,12 @@ My manual testing logs are as follows:
 **Profile Page: My Payment History Tab**
 * Expected:
   * If no payment history exists, display a helpful message.
-  * User's payment history listed with relevent info, and in descending date order (most recent at the top).
+  * User's payment history listed with relevant info, and in descending date order (most recent at the top).
 * Testing:
   * Logged in as admin user with no donations. Inspected the page.
   * Logged on as a user with donation history. Inspected the page.
 * Result:
-  * Behaved as expected, but the message just a basic paragraph that said "No donations found".
+  * Behaved as expected, but the message was just a basic paragraph that said "No donations found".
   * Listed donation history behaved as expected.
 * Action: 
   * Added a friendlier message with site styling, and a helpful anchor directing them to their My Donofy section.
@@ -497,16 +497,16 @@ My manual testing logs are as follows:
 ***
 **Donation form**
 * Expected:
-  * If donation total = 0, give user an error message and send back to index page.
+  * If donation total = 0, give the user an error message and send them back to index page.
   * Donate page shows current SAVED donation preferences with correct info.
-  * If no user personal details saved, donation form will show generic placeholders in all fields.
-  * If user personal details save, donation form will prepopulate form with their data.
+  * If no user personal details are saved, donation form will show generic placeholders in all fields.
+  * If user personal details save, donation form will pre-populate form with their data.
   * Form fields left blank. Expect donation attempt to halt and error message display to the user.
   * Form validation on email, phone number, and card payments.
 * Testing:
-  * Set and saved a zero subscription in My Donofy, navigated to Donate page.
-  * Set and saved some different values, for varying number of charities. Navigated to the Donate page.
-  * Cleared all personal data from user, inspected Donate page.
+  * Set and saved a zero subscription in My Donofy, navigated to the Donate page.
+  * Set and saved some different values, for a varying number of charities. Navigated to the Donate page.
+  * Cleared all personal data from the user, inspected the Donate page.
   * Saved full profile info in My Details for the current user. Inspected the Donate page.
   * Tried a blank entry for each field in turn and tried to submit the form.
   * Entered invalid data for each field in turn. Tried to submit the form.
@@ -514,7 +514,7 @@ My manual testing logs are as follows:
   * Site behaved as expected, error message and redirect to index page.
   * Donate page behaved as expected and showed the correct data.
   * Placeholders displaying as expected.
-  * Donation form prepopulated as expected. Except for email since this was removed as part of profile manual testing.
+  * Donation form pre-populated as expected. Except for email since this was removed as part of profile manual testing.
   * All strictly required fields behaved as expected. Form submitted with option data blank.
   * Invalid email, phone and card payments halted the donation as expected. Error message appeared.
 * Action: 
@@ -526,13 +526,13 @@ My manual testing logs are as follows:
 * Expected:
   * On valid form submission, direct to checkout/billing_success page.
   * Donation Successful page gives a breakdown of all the correct data.
-  * Live email thank you a breakdown of donation made sent to the user.
+  * Live email thank you, with a breakdown of the donation made, sent to the user.
 * Testing:
   * Made a test payment.
 * Result:
-  * Site behaved as expected and correct success template rendered.
-  * Site behaved as expected and Donation Successful template displayed all the correct information.
-  * Site behaved as expected and confirmation email, with all the correct data, received.
+  * Site behaved as expected and the correct success template was rendered.
+  * Site behaved as expected and the Donation Successful template displayed all the correct information.
+  * Site behaved as expected and the confirmation email, with all the correct data, was received.
 * Action: 
   * None
 ***
@@ -543,14 +543,14 @@ My manual testing logs are as follows:
 ### User Stories
 1. **As a new/guest user, I want to:**
   - A: quickly understand the purpose of the site.
-    * Detailed index page quickly explains the purpose of the site in bitesized information sections.
-  - B: find the navigation intuituve, with information easy and quick to find.
+    * Detailed index page quickly explains the purpose of the site in bite size information sections.
+  - B: find the navigation intuitive, with information easy and quick to find.
     * All main nav links remain in user expected positions, and are available on every page.
     * Visual cues on all interactive elements to intuitively inform the user they're clickable.
   - C: understand the value of registering for an account.
-    * Account registration explained on index page. 
+    * Account registration explained on the index page. 
     * Account registration explained next to Sign Up buttons.
-    * If a guest user tries to access any pages that are for registers users's only (e.g. Favouriting a Charity), they are directed to Log In.
+    * If a guest user tries to access any pages that are for registered users only (e.g. Favouriting a Charity), they are directed to Log In.
 2. **As a registered user, I want to:**
   - A: log in and manage my account details so they're current.
     * Users can create an account. 
@@ -577,9 +577,9 @@ My manual testing logs are as follows:
     * Donofy is fully responsive from screen widths 320px to 2560px (Tested).
   - B: have the site be accessible.
     * Donofy can be viewed on mobile devices, allowing for screen reader access and other assistive technologies.
-    * Care has been taken on colour scheme. Font size. Button sizes. etc, to be as inclusive to as many user's as possible. Please see Features in the profject Readme, for more details on Donofy's accessibility standards.
+    * Care has been taken on the colour scheme. Font size. Button sizes. etc, to be as inclusive to as many user's as possible. Please see Features in the project Readme, for more details on Donofy's accessibility standards.
   - C: easily direct to a charity's main website for more information.
-    * Users can easily find a charities official website on each Charity detail page.
+    * Users can easily find a charity's official website on each Charity detail page.
 
 [**Back to top**](#testing-donofy)
 ## **Validators**
@@ -628,7 +628,7 @@ View Current Home Page validator results here:
 <hr>
 
 ### Index HTML Validator
-<details><summary>HTML validator inital results</summary>
+<details><summary>HTML validator initial results</summary>
 <img src="documents/testing-images/home-initial-html.png">
 </details>
 
@@ -636,12 +636,12 @@ View Current Home Page validator results here:
     * 6 Attribute Errors.
     * 2 Type Attribute Warnings.
 * ***Action Taken:***
-    * Removed unecessary attributes.
+    * Removed unnecessary attributes.
     * Gave the hero images blank alt tags, as they're decorative and offer no additional info to the user.
 <hr>
 
 ### Index CSS Validator
-<details><summary>CSS validator inital results</summary>
+<details><summary>CSS validator initial results</summary>
 <img src="documents/testing-images/home-initial-css.png">
 </details>
 
@@ -672,7 +672,7 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
     * None.
 
 ### Index Accessibility Evaluation
-<details><summary>Wave inital results</summary>
+<details><summary>Wave initial results</summary>
 <img src="documents/testing-images/home-initial-wave.png">
 </details>
 
@@ -693,7 +693,7 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 
 - Actions taken:
     - Hero images PNGs were replaced with webp files to try to increase performance. Small improvement recorded.
-<details><summary>Desktop Results Inital</summary>
+<details><summary>Desktop Results initial</summary>
 <img src="documents/testing-images/home-lighthouse-initial.png">
 </details>
 <details><summary>Lighthouse Scores Index Desktop</summary>
@@ -727,7 +727,7 @@ View Current Charities Page validator results here:
 <hr>
 
 ### Charities HTML Validator
-<details><summary>HTML validator inital results</summary>
+<details><summary>HTML validator initial results</summary>
 <img src="documents/testing-images/charities-initial-html.png">
 </details>
 
@@ -739,7 +739,7 @@ View Current Charities Page validator results here:
 <hr>
 
 ### Charities CSS Validator
-<details><summary>CSS validator inital results</summary>
+<details><summary>CSS validator initial results</summary>
 <img src="documents/testing-images/charities-initial-css.png">
 </details>
 
@@ -849,7 +849,7 @@ View Current Contact Us Page validator results here:
 <hr>
 
 ### Contact Us HTML Validator
-<details><summary>HTML validator inital results</summary>
+<details><summary>HTML validator initial results</summary>
 <img src="documents/testing-images/contact-us-initial-html.png">
 </details>
 
@@ -876,7 +876,7 @@ Passed first time. See current results above.
 
 ### Contact Us Accessibility Evaluation
 
-<details><summary>Contact Us inital results</summary> 
+<details><summary>Contact Us initial results</summary> 
 <img src="documents/testing-images/contact-us-initial-wave.png">
 </details>
 

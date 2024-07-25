@@ -40,7 +40,7 @@
 
 ## Planning and Development
 ### Target Users
-- Users of all age groups, but primary audience are working age.
+- Users of all age groups, but the primary audience are working age.
 - Users who want fast and easily accessible information on a range of charities.
 - Users who want to give to multiple charities but consolidate their charity contributions into one payment.
 - Users who want full control over a charity amount they can afford. 
@@ -48,7 +48,7 @@
 ### User Stories
 1. **As a new/guest user, I want to:**
   - A: quickly understand the purpose of the site.
-  - B: find the navigation intuituve, with information easy and quick to find. 
+  - B: find the navigation intuitive, with information easy and quick to find. 
   - C: understand the value of registering for an account.
 2. **As a registered user, I want to:**
   - A: log in and manage my account details so they're current.
@@ -72,9 +72,9 @@
 3. To build a family-friendly product.
 4. To deliver a site that is responsive on a large variety of screen sizes and mobile devices.
 5. To create a fast, reliable site that can fetch a lot of information quickly and display it clearly.
-6. To allow users to create their own profiles, with log in functionality that is secure.
+6. To allow users to create their own profiles, with login functionality that is secure.
 7. To give users the functionality to update their own profile.
-8. To allow users full CRUD functionality on their Favourited Charties list.
+8. To allow users full CRUD functionality on their Favourites Charities list.
 9. To provide a secure payment system, that's user friendly.
 
 ### Approach
@@ -94,15 +94,15 @@ Common themes found:
   - Responsive design.
   - Accessible Design
   - Statistics
-  - Offical registered Charity numbers
+  - Official registered Charity numbers
 
 My adjustments to suit my project aims:
   - Provide enough data without overwhelming my user.
     - Visual charity cards directory, and charity logos are obvious.
     - Summary of the charity and the impact of donations.
-    - Button to direct the user to the offical charity site for more info. (Opens in a new tab)
-  - Bright and friendly colour scheme, not affliated with any particular charity. Also not so sterile that the data is unappealing to browse. Whilst still keeping to good accessibility standards.
-  - User has the ability to bookmark charities that interest them in a Favourites list. Invites future visits as user can easily find their selected favourites and build on their list according to their preferences.
+    - Button to direct the user to the official charity site for more info. (Opens in a new tab)
+  - Bright and friendly colour scheme, not affiliated with any particular charity. Also not so sterile that the data is unappealing to browse. Whilst still keeping to good accessibility standards.
+  - Users have the ability to bookmark charities that interest them in a Favourites list. Invites future visits as the user can easily find their selected favourites and build on their list according to their preferences.
 
 [**Back to top**](#donofy)
 ### Data Schema
@@ -114,8 +114,8 @@ My adjustments to suit my project aims:
 - Users can create a profile with create, read, and update functionality. 
 - Users can Add and Delete charities to their Favourites List.
 - The subscription model is the user's latest preferences of values to donate to selected charities in their favourites list. 
-- Donation objects are created on successful checkout of a donation payment by the user. It is an instance of the user's billing details, plus subsciption total and breakdown at the time/date the donation was made.
-- 'Active' booleans have been given to data tables where would deletion would erase data that needs to be preserved. (e.g User's and their history of donations. Charities and their running totals data.)
+- Donation objects are created on successful checkout of a donation payment by the user. It is an instance of the user's billing details, plus subscription total and breakdown at the time/date the donation was made.
+- 'Active' booleans have been given to data tables where deletion would erase data that needs to be preserved. (e.g User's and their history of donations. Charities and their running totals data.)
 
 ### Wireframes
 
@@ -130,11 +130,11 @@ Using Figma's wireframes capabilities, I was able to play with initial layouts a
 ### Colour Scheme
 ![Image of colour palette](documents/readme-images/donofy-colours.png)
 
-A dark pink has been selected as the main brand colour. A compassionate shade, without being too light and feminine. It has the urgency of red, without the alarm or aggression.  The black and whites have been softened from their extreme #000 and #fff. This is to reduce screen glare. White or black have been used where text constrast has needed to be increased on other brand colours for readability. 
+A dark pink has been selected as the main brand colour. A compassionate shade, without being too light and feminine. It has the urgency of red, without the alarm or aggression.  The black and whites have been softened from their extreme #000 and #fff. This is to reduce screen glare. White or black have been used where text contrast has needed to be increased on other brand colours for readability. 
 
 
 ### Typography
-The highly legible and readable googlefont, League Spartan, has been selected. With Arial, Helvetica and a standard sans-serif as back up. There can be a lot of data displayed, especially on large screens, so the typography needs to be as clear and clean as possible. As a googlefont, League Spartan is less likely to have compatibility issues with different browsers.
+The highly legible and readable google-font, League Spartan, has been selected. With Arial, Helvetica and a standard sans-serif as back up. There can be a lot of data displayed, especially on large screens, so the typography needs to be as clear and clean as possible. As a google-font, League Spartan is less likely to have compatibility issues with different browsers.
 
 [**Back to top**](#donofy)
 ## Features
@@ -143,7 +143,7 @@ This project includes many features, these include:
 
 ### Fully Responsive 
 - This site adapts to all devices and screen sizes ranging between 320px to 2560px wide (Tested).
-- Responsive break points tested on screen widths: 320px / 576px / 768px / 992px / 1200px / 1400px / 2560px.
+- Responsive breakpoints tested on screen widths: 320px / 576px / 768px / 992px / 1200px / 1400px / 2560px.
 
 ![Screen 2560px Wide](documents//readme-images/screen-2560px.png)
 ![Screen 2560px Wide](documents//readme-images/screen-320px.png)
@@ -170,7 +170,7 @@ This project includes many features, these include:
 - Charity logos and emotive images are used for charity brand recognition, and charity mission context.
 
 ### Search filters functionality
-- Users can filter the charities library to view only the causes that interest them. 
+- Users can filter the Charities library to view only the causes that interest them. 
 - Searches are instantaneous
 
 ![Search bar and filters](documents/readme-images/search-functionality.png)
@@ -210,7 +210,7 @@ This project includes many features, these include:
 ![Payment History](documents/readme-images/payment-history.png)
 
 ### Live email functionality
-- The site sends automated emails on successful donations, confirming the donation paid, it's details and thanking the user for additional positive experience. 
+- The site sends automated emails on successful donations, confirming the donation paid, its details and thanking the user for additional positive experience. 
 - Live email also allows for additional functionality such as Password Reset.
 
 ### Contact Us Page
@@ -221,7 +221,7 @@ This project includes many features, these include:
 ### Large Font and Buttons
 - With the exception of some form/button help text, all main site text remains a minimum of 1rem (16pt) font size for readability and accessibility. 
 - All buttons maintain a minimum size of 48px x 48px. These are the WCAG 2.1 recommended guidelines for touchscreen buttons.
-- Large buttons also improves accessibility for people with physical disabilities who have dexterity needs.
+- Large buttons also improve accessibility for people with physical disabilities who have dexterity needs.
 
 ### Theme appropriate colour scheme
 - A dark pink has been selected as the main brand colour. A compassionate shade, without being too light and feminine. It has the urgency of red, without the alarm or aggression. The mid range shade of pink gives good contrast for reading text on both dark and light backgrounds. 
@@ -244,7 +244,7 @@ This project includes many features, these include:
 - Consistent navigation.
 - Minimum font size of 16px throughout the site and on all screen sizes.
 - All buttons maintain a minimum size of 48px x 48px. These are the WCAG 2.1 recommended guidelines for touchscreen buttons.
-- Large buttons also improves accessibility for people with physical disabilities who have dexterity needs.
+- Large buttons also improve accessibility for people with physical disabilities who have dexterity needs.
 
 ### Family Friendly
 - This site is free from offensive language and imagery, and is suitable for users of all ages. As no content can be created by users, this standard is easily maintained. Users will have the ability to contact site admins via a contact form, should any content issues arise. 
@@ -260,23 +260,23 @@ The footer provides copyright information and name of the site creator. Plus cli
   - Users would be able to edit their subscription details (selected charities, and amounts etc) in between payments.
   - Users could cancel or pause their subscriptions between payments.
   - Users would receive a notification of an upcoming payment (approx 5 days notice) with an opportunity to edit or cancel before their billing date.
-  - Users would continue to receive an email everytime a donation is made (automated or not) for as long as their subscription is active.
+  - Users would continue to receive an email every time a donation is made (automated or not) for as long as their subscription is active.
 
 * **Single payments for guest users** who do not want to create an account.
 
-* **Donation preferences auto updating**. Donation preferences on the My Donofy section would have change event listeners, and update the breakdown and total dynamically, without the user being required to "Save" their changes. 
+* **Donation preferences auto updating**. Donation preferences on the My Donofy section would have on-change event listeners, and update the breakdown and total dynamically, without the user being required to "Save" their changes. 
 
 * **Authorised admin access for Charity representatives**, to give access to update their own charity page information.
 
 * **Badges or 'achievement' awards/icons**
   - users can earn and 'collect' on their profile. Adding to positive UX, giving a greater sense of making an impact, and gamifying the UX to encourage more donations.
-  - 'Achievements' examples such as: 1st donation made, 3 doantions, 10 donations etc, subcription created, 6 months of consecutive donations etc.
+  - 'Achievements' examples such as: 1st donation made, 3 donations, 10 donations etc, subscription created, 6 months of consecutive donations etc.
   - Achievements would be focused on actions rather than amounts donated to keep in line with the site ethos: every donation counts, even the smallest. 
 
 * **Automated running totals**
   - Home page stats would dynamically update according to site wide statics on donation figures. 
   - As well as a payment history, users could view their own dynamic totals of how much they donated via Donofy, and a breakdown of how much given to each charity. 
-  - The totals per charity, could link to a charity's impact statments, and a user could toggle between, how much they've donated, or how their donations translate into real-life impact. (e.g User 1 has donated £32 to Dogs Trust /toggle/ User 1 has kept a rescue dog fed for 31 days ).
+  - The totals per charity, could link to a charity's impact statements, and a user could toggle between, how much they've donated, or how their donations translate into real-life impact. (e.g User 1 has donated £32 to Dogs Trust /toggle/ User 1 has kept a rescue dog fed for 31 days ).
 
 
 
@@ -310,13 +310,11 @@ Donofy has fully functioning, secure, online payment functionality with Stripe. 
 6. Navigate to My Accounts/Donate. (If you followed step 5, the form will prepopulate for you). Fill out the donation form. 
 7. To make a test payment, please use the following card details:
     - **Card No:** 4242 4242 4242 4242
-
-
     - **Any future expiry date:**  (e.g. 01/25 )
     - **Any CVC code:**  (e.g. 123 )
     - **Any 5 digit zip:**  (e.g. 12345 )
 
-8. Please note, stripe card input element is currently set to USA (hence the zip code required). This would be changed if the site is ever launched in the UK or otherwise. For now, the USA version remains to meet project deadlines, and demonstrate payment functionality. 
+8. Please note, the stripe card input element is currently set to the USA (hence the zip code required). This would be changed if the site is ever launched in the UK or otherwise. For now, the USA version remains to meet project deadlines, and demonstrate payment functionality. 
 
 ## Setup and Installation
 ### Dependencies
@@ -362,7 +360,7 @@ To run this project, you need to install the following dependencies. You can do 
     - DISABLE_COLLECTSTATIC = 1
       - Deploy your site without static and media files first.
       - This is the purpose of: DISABLE_COLLECTSTATIC = 1
-      - In Deployment method section of heroku: connect your Heroku app to your GitHub repo, then deploy.
+      - In the Deployment method section of heroku: connect your Heroku app to your GitHub repo, then deploy.
       - Your initial deployed project will have no styles or images. But you will have your project URL.
     - **Setup your STRIPE, AWS S3 bucket and then include config vars:**
     - AWS_ACCESS_KEY_ID = <your_amazon_web_services_key_id>
@@ -451,7 +449,7 @@ Checkout Views and webhook_handler taken from Code Institute's [Boutique Ado wal
 
 - Tom Harris: Site tester, and my biggest cheerleader.
 
-- To all my friends and family, who have supported me, asked after me, listened to me, commisserated with me, and celebrated with me. To all those who have felt my absence over the last 12 months as I take on this new venture. Thank you for your patience and support.  
+- To all my friends and family, who have supported me, asked after me, listened to me, and celebrated with me. To all those who have felt my absence over the last 12 months as I take on this new venture. Thank you for your patience and support.  
 
 - Shaun Russell: Senior UX/UI/Product Designer. My site tester, my partner, and my provider while I study. Building my new development career change would have been infinitely harder without you. Thank you.
 
