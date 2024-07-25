@@ -230,8 +230,8 @@ This project includes many features, these include:
 ### High Standards of Accessibility 
 [According to accessguide.io](https://www.accessguide.io/)
 
-![Lighthouse Scores Image](documents/readme-images/lighthouse-scores.png)
-- .#.#.#. Rating for accessibility on Lighthouse scores.
+![Lighthouse Scores Image](documents/testing-images/contact-us-lighthouse-desktop.png)
+- Consistently high ratings for accessibility on Lighthouse scores.
 - Definite status messages - 404 page included.
 - Responsive design.
 - High colour contrast.
@@ -242,7 +242,9 @@ This project includes many features, these include:
 - Alt descriptions on all images.
 - Semantic elements to assist screen reader users to navigate and access information.
 - Consistent navigation.
-- Minimum font size of 16px throughout the site and on all screen sizes.  
+- Minimum font size of 16px throughout the site and on all screen sizes.
+- All buttons maintain a minimum size of 48px x 48px. These are the WCAG 2.1 recommended guidelines for touchscreen buttons.
+- Large buttons also improves accessibility for people with physical disabilities who have dexterity needs.
 
 ### Family Friendly
 - This site is free from offensive language and imagery, and is suitable for users of all ages. As no content can be created by users, this standard is easily maintained. Users will have the ability to contact site admins via a contact form, should any content issues arise. 
@@ -449,7 +451,7 @@ Checkout Views and webhook_handler taken from Code Institute's [Boutique Ado wal
 
 - Tom Harris: Site tester, and my biggest cheerleader.
 
-- To all my friends and family, who have supported me, asked after me, listened to me, commisserated with me, and celebrated with me. To all those who have felt my absence over the last 12 months. 
+- To all my friends and family, who have supported me, asked after me, listened to me, commisserated with me, and celebrated with me. To all those who have felt my absence over the last 12 months as I take on this new venture. Thank you for your patience and support.  
 
 - Shaun Russell: Senior UX/UI/Product Designer. My site tester, my partner, and my provider while I study. Building my new development career change would have been infinitely harder without you. Thank you.
 
