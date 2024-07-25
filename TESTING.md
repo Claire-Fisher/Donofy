@@ -14,6 +14,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Charities Page Manual Testing](#charities-page-manual-testing)
     * [Charity Detail Page Manual Testing](#charity-detail-page-manual-testing)
     * [Contact Us Page Manual Testing](#contact-us-page-manual-testing)
+    * [Profile Page: My Donofy Manual Testing](#profile-page-my-donofy-manual-testing)
   * [**User Story Testing**](#user-story-testing)
   * [**Validators**](#validators)
     * [Donofy Base App](#donofy-base-app)
@@ -415,6 +416,48 @@ My manual testing logs are as follows:
   * Behaved as expect. Correct template and message received in inbox.
 * Action: 
   * None
+***
+### Profile Page: My Donofy Manual Testing
+***
+**Profile Page: My Donofy Tab**
+* Expected:
+  * Tab navigation allows the user to flick through different sections of their profile information. Tab changes colour to indicate which section the user is viewing.
+  * (Favourtes list has already been tested as part of Charities/Charity Detail Testing).
+  * Donation total reflects the current entries in the listed inputs.
+  * "Your favourited charities" title number accurately reflects the favourited list length.
+  * Inputs values will:
+    - Accept integers.
+    - Accept 0.
+    - Accept a null (and default to 0).
+    - Not accept a non-number.
+    - Nor accept a float.
+  * Save button accurately sums the total of the donation inputs in the in favourites list.
+* Testing:
+  * Clicked the three different tabs in different orders.
+  * (Favourites previously tested).
+  * Inspected the page following multiple adding/removing of charities from previous manual testing.
+  * Added and removed favourites. Checking the list length each time.
+  * Tested all the input variants above.
+  * Entered various values. Including leaving some blank or 0.
+* Result:
+  * Navigation tabs worked as expected.
+  * (Favourites previously tested).
+  * The total did not show the total reflected in the inputs, but the last total saved.
+  * "Your Favourite charities" title number behaved as expected.
+  * The inputs behaved as expected.
+  * Save button behaved as expected. Data saved in backend. Donation total title updated in frontend. 
+* Action: 
+  * Add additional info for the user, above the save button on My Donofy page, and again on the Donate/checkout page. Explaining they need Save their donation preferences so their donation breakdown and total is what they expect.  
+***
+**TEST NAME**
+* Expected:
+  * 
+* Testing:
+  * 
+* Result:
+  * 
+* Action: 
+  * 
 ***
 **TEST NAME**
 * Expected:
