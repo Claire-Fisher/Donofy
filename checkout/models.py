@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
-from django.core.validators import RegexValidator, EmailValidator
+from django.core.validators import EmailValidator
 
 
 class Donation(models.Model):

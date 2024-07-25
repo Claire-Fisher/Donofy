@@ -4,7 +4,7 @@ from .models import Donation
 
 class DonationAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'donation_number', 'date', 'total')
-    
+
     search_fields = ('full_name', 'donation_number', 'email')
 
     fieldsets = (
