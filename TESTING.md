@@ -25,6 +25,7 @@ This project was tested continuously during development. Post build, the site ha
     * [Charity Details Page](#charity-details-page)
     * [Contact Us Page](#contact-us-page)
     * [Profile Page](#profile-page)
+    * [Donate Page](#donate-page)
 * [**Future Bug Fixes**](#future-bug-fixes)
 
 
@@ -819,7 +820,7 @@ Passed first time. See current results above.
 
 ### Profile Page
 <hr>
-View Current Contact Us Page validator results here:
+View Current Profile Page validator results here:
 
 - [HTML results: My Donofy tab](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDonofy)
 - [HTML results: My Details tab](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fprofiles%2Fprofile%2F%3Ftab%3DmyDetails)
@@ -868,7 +869,69 @@ Passed first time. See current results above.
 
 ### Profile Accessibility Evaluation
 
-Attempts were made to check each page, but on closer inspection it looks like it defaulted to checkinf the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
+Attempts were made to check each page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
+<hr>
+
+### Donate Page
+<hr>
+View Current Donate Page validator results here:
+
+- [HTML results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Faccounts%2Flogin%2F%3Fnext%3D%2Fcheckout%2Fcheckout%2F)
+- [CSS results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdonofy-de544b6e546f.herokuapp.com%2Fcheckout%2Fcheckout%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- <details><summary>Current JS results</summary>
+  <img src="documents/testing-images/donate-initial-js.png">
+  </details> 
+- <details><summary>PEP8 linter for checkout/views.py</summary>
+  <img src="documents/testing-images/donate-initial-py-views.png">
+  </details> 
+- <details><summary>PEP8 linter for checkout/urls.py</summary>
+  <img src="documents/testing-images/donate-initial-py-urls.png">
+  </details>
+- <details><summary>PEP8 linter for checkout/admin.py</summary>
+  <img src="documents/testing-images/donate-initial-py-admin.png">
+  </details>
+- <details><summary>PEP8 linter for checkout/forms.py</summary>
+  <img src="documents/testing-images/donate-initial-py-forms.png">
+  </details>
+- <details><summary>PEP8 linter for checkout/models.py</summary>
+  <img src="documents/testing-images/donate-initial-py-models.png">
+  </details>
+- <details><summary>PEP8 linter for checkout/webhook.py</summary>
+  <img src="documents/testing-images/donate-initial-py-webhook.png">
+  </details>
+- <details><summary>PEP8 linter for checkout/webhook_handler.py</summary>
+  <img src="documents/testing-images/donate-initial-py-webhook-handler.png">
+  </details> 
+- [ACCESSIBILITY results](#)
+<hr>
+
+### Donate HTML Validator
+
+Passed first time. See current results above.
+<hr>
+
+ ### Donate CSS Validator
+
+Passed first time. See current results above.
+<hr>
+
+### Donate JavaScript Validator
+
+* ***Errors Found:***
+    * One undefined Variable: Stripe. 
+* ***Action Taken:***
+    * Attempts to correct this cause my stripe card input to display badly, and become unusable. Error left in the my code. Maybe a future fix.
+
+<hr>
+
+### Donate Python CI Linter (PEP8 check)
+
+Passed first time. See current results above.
+<hr>
+
+### Donate Accessibility Evaluation
+
+Attempts were made to check the donate page, but on closer inspection it looks like it defaulted to checking the sign in page. Donofy security working as intended to prevent unauthorised users from accessing profile pages.
 <hr>
 
 
