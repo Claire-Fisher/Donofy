@@ -20,13 +20,19 @@
                     <p class="text-dark mb-1">Which you've chosen to divide as follows:</p>
                     {% for key, value in subscription.sub_breakdown.items %}
                         {% if value > 0 %}
-                        <ul class="pl-2 mb-1">
+                        <ul class="pl-2 mb-2">
                             <li class="no-bullets">
                                 <strong>£{{ value }}</strong> to {{ key }}
                             </li>
                         </ul>
                         {% endif %}
                     {% endfor %}
+                    <hr>
+                    <h2 class="checkout-sub-title text-pink mt-4">Is this summary correct?</h2>
+                    <p class="text-dark mb-0">If not, please go to
+                        <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy, </a>
+                            check your form, and save the changes.
+                    </p>
                 </div>
             </div>
             <div class="row">
@@ -63,7 +69,7 @@
                     <fieldset class="text-center">
                         <p class="text-dark px-2">
                             If you need to change this amount, or any of your donation details, please go to the
-                                <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section.
+                                <a href="{% url 'profiles:profile' %}?tab=myDonofy" aria-label="go to my donofy page" class="a-pink"> My Donofy </a>section and save your changes.
                         </p>
                         <button id="submit-button" type="submit" class="btn btn-lg btn-pink shadow col-11 col-md-5 my-3">Make £{{ subscription.sub_total }} donation</button>
     
