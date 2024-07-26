@@ -75,6 +75,7 @@ def charity_detail(request, charity_id):
     charity = get_object_or_404(Charity, pk=charity_id)
     charity_favs = []
     charity_favs_ids = []
+    total_received = charity.total_received
 
     if request.user.is_authenticated:
         # Get user and associated UserProfile
@@ -87,6 +88,7 @@ def charity_detail(request, charity_id):
         'charity': charity,
         'charity_favs': charity_favs,
         'charity_favs_ids': charity_favs_ids,
+        'total_received': total_received,
     }
 
     return render(request, 'charities/charity_detail.html', context)

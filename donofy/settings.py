@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'checkout',
     'crispy_forms',
     'storages',
+    'django.contrib.humanize',
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

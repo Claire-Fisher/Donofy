@@ -32,7 +32,8 @@
                 <!-- charity total lilac box -->
                 <div class="row">
                     <div class="col-12 charity-total-box bg-lilac">
-                        <p class="charity-total text-dark text-center extra-bold mb-0">£{{charity.total_received}}</p>
+                        {% load humanize %}
+                        <p class="charity-total text-dark text-center extra-bold mb-0">£{{ total_received | intcomma }}</p>
                         <p class="charities-title text-dark text-center">Money raised</p>
                     </div>
                 </div>
