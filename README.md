@@ -42,8 +42,8 @@
 ### Target Users
 - Users of all age groups, but the primary audience are working age.
 - Users who want fast and easily accessible information on a range of charities.
-- Users who want to give to multiple charities but consolidate their charity contributions into one payment.
-- Users who want full control over a charity amount they can afford. 
+- Users who want to give to multiple charities but consolidate their donation contributions into one payment.
+- Users who want full control over a donation amount they can afford. 
 
 ### User Stories
 1. **As a new/guest user, I want to:**

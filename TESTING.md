@@ -1,5 +1,5 @@
 # Testing Donofy
-This project was tested continuously during development. Post build, the site has been manually tested by myself and third party testers. It has also passed on html, CSS, JS, and accessibility validators. The python has passed linting checks and is compliant with PEP8 industry standards.
+This project was tested continuously during development. Post build, the site has been manually tested by myself and third party testers. It has also passed on Html, CSS, JS, and accessibility validators. The Python has passed linting checks and is compliant with PEP8 industry standards.
 
 [return to README.md](./README.md)
 
@@ -57,8 +57,8 @@ Tom Harris - Site tester - Tested the project on Safari.
 
 The site has been tested at screen sizes 320px to 2560px in width.
 
-INSERT IMAGE MOBILE
-INSERT IMAGE DESKTOP
+![Donofy Mobile Image](documents/readme-images/screen-320px.png)
+![Donofy Desktop Image](documents/readme-images/screen-2560px.png)
 
 ### Function Testing
 The functions are built using a TDD approach, and also thoroughly manually tested via their output displayed in the terminal with print statements, the browser display, or both. (All print statements have been removed in the final version of the project).
@@ -416,7 +416,7 @@ My manual testing logs are as follows:
     - Expect contact/success template to show.
     - Expect an email to appear in donofy.uk@gmail.com inbox.
 * Testing:
-  * Completed the contact us form with valid inputs and clicked Send
+  * Completed the Contact Us form with valid inputs and clicked Send
 * Result:
   * Behaved as expected. Correct template and message received in inbox.
 * Action: 
@@ -429,7 +429,7 @@ My manual testing logs are as follows:
   * Guest users cannot access profile pages. Redirect to sign in if an attempt is made by forcing the url.
   * Tab navigation allows the user to flick through different sections of their profile information. Tab changes colour to indicate which section the user is viewing.
   * (Favourites list has already been tested as part of Charities/Charity Detail Testing).
-  * If no favourites. Direct user to the Charites page.
+  * If no favourites, direct the user to the Charites page.
   * Donation total reflects the current entries in the listed inputs.
   * "Your favourited charities" title number accurately reflects the favourites list length.
   * Inputs values will:
@@ -686,7 +686,7 @@ JSHint validator was configured to recognise New JavaScript Features (ES6), and 
 
 ### Index Lighthouse Scores
 ### Test conditions
-* All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
+* All Lighthouse tests were run from Heroku and in incognito mode to avoid interference. 
 * Both mobile and desktop performance are tested.
 * The drop in performance is mainly due to Heroku, Stripe, and a large amount of layout behaviours to keep my site responsive. 
 * All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
@@ -766,7 +766,7 @@ Passed first time. See current results above.
 
 ### Charities Lighthouse Scores
 ### Test conditions
-* All lighthouse tests were run from heroku and in incognito mode to avoid interference. 
+* All Lighthouse tests were run from Heroku and in incognito mode to avoid interference. 
 * Both mobile and desktop performance are tested.
 * The drop in performance is mainly due to Heroku, Stripe, and a large amount of layout behaviours to keep my site responsive. 
 * All testers reported good load and response times on both desktop and mobile devices, so no adjustments will be made at this time. 
