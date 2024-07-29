@@ -293,10 +293,7 @@ The footer provides copyright information and name of the site creator. Plus cli
 A general superuser has been created for this project to view backend features and access some project functions and permissions that need to be secure. A handy Admin nav link will appear in the "My Account" dropdown on the main navbar. This takes an authorised user directly to the site admin backend panels to view/edit/delete data. (To preserve data, users and charities can be toggled to Inactive, instead of being deleted.).
 Superusers can directly toggle a charity to inactive on the frontend, by navigating to that charity's details page. A deactivate button appears at the bottom of the details page. 
 
-To log in as a superuser and access the admin features. Please log in with the following details:
-
-  - username = superuser1
-  - password = Auth0risedAdmin0nly123
+Login details for an admin user are available on request.
 
 ## Test Payments
 
